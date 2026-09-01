@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Eye, EyeOff } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Eye, EyeOff, CheckCircle2, MessageSquare, Lock } from 'lucide-react';
 import { Logo } from '@/components/icons/Logo';
 import { Button } from '@/components/ui/Button';
 
@@ -11,14 +11,22 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Acceso a plataforma en demostración');
+    if (email && password) {
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setLoginSuccess(true);
+      }, 600);
+    }
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 flex flex-col justify-between relative overflow-hidden py-10 px-4">
+    <main className="min-h-screen bg-gradient-to-b from-[#FDF8F3] via-white to-slate-50 flex flex-col justify-between relative overflow-hidden py-8 px-4">
       {/* Ambient background decoration */}
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#834296]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#FFD203]/10 rounded-full blur-3xl pointer-events-none" />
@@ -27,7 +35,7 @@ export default function LoginPage() {
       <div className="max-w-4xl w-full mx-auto flex items-center justify-between z-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#3C4C92] hover:text-[#001837] transition-colors py-2 px-3 rounded-xl hover:bg-white/80"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-heading font-bold text-[#3C4C92] hover:text-[#001837] transition-colors py-2 px-3 rounded-xl hover:bg-white/80"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Volver al inicio</span>
@@ -35,112 +43,157 @@ export default function LoginPage() {
       </div>
 
       {/* Centered Login Container */}
-      <div className="max-w-[460px] w-full mx-auto z-10 py-6">
+      <div className="max-w-[440px] w-full mx-auto z-10 py-4">
         {/* Header with official Sticker Logo */}
-        <div className="text-center space-y-3 mb-6">
-          <div className="flex justify-center">
+        <div className="text-center space-y-2 mb-6">
+          <div className="flex justify-center mb-1">
             <Link href="/" className="inline-block transition-transform hover:scale-105">
-              <Logo size={64} />
+              <Logo size={56} />
             </Link>
           </div>
+          <div className="inline-flex items-center gap-1.5 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+            <Lock className="w-3.5 h-3.5 text-[#834296]" />
+            <span>Campus YYCL</span>
+          </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
-            Portal de Alumnos YYCL
+            Plataforma de Alumnos
           </h1>
-          <p className="text-xs sm:text-sm text-[#3C4C92] font-body-regular max-w-xs mx-auto">
-            Accede a tu agenda de clases y material de estudio.
+          <p className="text-xs sm:text-sm text-slate-600 font-body-regular max-w-xs mx-auto">
+            Accede a tu agenda de clases, ejercicios y material personalizado.
           </p>
         </div>
 
-        {/* White Card */}
-        <div className="bg-white rounded-3xl p-7 sm:p-9 border border-black/10 shadow-[0_10px_30px_rgba(0,24,55,0.06),3px_3px_0px_#001837]">
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Field: Correo Electrónico */}
-            <div className="space-y-1.5 text-left">
-              <label className="block text-xs font-heading font-bold text-[#001837]">
-                Correo Electrónico
-              </label>
-              <input
-                type="email"
-                required
-                placeholder="tu@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full h-12 px-4 bg-white text-[#001837] font-body-regular rounded-xl text-sm placeholder-slate-400 border border-black/15 hover:border-[#3C4C92] focus:border-[#4DC2DA] focus:outline-none focus:shadow-[0_0_0_3px_#001837] transition-all"
-              />
-            </div>
-
-            {/* Field: Contraseña */}
-            <div className="space-y-1.5 text-left">
-              <label className="block text-xs font-heading font-bold text-[#001837]">
-                Contraseña
-              </label>
-              <div className="relative">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  required
-                  placeholder="••••••••"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full h-12 px-4 pr-11 bg-white text-[#001837] font-body-regular rounded-xl text-sm placeholder-slate-400 border border-black/15 hover:border-[#3C4C92] focus:border-[#4DC2DA] focus:outline-none focus:shadow-[0_0_0_3px_#001837] transition-all"
-                />
+        {/* White Card with Design System Shadow */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#001837] shadow-[4px_4px_0px_#001837]">
+          {loginSuccess ? (
+            <div className="text-center py-6 space-y-4 animate-in zoom-in-95 duration-200">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto border border-emerald-300">
+                <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-heading font-extrabold text-lg text-[#001837]">
+                  ¡Bienvenido al Campus, {email.split('@')[0]}!
+                </h3>
+                <p className="text-xs text-slate-600 font-body-regular">
+                  Acceso verificado. En el sistema final se abrirá tu panel de clases de YYCL.
+                </p>
+              </div>
+              <div className="pt-2">
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-[#001837] transition-colors cursor-pointer"
-                  aria-label={showPassword ? 'Ocultar contraseña' : 'Ver contraseña'}
+                  onClick={() => setLoginSuccess(false)}
+                  className="text-xs font-heading font-bold text-[#834296] hover:underline cursor-pointer"
                 >
-                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  Cerrar sesión / Probar con otro usuario
                 </button>
               </div>
             </div>
-
-            {/* Remember Me + Forgot Password */}
-            <div className="flex items-center justify-between text-xs pt-1">
-              <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700">
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Field: Correo Electrónico */}
+              <div className="space-y-1.5 text-left">
+                <label className="block text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837]">
+                  Correo Electrónico
+                </label>
                 <input
-                  type="checkbox"
-                  checked={remember}
-                  onChange={(e) => setRemember(e.target.checked)}
-                  className="w-4 h-4 rounded border-slate-300 text-yycl-navy focus:ring-0 accent-yycl-navy cursor-pointer"
+                  type="email"
+                  required
+                  placeholder="alumno@yesyoucanlanguages.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full h-11 px-3.5 bg-white text-[#001837] font-body-regular rounded-xl text-xs sm:text-sm placeholder-slate-400 border border-slate-300 focus:border-[#001837] focus:ring-2 focus:ring-[#FFD203] focus:outline-none transition-colors"
                 />
-                <span className="font-heading font-semibold">Recordarme</span>
-              </label>
+              </div>
 
-              <Link
-                href="#"
-                className="font-heading font-bold text-[#834296] hover:underline"
-              >
-                ¿Olvidaste tu contraseña?
-              </Link>
-            </div>
+              {/* Field: Contraseña */}
+              <div className="space-y-1.5 text-left">
+                <label className="block text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837]">
+                  Contraseña
+                </label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full h-11 px-3.5 pr-11 bg-white text-[#001837] font-body-regular rounded-xl text-xs sm:text-sm placeholder-slate-400 border border-slate-300 focus:border-[#001837] focus:ring-2 focus:ring-[#FFD203] focus:outline-none transition-colors"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-[#001837] transition-colors cursor-pointer"
+                    aria-label={showPassword ? 'Ocultar contraseña' : 'Ver contraseña'}
+                  >
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
 
-            {/* Submit Button */}
-            <div className="pt-2">
-              <Button
-                type="submit"
-                variant="primary"
-                size="md"
-                fullWidth
-                className="font-heading font-bold text-sm h-12 shadow-[3px_3px_0px_#EC9519]"
-                rightIcon={<ArrowRight className="w-4 h-4" />}
-              >
-                Iniciar Sesión
-              </Button>
-            </div>
-          </form>
+              {/* Remember Me + Forgot Password */}
+              <div className="flex items-center justify-between text-xs pt-0.5">
+                <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700">
+                  <input
+                    type="checkbox"
+                    checked={remember}
+                    onChange={(e) => setRemember(e.target.checked)}
+                    className="w-4 h-4 rounded border-slate-300 text-yycl-navy focus:ring-0 accent-[#001837] cursor-pointer"
+                  />
+                  <span className="font-heading font-semibold text-[11px]">Recordarme</span>
+                </label>
+
+                <a
+                  href="https://wa.me/5491154207911?text=Hola%20equipo%20YYCL,%20necesito%20ayuda%20para%20recuperar%20mi%20contrase%C3%B1a%20de%20alumno"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-heading font-bold text-xs text-[#834296] hover:underline"
+                >
+                  ¿Olvidaste tu contraseña?
+                </a>
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-2">
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="md"
+                  fullWidth
+                  isLoading={isSubmitting}
+                  className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
+                  rightIcon={<ArrowRight className="w-4 h-4" />}
+                >
+                  Ingresar a mi Campus
+                </Button>
+              </div>
+            </form>
+          )}
 
           {/* Card Footer: Agenda tu diagnóstico */}
-          <div className="text-center pt-6 mt-6 border-t border-black/5">
+          <div className="text-center pt-5 mt-5 border-t border-slate-100">
             <p className="text-xs text-slate-600 font-body-regular">
-              ¿Aún no eres alumno?{' '}
+              ¿Aún no eres alumno de YYCL?{' '}
               <Link
                 href="/agendar"
-                className="font-heading font-bold text-[#834296] hover:underline"
+                className="font-heading font-bold text-[#834296] hover:underline block sm:inline mt-1 sm:mt-0"
               >
-                Agenda tu diagnóstico gratuito
+                Agenda tu diagnóstico gratuito ↗
               </Link>
             </p>
           </div>
+        </div>
+
+        {/* WhatsApp Student Support Badge */}
+        <div className="mt-4 text-center">
+          <a
+            href="https://wa.me/5491154207911?text=Hola%20equipo%20YYCL,%20necesito%20asistencia%20con%20mi%20cuenta"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-[#001837] font-medium transition-colors"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-[#16A34A]" />
+            <span>¿Problemas para ingresar? Escríbenos a soporte</span>
+          </a>
         </div>
       </div>
 
