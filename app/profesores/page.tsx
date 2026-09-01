@@ -138,7 +138,7 @@ export default function ProfesoresPage() {
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar entrevista
+                  Agendar entrevista gratis
                 </Button>
               </Link>
             </div>

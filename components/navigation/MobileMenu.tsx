@@ -202,7 +202,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               fullWidth
               className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
             >
-              Agenda tu entrevista gratuita
+              Agendar gratis
             </Button>
           </Link>
 

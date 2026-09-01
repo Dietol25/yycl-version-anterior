@@ -45,7 +45,7 @@ export default function ComoFuncionaPage() {
                   size="md"
                   className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
                 >
-                  Agenda tu entrevista gratuita
+                  Agendar entrevista gratis
                 </Button>
               </Link>
             </div>
@@ -376,7 +376,7 @@ export default function ComoFuncionaPage() {
                   size="md"
                   className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agenda tu entrevista gratuita
+                  Agendar entrevista gratis
                 </Button>
               </Link>
             </div>

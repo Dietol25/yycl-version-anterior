@@ -88,7 +88,7 @@ export default function PlanesPage() {
                       size="md"
                       className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
                     >
-                      Agenda tu entrevista gratuita
+                      Elegir mi modalidad
                     </Button>
                   </Link>
                 </div>
@@ -178,7 +178,7 @@ export default function PlanesPage() {
                           fullWidth
                           className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[2px_2px_0px_#EC9519]"
                         >
-                          Agendar entrevista
+                          Elegir mi modalidad
                         </Button>
                       </Link>
                     </div>
@@ -298,7 +298,7 @@ export default function PlanesPage() {
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar tu entrevista
+                  Elegir mi modalidad
                 </Button>
               </Link>
             </div>

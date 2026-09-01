@@ -53,7 +53,7 @@ export const HeroSection = () => {
                   size="md"
                   className="font-label-large text-base px-7 py-3 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agenda tu entrevista gratuita
+                  Agendar entrevista gratis
                 </Button>
               </Link>
 

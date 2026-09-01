@@ -211,7 +211,7 @@ export const Navbar = () => {
                 size="sm"
                 className="font-heading font-bold text-xs sm:text-sm px-5 py-2 h-10 shadow-[3px_3px_0px_#EC9519]"
               >
-                Agendar
+                Agendar gratis
               </Button>
             </Link>
           </div>
@@ -222,7 +222,7 @@ export const Navbar = () => {
 
             <Link href="/agendar">
               <Button variant="primary" size="sm" className="font-bold text-xs h-8.5 px-3 shadow-[2px_2px_0px_#EC9519]">
-                Agendar
+                Agendar gratis
               </Button>
             </Link>
 

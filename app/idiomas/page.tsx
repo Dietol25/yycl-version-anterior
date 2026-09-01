@@ -64,7 +64,6 @@ export default function OtrosIdiomasPage() {
                   Clases personalizadas para quienes quieren un nuevo idioma (y español para extranjeros), sin vueltas.
                 </p>
 
-                {/* Botón Secundario Oficial (#001837 border + #001837 shadow) */}
                 <div className="pt-2">
                   <Link href="/agendar">
                     <Button
@@ -72,7 +71,7 @@ export default function OtrosIdiomasPage() {
                       size="md"
                       className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
                     >
-                      Agenda tu entrevista gratuita
+                      Empezar mi nuevo idioma
                     </Button>
                   </Link>
                 </div>
@@ -186,7 +185,7 @@ export default function OtrosIdiomasPage() {
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agenda tu entrevista gratuita
+                  Empezar mi nuevo idioma
                 </Button>
               </Link>
             </div>
