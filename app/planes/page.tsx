@@ -133,29 +133,29 @@ export default function PlanesPage() {
                 return (
                   <div
                     key={plan.id}
-                    className="bg-white text-[#001837] rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1.5 flex flex-col justify-between space-y-6 transition-all duration-200"
+                    className="group bg-white text-[#001837] hover:bg-gradient-brand-v2 rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] hover:shadow-[7px_7px_0px_#001837] hover:-translate-y-1.5 flex flex-col justify-between space-y-6 transition-all duration-300"
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className={`inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border ${badgeColor}`}>
+                        <span className={`inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border ${badgeColor} group-hover:bg-white/20 group-hover:text-white group-hover:border-white/30 transition-colors`}>
                           {pIdx === 0 ? 'Grupal' : pIdx === 1 ? 'Personalizada' : 'Dúo'}
                         </span>
                       </div>
 
                       <div>
-                        <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
+                        <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] group-hover:text-white tracking-tight transition-colors">
                           {plan.title}
                         </h3>
-                        <p className="text-xs sm:text-[13px] text-slate-600 font-medium mt-1 leading-relaxed">
+                        <p className="text-xs sm:text-[13px] text-slate-600 group-hover:text-white/90 font-medium mt-1 leading-relaxed transition-colors">
                           {plan.subtitle}
                         </p>
                       </div>
 
-                      <ul className="space-y-3 pt-3 border-t border-slate-100">
+                      <ul className="space-y-3 pt-3 border-t border-slate-100 group-hover:border-white/20 transition-colors">
                         {plan.features.map((feat, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
-                            <Check className="w-4 h-4 shrink-0 mt-0.5 stroke-[2.5]" style={{ color: checkColor }} />
-                            <span className="text-xs sm:text-sm text-slate-700 font-body-regular leading-snug">
+                            <Check className="w-4 h-4 shrink-0 mt-0.5 stroke-[2.5] text-[#834296] group-hover:text-[#FFD203] transition-colors" />
+                            <span className="text-xs sm:text-sm text-slate-700 group-hover:text-white font-body-regular leading-snug transition-colors">
                               {feat}
                             </span>
                           </li>
@@ -163,10 +163,10 @@ export default function PlanesPage() {
                       </ul>
                     </div>
 
-                    <div className="pt-4 space-y-3 border-t border-slate-100">
+                    <div className="pt-4 space-y-3 border-t border-slate-100 group-hover:border-white/20 transition-colors">
                       <Link
                         href="/como-funciona"
-                        className="inline-block text-xs font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:underline"
+                        className="inline-block text-xs font-heading font-bold text-[#3C4C92] group-hover:text-white hover:underline transition-colors"
                       >
                         Más información →
                       </Link>

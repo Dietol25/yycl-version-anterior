@@ -56,7 +56,7 @@ export const ModalidadesSection = () => {
           </p>
         </div>
 
-        {/* 3 Cards con el Gradiente Oficial de Marca Token en Hover (#EC9519 -> #834296) */}
+        {/* 3 Cards con el Gradiente Oficial de Marca Token en Hover (#EC9519 -> #834296) y Ghost Link Individual */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
           {modalidades.map((mod) => (
             <Link
@@ -94,19 +94,16 @@ export const ModalidadesSection = () => {
                   ))}
                 </ul>
               </div>
+
+              {/* Ghost Link dentro de cada Card */}
+              <div className="pt-5 border-t border-slate-100 group-hover:border-white/20 transition-colors mt-6">
+                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-[#3C4C92] group-hover:text-white transition-colors">
+                  <span>Más información</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+              </div>
             </Link>
           ))}
-        </div>
-
-        {/* Bottom Link Único hacia Planes */}
-        <div className="text-center pt-10">
-          <Link
-            href="/planes"
-            className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:bg-purple-50/70 px-5 py-2.5 rounded-full transition-all"
-          >
-            <span>Ver todas las modalidades detalladas</span>
-            <span>→</span>
-          </Link>
         </div>
       </div>
     </section>
