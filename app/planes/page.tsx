@@ -78,7 +78,7 @@ export default function PlanesPage() {
                 </h1>
 
                 <p className="text-base sm:text-lg text-[#3C4C92] font-body-large max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  Tres modalidades, un mismo método. El precio lo hablamos en tu entrevista gratuita.
+                  Tres modalidades, un mismo método. El plan a tu medida lo definimos en tu entrevista gratuita.
                 </p>
 
                 <div className="pt-2">
@@ -286,7 +286,7 @@ export default function PlanesPage() {
         <section className="py-20 lg:py-24 bg-gradient-to-b from-white to-slate-50/80 border-t border-slate-100 text-center">
           <div className="max-w-2xl mx-auto px-5 space-y-6">
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight leading-tight">
-              ¿No ves el precio? Te lo contamos en tu entrevista gratuita.
+              ¿Tienes dudas sobre las modalidades? Te lo contamos en tu entrevista gratuita.
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Sin sorpresas: todo se conversa antes de que decidas.
