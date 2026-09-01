@@ -35,9 +35,9 @@ export default function PlanesPage() {
     },
     {
       id: 'duo',
-      title: 'Personalizada, en pareja',
-      color: 'text-[#EC9519]',
-      borderTop: 'border-t-[#EC9519]',
+      title: 'Dúo',
+      color: 'text-[#4DC2DA]',
+      borderTop: 'border-t-[#4DC2DA]',
       subtitle: 'Mismo profesor exclusivo, mismo plan a medida, compartido con alguien que va por lo mismo que tú.',
       features: [
         'Clases para dos',
@@ -138,7 +138,7 @@ export default function PlanesPage() {
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <span className={`inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border ${badgeColor}`}>
-                          {pIdx === 0 ? 'Grupal' : pIdx === 1 ? 'Personalizada' : 'En Pareja'}
+                          {pIdx === 0 ? 'Grupal' : pIdx === 1 ? 'Personalizada' : 'Dúo'}
                         </span>
                       </div>
 
