@@ -2,17 +2,18 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Eye, EyeOff, CheckCircle2, MessageSquare, Lock } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { ArrowLeft, ArrowRight, Eye, EyeOff, MessageSquare, Lock } from 'lucide-react';
 import { Logo } from '@/components/icons/Logo';
 import { Button } from '@/components/ui/Button';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [loginSuccess, setLoginSuccess] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,8 +21,8 @@ export default function LoginPage() {
       setIsSubmitting(true);
       setTimeout(() => {
         setIsSubmitting(false);
-        setLoginSuccess(true);
-      }, 600);
+        router.push('/not-found');
+      }, 500);
     }
   };
 
@@ -65,109 +66,84 @@ export default function LoginPage() {
 
         {/* White Card with Design System Shadow */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#001837] shadow-[4px_4px_0px_#001837]">
-          {loginSuccess ? (
-            <div className="text-center py-6 space-y-4 animate-in zoom-in-95 duration-200">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto border border-emerald-300">
-                <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="font-heading font-extrabold text-lg text-[#001837]">
-                  ¡Bienvenido al Campus, {email.split('@')[0]}!
-                </h3>
-                <p className="text-xs text-slate-600 font-body-regular">
-                  Acceso verificado. En el sistema final se abrirá tu panel de clases de YYCL.
-                </p>
-              </div>
-              <div className="pt-2">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Field: Correo Electrónico */}
+            <div className="space-y-1.5 text-left">
+              <label className="block text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837]">
+                Correo Electrónico
+              </label>
+              <input
+                type="email"
+                required
+                placeholder="alumno@yesyoucanlanguages.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full h-11 px-3.5 bg-white text-[#001837] font-body-regular rounded-xl text-xs sm:text-sm placeholder-slate-400 border border-slate-300 focus:border-[#001837] focus:ring-2 focus:ring-[#FFD203] focus:outline-none transition-colors"
+              />
+            </div>
+
+            {/* Field: Contraseña */}
+            <div className="space-y-1.5 text-left">
+              <label className="block text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837]">
+                Contraseña
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full h-11 px-3.5 pr-11 bg-white text-[#001837] font-body-regular rounded-xl text-xs sm:text-sm placeholder-slate-400 border border-slate-300 focus:border-[#001837] focus:ring-2 focus:ring-[#FFD203] focus:outline-none transition-colors"
+                />
                 <button
                   type="button"
-                  onClick={() => setLoginSuccess(false)}
-                  className="text-xs font-heading font-bold text-[#834296] hover:underline cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-[#001837] transition-colors cursor-pointer"
+                  aria-label={showPassword ? 'Ocultar contraseña' : 'Ver contraseña'}
                 >
-                  Cerrar sesión / Probar con otro usuario
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Field: Correo Electrónico */}
-              <div className="space-y-1.5 text-left">
-                <label className="block text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837]">
-                  Correo Electrónico
-                </label>
+
+            {/* Remember Me + Forgot Password */}
+            <div className="flex items-center justify-between text-xs pt-0.5">
+              <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700">
                 <input
-                  type="email"
-                  required
-                  placeholder="alumno@yesyoucanlanguages.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full h-11 px-3.5 bg-white text-[#001837] font-body-regular rounded-xl text-xs sm:text-sm placeholder-slate-400 border border-slate-300 focus:border-[#001837] focus:ring-2 focus:ring-[#FFD203] focus:outline-none transition-colors"
+                  type="checkbox"
+                  checked={remember}
+                  onChange={(e) => setRemember(e.target.checked)}
+                  className="w-4 h-4 rounded border-slate-300 text-yycl-navy focus:ring-0 accent-[#001837] cursor-pointer"
                 />
-              </div>
+                <span className="font-heading font-semibold text-[11px]">Recordarme</span>
+              </label>
 
-              {/* Field: Contraseña */}
-              <div className="space-y-1.5 text-left">
-                <label className="block text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837]">
-                  Contraseña
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    required
-                    placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full h-11 px-3.5 pr-11 bg-white text-[#001837] font-body-regular rounded-xl text-xs sm:text-sm placeholder-slate-400 border border-slate-300 focus:border-[#001837] focus:ring-2 focus:ring-[#FFD203] focus:outline-none transition-colors"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-400 hover:text-[#001837] transition-colors cursor-pointer"
-                    aria-label={showPassword ? 'Ocultar contraseña' : 'Ver contraseña'}
-                  >
-                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button>
-                </div>
-              </div>
+              <a
+                href="https://wa.me/5491154207911?text=Hola%20equipo%20YYCL,%20necesito%20ayuda%20para%20recuperar%20mi%20contrase%C3%B1a%20de%20alumno"
+                target="_blank"
+                rel="noreferrer"
+                className="font-heading font-bold text-xs text-[#834296] hover:underline"
+              >
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
 
-              {/* Remember Me + Forgot Password */}
-              <div className="flex items-center justify-between text-xs pt-0.5">
-                <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700">
-                  <input
-                    type="checkbox"
-                    checked={remember}
-                    onChange={(e) => setRemember(e.target.checked)}
-                    className="w-4 h-4 rounded border-slate-300 text-yycl-navy focus:ring-0 accent-[#001837] cursor-pointer"
-                  />
-                  <span className="font-heading font-semibold text-[11px]">Recordarme</span>
-                </label>
-
-                <a
-                  href="https://wa.me/5491154207911?text=Hola%20equipo%20YYCL,%20necesito%20ayuda%20para%20recuperar%20mi%20contrase%C3%B1a%20de%20alumno"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-heading font-bold text-xs text-[#834296] hover:underline"
-                >
-                  ¿Olvidaste tu contraseña?
-                </a>
-              </div>
-
-              {/* Submit Button */}
-              <div className="pt-2">
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="md"
-                  fullWidth
-                  isLoading={isSubmitting}
-                  className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
-                  rightIcon={<ArrowRight className="w-4 h-4" />}
-                >
-                  Ingresar a mi Campus
-                </Button>
-              </div>
-            </form>
-          )}
+            {/* Submit Button */}
+            <div className="pt-2">
+              <Button
+                type="submit"
+                variant="primary"
+                size="md"
+                fullWidth
+                isLoading={isSubmitting}
+                className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
+                rightIcon={<ArrowRight className="w-4 h-4" />}
+              >
+                Ingresar a mi Campus
+              </Button>
+            </div>
+          </form>
 
           {/* Card Footer: Agenda tu diagnóstico */}
           <div className="text-center pt-5 mt-5 border-t border-slate-100">

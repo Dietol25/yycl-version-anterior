@@ -125,56 +125,66 @@ export default function PlanesPage() {
               </p>
             </div>
 
-            {/* 3 Modality Pricing Cards ALL with Brand Gradient */}
+            {/* 3 Modality Pricing Cards con Design System Limpio */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
-              {planes.map((plan) => (
-                <div
-                  key={plan.id}
-                  className="bg-[linear-gradient(116deg,#EC9519_0%,#A84988_30%,#834296_65%,#834296_100%)] text-white rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1 flex flex-col justify-between space-y-6 transition-all duration-200"
-                >
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
-                        {plan.title}
-                      </h3>
-                      <p className="text-xs sm:text-[13px] text-white/90 font-medium mt-1 leading-relaxed">
-                        {plan.subtitle}
-                      </p>
+              {planes.map((plan, pIdx) => {
+                const badgeColor = pIdx === 0 ? 'bg-purple-100 text-[#834296] border-[#834296]/30' : pIdx === 1 ? 'bg-amber-100 text-[#EC9519] border-[#EC9519]/30' : 'bg-cyan-100 text-[#001837] border-[#4DC2DA]/40';
+                const checkColor = pIdx === 0 ? '#834296' : pIdx === 1 ? '#EC9519' : '#4DC2DA';
+                return (
+                  <div
+                    key={plan.id}
+                    className="bg-white text-[#001837] rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1.5 flex flex-col justify-between space-y-6 transition-all duration-200"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className={`inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border ${badgeColor}`}>
+                          {pIdx === 0 ? 'Grupal' : pIdx === 1 ? 'Personalizada' : 'En Pareja'}
+                        </span>
+                      </div>
+
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
+                          {plan.title}
+                        </h3>
+                        <p className="text-xs sm:text-[13px] text-slate-600 font-medium mt-1 leading-relaxed">
+                          {plan.subtitle}
+                        </p>
+                      </div>
+
+                      <ul className="space-y-3 pt-3 border-t border-slate-100">
+                        {plan.features.map((feat, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <Check className="w-4 h-4 shrink-0 mt-0.5 stroke-[2.5]" style={{ color: checkColor }} />
+                            <span className="text-xs sm:text-sm text-slate-700 font-body-regular leading-snug">
+                              {feat}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    <ul className="space-y-3 pt-3 border-t border-white/20">
-                      {plan.features.map((feat, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-[#4DC2DA] shrink-0 mt-0.5 stroke-[2.5]" />
-                          <span className="text-xs sm:text-sm text-white font-body-regular leading-snug">
-                            {feat}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="pt-4 space-y-3 border-t border-white/20">
-                    <Link
-                      href="/como-funciona"
-                      className="inline-block text-xs font-heading font-bold text-white hover:text-[#FFD203] hover:underline"
-                    >
-                      Más información →
-                    </Link>
-
-                    <Link href="/agendar" className="block">
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        fullWidth
-                        className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[2px_2px_0px_#001837]"
+                    <div className="pt-4 space-y-3 border-t border-slate-100">
+                      <Link
+                        href="/como-funciona"
+                        className="inline-block text-xs font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:underline"
                       >
-                        Agendar entrevista
-                      </Button>
-                    </Link>
+                        Más información →
+                      </Link>
+
+                      <Link href="/agendar" className="block">
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          fullWidth
+                          className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[2px_2px_0px_#EC9519]"
+                        >
+                          Agendar entrevista
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

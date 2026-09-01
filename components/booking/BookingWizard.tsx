@@ -152,6 +152,12 @@ export const BookingWizard = () => {
     if (step < 4) setStep(step + 1);
   };
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [step]);
+
   const handleBack = () => {
     if (step > 1) setStep(step - 1);
   };
