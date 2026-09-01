@@ -1,0 +1,200 @@
+"use client";
+
+import React, { useState, useRef } from 'react';
+import { Star } from 'lucide-react';
+import { TESTIMONIALS } from '@/lib/data';
+import { SliderControls } from '@/components/ui/SliderControls';
+
+export const TestimonialsGrid = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const prevSlide = () => {
+    setActiveIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setActiveIndex((prev) => (prev === TESTIMONIALS.length - 1 ? 0 : prev + 1));
+  };
+
+  // Touch handlers for fluid mobile swipe gesture
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 45;
+
+    if (distance > minSwipeDistance) {
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      prevSlide();
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  return (
+    <section className="py-20 lg:py-24 bg-white border-t border-slate-100">
+      <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-yycl-navy tracking-tight">
+            Resultados reales
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 font-medium">
+            Lo que importa no es cuánto estudiaste antes, sino que esta vez sí lo lograste.
+          </p>
+        </div>
+
+        {/* 2 Stat Counters in Violet Accent */}
+        <div className="flex items-center justify-center gap-12 sm:gap-20 mb-14 text-center">
+          <div className="space-y-1">
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-yycl-purple tracking-tight block">
+              +1.000
+            </span>
+            <span className="text-xs sm:text-sm font-heading font-bold text-slate-500 uppercase tracking-wider">
+              Estudiantes
+            </span>
+          </div>
+          <div className="w-px h-14 bg-slate-200" />
+          <div className="space-y-1">
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-yycl-purple tracking-tight block">
+              94–98%
+            </span>
+            <span className="text-xs sm:text-sm font-heading font-bold text-slate-500 uppercase tracking-wider">
+              De satisfacción
+            </span>
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* DESKTOP VIEW (>= lg): All 3 Cards Solid Violet #834296 - Compact & Refined */}
+        {/* ========================================================================= */}
+        <div className="hidden lg:grid grid-cols-3 gap-6">
+          {TESTIMONIALS.slice(0, 3).map((item) => (
+            <div
+              key={item.id}
+              className="bg-yycl-purple text-white rounded-2xl p-6 border border-[#001837]/20 shadow-[3px_3px_0px_#001837] flex flex-col justify-between space-y-4 hover:-translate-y-1 transition-all duration-200"
+            >
+              <div className="space-y-3">
+                {/* 5 Stars */}
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-[#FFD203] text-[#FFD203]" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote className="text-xs sm:text-sm font-heading font-medium text-white/95 leading-relaxed">
+                  "{item.quote}"
+                </blockquote>
+              </div>
+
+              {/* Author Info */}
+              <div className="space-y-2.5 pt-3 border-t border-white/15">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full overflow-hidden border border-white/80 bg-white/20 shadow-xs shrink-0 p-0.5">
+                    <img
+                      src={item.avatar}
+                      alt={item.name}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <div>
+                    <span className="block font-heading font-bold text-xs sm:text-sm text-white leading-tight">
+                      {item.name}
+                    </span>
+                    <span className="block text-[11px] font-medium text-white/80">
+                      {item.role}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-[11px] pt-0.5">
+                  <span className="font-heading font-bold text-white/90">
+                    Google Reviews 5.0★
+                  </span>
+                  <span className="text-xs">{item.countryFlag || '🇨🇴'}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ========================================================================= */}
+        {/* MOBILE VIEW (< lg): Interactive Carousel with Touch Gestures              */}
+        {/* ========================================================================= */}
+        <div
+          className="block lg:hidden max-w-sm mx-auto space-y-6 touch-pan-y select-none"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            key={activeIndex}
+            className="bg-yycl-purple text-white rounded-2xl p-6 border border-[#001837]/20 shadow-[3px_3px_0px_#001837] flex flex-col justify-between space-y-4 min-h-[280px] animate-in fade-in-50 slide-in-from-right-2 duration-200"
+          >
+            <div className="space-y-3">
+              {/* 5 Stars */}
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-[#FFD203] text-[#FFD203]" />
+                ))}
+              </div>
+
+              {/* Quote */}
+              <blockquote className="text-xs sm:text-sm font-heading font-medium text-white/95 leading-relaxed">
+                "{TESTIMONIALS[activeIndex].quote}"
+              </blockquote>
+            </div>
+
+            <div className="space-y-2.5 pt-3 border-t border-white/15">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-white/80 bg-white/20 shadow-xs shrink-0 p-0.5">
+                  <img
+                    src={TESTIMONIALS[activeIndex].avatar}
+                    alt={TESTIMONIALS[activeIndex].name}
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+                <div>
+                  <span className="block font-heading font-bold text-xs sm:text-sm text-white leading-tight">
+                    {TESTIMONIALS[activeIndex].name}
+                  </span>
+                  <span className="block text-[11px] font-medium text-white/80">
+                    {TESTIMONIALS[activeIndex].role}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between text-[11px] pt-0.5">
+                <span className="font-heading font-bold text-white/90">
+                  Google Reviews 5.0★
+                </span>
+                <span className="text-xs">{TESTIMONIALS[activeIndex].countryFlag || '🇨🇴'}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Slider Controls Oficiales (Botones circulares violeta + dots navy/gris) */}
+          <SliderControls
+            total={TESTIMONIALS.slice(0, 3).length}
+            current={activeIndex}
+            onPrev={prevSlide}
+            onNext={nextSlide}
+            onSelect={(idx) => setActiveIndex(idx)}
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
