@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 
 export const ModalidadesSection = () => {
   const modalidades = [
@@ -32,9 +31,9 @@ export const ModalidadesSection = () => {
       ]
     },
     {
-      id: 'pareja',
-      title: 'Personalizada, en pareja',
-      badge: 'EN PAREJA',
+      id: 'duo',
+      title: 'Dúo',
+      badge: 'DÚO',
       badgeColor: 'bg-[#4DC2DA]/20 text-[#00838F] border-[#4DC2DA]/40',
       accentColor: '#4DC2DA',
       subtitle: 'Mismo profesor exclusivo, mismo plan a medida, compartido con alguien que va por lo mismo que tú.',
@@ -63,7 +62,7 @@ export const ModalidadesSection = () => {
           </p>
         </div>
 
-        {/* 3 Editorial Cards Idénticas a Planes */}
+        {/* 3 Editorial Cards (Sin botones individuales en Home) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
           {modalidades.map((mod) => (
             <div
@@ -100,32 +99,11 @@ export const ModalidadesSection = () => {
                   ))}
                 </ul>
               </div>
-
-              {/* Botón & Enlace */}
-              <div className="pt-6 space-y-3 border-t border-slate-100 mt-6">
-                <Link
-                  href="/planes"
-                  className="inline-block text-xs font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:underline"
-                >
-                  Más información →
-                </Link>
-
-                <Link href="/agendar" className="block">
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    fullWidth
-                    className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[2px_2px_0px_#EC9519]"
-                  >
-                    Elegir mi modalidad
-                  </Button>
-                </Link>
-              </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom Link sin mención a "precios" */}
+        {/* Bottom Link Único hacia Planes */}
         <div className="text-center pt-10">
           <Link
             href="/planes"
