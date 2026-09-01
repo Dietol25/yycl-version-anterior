@@ -284,16 +284,16 @@ export default function ResultadosPage() {
               ))}
             </div>
 
-            {/* Mobile Touch Carousel */}
+            {/* Mobile Touch Carousel con Slim Dots */}
             <div
-              className="block lg:hidden max-w-sm mx-auto space-y-6 touch-pan-y select-none"
+              className="block lg:hidden max-w-sm mx-auto space-y-4 touch-manipulation select-none"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
               <div
                 key={activeIndex}
-                className="bg-[#834296] text-white rounded-2xl p-6 border border-[#001837]/20 shadow-[3px_3px_0px_#001837] flex flex-col justify-between space-y-4 min-h-[260px] animate-in fade-in-50 duration-200"
+                className="bg-[#834296] text-white rounded-2xl p-6 border border-[#001837] shadow-[3px_3px_0px_#001837] flex flex-col justify-between space-y-4 min-h-[260px] animate-in fade-in-50 duration-150"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-1">
@@ -341,13 +341,29 @@ export default function ResultadosPage() {
                 </div>
               </div>
 
-              <SliderControls
-                total={VERIFIED_TESTIMONIALS.length}
-                current={activeIndex}
-                onPrev={prevSlide}
-                onNext={nextSlide}
-                onSelect={(idx) => setActiveIndex(idx)}
-              />
+              {/* Slim Dots Indicator (Sin botones gigantes redundantes) */}
+              <div className="flex items-center justify-center gap-2 py-1">
+                {VERIFIED_TESTIMONIALS.map((_, idx) => {
+                  const isActive = activeIndex === idx;
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setActiveIndex(idx)}
+                      className="p-1.5 cursor-pointer touch-manipulation"
+                      aria-label={`Ver testimonio ${idx + 1}`}
+                    >
+                      <div
+                        className={`rounded-full transition-all duration-200 ${
+                          isActive
+                            ? 'w-6 h-2 bg-[#834296] rounded-full'
+                            : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                        }`}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
           </div>
