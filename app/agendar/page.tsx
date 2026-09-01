@@ -5,28 +5,31 @@ import { BookingWizard } from '@/components/booking/BookingWizard';
 
 export default function AgendarPage() {
   return (
-    <main className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-[#FDF8F3] text-[#001837]">
       <Navbar />
 
-      <section className="bg-yycl-navy text-white py-12 text-center">
-        <div className="max-w-3xl mx-auto px-4 space-y-2">
-          <span className="text-xs font-bold uppercase tracking-widest text-yycl-yellow block">
-            Reserva Fácil en 1 Minuto
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold font-heading">
-            Agenda tu Sesión Online en Vivo
-          </h1>
-          <p className="text-sm text-slate-200">
-            Elige el horario que mejor se acomode a tu rutina. Sesión individual por Google Meet.
-          </p>
-        </div>
-      </section>
+      <main className="flex-1 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto space-y-6">
+          {/* Header Ligero y Aireado (Sin bloques oscuros pesados) */}
+          <div className="text-center space-y-2">
+            <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+              <span className="w-2 h-2 rounded-full bg-[#834296]" />
+              <span>Reserva fácil en 1 minuto</span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
+              Agenda tu entrevista gratuita
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 font-body-regular max-w-md mx-auto leading-relaxed">
+              15 minutos online 1 a 1 con un profesor real por Google Meet. Diagnóstico y mapa de ruta sin compromiso.
+            </p>
+          </div>
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
-        <BookingWizard />
-      </section>
+          {/* Wizard Card */}
+          <BookingWizard />
+        </div>
+      </main>
 
       <Footer />
-    </main>
+    </div>
   );
 }

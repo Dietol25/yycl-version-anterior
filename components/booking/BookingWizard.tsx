@@ -241,14 +241,14 @@ export const BookingWizard = () => {
 
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-3xl border border-[#001837] shadow-[5px_5px_0px_#001837] overflow-hidden">
-      {/* Header Wizard Status */}
-      <div className="bg-[#001837] text-white p-6 sm:p-8 border-b border-[#001837]">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <span className="w-8 h-8 rounded-full bg-[#FFD203] text-[#001837] font-black text-sm flex items-center justify-center font-heading">
+      {/* Header Wizard Status - Minimalista & Aireado */}
+      <div className="p-4 sm:p-6 border-b border-slate-100 bg-white">
+        <div className="flex items-center justify-between gap-2 mb-2.5">
+          <div className="flex items-center gap-2.5">
+            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#FFD203] text-[#001837] font-black text-xs flex items-center justify-center font-heading shrink-0">
               {step}
             </span>
-            <span className="font-heading font-bold text-sm sm:text-base text-slate-100">
+            <span className="font-heading font-extrabold text-xs sm:text-sm text-[#001837] truncate">
               Paso {step} de 4 · {
                 step === 1 ? 'Elige tu tipo de sesión' :
                 step === 2 ? 'Selecciona fecha y hora' :
@@ -256,12 +256,13 @@ export const BookingWizard = () => {
               }
             </span>
           </div>
-          <span className="text-xs text-[#4DC2DA] font-heading font-extrabold tracking-wider uppercase">
-            {step === 4 ? '100% Completado' : `${step * 25}% completado`}
+          <span className="text-[11px] text-[#834296] font-heading font-extrabold tracking-wider shrink-0">
+            {step === 4 ? '100%' : `${step * 25}%`}
           </span>
         </div>
 
-        <div className="w-full bg-white/15 h-2.5 rounded-full overflow-hidden">
+        {/* Slim Progress Bar */}
+        <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
           <div
             className="bg-[#FFD203] h-full transition-all duration-300 rounded-full"
             style={{ width: `${step * 25}%` }}
