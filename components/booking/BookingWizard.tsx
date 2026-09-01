@@ -122,17 +122,85 @@ export const BookingWizard = () => {
     return true;
   };
 
-  const validatePhone = (value: string) => {
+  const validatePhone = (value: string, code = formData.phoneCode) => {
     const cleaned = value.trim();
     if (!cleaned) {
       setPhoneError('Por favor ingresa tu número de WhatsApp');
       return false;
     }
     const digitsOnly = cleaned.replace(/\D/g, '');
-    if (/[a-zA-Z]/.test(cleaned) || digitsOnly.length < 7 || digitsOnly.length > 15) {
-      setPhoneError('Ingresa un número de teléfono válido (solo números)');
+    if (/[a-zA-Z]/.test(cleaned)) {
+      setPhoneError('Ingresa solo números');
       return false;
     }
+
+    // Validaciones estrictas por indicativo regional:
+    if (code === '+57') {
+      // Colombia: 10 dígitos obligatorios e inicio con 3
+      if (digitsOnly.length !== 10) {
+        setPhoneError('En Colombia (+57) el número debe tener 10 dígitos (ej: 300 123 4567)');
+        return false;
+      }
+      if (!digitsOnly.startsWith('3')) {
+        setPhoneError('En Colombia (+57) los celulares inician con 3 (ej: 300 123 4567). Si estás en Argentina, cambia el indicativo a +54');
+        return false;
+      }
+    } else if (code === '+54') {
+      // Argentina: 10 dígitos (código de área + número, ej: 11 2542 0791)
+      if (digitsOnly.length !== 10 && digitsOnly.length !== 11) {
+        setPhoneError('En Argentina (+54) ingresa 10 dígitos con código de área (ej: 11 2542 0791)');
+        return false;
+      }
+    } else if (code === '+52') {
+      // México: 10 dígitos
+      if (digitsOnly.length !== 10) {
+        setPhoneError('En México (+52) los celulares tienen 10 dígitos (ej: 55 1234 5678)');
+        return false;
+      }
+    } else if (code === '+56') {
+      // Chile: 9 dígitos iniciando con 9
+      if (digitsOnly.length !== 9 || !digitsOnly.startsWith('9')) {
+        setPhoneError('En Chile (+56) los móviles tienen 9 dígitos e inician con 9 (ej: 9 1234 5678)');
+        return false;
+      }
+    } else if (code === '+51') {
+      // Perú: 9 dígitos iniciando con 9
+      if (digitsOnly.length !== 9 || !digitsOnly.startsWith('9')) {
+        setPhoneError('En Perú (+51) los celulares tienen 9 dígitos e inician con 9 (ej: 912 345 678)');
+        return false;
+      }
+    } else if (code === '+34') {
+      // España: 9 dígitos iniciando con 6 o 7
+      if (digitsOnly.length !== 9 || (!digitsOnly.startsWith('6') && !digitsOnly.startsWith('7'))) {
+        setPhoneError('En España (+34) los móviles tienen 9 dígitos e inician con 6 o 7 (ej: 612 345 678)');
+        return false;
+      }
+    } else if (code === '+1') {
+      // USA / Canadá: 10 dígitos
+      if (digitsOnly.length !== 10) {
+        setPhoneError('En USA / Canadá (+1) ingresa 10 dígitos con código de área (ej: 202 555 0199)');
+        return false;
+      }
+    } else if (code === '+593') {
+      // Ecuador: 9 dígitos iniciando con 9
+      if (digitsOnly.length !== 9 || !digitsOnly.startsWith('9')) {
+        setPhoneError('En Ecuador (+593) los celulares tienen 9 dígitos e inician con 9 (ej: 99 123 4567)');
+        return false;
+      }
+    } else if (code === '+598') {
+      // Uruguay: 8 dígitos iniciando con 9
+      if (digitsOnly.length !== 8 || !digitsOnly.startsWith('9')) {
+        setPhoneError('En Uruguay (+598) los celulares tienen 8 dígitos e inician con 9 (ej: 99 123 456)');
+        return false;
+      }
+    } else {
+      // Otros países: formato estándar internacional
+      if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+        setPhoneError('Ingresa un número telefónico válido (entre 7 y 15 dígitos)');
+        return false;
+      }
+    }
+
     setPhoneError(null);
     return true;
   };
@@ -517,7 +585,11 @@ export const BookingWizard = () => {
                 <div className="flex gap-2">
                   <select
                     value={formData.phoneCode}
-                    onChange={(e) => setFormData({ ...formData, phoneCode: e.target.value })}
+                    onChange={(e) => {
+                      const newCode = e.target.value;
+                      setFormData({ ...formData, phoneCode: newCode });
+                      if (formData.phoneNumber) validatePhone(formData.phoneNumber, newCode);
+                    }}
                     className="w-24 shrink-0 h-11 px-2.5 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
                   >
                     {COUNTRY_CODES.map((c) => (
@@ -530,13 +602,22 @@ export const BookingWizard = () => {
                   <input
                     type="tel"
                     required
-                    placeholder="300 123 4567"
+                    placeholder={
+                      formData.phoneCode === '+57' ? '300 123 4567' :
+                      formData.phoneCode === '+54' ? '11 2542 0791' :
+                      formData.phoneCode === '+52' ? '55 1234 5678' :
+                      formData.phoneCode === '+56' ? '9 1234 5678' :
+                      formData.phoneCode === '+51' ? '912 345 678' :
+                      formData.phoneCode === '+34' ? '612 345 678' :
+                      formData.phoneCode === '+1' ? '202 555 0199' :
+                      '300 123 4567'
+                    }
                     value={formData.phoneNumber}
                     onChange={(e) => {
                       setFormData({ ...formData, phoneNumber: e.target.value });
-                      if (phoneError) validatePhone(e.target.value);
+                      validatePhone(e.target.value, formData.phoneCode);
                     }}
-                    onBlur={() => validatePhone(formData.phoneNumber)}
+                    onBlur={() => validatePhone(formData.phoneNumber, formData.phoneCode)}
                     className={`flex-1 h-11 px-3.5 bg-white text-slate-800 rounded-xl border text-xs sm:text-sm font-medium focus:outline-none transition-colors ${
                       phoneError
                         ? 'border-red-500 ring-2 ring-red-100 bg-red-50/20 text-red-900'
