@@ -16,7 +16,9 @@ import {
   Send,
   Globe,
   Sparkles,
-  Heart
+  Heart,
+  UploadCloud,
+  FileText
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -42,6 +44,7 @@ interface ApplicationFormData {
   methodologyAlignment: string;
   
   // Paso 4: Enlaces & CV
+  cvFileName: string;
   linkedinOrCvUrl: string;
   videoIntroUrl: string;
   motivationMessage: string;
@@ -61,9 +64,10 @@ const INITIAL_DATA: ApplicationFormData = {
   availabilityHours: '10 a 20 horas / semana (Part-time)',
   preferredTimeSlot: ['Tardes (2:00 PM - 7:00 PM)'],
   methodologyAlignment: '',
+  cvFileName: '',
   linkedinOrCvUrl: '',
   videoIntroUrl: '',
-  motivationMessage: ''
+  motivationMessage: '',
 };
 
 const COUNTRY_CODES = [
@@ -563,15 +567,61 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
             </div>
 
             <div className="space-y-4">
+              {/* Direct File Upload for CV */}
               <div>
                 <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
-                  {isEn ? 'LinkedIn Profile or CV Link (Google Drive/PDF) *' : 'Perfil de LinkedIn o Enlace a tu CV (Google Drive / PDF) *'}
+                  {isEn ? 'Upload your CV / Resume (PDF, DOCX) *' : 'Cargar Hoja de Vida / CV (PDF, DOCX) *'}
+                </label>
+                <div className="relative border-2 border-dashed border-slate-300 hover:border-[#834296] rounded-2xl p-5 bg-slate-50/60 hover:bg-[#FAF5FC] transition-all text-center cursor-pointer group">
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={e => {
+                      if (e.target.files && e.target.files[0]) {
+                        updateField('cvFileName', e.target.files[0].name);
+                        if (!formData.linkedinOrCvUrl) {
+                          updateField('linkedinOrCvUrl', `Archivo cargado: ${e.target.files[0].name}`);
+                        }
+                      }
+                    }}
+                    className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10"
+                  />
+                  {formData.cvFileName ? (
+                    <div className="flex items-center justify-center gap-2.5 text-[#834296]">
+                      <FileText className="w-6 h-6 shrink-0" />
+                      <div className="text-left">
+                        <span className="font-heading font-bold text-xs sm:text-sm block text-[#001837]">{formData.cvFileName}</span>
+                        <span className="text-[11px] text-[#834296] font-medium">
+                          {isEn ? 'Click or drag to change file' : 'Clic o arrastra para cambiar archivo'}
+                        </span>
+                      </div>
+                      <CheckCircle2 className="w-5 h-5 text-[#16A34A] ml-2 shrink-0" />
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center justify-center space-y-1.5">
+                      <div className="w-10 h-10 rounded-full bg-white shadow-xs flex items-center justify-center text-[#834296] group-hover:scale-110 transition-transform">
+                        <UploadCloud className="w-5 h-5" />
+                      </div>
+                      <p className="text-xs sm:text-sm font-heading font-bold text-[#001837]">
+                        {isEn ? 'Click to upload your CV' : 'Haz clic o arrastra tu CV aquí'}
+                      </p>
+                      <p className="text-[11px] text-slate-500 font-body-regular">
+                        {isEn ? 'Supported formats: PDF, DOCX (Max. 10MB)' : 'Formatos soportados: PDF, DOCX (Máx. 10MB)'}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* O Enlace Alternativo a LinkedIn o Google Drive */}
+              <div>
+                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-slate-600 block mb-1.5">
+                  {isEn ? 'Or share your LinkedIn / Google Drive link' : 'O comparte tu enlace de LinkedIn / Google Drive'}
                 </label>
                 <div className="relative">
                   <LinkIcon className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                   <input
-                    type="url"
-                    required
+                    type="text"
                     placeholder="https://linkedin.com/in/tu-perfil o https://drive.google.com/..."
                     value={formData.linkedinOrCvUrl}
                     onChange={e => updateField('linkedinOrCvUrl', e.target.value)}
