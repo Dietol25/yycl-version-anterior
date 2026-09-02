@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 export type PhotoCardCategory = 'default' | 'kids' | 'empresas' | 'conversacion';
 
 export interface PhotoCardProps {
+  id?: string;
   category?: PhotoCardCategory;
   imageSrc?: string;
   imageAlt?: string;
@@ -23,6 +24,7 @@ export interface PhotoCardProps {
 }
 
 export const PhotoCard: React.FC<PhotoCardProps> = ({
+  id,
   category = 'default',
   imageSrc,
   imageAlt = 'YYCL Modalidad',
@@ -68,10 +70,11 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
 
   return (
     <div
-      className={`bg-white rounded-3xl overflow-hidden border border-black/10 border-t-4 ${getTopStripeColor()} shadow-[3px_3px_0px_#001837] flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 ${className}`}
+      id={id}
+      className={`w-full bg-white rounded-3xl overflow-hidden border border-black/10 border-t-4 ${getTopStripeColor()} shadow-[3px_3px_0px_#001837] flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 ${className}`}
     >
       {/* 1. Top Media Area */}
-      <div className="relative w-full h-48 sm:h-52 bg-slate-100/80 flex items-center justify-center overflow-hidden p-3 select-none">
+      <div className="relative w-full h-48 sm:h-52 bg-white flex items-center justify-center overflow-hidden p-3 select-none">
         {renderBadge()}
 
         {imageSrc ? (
@@ -117,13 +120,13 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
 
         {/* 3. Footer Action */}
         {(linkText || hasButton) && (
-          <div className="pt-2 flex items-center justify-between">
+          <div className="pt-3 border-t border-slate-100 mt-2 flex items-center justify-between">
             {linkText && (
               <Link
                 href={href}
-                className="text-xs font-heading font-semibold text-[#3C4C92] hover:text-[#001837] transition-colors"
+                className="inline-flex items-center gap-1 text-xs sm:text-sm font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:underline transition-colors"
               >
-                {linkText}
+                <span>{linkText}</span>
               </Link>
             )}
 

@@ -25,10 +25,10 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
     <div
       className={`flex flex-col items-center text-center p-4 sm:p-6 transition-all duration-200 group ${className}`}
     >
-      {/* 1. Circular Avatar (Matching Figma Reference) */}
+      {/* 1. Circular Avatar con Sombra Violeta (#834296) */}
       <div className="relative mb-5">
         <div
-          className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center border-2 border-[#001837] shadow-[3px_3px_0px_#001837] ${avatarBg} select-none group-hover:scale-105 transition-transform duration-300`}
+          className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center border-2 border-[#001837] shadow-[4px_4px_0px_#834296] ${avatarBg} select-none group-hover:scale-105 group-hover:shadow-[5px_5px_0px_#834296] transition-all duration-300`}
         >
           {image ? (
             <img

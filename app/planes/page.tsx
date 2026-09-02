@@ -88,7 +88,7 @@ export default function PlanesPage() {
                       size="md"
                       className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
                     >
-                      Elegir mi modalidad
+                      Agendar entrevista gratis
                     </Button>
                   </Link>
                 </div>
@@ -133,7 +133,8 @@ export default function PlanesPage() {
                 return (
                   <div
                     key={plan.id}
-                    className="bg-white text-[#001837] rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] flex flex-col justify-between space-y-6"
+                    id={plan.id}
+                    className="scroll-mt-28 bg-white text-[#001837] rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] flex flex-col justify-between space-y-6"
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
@@ -163,20 +164,13 @@ export default function PlanesPage() {
                       </ul>
                     </div>
 
-                    <div className="pt-4 space-y-3 border-t border-slate-100">
-                      <Link
-                        href="/como-funciona"
-                        className="inline-block text-xs font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:underline"
-                      >
-                        Más información →
-                      </Link>
-
+                    <div className="pt-4 border-t border-slate-100">
                       <Link href="/agendar" className="block">
                         <Button
                           variant="primary"
                           size="sm"
                           fullWidth
-                          className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[2px_2px_0px_#EC9519]"
+                          className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
                         >
                           Elegir mi modalidad
                         </Button>
@@ -298,7 +292,7 @@ export default function PlanesPage() {
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Elegir mi modalidad
+                  Agendar entrevista gratis
                 </Button>
               </Link>
             </div>

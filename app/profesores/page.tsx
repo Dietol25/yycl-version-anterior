@@ -10,6 +10,30 @@ import { TeamMemberCard } from '@/components/ui/TeamMemberCard';
 export default function ProfesoresPage() {
   const teachers = [
     {
+      id: 'natty-sanchez',
+      name: 'Natty Sánchez',
+      role: 'Co-founder & Head of Studies / CMO',
+      bio: 'Nómada y apasionada por la enseñanza. Entrego mi corazón en cada clase y me identifico con las metas de mis estudiantes, aprendiendo de ellos y actualizándome constantemente para enseñar con energía real.',
+      image: '/assets/profesores/natty-sanchez.png',
+      avatarBg: 'bg-[#FFE2C0]',
+    },
+    {
+      id: 'nestor-montano',
+      name: 'Néstor Montaño',
+      role: 'Co-founder & CFO / COO',
+      bio: 'Curioso de la tecnología y de cómo aprendemos mejor. Me encanta experimentar con estrategias innovadoras y dinámicas: creo firmemente que sin diversión y motivación no hay aprendizaje efectivo.',
+      image: '/assets/profesores/nestor-montano.png',
+      avatarBg: 'bg-[#CAFFFF]',
+    },
+    {
+      id: 'carolina-correal',
+      name: 'Carolina Correal',
+      role: 'Coordinadora Administrativa y Operativa',
+      bio: 'Acompaño procesos, estudiantes y cada detalle detrás de escena para que la comunidad crezca. Detrás de cada clase y meta cumplida hay un equipo que cree profundamente que sí se puede.',
+      image: '/assets/profesores/carolina-correal.png',
+      avatarBg: 'bg-[#E0F7FA]',
+    },
+    {
       id: 'alan-vera',
       name: 'Alan Vera',
       role: 'Profesor de Inglés',

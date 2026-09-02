@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
+import { BrushStroke } from '@/components/ui/BrushStroke';
 
 export const HeroSection = () => {
   return (
@@ -12,58 +13,46 @@ export const HeroSection = () => {
           <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-left">
             
             {/* 1. Eyebrow */}
-            <div className="inline-flex items-center gap-2 font-label-bold text-xs sm:text-sm text-[#001837]">
-              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#FFD203] shrink-0" />
-              <span>El último curso de inglés que necesitarás.</span>
+            <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#001837]">
+              <span className="w-2 h-2 rounded-full bg-[#FFD203]" />
+              <span>El último curso de inglés que necesitarás</span>
             </div>
 
-            {/* 2. Headline: 30px en mobile (2 líneas limpias) vs 68px en desktop */}
+            {/* 2. Headline: Escala equilibrada y armónica en mobile y desktop */}
             <div className="space-y-1 relative">
-              <h1 className="font-display-hero text-[30px] sm:text-5xl lg:text-[68px] text-[#001837] tracking-tight leading-[1.12] sm:leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#001837] tracking-tight leading-[1.12]">
                 Pierde el <span className="text-[#834296]">miedo</span> <br className="hidden sm:inline" />
                 a hablar inglés.
               </h1>
 
-              {/* Hand-drawn accent curve in #FFD203 under 'a hablar' */}
-              <div className="pt-1 sm:pt-2">
-                <svg
-                  className="w-36 sm:w-56 h-3 sm:h-4 text-[#FFD203]"
-                  viewBox="0 0 160 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3 10.5C25 4.5 75 2.5 157 7.5"
-                    stroke="#FFD203"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                  />
-                </svg>
+              {/* Stylized organic brush stroke */}
+              <div className="pt-1">
+                <BrushStroke color="#FFD203" variant="brush" className="w-48 sm:w-60 h-4 text-[#FFD203]" />
               </div>
             </div>
 
-            {/* 3. Subtitle: Proporción balanceada para mobile */}
-            <p className="font-body-large text-sm sm:text-[18px] text-[#3C4C92] leading-relaxed sm:leading-[28px] max-w-xl">
+            {/* 3. Subtitle */}
+            <p className="text-base sm:text-lg text-slate-600 font-body-large max-w-lg leading-relaxed">
               ¿Ya probaste apps, cursos, de todo? El problema nunca fue lo que sabes — es soltarte a hablar. Eso se practica, no se memoriza, desde tu primera clase con un profesor real.
             </p>
 
             {/* 4. Dual Actions alineados a la izquierda (F-Pattern UX) */}
-            <div className="pt-2 sm:pt-3 flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-6 text-left">
+            <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-5 text-left">
               <Link href="/agendar">
                 <Button
                   variant="primary"
                   size="md"
-                  className="font-label-large text-sm sm:text-base px-6 sm:px-7 py-3 h-11 sm:h-12 shadow-[3px_3px_0px_#EC9519]"
+                  className="font-heading font-bold text-sm sm:text-base px-7 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar entrevista gratis
+                  Quiero hablar
                 </Button>
               </Link>
 
               <Link
                 href="/como-funciona"
-                className="font-heading font-semibold text-xs sm:text-base text-[#3C4C92] hover:text-[#001837] transition-colors py-1.5 text-left"
+                className="font-heading font-semibold text-sm sm:text-base text-[#3C4C92] hover:text-[#001837] transition-colors py-1.5 text-left"
               >
-                Conoce cómo funciona
+                Conoce cómo funciona →
               </Link>
             </div>
           </div>
@@ -74,7 +63,7 @@ export const HeroSection = () => {
               <img
                 src="/assets/01_INICIO/YYCL_01_HOME_INGLES_CONVERSACION.png"
                 alt="Estudiante practicando inglés conversacional en YYCL"
-                className="w-full h-auto object-contain select-none drop-shadow-sm"
+                className="w-full h-auto object-contain select-none"
               />
             </div>
           </div>

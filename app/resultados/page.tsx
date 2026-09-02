@@ -50,8 +50,8 @@ const VERIFIED_TESTIMONIALS = [
     role: 'Ingeniera de Software',
     quote: 'Buscaba soltarme en entrevistas en inglés con clientes de EE.UU. En 2 meses pasé de dudar cada palabra a responder con total seguridad.',
     avatar: '/assets/avatares/mujer.png',
-    source: 'LinkedIn Verificado',
-    sourceUrl: 'https://linkedin.com',
+    source: 'Reseña Verificada 5.0★',
+    sourceUrl: GOOGLE_MAPS_REVIEWS_URL,
     countryFlag: '🇨🇴',
   },
   {
@@ -149,7 +149,7 @@ export default function ResultadosPage() {
                       size="md"
                       className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Agendar entrevista gratis
+                      Quiero esos resultados
                     </Button>
                   </Link>
                 </div>
@@ -160,8 +160,8 @@ export default function ResultadosPage() {
                 <div className="relative w-full max-w-[480px] group cursor-pointer" onClick={() => setIsVideoOpen(true)}>
                   <div className="relative rounded-3xl overflow-hidden border border-[#001837] shadow-[5px_5px_0px_#001837] bg-slate-900">
                     <img
-                      src="/assets/03_RESULTADOS/YYCL_09_RESULTADOS_LOGRO.png"
-                      alt="Estudiante teniendo resultados reales en YYCL"
+                      src="/assets/03_RESULTADOS/YYCL_09_RESULTADOS_VIDEO_THUMB.png"
+                      alt="Video de estudiantes teniendo resultados reales en YYCL"
                       className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/25 flex flex-col items-center justify-center gap-3">

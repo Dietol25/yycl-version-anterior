@@ -16,8 +16,8 @@ export default function SobreYYCLPage() {
       tag: 'Quiénes somos',
       title: 'Nuestra historia',
       desc: 'Nacimos de ver siempre lo mismo: personas que sabían gramática de memoria pero se congelaban al hablar en público o en el trabajo. Construimos un método distinto: menos reglas rígidas y más conversación real desde el primer día.',
-      image: '/assets/10_SOBRE_YYCL/YYCL_24_SOBRE_YYCL_CONVERSACION_HUMANA.png',
-      alt: 'Fundadores y profesores enseñando inglés conversacional en YYCL'
+      image: '/assets/10_SOBRE_YYCL/YYCL_25_SOBRE_YYCL_NUESTRA_HISTORIA.png',
+      alt: 'Fundadores Naty y Néstor en el origen de Yes You Can Languages'
     },
     {
       id: 'que-ensenamos',
@@ -113,7 +113,7 @@ export default function SobreYYCLPage() {
             <div className="max-w-4xl mx-auto relative rounded-3xl overflow-hidden border-2 border-[#001837] shadow-[5px_5px_0px_#001837] bg-slate-900 group">
               <div className="relative aspect-video w-full flex items-center justify-center cursor-pointer" onClick={() => setIsVideoOpen(true)}>
                 <img
-                  src="/assets/01_INICIO/YYCL_01_HOME_INGLES_CONVERSACION.png"
+                  src="/assets/10_SOBRE_YYCL/YYCL_27_SOBRE_YYCL_FILOSOFIA_VIDEO_THUMB.png"
                   alt="Video de nuestra filosofía Yes You Can Languages"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90"
                 />

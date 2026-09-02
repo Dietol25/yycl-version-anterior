@@ -30,42 +30,68 @@
    * Francés y Portugués con asset oficial `YYCL_13_IDIOMAS_FRANCES_PORTUGUES_REVISION_BANDERA.png`.
 8. **Servicios Especiales (`/servicios-especiales`):**
    * Entrevistas laborales en inglés y exámenes oficiales (TOEFL, IELTS).
-9. **Profesores (`/profesores`):**
-   * Perfiles del equipo docente y calidad humana.
+9. **Profesores & Equipo (`/profesores`):**
+   * Roster completo de 11 integrantes encabezado por los fundadores: **Natty Sánchez** (Co-founder & Head of Studies / CMO), **Néstor Montaño** (Co-founder & CFO / COO) y **Carolina Correal** (Coordinadora Administrativa y Operativa), seguidos por el equipo de docentes.
 10. **Sobre YYCL (`/sobre-yycl`):**
     * Historia, valores y filosofía sin juicios.
-11. **Agendamiento Inteligente (`/agendar`):**
-    * Wizard de 4 pasos optimizado sin bloques oscuros redundantes.
+11. **Agendamiento Inteligente (`/agendar` y `/en/agendar`):**
+    * **Sustitución de Appointlet externo:** Wizard nativo de 4 pasos optimizado, sin salir del sitio web.
+    * Slider horizontal interactivo de fechas (más de 20 días disponibles) con navegación fluida y scroll-snap.
+    * Selector visual de horarios con botón violeta activo (`#834296`).
     * Validación no intrusiva de teléfono/WhatsApp por país (`+57`, `+54`, `+52`, `+56`, `+51`, `+34`, `+1`) en `onBlur` y submit.
-    * Auto-scroll hacia arriba al cambiar de paso.
-12. **Plataforma / Login (`/login`):**
+12. **Trabaja con Nosotros (`/trabaja-con-nosotros` y `/en/join-our-team`):**
+    * **Sustitución de Google Forms externo:** Formulario nativo de postulación docente en 4 pasos.
+    * Captura de contacto internacional, idiomas/perfil docente, disponibilidad horaria, metodología de enseñanza y enlaces a CV / LinkedIn / Video.
+    * Conector automático en segundo plano para volcar la información en tiempo real a **Google Sheets / Google Forms**.
+13. **Plataforma / Login (`/login`):**
     * Campus YYCL y redirección a 404 para credenciales de prueba.
-13. **Página 404 (`/not-found`):**
-    * Ilustración oficial `404.png` optimizada a 118 KB con transparencia nativa.
+14. **Brochazos de Marca Estilizados (`components/ui/BrushStroke.tsx`):**
+    * Vectorización caligráfica orgánica con variación de presión y terminación texturizada (`variant="brush"` y `variant="playful"`).
+    * Variante recta y minimalista para el tono corporativo B2B en Empresas (`variant="straight"`).
 
 ### 🇬🇧 Hub en Inglés (`/en`):
-1. **Home EN (`/en`):** Spanish classes for foreigners, Hero F-pattern.
-2. **Spanish for Adults (`/en/spanish-classes`):** Asset `YYCL_EN_02_SPANISH_CLASSES_ADULTS.png`.
-3. **Spanish for Kids (`/en/spanish-classes-kids`):** Asset `YYCL_EN_03_SPANISH_CLASSES_KIDS.png`.
-4. **About Us EN (`/en/about-us`):** Asset `YYCL_EN_04_ABOUT_US_IDIOMAS_REVISION_BANDERA.png`.
+1. **Home / Spanish Classes (`/en` o `/en/spanish-classes`):**
+   * Category Pills: `Spanish Classes`, `English Classes`, `Kids & Teens`, `About Us`.
+   * Hero: *"Learn Spanish, live with real teachers"* con asset `YYCL_EN_02_SPANISH_CLASSES_ADULTS.png`.
+   * Sección *"Why YYCL — More than grammar"* con 3 PhotoCards editoriales.
+   * Cierre: *"Start speaking Spanish"* con CTA `Book your no-cost interview`.
+2. **English Classes (`/en/english-classes`):**
+   * Dirigido a estudiantes internacionales no hispanohablantes (asiáticos, africanos, etc.).
+   * Hero: *"The English course you'll actually finish"* con asset `YYCL_EN_01_ENGLISH_CLASSES_MODALIDADES.png`.
+   * Sección *"How it works — Speak from day one"* con 2 PhotoCards.
+   * Cierre: *"Ready to start speaking?"* con CTA `Book your no-cost interview`.
+3. **Kids & Teens EN (`/en/spanish-classes-kids`):**
+   * Hero: *"English (or Spanish) for kids"* con asset `YYCL_EN_03_SPANISH_CLASSES_KIDS.png`.
+   * Sección *"Built for them — A program made for kids"* con 3 PhotoCards.
+   * Cierre: *"Give your kid a head start"* con CTA `Book an interview`.
+4. **About Us EN (`/en/about-us`):**
+   * Hero: *"Who we are"* con asset `YYCL_EN_04_ABOUT_US_IDIOMAS_REVISION_BANDERA.png`.
+   * Sección *"What we teach — One method, three languages"* con 3 PhotoCards.
+   * Cierre: *"Sí puedes. Yes You Can."* con CTA `Book your no-cost interview`.
+5. **Página 404 en Inglés (`/en/not-found` y `/en/[...catchAll]`):**
+   * Ilustración oficial optimizada sin marcos ni bordes.
+   * Titular: *"Oops! This page took off without telling us."*
+   * CTAs: `Book your interview` y `← Back to Home`.
+6. **Menú Móvil y Navbar Bilingüe (`Navbar.tsx` & `MobileMenu.tsx`):**
+   * Links en inglés y botón primario `Book interview` / `Book an interview`.
 
 ---
 
 ## 🎯 2. Matriz Oficial de CTAs Estandarizada
 
-| Página / Sección | CTA Aplicado |
-|---|---|
-| **1. Home** | `Agendar entrevista gratis` |
-| **2. Cómo funciona** | `Agendar entrevista gratis` |
-| **3. Resultados** | `Agendar entrevista gratis` |
-| **4. Planes** | `Elegir mi modalidad` |
-| **5. Kids & Teens** | `Agendar entrevista gratis` |
-| **6. Empresas** | `Agendar reunión` |
-| **7. Otros idiomas** | `Empezar mi nuevo idioma` |
-| **8. Servicios especiales** | `Agendar entrevista gratis` |
-| **9. Profesores** | `Agendar entrevista gratis` |
-| **10. Sobre YYCL** | `Agendar entrevista gratis` |
-| **11. Navbar / Header** | `Agendar gratis` |
+| # | Página / Sección | CTA Hero (Cabecera) | CTA Cierre Inferior |
+|---|---|---|---|
+| **1** | **Home** | `Quiero hablar` | `Agendar entrevista gratis` |
+| **2** | **Cómo funciona** | `Probar el método` | `Agendar entrevista gratis` |
+| **3** | **Resultados** | `Quiero esos resultados` | `Agendar entrevista gratis` |
+| **4** | **Planes** | `Agendar entrevista gratis` | `Agendar entrevista gratis` |
+| **5** | **Kids & Teens** | `Encontrar el plan ideal` | `Agendar entrevista gratis` |
+| **6** | **Empresas** | `Agendar reunión` | `Agendar reunión` |
+| **7** | **Otros idiomas** | `Elegir idioma` | `Empezar mi nuevo idioma` |
+| **8** | **Servicios especiales** | `Prepararme ahora` | `Agendar entrevista gratis` |
+| **9** | **Profesores** | — | `Agendar entrevista gratis` |
+| **10** | **Sobre YYCL** | — | `Agendar entrevista gratis` |
+| **11** | **Navbar / Header Sticky** | `Agendar gratis` | `Agendar gratis` |
 
 ---
 

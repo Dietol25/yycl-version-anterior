@@ -6,6 +6,7 @@ import { MessageSquare, Sliders, Users, Check, Play, X } from 'lucide-react';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
+import { BrushStroke } from '@/components/ui/BrushStroke';
 import { PhotoCard } from '@/components/ui/PhotoCard';
 
 export default function ComoFuncionaPage() {
@@ -26,11 +27,9 @@ export default function ComoFuncionaPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#001837] tracking-tight leading-[1.15]">
-              Así funciona tu <span className="text-[#834296] relative">
+              Así funciona tu <span className="text-[#834296] relative inline-block">
                 camino al inglés
-                <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#FFD203] -z-10" viewBox="0 0 100 20" preserveAspectRatio="none">
-                  <path d="M0 15 Q 50 0 100 15" stroke="currentColor" strokeWidth="6" fill="transparent" strokeLinecap="round" />
-                </svg>
+                <BrushStroke color="#FFD203" variant="brush" className="absolute -bottom-2.5 left-0 w-full h-4 -z-10" />
               </span>
             </h1>
 
@@ -45,7 +44,7 @@ export default function ComoFuncionaPage() {
                   size="md"
                   className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
                 >
-                  Agendar entrevista gratis
+                  Probar el método
                 </Button>
               </Link>
             </div>
@@ -144,39 +143,48 @@ export default function ComoFuncionaPage() {
               </p>
             </div>
 
-            {/* 3 Modality Cards */}
+            {/* 3 Modality Cards con IDs de anclaje nativos y 100% Responsive */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
               <PhotoCard
+                id="grupal"
                 category="default"
                 title="Grupal"
                 hasCheckmark={true}
                 subtitle="Aprende junto a otros"
                 description="La energía de un grupo pequeño."
-                href="/planes"
+                href="/planes#grupal"
+                linkText="Más información →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png"
                 imageAlt="Modalidad Grupal YYCL"
+                className="scroll-mt-28"
               />
 
               <PhotoCard
+                id="personalizada"
                 category="default"
                 title="Personalizada"
                 hasCheckmark={true}
                 subtitle="Un profesor, un plan"
                 description="Hecho para ti."
-                href="/planes"
+                href="/planes#personalizada"
+                linkText="Más información →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png"
                 imageAlt="Modalidad Personalizada YYCL"
+                className="scroll-mt-28"
               />
 
               <PhotoCard
+                id="duo"
                 category="default"
                 title="Dúo"
                 hasCheckmark={true}
                 subtitle="Personalizada, en pareja"
                 description="Mismo profesor exclusivo, mismo plan a medida, compartido con alguien que va por lo mismo que tú."
-                href="/planes"
+                href="/planes#duo"
+                linkText="Más información →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
                 imageAlt="Modalidad Dúo YYCL"
+                className="scroll-mt-28"
               />
             </div>
           </div>
@@ -306,7 +314,7 @@ export default function ComoFuncionaPage() {
               <div className="order-2 lg:order-1 lg:col-span-6 flex justify-center">
                 <div className="relative w-full max-w-[500px] group">
                   <img
-                    src="/assets/02_COMO_FUNCIONA/YYCL_06_NIVEL_PRINCIPIANTE.png"
+                    src="/assets/02_COMO_FUNCIONA/YYCL_08_PLATAFORMA_VIDEO_THUMB.png"
                     alt="Plataforma de práctica conversacional en YYCL"
                     className="w-full h-auto object-contain select-none"
                   />

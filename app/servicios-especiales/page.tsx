@@ -84,7 +84,7 @@ export default function ServiciosEspecialesPage() {
                       size="md"
                       className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
                     >
-                      Agendar entrevista gratis
+                      Prepararme ahora
                     </Button>
                   </Link>
                 </div>

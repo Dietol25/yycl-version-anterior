@@ -1,6 +1,8 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
-import { Check } from 'lucide-react';
+import { Check, Users, User, UserPlus } from 'lucide-react';
 
 export const ModalidadesSection = () => {
   const modalidades = [
@@ -8,8 +10,13 @@ export const ModalidadesSection = () => {
       id: 'grupal',
       title: 'Grupal',
       badge: 'GRUPAL',
-      badgeColor: 'bg-purple-100 text-[#834296] border-[#834296]/30',
-      accentColor: '#834296',
+      badgeColor: 'bg-white/80 text-[#834296] border-[#834296]/40',
+      iconBg: 'bg-[#834296] text-white',
+      checkBg: 'bg-[#834296] text-white',
+      cardBg: 'bg-gradient-to-b from-[#FAF5FC] to-[#F3E8FA]',
+      cardBgHover: 'hover:from-[#F7EDFC] hover:to-[#EEDCF6]',
+      linkColor: 'text-[#834296]',
+      icon: Users,
       subtitle: 'Aprende junto a otros, con la energía de un grupo pequeño.',
       features: [
         'Máximo 8 alumnos',
@@ -21,8 +28,13 @@ export const ModalidadesSection = () => {
       id: 'personalizada',
       title: 'Personalizada',
       badge: 'PERSONALIZADA',
-      badgeColor: 'bg-amber-100 text-[#EC9519] border-[#EC9519]/30',
-      accentColor: '#EC9519',
+      badgeColor: 'bg-white/80 text-[#B26B06] border-[#EC9519]/40',
+      iconBg: 'bg-[#FFD203] text-white',
+      checkBg: 'bg-[#EC9519] text-white',
+      cardBg: 'bg-gradient-to-b from-[#FFFBF2] to-[#FFF4DC]',
+      cardBgHover: 'hover:from-[#FFF8E8] hover:to-[#FFEDCC]',
+      linkColor: 'text-[#001837]',
+      icon: User,
       subtitle: 'Un profesor, un plan, hecho para ti.',
       features: [
         'Clases uno a uno',
@@ -34,8 +46,13 @@ export const ModalidadesSection = () => {
       id: 'duo',
       title: 'Dúo',
       badge: 'DÚO',
-      badgeColor: 'bg-cyan-100 text-[#001837] border-[#4DC2DA]/40',
-      accentColor: '#4DC2DA',
+      badgeColor: 'bg-white/80 text-[#001837] border-[#4DC2DA]/50',
+      iconBg: 'bg-[#00B4D8] text-white',
+      checkBg: 'bg-[#0284C7] text-white',
+      cardBg: 'bg-gradient-to-b from-[#F2FCFE] to-[#E2F7FB]',
+      cardBgHover: 'hover:from-[#EBF9FD] hover:to-[#D5F2F8]',
+      linkColor: 'text-[#001837]',
+      icon: Users,
       subtitle: 'Mismo profesor exclusivo, mismo plan a medida, compartido con alguien que va por lo mismo que tú.',
       features: [
         'Clases para dos',
@@ -62,56 +79,65 @@ export const ModalidadesSection = () => {
           </p>
         </div>
 
-        {/* 3 Editorial White Cards (Sin enlaces globales en toda la tarjeta) */}
+        {/* 3 Editorial Cards con Tono Diferencial y Hover Dinámico */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
-          {modalidades.map((mod) => (
-            <div
-              key={mod.id}
-              className="bg-white rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                {/* Badge Oficial */}
-                <div>
-                  <span className={`inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full border ${mod.badgeColor}`}>
-                    {mod.badge}
-                  </span>
+          {modalidades.map((mod) => {
+            const IconComponent = mod.icon;
+            return (
+              <div
+                key={mod.id}
+                className={`${mod.cardBg} ${mod.cardBgHover} rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] hover:shadow-[7px_7px_0px_#001837] hover:-translate-y-1.5 active:translate-y-0 active:shadow-[4px_4px_0px_#001837] transition-all duration-300 flex flex-col justify-between group`}
+              >
+                <div className="space-y-4">
+                  {/* Top Header Row: Badge + Circular Icon */}
+                  <div className="flex items-center justify-between">
+                    <span className={`inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full border shadow-2xs ${mod.badgeColor}`}>
+                      {mod.badge}
+                    </span>
+
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${mod.iconBg} shadow-xs group-hover:scale-105 transition-transform duration-300`}>
+                      <IconComponent className="w-5 h-5 stroke-[2.2]" />
+                    </div>
+                  </div>
+
+                  {/* Titular & Subtítulo */}
+                  <div className="space-y-1 pt-1">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
+                      {mod.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                      {mod.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Lista de Features con Checkmarks Circulares */}
+                  <ul className="space-y-3 pt-4 border-t border-[#001837]/10">
+                    {mod.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-3">
+                        <div className={`w-5 h-5 rounded-full ${mod.checkBg} flex items-center justify-center shrink-0 mt-0.5 shadow-2xs`}>
+                          <Check className="w-3 h-3 stroke-[3]" />
+                        </div>
+                        <span className="text-xs sm:text-sm text-slate-700 font-body-regular leading-snug">
+                          {feat}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Titular & Subtítulo */}
-                <div className="space-y-1">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
-                    {mod.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    {mod.subtitle}
-                  </p>
+                {/* Action Ghost Link */}
+                <div className="pt-6 border-t border-[#001837]/10 mt-6">
+                  <Link
+                    href="/como-funciona"
+                    className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold ${mod.linkColor} hover:underline transition-colors`}
+                  >
+                    <span>Cómo funciona</span>
+                    <span>→</span>
+                  </Link>
                 </div>
-
-                {/* Lista de Features */}
-                <ul className="space-y-3 pt-3">
-                  {mod.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2.5">
-                      <Check className="w-4 h-4 shrink-0 mt-0.5 stroke-[2.5]" style={{ color: mod.accentColor }} />
-                      <span className="text-xs sm:text-sm text-slate-700 font-body-regular leading-snug">
-                        {feat}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-
-              {/* Ghost Link exclusivo que lleva a Cómo Funciona */}
-              <div className="pt-5 border-t border-slate-100 mt-6">
-                <Link
-                  href="/como-funciona"
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:underline"
-                >
-                  <span>Más información</span>
-                  <span>→</span>
-                </Link>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

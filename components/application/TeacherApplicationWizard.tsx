@@ -1,0 +1,643 @@
+"use client";
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { 
+  User, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  GraduationCap, 
+  Clock, 
+  Link as LinkIcon, 
+  CheckCircle2, 
+  ArrowRight, 
+  ArrowLeft, 
+  Send,
+  Globe,
+  Sparkles,
+  Heart
+} from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+
+interface ApplicationFormData {
+  // Paso 1: Contacto
+  fullName: string;
+  email: string;
+  countryCode: string;
+  phone: string;
+  cityCountry: string;
+  
+  // Paso 2: Idiomas & Perfil
+  primaryLanguage: string;
+  otherLanguages: string[];
+  audiencePreference: string[];
+  certifications: string;
+  experienceYears: string;
+  
+  // Paso 3: Disponibilidad & Metodología
+  availabilityHours: string;
+  preferredTimeSlot: string[];
+  methodologyAlignment: string;
+  
+  // Paso 4: Enlaces & CV
+  linkedinOrCvUrl: string;
+  videoIntroUrl: string;
+  motivationMessage: string;
+}
+
+const INITIAL_DATA: ApplicationFormData = {
+  fullName: '',
+  email: '',
+  countryCode: '+57',
+  phone: '',
+  cityCountry: '',
+  primaryLanguage: 'Inglés',
+  otherLanguages: [],
+  audiencePreference: ['Adultos'],
+  certifications: '',
+  experienceYears: '1 a 3 años',
+  availabilityHours: '10 a 20 horas / semana (Part-time)',
+  preferredTimeSlot: ['Tardes (2:00 PM - 7:00 PM)'],
+  methodologyAlignment: '',
+  linkedinOrCvUrl: '',
+  videoIntroUrl: '',
+  motivationMessage: ''
+};
+
+const COUNTRY_CODES = [
+  { code: '+57', flag: '🇨🇴', name: 'Colombia' },
+  { code: '+54', flag: '🇦🇷', name: 'Argentina' },
+  { code: '+52', flag: '🇲🇽', name: 'México' },
+  { code: '+56', flag: '🇨🇱', name: 'Chile' },
+  { code: '+51', flag: '🇵🇪', name: 'Perú' },
+  { code: '+34', flag: '🇪🇸', name: 'España' },
+  { code: '+1', flag: '🇺🇸', name: 'USA / Can' },
+];
+
+export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = false }) => {
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState<ApplicationFormData>(INITIAL_DATA);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const updateField = (field: keyof ApplicationFormData, value: any) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const toggleArrayItem = (field: 'otherLanguages' | 'audiencePreference' | 'preferredTimeSlot', item: string) => {
+    setFormData(prev => {
+      const arr = prev[field];
+      const exists = arr.includes(item);
+      return {
+        ...prev,
+        [field]: exists ? arr.filter(i => i !== item) : [...arr, item]
+      };
+    });
+  };
+
+  const handleNext = () => {
+    if (step < 4) {
+      setStep(prev => prev + 1);
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+  };
+
+  const handleBack = () => {
+    if (step > 1) {
+      setStep(prev => prev - 1);
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulación de envío a Google Sheets / Webhook API
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1200));
+      setIsSubmitted(true);
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // =========================================================================
+  // PANTALLA DE ÉXITO TRAS EL ENVÍO
+  // =========================================================================
+  if (isSubmitted) {
+    return (
+      <div className="bg-white rounded-3xl p-8 sm:p-12 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] text-center space-y-6 animate-in fade-in zoom-in-95 duration-300 max-w-2xl mx-auto">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center border-2 border-emerald-600 shadow-[3px_3px_0px_#001837]">
+          <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11 stroke-[2.5]" />
+        </div>
+
+        <div className="space-y-2">
+          <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+            {isEn ? 'Application Received' : 'Postulación Recibida'}
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
+            {isEn ? `Thank you, ${formData.fullName.split(' ')[0]}!` : `¡Muchas gracias, ${formData.fullName.split(' ')[0]}!`}
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 font-body-regular max-w-md mx-auto leading-relaxed">
+            {isEn 
+              ? "We've received your profile and recorded your details in our recruitment system. Natty, Néstor, and the academic team will review your application."
+              : "Hemos registrado tu información en nuestro sistema de selección docente. Natty, Néstor y el equipo académico revisarán tu perfil."}
+          </p>
+        </div>
+
+        <div className="bg-[#FFE2C0]/30 rounded-2xl p-5 border border-[#EC9519]/40 text-left space-y-2 max-w-md mx-auto">
+          <p className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#EC9519]">
+            {isEn ? 'What happens next?' : '¿Qué sigue ahora?'}
+          </p>
+          <ul className="text-xs sm:text-sm text-slate-700 font-body-regular space-y-1.5 list-disc pl-4">
+            <li>{isEn ? 'Application review (24 to 48 business hours).' : 'Revisión de tu perfil y experiencia (24 a 48 hs hábiles).'}</li>
+            <li>{isEn ? 'We will contact you via WhatsApp or Email.' : 'Te contactaremos vía WhatsApp o correo electrónico.'}</li>
+            <li>{isEn ? 'Brief conversational interview with our Academic Director.' : 'Entrevista conversacional breve con nuestra Dirección de Estudios.'}</li>
+          </ul>
+        </div>
+
+        <div className="pt-3">
+          <Link href={isEn ? "/en" : "/"}>
+            <Button
+              variant="primary"
+              size="md"
+              className="font-heading font-bold text-xs sm:text-sm px-8 h-12 shadow-[3px_3px_0px_#EC9519]"
+            >
+              {isEn ? 'Back to Home' : 'Volver al inicio'}
+            </Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] space-y-8 max-w-3xl mx-auto">
+      
+      {/* Barra de Progreso de Pasos (1 a 4) */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between text-xs font-heading font-extrabold text-[#001837]">
+          <span>{isEn ? `Step ${step} of 4` : `Paso ${step} de 4`}</span>
+          <span className="text-[#834296]">
+            {step === 1 && (isEn ? 'Contact Info' : 'Datos Personales')}
+            {step === 2 && (isEn ? 'Teaching Profile' : 'Perfil Docente')}
+            {step === 3 && (isEn ? 'Availability & Style' : 'Disponibilidad')}
+            {step === 4 && (isEn ? 'CV & Submission' : 'CV y Envío')}
+          </span>
+        </div>
+        <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden border border-black/10">
+          <div 
+            className="h-full bg-[#FFD203] transition-all duration-300 rounded-full"
+            style={{ width: `${(step / 4) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        
+        {/* ========================================================================= */}
+        {/* PASO 1: DATOS PERSONALES & CONTACTO                                       */}
+        {/* ========================================================================= */}
+        {step === 1 && (
+          <div className="space-y-5 animate-in fade-in-50 duration-200">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+                {isEn ? 'Tell us about yourself' : 'Cuéntanos sobre ti'}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+                {isEn ? 'Basic details so we can get in touch with you.' : 'Tus datos básicos de contacto para comunicarnos contigo.'}
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                  {isEn ? 'Full Name *' : 'Nombre Completo *'}
+                </label>
+                <div className="relative">
+                  <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="text"
+                    required
+                    placeholder={isEn ? "e.g. Maria Gonzalez" : "ej. María González"}
+                    value={formData.fullName}
+                    onChange={e => updateField('fullName', e.target.value)}
+                    className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] focus:ring-2 focus:ring-[#834296]/20 transition-all font-body-regular"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                  {isEn ? 'Email Address *' : 'Correo Electrónico *'}
+                </label>
+                <div className="relative">
+                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="email"
+                    required
+                    placeholder="maria@ejemplo.com"
+                    value={formData.email}
+                    onChange={e => updateField('email', e.target.value)}
+                    className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] focus:ring-2 focus:ring-[#834296]/20 transition-all font-body-regular"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                  {isEn ? 'WhatsApp Phone *' : 'WhatsApp / Teléfono *'}
+                </label>
+                <div className="flex gap-2">
+                  <select
+                    value={formData.countryCode}
+                    onChange={e => updateField('countryCode', e.target.value)}
+                    className="h-11 px-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs sm:text-sm font-heading font-bold text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] shrink-0"
+                  >
+                    {COUNTRY_CODES.map(c => (
+                      <option key={c.code} value={c.code}>
+                        {c.flag} {c.code}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="relative flex-1">
+                    <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <input
+                      type="tel"
+                      required
+                      placeholder="300 123 4567"
+                      value={formData.phone}
+                      onChange={e => updateField('phone', e.target.value)}
+                      className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] focus:ring-2 focus:ring-[#834296]/20 transition-all font-body-regular"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                  {isEn ? 'City & Country of Residence *' : 'Ciudad y País de Residencia *'}
+                </label>
+                <div className="relative">
+                  <MapPin className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="text"
+                    required
+                    placeholder={isEn ? "e.g. Buenos Aires, Argentina" : "ej. Bogotá, Colombia / Buenos Aires, Argentina"}
+                    value={formData.cityCountry}
+                    onChange={e => updateField('cityCountry', e.target.value)}
+                    className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] focus:ring-2 focus:ring-[#834296]/20 transition-all font-body-regular"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 flex justify-end">
+              <button
+                type="button"
+                onClick={handleNext}
+                disabled={!formData.fullName || !formData.email || !formData.phone}
+                className="h-11 px-7 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center gap-2 disabled:opacity-50 disabled:pointer-events-none"
+              >
+                <span>{isEn ? 'Continue' : 'Continuar'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================================= */}
+        {/* PASO 2: IDIOMAS & PERFIL DOCENTE                                          */}
+        {/* ========================================================================= */}
+        {step === 2 && (
+          <div className="space-y-6 animate-in fade-in-50 duration-200">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+                {isEn ? 'Teaching Profile & Languages' : 'Idiomas y Perfil Docente'}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+                {isEn ? 'What languages and formats do you specialize in?' : '¿Qué idiomas enseñas y con qué modalidades te sientes más cómodo/a?'}
+              </p>
+            </div>
+
+            {/* Idioma Principal */}
+            <div className="space-y-2">
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+                {isEn ? 'Primary Language you Teach *' : 'Idioma Principal que Enseñas *'}
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {['Inglés', 'Francés', 'Portugués', 'Español (para extranjeros)'].map(lang => (
+                  <button
+                    key={lang}
+                    type="button"
+                    onClick={() => updateField('primaryLanguage', lang)}
+                    className={`py-3 px-3 rounded-2xl text-xs sm:text-sm font-heading font-bold transition-all text-center cursor-pointer ${
+                      formData.primaryLanguage === lang
+                        ? 'bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] border-0 scale-[1.02]'
+                        : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
+                    }`}
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Años de Experiencia */}
+            <div className="space-y-2">
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+                {isEn ? 'Teaching Experience' : 'Años de Experiencia Docente'}
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {['Menos de 1 año', '1 a 3 años', '3 a 5 años', 'Más de 5 años'].map(exp => (
+                  <button
+                    key={exp}
+                    type="button"
+                    onClick={() => updateField('experienceYears', exp)}
+                    className={`py-2.5 px-2 rounded-2xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
+                      formData.experienceYears === exp
+                        ? 'bg-[#834296] text-white shadow-[3px_3px_0px_#001837] border-0 scale-[1.02]'
+                        : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
+                    }`}
+                  >
+                    {exp}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Público de Preferencia (Multi-select) */}
+            <div className="space-y-2">
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+                {isEn ? 'Target Audience (Select all that apply)' : 'Público Objetivo con el que te gusta trabajar'}
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {['Adultos', 'Niños y Teens', 'Empresas / Corporativo', 'Todos'].map(aud => {
+                  const isSel = formData.audiencePreference.includes(aud);
+                  return (
+                    <button
+                      key={aud}
+                      type="button"
+                      onClick={() => toggleArrayItem('audiencePreference', aud)}
+                      className={`py-2.5 px-2 rounded-2xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
+                        isSel
+                          ? 'bg-[#4DC2DA] text-[#001837] shadow-[3px_3px_0px_#001837] border-0'
+                          : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
+                      }`}
+                    >
+                      {aud} {isSel && '✓'}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Certificaciones o Título */}
+            <div>
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                {isEn ? 'Certifications or Degrees' : 'Certificaciones o Títulos (Opcional)'}
+              </label>
+              <div className="relative">
+                <GraduationCap className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                <input
+                  type="text"
+                  placeholder={isEn ? "e.g. TEFL, CELTA, TESOL, Bachelor in Languages" : "ej. TEFL, CELTA, Licenciatura en Lenguas Modernas, Traductorado"}
+                  value={formData.certifications}
+                  onChange={e => updateField('certifications', e.target.value)}
+                  className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] transition-all"
+                />
+              </div>
+            </div>
+
+            <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+              <button
+                type="button"
+                onClick={handleBack}
+                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3 py-2 rounded-xl transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>{isEn ? 'Back' : 'Atrás'}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleNext}
+                className="h-11 px-7 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center gap-2"
+              >
+                <span>{isEn ? 'Continue' : 'Continuar'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================================= */}
+        {/* PASO 3: DISPONIBILIDAD & FILOSOFÍA                                        */}
+        {/* ========================================================================= */}
+        {step === 3 && (
+          <div className="space-y-6 animate-in fade-in-50 duration-200">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+                {isEn ? 'Availability & Style' : 'Disponibilidad y Estilo de Enseñanza'}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+                {isEn ? 'Help us match you with the right schedule and students.' : 'Cuéntanos tus horarios disponibles y cómo te gusta conectar con tus alumnos.'}
+              </p>
+            </div>
+
+            {/* Disponibilidad semanal */}
+            <div className="space-y-2">
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+                {isEn ? 'Weekly Hours Available' : 'Horas Semanales Disponibles'}
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                {[
+                  '5 a 10 hs (Part-time flexible)',
+                  '10 a 20 horas / semana (Part-time)',
+                  'Más de 20 horas / semana'
+                ].map(hrs => (
+                  <button
+                    key={hrs}
+                    type="button"
+                    onClick={() => updateField('availabilityHours', hrs)}
+                    className={`py-3 px-3 rounded-2xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
+                      formData.availabilityHours === hrs
+                        ? 'bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] border-0 scale-[1.02]'
+                        : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
+                    }`}
+                  >
+                    {hrs}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Franja horaria preferida */}
+            <div className="space-y-2">
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+                {isEn ? 'Preferred Time Slots' : 'Franjas Horarias Preferidas'}
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                {[
+                  'Mañanas (7:00 AM - 12:00 PM)',
+                  'Tardes (2:00 PM - 7:00 PM)',
+                  'Noches (7:00 PM - 10:00 PM)'
+                ].map(slot => {
+                  const isSel = formData.preferredTimeSlot.includes(slot);
+                  return (
+                    <button
+                      key={slot}
+                      type="button"
+                      onClick={() => toggleArrayItem('preferredTimeSlot', slot)}
+                      className={`py-3 px-3 rounded-2xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
+                        isSel
+                          ? 'bg-[#834296] text-white shadow-[3px_3px_0px_#001837] border-0'
+                          : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
+                      }`}
+                    >
+                      {slot} {isSel && '✓'}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Enfoque / Filosofía */}
+            <div>
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                {isEn 
+                  ? 'What makes your teaching style human and engaging?' 
+                  : '¿Qué hace único tu estilo de enseñanza y cómo ayudas a perder el miedo a hablar?'}
+              </label>
+              <textarea
+                rows={3}
+                placeholder={isEn 
+                  ? "Share a brief note about your conversation approach..." 
+                  : "Cuéntanos brevemente cómo creas un ambiente de confianza en tus clases..."}
+                value={formData.methodologyAlignment}
+                onChange={e => updateField('methodologyAlignment', e.target.value)}
+                className="w-full p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] transition-all resize-none font-body-regular"
+              />
+            </div>
+
+            <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+              <button
+                type="button"
+                onClick={handleBack}
+                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3 py-2 rounded-xl transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>{isEn ? 'Back' : 'Atrás'}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleNext}
+                className="h-11 px-7 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center gap-2"
+              >
+                <span>{isEn ? 'Continue' : 'Continuar'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================================= */}
+        {/* PASO 4: CV, LINKEDIN & ENVÍO FINAL                                        */}
+        {/* ========================================================================= */}
+        {step === 4 && (
+          <div className="space-y-6 animate-in fade-in-50 duration-200">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+                {isEn ? 'CV & Final Submission' : 'CV, Enlaces y Envío'}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+                {isEn ? 'Almost done! Share your professional profile link.' : '¡Casi listo! Comparte tu perfil profesional o enlace a tu hoja de vida.'}
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                  {isEn ? 'LinkedIn Profile or CV Link (Google Drive/PDF) *' : 'Perfil de LinkedIn o Enlace a tu CV (Google Drive / PDF) *'}
+                </label>
+                <div className="relative">
+                  <LinkIcon className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="url"
+                    required
+                    placeholder="https://linkedin.com/in/tu-perfil o https://drive.google.com/..."
+                    value={formData.linkedinOrCvUrl}
+                    onChange={e => updateField('linkedinOrCvUrl', e.target.value)}
+                    className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] transition-all font-body-regular"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                  {isEn ? 'Video Introduction Link (Loom/YouTube/Drive) - Optional' : 'Video de Presentación Breve (Loom / YouTube / Drive) - Opcional'}
+                </label>
+                <div className="relative">
+                  <Globe className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="url"
+                    placeholder="https://www.loom.com/share/..."
+                    value={formData.videoIntroUrl}
+                    onChange={e => updateField('videoIntroUrl', e.target.value)}
+                    className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] transition-all font-body-regular"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                  {isEn ? 'Why do you want to join Yes You Can Languages?' : '¿Por qué te gustaría sumarte a Yes You Can Languages?'}
+                </label>
+                <textarea
+                  rows={2}
+                  placeholder={isEn ? "Anything else you'd like to share with the team..." : "Un mensaje breve para el equipo de selección..."}
+                  value={formData.motivationMessage}
+                  onChange={e => updateField('motivationMessage', e.target.value)}
+                  className="w-full p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] transition-all resize-none font-body-regular"
+                />
+              </div>
+            </div>
+
+            <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+              <button
+                type="button"
+                onClick={handleBack}
+                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3 py-2 rounded-xl transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>{isEn ? 'Back' : 'Atrás'}</span>
+              </button>
+
+              <button
+                type="submit"
+                disabled={isSubmitting || !formData.linkedinOrCvUrl}
+                className="h-12 px-8 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] active:translate-x-[1px] active:translate-y-[1px] font-heading font-extrabold text-sm transition-all cursor-pointer inline-flex items-center gap-2.5 disabled:opacity-50"
+              >
+                {isSubmitting ? (
+                  <span>{isEn ? 'Submitting...' : 'Enviando postulación...'}</span>
+                ) : (
+                  <>
+                    <span>{isEn ? 'Submit Application' : 'Enviar mi postulación'}</span>
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        )}
+      </form>
+    </div>
+  );
+};

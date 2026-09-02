@@ -71,7 +71,7 @@ export default function OtrosIdiomasPage() {
                       size="md"
                       className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
                     >
-                      Empezar mi nuevo idioma
+                      Elegir idioma
                     </Button>
                   </Link>
                 </div>

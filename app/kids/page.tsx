@@ -6,6 +6,7 @@ import { Smile, Sparkles, Gamepad2, Users } from 'lucide-react';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
+import { BrushStroke } from '@/components/ui/BrushStroke';
 import { PhotoCard } from '@/components/ui/PhotoCard';
 
 export default function KidsPage() {
@@ -59,11 +60,9 @@ export default function KidsPage() {
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#001837] tracking-tight leading-[1.15]">
-                  Inglés para <span className="text-[#0284C7] relative">
+                  Inglés para <span className="text-[#0284C7] relative inline-block">
                     Kids & Teens
-                    <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#4DC2DA] -z-10" viewBox="0 0 100 20" preserveAspectRatio="none">
-                      <path d="M0,15 Q50,0 100,15" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
-                    </svg>
+                    <BrushStroke color="#4DC2DA" variant="playful" className="absolute -bottom-2.5 left-0 w-full h-4 -z-10" />
                   </span>
                   <span className="block text-2xl sm:text-3xl text-slate-700 font-bold mt-2 font-heading">
                     (Niños y adolescentes)
@@ -81,7 +80,7 @@ export default function KidsPage() {
                       size="md"
                       className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Agendar entrevista gratis
+                      Encontrar el plan ideal
                     </Button>
                   </Link>
                 </div>

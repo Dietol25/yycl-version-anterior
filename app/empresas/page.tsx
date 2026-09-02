@@ -6,6 +6,7 @@ import { Briefcase, Building2, TrendingUp, Users, PhoneCall, RefreshCw, HeartHan
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
+import { BrushStroke } from '@/components/ui/BrushStroke';
 import { CompanyLogosSlider } from '@/components/ui/CompanyLogosSlider';
 
 export default function EmpresasPage() {
@@ -16,7 +17,7 @@ export default function EmpresasPage() {
       numberColor: 'text-[#EC9519]',
       title: 'Diagnóstico',
       desc: 'Conversamos para entender los objetivos de tu equipo.',
-      image: '/assets/08_EMPRESAS/YYCL_19_EMPRESAS_EQUIPO_COLABORACION.png'
+      image: '/assets/08_EMPRESAS/YYCL_20_EMPRESAS_DIAGNOSTICO.png'
     },
     {
       id: 'paso2',
@@ -32,7 +33,7 @@ export default function EmpresasPage() {
       numberColor: 'text-[#834296]',
       title: 'Implementación con seguimiento',
       desc: 'Reportes de progreso cada 2 meses, para que veas resultados concretos en tu equipo.',
-      image: '/assets/08_EMPRESAS/YYCL_19_EMPRESAS_EQUIPO_COLABORACION.png'
+      image: '/assets/08_EMPRESAS/YYCL_22_EMPRESAS_SEGUIMIENTO_REPORTES.png'
     }
   ];
 
@@ -124,9 +125,7 @@ export default function EmpresasPage() {
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight leading-[1.15]">
                   Inglés para tu <span className="text-[#A84988] relative inline-block">
                     equipo
-                    <svg className="absolute -bottom-2 left-0 w-full h-3.5 text-[#FFD203]" viewBox="0 0 100 20" preserveAspectRatio="none">
-                      <path d="M0,15 Q50,0 100,15" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
-                    </svg>
+                    <BrushStroke color="#FFD203" variant="straight" className="absolute -bottom-2 left-0 w-full h-2" />
                   </span>
                 </h1>
 
@@ -192,7 +191,7 @@ export default function EmpresasPage() {
                   className="bg-white rounded-3xl overflow-hidden border border-[#001837] shadow-[3px_3px_0px_#001837] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
                 >
                   {/* Photo Container */}
-                  <div className="h-48 sm:h-52 bg-slate-50 relative overflow-hidden flex items-center justify-center p-4 border-b border-[#001837]/20">
+                  <div className="h-48 sm:h-52 bg-white relative overflow-hidden flex items-center justify-center p-3.5 border-b border-slate-100">
                     <img
                       src={item.image}
                       alt={item.title}

@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Calendar, Clock, ArrowRight, ArrowLeft, Video, AlertCircle, Sparkles } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { usePathname } from 'next/navigation';
+import { Calendar, Clock, ArrowRight, ArrowLeft, Video, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 
-const SERVICE_OPTIONS = [
+const SERVICE_OPTIONS_ES = [
   {
     id: 'diagnostic',
     title: 'Diagnóstico de Nivel Oral 1-a-1',
-    host: 'Nathi & Equipo YYCL',
-    hostAvatar: '/assets/avatares/mujer.png',
+    host: 'Natty',
+    hostAvatar: '/assets/profesores/natty-sanchez.png',
     duration: '15 minutos',
     price: 'GRATIS',
     badge: 'RECOMENDADO',
@@ -20,8 +21,8 @@ const SERVICE_OPTIONS = [
   {
     id: 'b2b',
     title: 'Consulta B2B para Empresas',
-    host: 'Néstor & Equipo Corporativo',
-    hostAvatar: '/assets/avatares/hombre.png',
+    host: 'Néstor',
+    hostAvatar: '/assets/profesores/nestor-montano.png',
     duration: '30 minutos',
     price: 'GRATIS',
     badge: 'CORPORATIVO',
@@ -31,20 +32,50 @@ const SERVICE_OPTIONS = [
   }
 ];
 
+const SERVICE_OPTIONS_EN = [
+  {
+    id: 'diagnostic',
+    title: '1-on-1 Oral Level Assessment',
+    host: 'Natty',
+    hostAvatar: '/assets/profesores/natty-sanchez.png',
+    duration: '15 minutes',
+    price: 'FREE',
+    badge: 'RECOMMENDED',
+    badgeVariant: 'conversacion' as const,
+    desc: 'Quick assessment of your speaking level and a personalized roadmap to fluency.',
+    icon: '🎯'
+  },
+  {
+    id: 'b2b',
+    title: 'B2B Consultation for Companies',
+    host: 'Néstor',
+    hostAvatar: '/assets/profesores/nestor-montano.png',
+    duration: '30 minutes',
+    price: 'FREE',
+    badge: 'CORPORATE',
+    badgeVariant: 'empresas' as const,
+    desc: 'Tailored proposal to train your team with progress tracking and analytics.',
+    icon: '🏢'
+  }
+];
+
 const COUNTRY_CODES = [
+  { code: '+1', name: '+1 (USA / Canada)' },
   { code: '+57', name: '+57 (Colombia)' },
   { code: '+54', name: '+54 (Argentina)' },
   { code: '+52', name: '+52 (México)' },
   { code: '+56', name: '+56 (Chile)' },
   { code: '+51', name: '+51 (Perú)' },
   { code: '+34', name: '+34 (España)' },
-  { code: '+1', name: '+1 (USA / Canadá)' },
   { code: '+593', name: '+593 (Ecuador)' },
   { code: '+598', name: '+598 (Uruguay)' },
   { code: '+507', name: '+507 (Panamá)' },
   { code: '+506', name: '+506 (Costa Rica)' },
   { code: '+591', name: '+591 (Bolivia)' },
   { code: '+595', name: '+595 (Paraguay)' },
+  { code: '+44', name: '+44 (UK)' },
+  { code: '+33', name: '+33 (France)' },
+  { code: '+55', name: '+55 (Brazil)' },
 ];
 
 const TIME_SLOTS = [
@@ -53,21 +84,61 @@ const TIME_SLOTS = [
   '06:00 PM', '07:00 PM'
 ];
 
-const DATES = [
+const EXTENDED_DATES_ES = [
   { dayName: 'Hoy', dayNum: '01', fullDate: '2026-09-01' },
   { dayName: 'Mié', dayNum: '02', fullDate: '2026-09-02' },
   { dayName: 'Jue', dayNum: '03', fullDate: '2026-09-03' },
   { dayName: 'Vie', dayNum: '04', fullDate: '2026-09-04' },
   { dayName: 'Sáb', dayNum: '05', fullDate: '2026-09-05' },
   { dayName: 'Lun', dayNum: '07', fullDate: '2026-09-07' },
+  { dayName: 'Mar', dayNum: '08', fullDate: '2026-09-08' },
+  { dayName: 'Mié', dayNum: '09', fullDate: '2026-09-09' },
+  { dayName: 'Jue', dayNum: '10', fullDate: '2026-09-10' },
+  { dayName: 'Vie', dayNum: '11', fullDate: '2026-09-11' },
+  { dayName: 'Sáb', dayNum: '12', fullDate: '2026-09-12' },
+  { dayName: 'Lun', dayNum: '14', fullDate: '2026-09-14' },
+  { dayName: 'Mar', dayNum: '15', fullDate: '2026-09-15' },
+  { dayName: 'Mié', dayNum: '16', fullDate: '2026-09-16' },
+  { dayName: 'Jue', dayNum: '17', fullDate: '2026-09-17' },
+  { dayName: 'Vie', dayNum: '18', fullDate: '2026-09-18' },
+  { dayName: 'Sáb', dayNum: '19', fullDate: '2026-09-19' },
+  { dayName: 'Lun', dayNum: '21', fullDate: '2026-09-21' },
+  { dayName: 'Mar', dayNum: '22', fullDate: '2026-09-22' },
+];
+
+const EXTENDED_DATES_EN = [
+  { dayName: 'Today', dayNum: '01', fullDate: '2026-09-01' },
+  { dayName: 'Wed', dayNum: '02', fullDate: '2026-09-02' },
+  { dayName: 'Thu', dayNum: '03', fullDate: '2026-09-03' },
+  { dayName: 'Fri', dayNum: '04', fullDate: '2026-09-04' },
+  { dayName: 'Sat', dayNum: '05', fullDate: '2026-09-05' },
+  { dayName: 'Mon', dayNum: '07', fullDate: '2026-09-07' },
+  { dayName: 'Tue', dayNum: '08', fullDate: '2026-09-08' },
+  { dayName: 'Wed', dayNum: '09', fullDate: '2026-09-09' },
+  { dayName: 'Thu', dayNum: '10', fullDate: '2026-09-10' },
+  { dayName: 'Fri', dayNum: '11', fullDate: '2026-09-11' },
+  { dayName: 'Sat', dayNum: '12', fullDate: '2026-09-12' },
+  { dayName: 'Mon', dayNum: '14', fullDate: '2026-09-14' },
+  { dayName: 'Tue', dayNum: '15', fullDate: '2026-09-15' },
+  { dayName: 'Wed', dayNum: '16', fullDate: '2026-09-16' },
+  { dayName: 'Thu', dayNum: '17', fullDate: '2026-09-17' },
+  { dayName: 'Fri', dayNum: '18', fullDate: '2026-09-18' },
+  { dayName: 'Sat', dayNum: '19', fullDate: '2026-09-19' },
+  { dayName: 'Mon', dayNum: '21', fullDate: '2026-09-21' },
+  { dayName: 'Tue', dayNum: '22', fullDate: '2026-09-22' },
 ];
 
 export const BookingWizard = () => {
+  const pathname = usePathname();
+  const isEn = pathname?.startsWith('/en');
+
   const [step, setStep] = useState(1);
   const [selectedService, setSelectedService] = useState('diagnostic');
   const [selectedDate, setSelectedDate] = useState('2026-09-02');
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
   
+  const daysSliderRef = useRef<HTMLDivElement>(null);
+
   // Validation States
   const [nameError, setNameError] = useState<string | null>(null);
   const [lastNameError, setLastNameError] = useState<string | null>(null);
@@ -78,20 +149,29 @@ export const BookingWizard = () => {
     firstName: '',
     lastName: '',
     email: '',
-    phoneCode: '+57',
+    phoneCode: isEn ? '+1' : '+57',
     phoneNumber: '',
-    language: 'Inglés',
-    currentLevel: 'Cero / Principiante (A1)',
-    goal: 'Viajes / Inmigración',
-    audience: 'Para mí (un adulto)',
+    language: isEn ? 'Spanish' : 'Inglés',
+    currentLevel: isEn ? 'Zero / Absolute Beginner (A1)' : 'Cero / Principiante (A1)',
+    goal: isEn ? 'Travel / Cultural Immersion' : 'Viajes / Inmigración',
+    audience: isEn ? 'For myself (Adult)' : 'Para mí (un adulto)',
     referral: 'Instagram',
   });
 
-  const selectedServiceObj = SERVICE_OPTIONS.find(s => s.id === selectedService) || SERVICE_OPTIONS[0];
+  const services = isEn ? SERVICE_OPTIONS_EN : SERVICE_OPTIONS_ES;
+  const dates = isEn ? EXTENDED_DATES_EN : EXTENDED_DATES_ES;
+  const selectedServiceObj = services.find(s => s.id === selectedService) || services[0];
+
+  const scrollDays = (direction: 'left' | 'right') => {
+    if (daysSliderRef.current) {
+      const scrollAmount = direction === 'left' ? -280 : 280;
+      daysSliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   const validateName = (val: string) => {
     if (!val.trim()) {
-      setNameError('Por favor ingresa tu nombre');
+      setNameError(isEn ? 'Please enter your first name' : 'Por favor ingresa tu nombre');
       return false;
     }
     setNameError(null);
@@ -100,7 +180,7 @@ export const BookingWizard = () => {
 
   const validateLastName = (val: string) => {
     if (!val.trim()) {
-      setLastNameError('Por favor ingresa tu apellido');
+      setLastNameError(isEn ? 'Please enter your last name' : 'Por favor ingresa tu apellido');
       return false;
     }
     setLastNameError(null);
@@ -110,12 +190,12 @@ export const BookingWizard = () => {
   const validateEmail = (value: string) => {
     const cleaned = value.trim();
     if (!cleaned) {
-      setEmailError('Por favor ingresa tu correo electrónico');
+      setEmailError(isEn ? 'Please enter your email address' : 'Por favor ingresa tu correo electrónico');
       return false;
     }
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(cleaned)) {
-      setEmailError('Ingresa un correo electrónico válido (ej: nombre@correo.com)');
+      setEmailError(isEn ? 'Please enter a valid email (e.g. name@example.com)' : 'Ingresa un correo electrónico válido (ej: nombre@correo.com)');
       return false;
     }
     setEmailError(null);
@@ -125,78 +205,36 @@ export const BookingWizard = () => {
   const validatePhone = (value: string, code = formData.phoneCode) => {
     const cleaned = value.trim();
     if (!cleaned) {
-      setPhoneError('Por favor ingresa tu número de WhatsApp');
+      setPhoneError(isEn ? 'Please enter your phone/WhatsApp number' : 'Por favor ingresa tu número de WhatsApp');
       return false;
     }
     const digitsOnly = cleaned.replace(/\D/g, '');
     if (/[a-zA-Z]/.test(cleaned)) {
-      setPhoneError('Ingresa solo números');
+      setPhoneError(isEn ? 'Please enter digits only' : 'Ingresa solo números');
       return false;
     }
 
-    // Validaciones amigables según país (solo se disparan al terminar de escribir o al continuar):
     if (code === '+57') {
-      // Colombia: 10 dígitos obligatorios e inicio con 3
       if (digitsOnly.length < 10) {
-        setPhoneError('En Colombia (+57) falta algún dígito (debe tener 10 dígitos, ej: 300 123 4567)');
+        setPhoneError('En Colombia (+57) debe tener 10 dígitos (ej: 300 123 4567)');
         return false;
       }
       if (digitsOnly.length > 10) {
-        setPhoneError('En Colombia (+57) el número no debe superar 10 dígitos');
+        setPhoneError('El número no debe superar 10 dígitos');
         return false;
       }
       if (!digitsOnly.startsWith('3')) {
-        setPhoneError('En Colombia (+57) los celulares inician con 3 (ej: 300 123 4567)');
-        return false;
-      }
-    } else if (code === '+54') {
-      // Argentina: Acepta entre 8 y 11 dígitos (código de área + celular con o sin 9 / 15)
-      if (digitsOnly.length < 8) {
-        setPhoneError('En Argentina (+54) faltan dígitos en el número telefónico');
-        return false;
-      }
-      if (digitsOnly.length > 12) {
-        setPhoneError('El número ingresado supera la longitud permitida');
-        return false;
-      }
-    } else if (code === '+52') {
-      // México: 10 dígitos
-      if (digitsOnly.length < 10) {
-        setPhoneError('En México (+52) faltan dígitos (debe tener 10 dígitos, ej: 55 1234 5678)');
-        return false;
-      }
-      if (digitsOnly.length > 10) {
-        setPhoneError('En México (+52) el número tiene 10 dígitos');
-        return false;
-      }
-    } else if (code === '+56') {
-      // Chile: 9 dígitos
-      if (digitsOnly.length !== 9) {
-        setPhoneError('En Chile (+56) los móviles deben tener 9 dígitos (ej: 9 1234 5678)');
-        return false;
-      }
-    } else if (code === '+51') {
-      // Perú: 9 dígitos
-      if (digitsOnly.length !== 9) {
-        setPhoneError('En Perú (+51) los celulares deben tener 9 dígitos (ej: 912 345 678)');
-        return false;
-      }
-    } else if (code === '+34') {
-      // España: 9 dígitos
-      if (digitsOnly.length !== 9) {
-        setPhoneError('En España (+34) los móviles deben tener 9 dígitos (ej: 612 345 678)');
+        setPhoneError('En Colombia los celulares inician con 3 (ej: 300 123 4567)');
         return false;
       }
     } else if (code === '+1') {
-      // USA / Canadá: 10 dígitos
-      if (digitsOnly.length !== 10) {
-        setPhoneError('En USA / Canadá (+1) debe tener 10 dígitos (ej: 202 555 0199)');
+      if (digitsOnly.length < 10) {
+        setPhoneError(isEn ? 'US/Canada numbers require 10 digits (e.g. 555 123 4567)' : 'El número en USA/Canadá requiere 10 dígitos');
         return false;
       }
     } else {
-      // Otros países
-      if (digitsOnly.length < 7 || digitsOnly.length > 15) {
-        setPhoneError('Ingresa un número telefónico válido');
+      if (digitsOnly.length < 7) {
+        setPhoneError(isEn ? 'Please enter a valid phone number' : 'Ingresa un número válido');
         return false;
       }
     }
@@ -205,54 +243,70 @@ export const BookingWizard = () => {
     return true;
   };
 
+  const scrollToWizardTop = () => {
+    const wizardEl = document.getElementById('wizard-container');
+    if (wizardEl) {
+      wizardEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const handleNext = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
+
     if (step === 3) {
       const isNameValid = validateName(formData.firstName);
       const isLastNameValid = validateLastName(formData.lastName);
       const isEmailValid = validateEmail(formData.email);
-      const isPhoneValid = validatePhone(formData.phoneNumber);
+      const isPhoneValid = validatePhone(formData.phoneNumber, formData.phoneCode);
 
       if (!isNameValid || !isLastNameValid || !isEmailValid || !isPhoneValid) {
         return;
       }
     }
-    if (step < 4) setStep(step + 1);
+
+    setStep(prev => Math.min(prev + 1, 4));
+    scrollToWizardTop();
   };
 
-  React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [step]);
-
   const handleBack = () => {
-    if (step > 1) setStep(step - 1);
+    setStep(prev => Math.max(prev - 1, 1));
+    scrollToWizardTop();
   };
 
   const generateGoogleCalendarUrl = () => {
-    const title = encodeURIComponent(`YYCL · ${selectedServiceObj.title} (${formData.firstName || 'Estudiante'})`);
+    const title = encodeURIComponent(
+      isEn
+        ? `YYCL Live Session: ${selectedServiceObj.title}`
+        : `Sesión YYCL: ${selectedServiceObj.title}`
+    );
     const details = encodeURIComponent(
-      `Sesión online individual en vivo con Yes You Can Languages.\nIdioma: ${formData.language}\nNivel: ${formData.currentLevel}\nObjetivo: ${formData.goal}\nWhatsApp: ${formData.phoneCode} ${formData.phoneNumber}\nEnlace de Google Meet enviado a ${formData.email || 'tu correo'}.`
+      isEn
+        ? `Live 1-on-1 language session with ${selectedServiceObj.host}.\nGoogle Meet link will be provided.\nAcademy: Yes You Can Languages (YYCL)`
+        : `Sesión 1-a-1 en vivo con ${selectedServiceObj.host}.\nEnlace de Google Meet enviado a ${formData.email}.\nAcademia: Yes You Can Languages (YYCL)`
     );
     const location = encodeURIComponent('Google Meet (Online)');
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white rounded-3xl border border-[#001837] shadow-[5px_5px_0px_#001837] overflow-hidden">
-      {/* Header Wizard Status - Minimalista & Aireado */}
-      <div className="p-4 sm:p-6 border-b border-slate-100 bg-white">
-        <div className="flex items-center justify-between gap-2 mb-2.5">
-          <div className="flex items-center gap-2.5">
-            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#FFD203] text-[#001837] font-black text-xs flex items-center justify-center font-heading shrink-0">
+    <div id="wizard-container" className="max-w-3xl mx-auto bg-white rounded-3xl border-2 border-[#001837] shadow-[5px_5px_0px_#001837] overflow-hidden">
+      
+      {/* ========================================================================= */}
+      {/* TOP STEPPER & PROGRESS HEADER                                             */}
+      {/* ========================================================================= */}
+      <div className="bg-white border-b-2 border-[#001837]/15 p-5 sm:p-6 space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="w-7 h-7 rounded-full bg-[#FFD203] text-[#001837] font-heading font-black text-xs flex items-center justify-center border-2 border-[#001837] shadow-[1.5px_1.5px_0px_#EC9519] shrink-0">
               {step}
             </span>
             <span className="font-heading font-extrabold text-xs sm:text-sm text-[#001837] truncate">
-              Paso {step} de 4 · {
-                step === 1 ? 'Elige tu tipo de sesión' :
-                step === 2 ? 'Selecciona fecha y hora' :
-                step === 3 ? 'Tus datos de contacto' : '¡Reserva Confirmada!'
+              {isEn ? `Step ${step} of 4 · ` : `Paso ${step} de 4 · `}
+              {
+                step === 1 ? (isEn ? 'Choose your session type' : 'Elige tu tipo de sesión') :
+                step === 2 ? (isEn ? 'Select date and time' : 'Selecciona fecha y hora') :
+                step === 3 ? (isEn ? 'Your contact details' : 'Tus datos de contacto') :
+                (isEn ? 'Booking Confirmed!' : '¡Reserva Confirmada!')
               }
             </span>
           </div>
@@ -262,7 +316,7 @@ export const BookingWizard = () => {
         </div>
 
         {/* Slim Progress Bar */}
-        <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+        <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-black/5">
           <div
             className="bg-[#FFD203] h-full transition-all duration-300 rounded-full"
             style={{ width: `${step * 25}%` }}
@@ -271,65 +325,66 @@ export const BookingWizard = () => {
       </div>
 
       <div className="p-6 sm:p-8">
+        
         {/* ========================================================================= */}
-        {/* PASO 1: SELECCIÓN DE REUNIÓN + REGLAS DEL DS LIMPIAS                      */}
+        {/* PASO 1: SELECCIÓN DE REUNIÓN + RECOMENDACIONES                            */}
         {/* ========================================================================= */}
         {step === 1 && (
           <div className="space-y-6">
             <div>
               <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
-                Entrevista gratuita
+                {isEn ? 'Free Interview' : 'Entrevista gratuita'}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight mt-1">
-                Elige una reunión
+                {isEn ? 'Select a session' : 'Elige una reunión'}
               </h2>
             </div>
 
-            {/* Caja de Recomendaciones Oficiales estilizada con el Design System */}
+            {/* Recommendations Box */}
             <div className="p-5 rounded-2xl bg-[#FFE2C0]/35 border border-[#EC9519]/40 text-[#001837] space-y-2.5">
               <h4 className="font-heading font-bold text-sm text-[#001837]">
-                Ten en cuenta para tu entrevista:
+                {isEn ? 'Things to keep in mind for your interview:' : 'Ten en cuenta para tu entrevista:'}
               </h4>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700 font-body-regular">
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
-                  <span><strong>Agrégalo a tu calendario</strong> para no olvidarlo.</span>
+                  <span>{isEn ? <strong>Add it to your calendar</strong> : <strong>Agrégalo a tu calendario</strong>} {isEn ? "so you don't miss it." : 'para no olvidarlo.'}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
-                  <span>Sé puntual por si tu entrevista es en dúo.</span>
+                  <span>{isEn ? 'Be punctual in case your session is in duo format.' : 'Sé puntual por si tu entrevista es en dúo.'}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
-                  <span>Lugar tranquilo y con buena conexión.</span>
+                  <span>{isEn ? 'Choose a quiet place with a stable connection.' : 'Lugar tranquilo y con buena conexión.'}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
-                  <span>Si no puedes asistir, avísanos con tiempo por favor.</span>
+                  <span>{isEn ? "If you can't make it, please notify us in advance." : 'Si no puedes asistir, avísanos con tiempo por favor.'}</span>
                 </li>
                 <li className="flex items-center gap-2 sm:col-span-2">
                   <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
-                  <span><strong>Relájate y diviértete:</strong> es una conversación sin presiones.</span>
+                  <span>{isEn ? <strong>Relax and enjoy:</strong> : <strong>Relájate y diviértete:</strong>} {isEn ? "it's a zero-pressure conversation." : 'es una conversación sin presiones.'}</span>
                 </li>
               </ul>
             </div>
 
-            {/* Opciones de Reunión */}
+            {/* Session Options Cards */}
             <div className="space-y-3.5 pt-1">
-              {SERVICE_OPTIONS.map((opt) => {
+              {services.map((opt) => {
                 const isSelected = selectedService === opt.id;
                 return (
                   <div
                     key={opt.id}
                     onClick={() => setSelectedService(opt.id)}
-                    className={`cursor-pointer rounded-2xl p-5 sm:p-6 border transition-all flex items-center justify-between gap-4 ${
+                    className={`cursor-pointer rounded-2xl p-5 sm:p-6 border-2 transition-all flex items-center justify-between gap-4 ${
                       isSelected
-                        ? 'border-[#001837] bg-[#FFE2C0]/25 shadow-[3px_3px_0px_#001837]'
+                        ? 'border-[#001837] bg-[#FFE2C0]/25 shadow-[4px_4px_0px_#001837]'
                         : 'border-slate-200 bg-white hover:border-slate-300'
                     }`}
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-full overflow-hidden border border-[#001837] shrink-0 bg-slate-100 shadow-xs">
+                      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#001837] shrink-0 bg-slate-100 shadow-xs">
                         <img src={opt.hostAvatar} alt={opt.host} className="w-full h-full object-cover" />
                       </div>
                       <div className="space-y-0.5">
@@ -341,7 +396,9 @@ export const BookingWizard = () => {
                             {opt.badge}
                           </Badge>
                         </div>
-                        <p className="text-xs text-slate-500 font-medium">Con {opt.host}</p>
+                        <p className="text-xs text-slate-500 font-medium">
+                          {isEn ? `With ${opt.host}` : `Con ${opt.host}`}
+                        </p>
                         <div className="flex items-center gap-4 pt-1 text-xs font-heading font-bold text-slate-600">
                           <span className="flex items-center gap-1.5">
                             <Clock className="w-3.5 h-3.5 text-[#834296]" />
@@ -366,9 +423,9 @@ export const BookingWizard = () => {
               <button
                 type="button"
                 onClick={() => handleNext()}
-                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] border border-[#001837] shadow-[3px_3px_0px_#001837] font-heading font-bold text-xs sm:text-sm hover:bg-[#FFE2C0] transition-colors cursor-pointer inline-flex items-center gap-2"
+                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center gap-2"
               >
-                <span>Continuar</span>
+                <span>{isEn ? 'Continue' : 'Continuar'}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -376,57 +433,91 @@ export const BookingWizard = () => {
         )}
 
         {/* ========================================================================= */}
-        {/* PASO 2: SELECCIÓN DE HORA                                                 */}
+        {/* PASO 2: SELECCIÓN DE DÍA Y HORA CON SLIDER HORIZONTAL                     */}
         {/* ========================================================================= */}
         {step === 2 && (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
+          <div className="space-y-7 sm:space-y-8">
+            
+            {/* Step 2 Header Responsive */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-1 border-b border-slate-100">
               <div>
                 <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
                   {selectedServiceObj.title}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight mt-1">
-                  Elige una hora
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight mt-0.5">
+                  {isEn ? 'Select a time' : 'Elige una hora'}
                 </h2>
               </div>
-              <span className="text-xs font-body-regular text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
-                🌐 Horarios en tu zona
+              <span className="self-start sm:self-auto inline-flex items-center gap-1.5 text-xs font-heading font-bold text-slate-600 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-2xs">
+                🌐 {isEn ? 'Times in your timezone' : 'Horarios en tu zona'}
               </span>
             </div>
 
-            {/* Días */}
-            <div className="space-y-2.5">
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-slate-700 block">
-                1. Elige el día
-              </label>
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
-                {DATES.map((d) => {
+            {/* 1. SELECCIÓN DE DÍA CON SLIDER HORIZONTAL & ARROWS ORDENADOS */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-3">
+                <label className="text-xs sm:text-sm font-heading font-extrabold uppercase tracking-wider text-[#001837] truncate">
+                  {isEn ? '1. Select the date' : '1. Elige el día'}
+                </label>
+
+                {/* Integrated Month Badge + Arrows Controls */}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <span className="text-[11px] sm:text-xs font-heading font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200/80">
+                    {isEn ? 'Sep 2026' : 'Sep 2026'}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => scrollDays('left')}
+                    aria-label="Previous days"
+                    className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-100 flex items-center justify-center text-[#001837] transition-all cursor-pointer active:scale-95 shadow-2xs"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => scrollDays('right')}
+                    aria-label="Next days"
+                    className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-100 flex items-center justify-center text-[#001837] transition-all cursor-pointer active:scale-95 shadow-2xs"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Horizontal Scrollable Days Slider Container (Sin stroke negro en seleccionado) */}
+              <div
+                ref={daysSliderRef}
+                className="flex items-center gap-3 overflow-x-auto scroll-smooth pb-2 pt-1 no-scrollbar select-none"
+                style={{ scrollSnapType: 'x mandatory' }}
+              >
+                {dates.map((d) => {
                   const isSel = selectedDate === d.fullDate;
                   return (
                     <button
                       key={d.fullDate}
                       type="button"
                       onClick={() => setSelectedDate(d.fullDate)}
-                      className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
+                      style={{ scrollSnapAlign: 'start' }}
+                      className={`shrink-0 w-[84px] sm:w-[94px] py-3.5 px-2 rounded-2xl text-center transition-all cursor-pointer ${
                         isSel
-                          ? 'border-[#001837] bg-[#FFD203] text-[#001837] font-black shadow-[3px_3px_0px_#001837]'
-                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                          ? 'bg-[#FFD203] text-[#001837] font-black shadow-[3px_3px_0px_#EC9519] border-0 scale-[1.02]'
+                          : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50/80 shadow-2xs'
                       }`}
                     >
-                      <span className="text-[11px] font-heading font-bold block uppercase">{d.dayName}</span>
-                      <span className="text-lg font-heading font-extrabold block mt-0.5">{d.dayNum}</span>
+                      <span className="text-[11px] font-heading font-bold block uppercase tracking-wider">{d.dayName}</span>
+                      <span className="text-lg sm:text-xl font-heading font-black block mt-0.5">{d.dayNum}</span>
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Horas */}
-            <div className="space-y-2.5">
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-slate-700 block">
-                2. Elige la hora disponible
+            {/* 2. SELECCIÓN DE HORA (Con botón violeta activo #834296 sin stroke negro) */}
+            <div className="space-y-3">
+              <label className="text-xs sm:text-sm font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+                {isEn ? '2. Choose an available time slot' : '2. Elige la hora disponible'}
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3">
                 {TIME_SLOTS.map((time) => {
                   const isSel = selectedTime === time;
                   return (
@@ -434,10 +525,10 @@ export const BookingWizard = () => {
                       key={time}
                       type="button"
                       onClick={() => setSelectedTime(time)}
-                      className={`py-2.5 px-3 rounded-xl border text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                      className={`py-3 px-3 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${
                         isSel
-                          ? 'border-[#001837] bg-[#001837] text-white shadow-[3px_3px_0px_#834296]'
-                          : 'border-slate-200 bg-white text-[#001837] hover:border-slate-300'
+                          ? 'bg-[#834296] text-white shadow-[3px_3px_0px_#001837] border-0 scale-[1.02]'
+                          : 'bg-white text-[#001837] border border-slate-200 hover:border-slate-300 hover:bg-slate-50/80 shadow-2xs'
                       }`}
                     >
                       <Clock className={`w-3.5 h-3.5 ${isSel ? 'text-[#FFD203]' : 'text-slate-400'}`} />
@@ -448,56 +539,59 @@ export const BookingWizard = () => {
               </div>
             </div>
 
-            {/* Barra de Navegación con Botón Atrás Ghost Pequeño */}
-            <div className="pt-4 flex items-center justify-between">
+            {/* Navigation Actions */}
+            <div className="pt-4 flex items-center justify-between border-t border-slate-100">
               <button
                 type="button"
                 onClick={handleBack}
-                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3 py-2 rounded-xl hover:bg-slate-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl hover:bg-slate-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>Atrás</span>
+                <span>{isEn ? 'Back' : 'Atrás'}</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNext()}
-                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] border border-[#001837] shadow-[3px_3px_0px_#001837] font-heading font-bold text-xs sm:text-sm hover:bg-[#FFE2C0] transition-colors cursor-pointer inline-flex items-center gap-2"
+                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center gap-2"
               >
-                <span>Continuar</span>
+                <span>{isEn ? 'Continue' : 'Continuar'}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
+
           </div>
         )}
 
         {/* ========================================================================= */}
-        {/* PASO 3: TUS DATOS DE CONTACTO (Validaciones en Tiempo Real de Email y Tel) */}
+        {/* PASO 3: TUS DATOS DE CONTACTO (Bilingüe & Validado)                       */}
         {/* ========================================================================= */}
         {step === 3 && (
           <form onSubmit={handleNext} className="space-y-5">
             <div>
               <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
-                Paso final
+                {isEn ? 'Final step' : 'Paso final'}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight mt-0.5">
-                Tus datos de contacto
+                {isEn ? 'Your contact details' : 'Tus datos de contacto'}
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1 font-body-regular">
-                Te enviaremos el link de acceso a Google Meet y recordatorio por WhatsApp.
+                {isEn
+                  ? "We'll send your Google Meet access link and WhatsApp reminder."
+                  : 'Te enviaremos el link de acceso a Google Meet y recordatorio por WhatsApp.'}
               </p>
             </div>
 
-            {/* Nombre y Apellido con validación */}
+            {/* First & Last Name */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
-                  Nombre
+                  {isEn ? 'First Name' : 'Nombre'}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Diego"
+                  placeholder={isEn ? 'John' : 'Diego'}
                   value={formData.firstName}
                   onChange={(e) => {
                     setFormData({ ...formData, firstName: e.target.value });
@@ -520,12 +614,12 @@ export const BookingWizard = () => {
 
               <div className="space-y-1.5">
                 <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
-                  Apellido
+                  {isEn ? 'Last Name' : 'Apellido'}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Torres"
+                  placeholder={isEn ? 'Smith' : 'Torres'}
                   value={formData.lastName}
                   onChange={(e) => {
                     setFormData({ ...formData, lastName: e.target.value });
@@ -547,17 +641,16 @@ export const BookingWizard = () => {
               </div>
             </div>
 
-            {/* Email y WhatsApp con Validación de Error en Ambos */}
+            {/* Email & Phone */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Campo Email con Validación */}
               <div className="space-y-1.5">
                 <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
-                  Correo Electrónico
+                  {isEn ? 'Email Address' : 'Correo Electrónico'}
                 </label>
                 <input
                   type="email"
                   required
-                  placeholder="dietol25@hotmail.com"
+                  placeholder={isEn ? 'name@example.com' : 'dietol25@hotmail.com'}
                   value={formData.email}
                   onChange={(e) => {
                     setFormData({ ...formData, email: e.target.value });
@@ -580,10 +673,9 @@ export const BookingWizard = () => {
                 )}
               </div>
 
-              {/* Campo WhatsApp con Indicativo y Validación */}
               <div className="space-y-1.5">
                 <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
-                  WhatsApp / Teléfono
+                  {isEn ? 'WhatsApp / Phone Number' : 'WhatsApp / Teléfono'}
                 </label>
                 <div className="flex gap-2">
                   <select
@@ -593,11 +685,11 @@ export const BookingWizard = () => {
                       setFormData({ ...formData, phoneCode: newCode });
                       if (phoneError) setPhoneError(null);
                     }}
-                    className="w-24 shrink-0 h-11 px-2.5 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
+                    className="w-28 shrink-0 h-11 px-2 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
                   >
                     {COUNTRY_CODES.map((c) => (
                       <option key={c.code} value={c.code}>
-                        {c.code}
+                        {c.code} {c.name.split(' ')[1]}
                       </option>
                     ))}
                   </select>
@@ -606,13 +698,9 @@ export const BookingWizard = () => {
                     type="tel"
                     required
                     placeholder={
+                      formData.phoneCode === '+1' ? '555 123 4567' :
                       formData.phoneCode === '+57' ? '300 123 4567' :
                       formData.phoneCode === '+54' ? '11 2542 0791' :
-                      formData.phoneCode === '+52' ? '55 1234 5678' :
-                      formData.phoneCode === '+56' ? '9 1234 5678' :
-                      formData.phoneCode === '+51' ? '912 345 678' :
-                      formData.phoneCode === '+34' ? '612 345 678' :
-                      formData.phoneCode === '+1' ? '202 555 0199' :
                       '300 123 4567'
                     }
                     value={formData.phoneNumber}
@@ -640,79 +728,125 @@ export const BookingWizard = () => {
               </div>
             </div>
 
-            {/* Dropdowns Elegantes: Nivel actual & Objetivo Principal */}
+            {/* Dropdowns: Level & Goal */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
-                  ¿Nivel actual de inglés?
+                  {isEn ? 'Current language level?' : '¿Nivel actual de idioma?'}
                 </label>
                 <select
                   value={formData.currentLevel}
                   onChange={(e) => setFormData({ ...formData, currentLevel: e.target.value })}
                   className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
                 >
-                  <option value="Cero / Principiante (A1)">Cero / Principiante (A1)</option>
-                  <option value="Básico (A2)">Básico (A2)</option>
-                  <option value="Intermedio básico (B1)">Intermedio básico (B1)</option>
-                  <option value="Intermedio alto (B2)">Intermedio alto (B2)</option>
-                  <option value="Avanzado (C1)">Avanzado (C1)</option>
+                  {isEn ? (
+                    <>
+                      <option value="Zero / Absolute Beginner (A1)">Zero / Absolute Beginner (A1)</option>
+                      <option value="Elementary (A2)">Elementary (A2)</option>
+                      <option value="Intermediate (B1)">Intermediate (B1)</option>
+                      <option value="Upper Intermediate (B2)">Upper Intermediate (B2)</option>
+                      <option value="Advanced / Fluent (C1)">Advanced / Fluent (C1)</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="Cero / Principiante (A1)">Cero / Principiante (A1)</option>
+                      <option value="Básico (A2)">Básico (A2)</option>
+                      <option value="Intermedio básico (B1)">Intermedio básico (B1)</option>
+                      <option value="Intermedio alto (B2)">Intermedio alto (B2)</option>
+                      <option value="Avanzado (C1)">Avanzado (C1)</option>
+                    </>
+                  )}
                 </select>
               </div>
 
               <div className="space-y-1.5">
                 <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
-                  ¿Objetivo principal?
+                  {isEn ? 'Main goal?' : '¿Objetivo principal?'}
                 </label>
                 <select
                   value={formData.goal}
                   onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
                   className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
                 >
-                  <option value="Viajes / Inmigración">Viajes / Inmigración</option>
-                  <option value="Trabajo remoto / Empleo internacional">Trabajo remoto / Empleo internacional</option>
-                  <option value="Rendir Examen (TOEFL / IELTS)">Rendir Examen (TOEFL / IELTS)</option>
-                  <option value="Capacitación corporativa de equipo">Capacitación corporativa de equipo</option>
-                  <option value="Hablar sin miedo ni vergüenza">Hablar sin miedo ni vergüenza</option>
+                  {isEn ? (
+                    <>
+                      <option value="Travel / Cultural Immersion">Travel / Cultural Immersion</option>
+                      <option value="Remote Work & Global Career">Remote Work & Global Career</option>
+                      <option value="Exam Prep (DELE / SIELE / IELTS)">Exam Prep (DELE / SIELE / IELTS)</option>
+                      <option value="Corporate Team Training">Corporate Team Training</option>
+                      <option value="Speaking with confidence and zero fear">Speaking with confidence and zero fear</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="Viajes / Inmigración">Viajes / Inmigración</option>
+                      <option value="Trabajo remoto / Empleo internacional">Trabajo remoto / Empleo internacional</option>
+                      <option value="Rendir Examen (TOEFL / IELTS)">Rendir Examen (TOEFL / IELTS)</option>
+                      <option value="Capacitación corporativa de equipo">Capacitación corporativa de equipo</option>
+                      <option value="Hablar sin miedo ni vergüenza">Hablar sin miedo ni vergüenza</option>
+                    </>
+                  )}
                 </select>
               </div>
             </div>
 
-            {/* Dropdowns: Idioma de Interés & ¿Para quién son las clases? */}
+            {/* Dropdowns: Language & Audience */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
-                  Idioma de interés
+                  {isEn ? 'Language you want to learn' : 'Idioma de interés'}
                 </label>
                 <select
                   value={formData.language}
                   onChange={(e) => setFormData({ ...formData, language: e.target.value })}
                   className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
                 >
-                  <option value="Inglés">Inglés</option>
-                  <option value="Francés">Francés</option>
-                  <option value="Portugués">Portugués</option>
-                  <option value="Español (para extranjeros)">Español (para extranjeros)</option>
+                  {isEn ? (
+                    <>
+                      <option value="Spanish (for foreigners)">Spanish (for foreigners)</option>
+                      <option value="English (100% in English)">English (100% in English)</option>
+                      <option value="Portuguese">Portuguese</option>
+                      <option value="French">French</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="Inglés">Inglés</option>
+                      <option value="Francés">Francés</option>
+                      <option value="Portugués">Portugués</option>
+                      <option value="Español (para extranjeros)">Español (para extranjeros)</option>
+                    </>
+                  )}
                 </select>
               </div>
 
               <div className="space-y-1.5">
                 <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
-                  Las clases son para:
+                  {isEn ? 'Classes are for:' : 'Las clases son para:'}
                 </label>
                 <select
                   value={formData.audience}
                   onChange={(e) => setFormData({ ...formData, audience: e.target.value })}
                   className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
                 >
-                  <option value="Para mí (un adulto)">Para mí (un adulto)</option>
-                  <option value="Para un adolescente (Kids & Teens)">Para un adolescente (Kids & Teens)</option>
-                  <option value="Para niñ@s (Kids & Teens)">Para niñ@s (Kids & Teens)</option>
-                  <option value="Para mi empresa / equipo de trabajo">Para mi empresa / equipo de trabajo</option>
+                  {isEn ? (
+                    <>
+                      <option value="For myself (an adult)">For myself (an adult)</option>
+                      <option value="For a teen (Kids & Teens)">For a teen (Kids & Teens)</option>
+                      <option value="For a child (Kids & Teens)">For a child (Kids & Teens)</option>
+                      <option value="For my company / team">For my company / team</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="Para mí (un adulto)">Para mí (un adulto)</option>
+                      <option value="Para un adolescente (Kids & Teens)">Para un adolescente (Kids & Teens)</option>
+                      <option value="Para niñ@s (Kids & Teens)">Para niñ@s (Kids & Teens)</option>
+                      <option value="Para mi empresa / equipo de trabajo">Para mi empresa / equipo de trabajo</option>
+                    </>
+                  )}
                 </select>
               </div>
             </div>
 
-            {/* Resumen Badge de la Cita */}
+            {/* Meeting Summary Pill */}
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Video className="w-5 h-5 text-[#834296] shrink-0" />
@@ -720,37 +854,39 @@ export const BookingWizard = () => {
                   <span className="font-heading font-bold text-[#001837] block">
                     {selectedServiceObj.title} · {selectedDate} ({selectedTime})
                   </span>
-                  <span className="text-slate-500">Sesión 100% online por Google Meet</span>
+                  <span className="text-slate-500">
+                    {isEn ? '100% online session on Google Meet' : 'Sesión 100% online por Google Meet'}
+                  </span>
                 </div>
               </div>
               <span className="text-xs font-heading font-black text-emerald-700 uppercase bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                GRATIS
+                {selectedServiceObj.price}
               </span>
             </div>
 
-            {/* Botón Atrás Ghost + Botón Confirmar Compacto */}
+            {/* Form Buttons */}
             <div className="pt-3 flex items-center justify-between">
               <button
                 type="button"
                 onClick={handleBack}
-                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3 py-2 rounded-xl hover:bg-slate-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl hover:bg-slate-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>Atrás</span>
+                <span>{isEn ? 'Back' : 'Atrás'}</span>
               </button>
 
               <button
                 type="submit"
-                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] border border-[#001837] shadow-[3px_3px_0px_#001837] font-heading font-bold text-xs sm:text-sm hover:bg-[#FFE2C0] transition-colors cursor-pointer"
+                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer"
               >
-                Confirmar cita
+                {isEn ? 'Confirm Booking' : 'Confirmar cita'}
               </button>
             </div>
           </form>
         )}
 
         {/* ========================================================================= */}
-        {/* PASO 4: CONFIRMACIÓN COMPACTA Y ELEGANTE (Optimizado para Mobile)         */}
+        {/* PASO 4: CONFIRMACIÓN COMPACTA Y ELEGANTE                                  */}
         {/* ========================================================================= */}
         {step === 4 && (
           <div className="text-center py-4 sm:py-6 space-y-5 animate-in zoom-in-95 duration-300">
@@ -776,21 +912,27 @@ export const BookingWizard = () => {
             {/* Title */}
             <div className="space-y-1">
               <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
-                ¡Cita Confirmada!
+                {isEn ? 'Booking Confirmed!' : '¡Cita Confirmada!'}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
-                ¡Nos vemos en clase, {formData.firstName || 'Diego'}!
+                {isEn
+                  ? `See you in class, ${formData.firstName || 'Student'}!`
+                  : `¡Nos vemos en clase, ${formData.firstName || 'Diego'}!`}
               </h2>
             </div>
 
-            {/* Clean, Compact Date & Channel Pill */}
+            {/* Clean Summary Pill */}
             <div className="max-w-sm mx-auto bg-slate-50/90 rounded-2xl p-4 border border-slate-200 text-center space-y-1.5 shadow-xs">
               <div className="flex items-center justify-center gap-2 text-sm font-heading font-bold text-[#001837]">
                 <Calendar className="w-4 h-4 text-[#834296]" />
                 <span>{selectedDate} · {selectedTime}</span>
               </div>
               <p className="text-xs text-slate-500 font-body-regular leading-relaxed">
-                Enviamos el enlace de Google Meet a <strong className="text-[#001837]">{formData.email}</strong> y recordatorio a tu WhatsApp.
+                {isEn ? (
+                  <>We sent the Google Meet access link to <strong className="text-[#001837]">{formData.email || 'your email'}</strong> and a WhatsApp reminder.</>
+                ) : (
+                  <>Enviamos el enlace de Google Meet a <strong className="text-[#001837]">{formData.email || 'tu correo'}</strong> y recordatorio a tu WhatsApp.</>
+                )}
               </p>
             </div>
 
@@ -804,10 +946,10 @@ export const BookingWizard = () => {
               >
                 <button
                   type="button"
-                  className="w-full sm:w-auto h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] border border-[#001837] shadow-[3px_3px_0px_#001837] font-heading font-bold text-xs sm:text-sm hover:bg-[#FFE2C0] transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-4 h-4 text-[#001837]" />
-                  <span>Agregar a Google Calendar</span>
+                  <span>{isEn ? 'Add to Google Calendar' : 'Agregar a Google Calendar'}</span>
                 </button>
               </a>
 
@@ -819,18 +961,18 @@ export const BookingWizard = () => {
                     firstName: '',
                     lastName: '',
                     email: '',
-                    phoneCode: '+57',
+                    phoneCode: isEn ? '+1' : '+57',
                     phoneNumber: '',
-                    language: 'Inglés',
-                    currentLevel: 'Cero / Principiante (A1)',
-                    goal: 'Viajes / Inmigración',
-                    audience: 'Para mí (un adulto)',
+                    language: isEn ? 'Spanish' : 'Inglés',
+                    currentLevel: isEn ? 'Zero / Absolute Beginner (A1)' : 'Cero / Principiante (A1)',
+                    goal: isEn ? 'Travel / Cultural Immersion' : 'Viajes / Inmigración',
+                    audience: isEn ? 'For myself (Adult)' : 'Para mí (un adulto)',
                     referral: 'Instagram',
                   });
                 }}
                 className="h-9 px-3 rounded-xl text-slate-500 hover:text-[#001837] font-heading font-bold text-xs hover:bg-slate-100 transition-colors cursor-pointer"
               >
-                Agendar otra sesión
+                {isEn ? 'Book another session' : 'Agendar otra sesión'}
               </button>
             </div>
           </div>

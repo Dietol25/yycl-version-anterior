@@ -2,31 +2,36 @@ import React from 'react';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { BookingWizard } from '@/components/booking/BookingWizard';
+import { EnglishCategoryTabs } from '@/components/navigation/EnglishCategoryTabs';
 
 export default function EnAgendarPage() {
   return (
-    <main className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-[#FDF8F3] text-[#001837]">
       <Navbar />
+      <EnglishCategoryTabs />
 
-      <section className="bg-yycl-navy text-white py-12 text-center">
-        <div className="max-w-3xl mx-auto px-4 space-y-2">
-          <span className="text-xs font-bold uppercase tracking-widest text-yycl-yellow block">
-            Fast 1-Minute Booking
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold font-heading">
-            Book Your Live 1-on-1 Session
-          </h1>
-          <p className="text-sm text-slate-200">
-            Select the time that best suits your routine. Live individual session on Google Meet.
-          </p>
+      <main className="flex-1 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto space-y-6">
+          {/* Header Ligero y Aireado (Exacto al estilo en español) */}
+          <div className="text-center space-y-2">
+            <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+              <span className="w-2 h-2 rounded-full bg-[#834296]" />
+              <span>Easy 1-Minute Booking</span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
+              Book your no-cost interview
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 font-body-regular max-w-md mx-auto leading-relaxed">
+              15-minute 1-on-1 live session with a real teacher on Google Meet. Level assessment and personalized roadmap with zero obligation.
+            </p>
+          </div>
+
+          {/* Wizard Card */}
+          <BookingWizard />
         </div>
-      </section>
-
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
-        <BookingWizard />
-      </section>
+      </main>
 
       <Footer />
-    </main>
+    </div>
   );
 }

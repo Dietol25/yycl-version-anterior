@@ -41,7 +41,7 @@ export default function HomePage() {
                 size="md"
                 className="w-full font-bold text-sm h-12 shadow-[3px_3px_0px_#001837]"
               >
-                Agenda tu entrevista gratuita
+                Agendar entrevista gratis
               </Button>
             </Link>
           </div>
