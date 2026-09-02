@@ -280,7 +280,7 @@ export default function PlanesPage() {
         <section className="py-20 lg:py-24 bg-gradient-to-b from-white to-slate-50/80 border-t border-slate-100 text-center">
           <div className="max-w-2xl mx-auto px-5 space-y-6">
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight leading-tight">
-              ¿Tienes dudas sobre las modalidades? Te lo contamos en tu entrevista gratuita.
+              ¿No ves el precio? Te lo contamos en tu entrevista gratuita.
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Sin sorpresas: todo se conversa antes de que decidas.
@@ -292,7 +292,7 @@ export default function PlanesPage() {
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar entrevista gratis
+                  Agendar tu entrevista
                 </Button>
               </Link>
             </div>
