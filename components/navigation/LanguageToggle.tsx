@@ -1,13 +1,24 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { SpainFlag, UsaFlag } from '@/components/icons/FlagIcons';
 
 export const LanguageToggle = () => {
   const pathname = usePathname() || '/';
+  const router = useRouter();
   const isEn = pathname.startsWith('/en');
+
+  // Estado optimista para reproducir la microanimación ANTES de la navegación
+  const [optimisticEn, setOptimisticEn] = useState(isEn);
+  const [isSliding, setIsSliding] = useState(false);
+
+  // Sincronizar si cambia de ruta por el navegador
+  useEffect(() => {
+    setOptimisticEn(isEn);
+    setIsSliding(false);
+  }, [isEn]);
 
   // Mapeo inteligente y determinista de rutas según el idioma activo
   const getTargetHref = (toEn: boolean): string => {
@@ -36,53 +47,79 @@ export const LanguageToggle = () => {
   const titleText = isEn ? 'Switch to Spanish' : 'Cambiar a sitio en inglés (Learn Spanish & English)';
   const ariaText = isEn ? 'Switch to Spanish language website' : 'Cambiar al sitio web en inglés';
 
+  // Pre-cargar la ruta de destino para transición instantánea
+  useEffect(() => {
+    router.prefetch(targetHref);
+  }, [targetHref, router]);
+
+  const handleToggleClick = (e: React.MouseEvent) => {
+    // Permitir apertura en nueva pestaña si presiona Ctrl o Cmd
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+
+    e.preventDefault();
+    if (isSliding) return;
+
+    setIsSliding(true);
+    setOptimisticEn(!optimisticEn);
+
+    // Permitir que la física del spring termine (260ms) antes de transicionar
+    setTimeout(() => {
+      router.push(targetHref);
+    }, 260);
+  };
+
   return (
     <div className="flex items-center justify-center">
       <Link
         href={targetHref}
         prefetch={true}
+        onClick={handleToggleClick}
         title={titleText}
         aria-label={ariaText}
-        className="relative inline-flex items-center w-[86px] h-[44px] bg-white border-2 border-[#001837] rounded-full p-[2px] cursor-pointer select-none shadow-[2px_2px_0px_#001837] hover:shadow-[1px_1px_0px_#001837] active:translate-x-[0.5px] active:translate-y-[0.5px] shrink-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#834296]/40 transition-all duration-200"
+        className="relative inline-flex items-center w-[88px] h-[44px] bg-slate-50 border-2 border-[#001837] rounded-full p-[2px] cursor-pointer select-none shadow-[2px_2px_0px_#001837] hover:shadow-[3px_3px_0px_#001837] active:shadow-[1px_1px_0px_#001837] active:translate-x-[1px] active:translate-y-[1px] shrink-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#834296]/50 transition-all duration-200"
       >
-        {/* Label ES (Lado izquierdo, visible cuando está en modo EN) */}
+        {/* Label ES (Visible en modo EN cuando el switch viaja a la derecha) */}
         <span
-          className={`w-1/2 text-center text-xs font-heading font-black tracking-tight text-[#001837] transition-all duration-300 ease-out select-none ${
-            isEn ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-75 -translate-x-1.5 pointer-events-none'
+          className={`w-1/2 text-center text-xs font-heading font-black tracking-wider text-[#001837] transition-all duration-280 ease-out select-none ${
+            optimisticEn ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-75 -translate-x-2 pointer-events-none'
           }`}
         >
           ES
         </span>
 
-        {/* Label EN (Lado derecho, visible cuando está en modo ES) */}
+        {/* Label EN (Visible en modo ES cuando el switch está a la izquierda) */}
         <span
-          className={`w-1/2 text-center text-xs font-heading font-black tracking-tight text-[#001837] transition-all duration-300 ease-out select-none ${
-            isEn ? 'opacity-0 scale-75 translate-x-1.5 pointer-events-none' : 'opacity-100 scale-100 translate-x-0'
+          className={`w-1/2 text-center text-xs font-heading font-black tracking-wider text-[#001837] transition-all duration-280 ease-out select-none ${
+            optimisticEn ? 'opacity-0 scale-75 translate-x-2 pointer-events-none' : 'opacity-100 scale-100 translate-x-0'
           }`}
         >
           EN
         </span>
 
-        {/* Sliding Tactile Knob (36x36 dentro de 44px) */}
+        {/* Sliding Tactile Knob con física de resorte (Spring) */}
         <div
-          className={`absolute top-[2px] left-[2px] w-[36px] h-[36px] rounded-full border border-[#001837] shadow-[1px_1px_0px_#001837] overflow-hidden flex items-center justify-center bg-white transition-transform duration-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] will-change-transform ${
-            isEn ? 'translate-x-[44px]' : 'translate-x-0'
+          className={`absolute top-[2px] left-[2px] w-[36px] h-[36px] rounded-full border-2 border-[#001837] shadow-[1px_1px_0px_rgba(0,24,55,0.35)] overflow-hidden flex items-center justify-center bg-white transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] will-change-transform ${
+            optimisticEn ? 'translate-x-[44px]' : 'translate-x-0'
           }`}
         >
           <div className="relative w-full h-full flex items-center justify-center">
-            {/* Indicador bandera España en ES */}
+            {/* Bandera de España con rotación y scale orgánico */}
             <div
-              className={`absolute inset-0 flex items-center justify-center transition-all duration-250 ease-out ${
-                isEn ? 'opacity-0 rotate-90 scale-50 pointer-events-none' : 'opacity-100 rotate-0 scale-100'
+              className={`absolute inset-0 flex items-center justify-center transition-all duration-280 ease-out ${
+                optimisticEn
+                  ? 'opacity-0 -rotate-90 scale-50 pointer-events-none'
+                  : 'opacity-100 rotate-0 scale-100'
               }`}
             >
               <SpainFlag size={32} />
             </div>
 
-            {/* Indicador bandera USA en EN */}
+            {/* Bandera de USA con rotación y scale orgánico */}
             <div
-              className={`absolute inset-0 flex items-center justify-center transition-all duration-250 ease-out ${
-                isEn ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50 pointer-events-none'
+              className={`absolute inset-0 flex items-center justify-center transition-all duration-280 ease-out ${
+                optimisticEn
+                  ? 'opacity-100 rotate-0 scale-100'
+                  : 'opacity-0 rotate-90 scale-50 pointer-events-none'
               }`}
             >
               <UsaFlag size={32} />
