@@ -254,7 +254,7 @@ export default function ResultadosPage() {
                         <img
                           src={item.avatar}
                           alt={item.name}
-                          className="w-full h-full object-contain select-none"
+                          className="w-full h-full object-contain select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
                         />
                       </div>
                       <div>
@@ -313,7 +313,7 @@ export default function ResultadosPage() {
                       <img
                         src={VERIFIED_TESTIMONIALS[activeIndex].avatar}
                         alt={VERIFIED_TESTIMONIALS[activeIndex].name}
-                        className="w-full h-full object-contain select-none"
+                        className="w-full h-full object-contain select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
                       />
                     </div>
                     <div>

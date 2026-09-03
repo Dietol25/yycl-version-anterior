@@ -107,7 +107,7 @@ export const TestimonialsGrid = () => {
                     <img
                       src={item.avatar}
                       alt={item.name}
-                      className="w-full h-full object-contain select-none"
+                      className="w-full h-full object-contain select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
                     />
                   </div>
                   <div>
