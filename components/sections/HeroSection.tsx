@@ -42,9 +42,9 @@ export const HeroSection = () => {
                 <Button
                   variant="primary"
                   size="md"
-                  className="font-heading font-bold text-sm sm:text-base px-7 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+                  className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Quiero hablar
+                  Quiero hablar sin miedo
                 </Button>
               </Link>
 

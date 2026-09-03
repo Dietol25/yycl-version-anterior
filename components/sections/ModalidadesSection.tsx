@@ -86,7 +86,7 @@ export const ModalidadesSection = () => {
             return (
               <div
                 key={mod.id}
-                className="bg-gradient-to-b from-[#F58220] via-[#853D94] to-[#4A154B] rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] hover:shadow-[7px_7px_0px_#001837] hover:-translate-y-1.5 active:translate-y-0 active:shadow-[4px_4px_0px_#001837] transition-all duration-300 flex flex-col justify-between group"
+                className="bg-gradient-to-b from-[#F58220] via-[#853D94] to-[#4A154B] rounded-3xl p-7 sm:p-8 border border-black/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
                   {/* Top Header Row: White Badge + White Circular Icon */}
