@@ -250,11 +250,11 @@ export default function ResultadosPage() {
                   {/* Author Info + Enlace Verificado */}
                   <div className="space-y-2.5 pt-3 border-t border-white/15">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full overflow-hidden border border-white/80 bg-white/20 shadow-xs shrink-0 p-0.5">
+                      <div className="w-11 h-11 shrink-0 select-none">
                         <img
                           src={item.avatar}
                           alt={item.name}
-                          className="w-full h-full object-cover rounded-full"
+                          className="w-full h-full object-contain select-none"
                         />
                       </div>
                       <div>
@@ -309,11 +309,11 @@ export default function ResultadosPage() {
 
                 <div className="space-y-2.5 pt-3 border-t border-white/15">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full overflow-hidden border border-white/80 bg-white/20 shadow-xs shrink-0 p-0.5">
+                    <div className="w-11 h-11 shrink-0 select-none">
                       <img
                         src={VERIFIED_TESTIMONIALS[activeIndex].avatar}
                         alt={VERIFIED_TESTIMONIALS[activeIndex].name}
-                        className="w-full h-full object-cover rounded-full"
+                        className="w-full h-full object-contain select-none"
                       />
                     </div>
                     <div>
