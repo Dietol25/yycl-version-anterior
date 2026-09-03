@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Check, Users, User, UserPlus } from 'lucide-react';
 
-// Icono de 3 personas para modalidad Grupal
+// Icono de 3 personas para modalidad Grupal (idéntico a la referencia gráfica)
 const Group3UsersIcon = ({ className }: { className?: string }) => (
   <svg 
     className={className} 
@@ -15,15 +15,15 @@ const Group3UsersIcon = ({ className }: { className?: string }) => (
     strokeLinecap="round" 
     strokeLinejoin="round"
   >
-    {/* Persona Centro */}
-    <circle cx="12" cy="7" r="3" />
-    <path d="M7 20v-1.5a3.5 3.5 0 0 1 7 0V20" />
     {/* Persona Izquierda */}
-    <circle cx="5" cy="8.5" r="2.2" />
-    <path d="M1 20v-1a2.8 2.8 0 0 1 3.5-2.6" />
+    <circle cx="5.5" cy="9.5" r="2.5" />
+    <path d="M1 21c0-2.8 2.2-4.8 5.2-4.8" />
     {/* Persona Derecha */}
-    <circle cx="19" cy="8.5" r="2.2" />
-    <path d="M19.5 16.4a2.8 2.8 0 0 1 3.5 2.6v1" />
+    <circle cx="18.5" cy="9.5" r="2.5" />
+    <path d="M17.8 16.2c3 0 5.2 2 5.2 4.8" />
+    {/* Persona Centro (al frente) */}
+    <circle cx="12" cy="7" r="3.2" />
+    <path d="M6 21a6 6 0 0 1 12 0" />
   </svg>
 );
 
