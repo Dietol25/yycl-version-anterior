@@ -718,5 +718,6 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
         )}
       </form>
     </div>
+    </>
   );
 };
