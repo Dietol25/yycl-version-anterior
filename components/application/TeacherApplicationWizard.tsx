@@ -19,7 +19,9 @@ import {
   Heart,
   UploadCloud,
   FileText,
-  X
+  X,
+  Briefcase,
+  Users
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -362,58 +364,54 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
               </p>
             </div>
 
-            {/* Idioma Principal */}
-            <div className="space-y-2">
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+            {/* Idioma Principal (Dropdown) */}
+            <div>
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
                 {isEn ? 'Primary Language you Teach *' : 'Idioma Principal que Enseñas *'}
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {['Inglés', 'Francés', 'Portugués', 'Español (para extranjeros)'].map(lang => (
-                  <button
-                    key={lang}
-                    type="button"
-                    onClick={() => updateField('primaryLanguage', lang)}
-                    className={`py-3 px-3 rounded-2xl text-xs sm:text-sm font-heading font-bold transition-all text-center cursor-pointer ${
-                      formData.primaryLanguage === lang
-                        ? 'bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] border-0 scale-[1.02]'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
-                    }`}
-                  >
-                    {lang}
-                  </button>
-                ))}
+              <div className="relative">
+                <Globe className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 pointer-events-none" />
+                <select
+                  value={formData.primaryLanguage}
+                  onChange={e => updateField('primaryLanguage', e.target.value)}
+                  className="w-full h-11 pl-10 pr-8 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] font-body-regular cursor-pointer appearance-none transition-all"
+                >
+                  <option value="Inglés">Inglés</option>
+                  <option value="Francés">Francés</option>
+                  <option value="Portugués">Portugués</option>
+                  <option value="Español (para extranjeros)">Español (para extranjeros)</option>
+                </select>
+                <div className="absolute right-3.5 top-4 pointer-events-none border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-slate-500" />
               </div>
             </div>
 
-            {/* Años de Experiencia */}
-            <div className="space-y-2">
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
-                {isEn ? 'Teaching Experience' : 'Años de Experiencia Docente'}
+            {/* Años de Experiencia (Dropdown) */}
+            <div>
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                {isEn ? 'Teaching Experience *' : 'Años de Experiencia Docente *'}
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {['Menos de 1 año', '1 a 3 años', '3 a 5 años', 'Más de 5 años'].map(exp => (
-                  <button
-                    key={exp}
-                    type="button"
-                    onClick={() => updateField('experienceYears', exp)}
-                    className={`py-2.5 px-2 rounded-2xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
-                      formData.experienceYears === exp
-                        ? 'bg-[#834296] text-white shadow-[3px_3px_0px_#001837] border-0 scale-[1.02]'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
-                    }`}
-                  >
-                    {exp}
-                  </button>
-                ))}
+              <div className="relative">
+                <Briefcase className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 pointer-events-none" />
+                <select
+                  value={formData.experienceYears}
+                  onChange={e => updateField('experienceYears', e.target.value)}
+                  className="w-full h-11 pl-10 pr-8 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] font-body-regular cursor-pointer appearance-none transition-all"
+                >
+                  <option value="Menos de 1 año">Menos de 1 año (Iniciando en docencia)</option>
+                  <option value="1 a 3 años">1 a 3 años (Experiencia comprobada)</option>
+                  <option value="3 a 5 años">3 a 5 años (Experiencia sólida)</option>
+                  <option value="Más de 5 años">Más de 5 años (Docente Senior / Coach)</option>
+                </select>
+                <div className="absolute right-3.5 top-4 pointer-events-none border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-slate-500" />
               </div>
             </div>
 
-            {/* Público de Preferencia (Multi-select) */}
-            <div className="space-y-2">
+            {/* Público de Preferencia (Chips Compactos Multi-select) */}
+            <div className="space-y-1.5">
               <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
                 {isEn ? 'Target Audience (Select all that apply)' : 'Público Objetivo con el que te gusta trabajar'}
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {['Adultos', 'Niños y Teens', 'Empresas / Corporativo', 'Todos'].map(aud => {
                   const isSel = formData.audiencePreference.includes(aud);
                   return (
@@ -421,9 +419,9 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
                       key={aud}
                       type="button"
                       onClick={() => toggleArrayItem('audiencePreference', aud)}
-                      className={`py-2.5 px-2 rounded-2xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
+                      className={`py-2 px-2 rounded-xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
                         isSel
-                          ? 'bg-[#4DC2DA] text-[#001837] shadow-[3px_3px_0px_#001837] border-0'
+                          ? 'bg-[#4DC2DA] text-[#001837] shadow-[2px_2px_0px_#001837] border-0'
                           : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
                       }`}
                     >
