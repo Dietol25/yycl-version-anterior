@@ -891,23 +891,23 @@ export const BookingWizard = () => {
         {/* ========================================================================= */}
         {step === 4 && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs animate-in fade-in duration-200">
-            <div className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 border-2 border-[#001837] shadow-[8px_8px_0px_#001837] text-center space-y-4 animate-in zoom-in-95 duration-300">
+            <div className="relative w-full max-w-sm bg-white rounded-3xl p-5 sm:p-6 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] text-center space-y-3.5 animate-in zoom-in-95 duration-300">
               
               {/* Botón cerrar ✕ -> Lleva al Home */}
               <Link
                 href={isEn ? "/en" : "/"}
                 aria-label="Cerrar modal e ir al inicio"
-                className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute top-3 right-3 w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5" />
               </Link>
 
               {/* Animated Celebration Icon Compact */}
-              <div className="relative w-12 h-12 mx-auto flex items-center justify-center">
+              <div className="relative w-10 h-10 mx-auto flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-emerald-400/25 animate-ping duration-1000" />
-                <div className="relative w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-600 shadow-xs">
+                <div className="relative w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-600 shadow-2xs">
                   <svg
-                    className="w-6 h-6 stroke-[3]"
+                    className="w-5 h-5 stroke-[3]"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -921,11 +921,11 @@ export const BookingWizard = () => {
               </div>
 
               {/* Title */}
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <span className="text-[10px] font-heading font-extrabold uppercase tracking-widest text-[#834296] block">
                   {isEn ? 'Booking Confirmed!' : '¡Cita Confirmada!'}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
+                <h2 className="text-xl font-extrabold font-heading text-[#001837] tracking-tight">
                   {isEn
                     ? `See you in class, ${formData.firstName || 'Student'}!`
                     : `¡Nos vemos en clase, ${formData.firstName || 'Diego'}!`}
@@ -933,41 +933,41 @@ export const BookingWizard = () => {
               </div>
 
               {/* Clean Summary Pill */}
-              <div className="bg-slate-50/90 rounded-2xl p-3.5 sm:p-4 border border-slate-200 text-center space-y-1 shadow-xs">
-                <div className="flex items-center justify-center gap-2 text-sm font-heading font-bold text-[#001837]">
-                  <Calendar className="w-4 h-4 text-[#834296]" />
+              <div className="bg-slate-50/90 rounded-xl p-2.5 sm:p-3 border border-slate-200 text-center space-y-1 shadow-2xs">
+                <div className="flex items-center justify-center gap-2 text-xs font-heading font-bold text-[#001837]">
+                  <Calendar className="w-3.5 h-3.5 text-[#834296]" />
                   <span>{selectedDate} · {selectedTime}</span>
                 </div>
-                <p className="text-[11px] text-slate-500 font-body-regular leading-relaxed max-w-xs mx-auto">
+                <p className="text-[11px] text-slate-500 font-body-regular leading-snug max-w-[260px] mx-auto">
                   {isEn ? (
-                    <>We sent the Google Meet access link to <strong className="text-[#001837]">{formData.email || 'your email'}</strong> and a WhatsApp reminder.</>
+                    <>We sent Google Meet access to <strong className="text-[#001837]">{formData.email || 'your email'}</strong> and WhatsApp reminder.</>
                   ) : (
-                    <>Enviamos el enlace de Google Meet a <strong className="text-[#001837]">{formData.email || 'tu correo'}</strong> y recordatorio a tu WhatsApp.</>
+                    <>Enviamos enlace de Google Meet a <strong className="text-[#001837]">{formData.email || 'tu correo'}</strong> y WhatsApp.</>
                   )}
                 </p>
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="pt-1 flex flex-col gap-2">
                 <a
                   href={generateGoogleCalendarUrl()}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full sm:w-auto"
+                  className="w-full"
                 >
                   <button
                     type="button"
-                    className="w-full sm:w-auto h-12 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center justify-center gap-2"
+                    className="w-full h-10 px-4 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs transition-all cursor-pointer inline-flex items-center justify-center gap-1.5"
                   >
-                    <Calendar className="w-4 h-4 text-[#001837]" />
+                    <Calendar className="w-3.5 h-3.5 text-[#001837]" />
                     <span>{isEn ? 'Add to Google Calendar' : 'Agregar a Google Calendar'}</span>
                   </button>
                 </a>
 
-                <Link href={isEn ? "/en" : "/"} className="w-full sm:w-auto">
+                <Link href={isEn ? "/en" : "/"} className="w-full">
                   <button
                     type="button"
-                    className="w-full sm:w-auto h-11 px-5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-heading font-bold text-xs transition-colors cursor-pointer"
+                    className="w-full h-9 px-4 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-heading font-bold text-xs transition-colors cursor-pointer"
                   >
                     {isEn ? '← Back to Home' : '← Volver al inicio'}
                   </button>

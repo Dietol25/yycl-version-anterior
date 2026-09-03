@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Check } from 'lucide-react';
+import { Check, Users, User } from 'lucide-react';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
@@ -125,38 +125,43 @@ export default function PlanesPage() {
               </p>
             </div>
 
-            {/* 3 Modality Pricing Cards con Design System Limpio */}
+            {/* 3 Modality Pricing Cards con Sunset Gradient idéntico a Figma */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
               {planes.map((plan, pIdx) => {
-                const badgeColor = pIdx === 0 ? 'bg-purple-100 text-[#834296] border-[#834296]/30' : pIdx === 1 ? 'bg-amber-100 text-[#EC9519] border-[#EC9519]/30' : 'bg-cyan-100 text-[#001837] border-[#4DC2DA]/40';
-                const checkColor = pIdx === 0 ? '#834296' : pIdx === 1 ? '#EC9519' : '#4DC2DA';
+                const IconComponent = pIdx === 0 ? Users : pIdx === 1 ? User : Users;
                 return (
                   <div
                     key={plan.id}
                     id={plan.id}
-                    className="scroll-mt-28 bg-white text-[#001837] rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] flex flex-col justify-between space-y-6"
+                    className="scroll-mt-28 bg-gradient-to-b from-[#F58220] via-[#853D94] to-[#4A154B] rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] hover:shadow-[7px_7px_0px_#001837] hover:-translate-y-1.5 active:translate-y-0 active:shadow-[4px_4px_0px_#001837] transition-all duration-300 flex flex-col justify-between space-y-6"
                   >
                     <div className="space-y-4">
+                      {/* Top Header Row: White Badge + White Circular Icon */}
                       <div className="flex items-center justify-between">
-                        <span className={`inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border ${badgeColor}`}>
+                        <span className="inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full bg-white text-[#834296] shadow-xs">
                           {pIdx === 0 ? 'Grupal' : pIdx === 1 ? 'Personalizada' : 'Dúo'}
                         </span>
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#834296] shadow-xs">
+                          <IconComponent className="w-5 h-5 stroke-[2.2]" />
+                        </div>
                       </div>
 
                       <div>
                         <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
                           {plan.title}
                         </h3>
-                        <p className="text-xs sm:text-[13px] text-slate-600 font-medium mt-1 leading-relaxed">
+                        <p className="text-xs sm:text-[13px] text-white/95 font-medium mt-1 leading-relaxed">
                           {plan.subtitle}
                         </p>
                       </div>
 
-                      <ul className="space-y-3 pt-3 border-t border-slate-100">
+                      <ul className="space-y-3 pt-3 border-t border-white/20">
                         {plan.features.map((feat, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
-                            <Check className="w-4 h-4 shrink-0 mt-0.5 stroke-[2.5]" style={{ color: checkColor }} />
-                            <span className="text-xs sm:text-sm text-slate-700 font-body-regular leading-snug">
+                            <div className="w-5 h-5 rounded-full bg-white text-[#834296] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                              <Check className="w-3 h-3 stroke-[3]" />
+                            </div>
+                            <span className="text-xs sm:text-sm text-white font-medium leading-snug">
                               {feat}
                             </span>
                           </li>
@@ -164,7 +169,7 @@ export default function PlanesPage() {
                       </ul>
                     </div>
 
-                    <div className="pt-4 border-t border-slate-100">
+                    <div className="pt-4 border-t border-white/20">
                       <Link href="/agendar" className="block">
                         <Button
                           variant="primary"

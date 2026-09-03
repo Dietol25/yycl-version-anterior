@@ -79,23 +79,23 @@ export const ModalidadesSection = () => {
           </p>
         </div>
 
-        {/* 3 Editorial Cards con Tono Diferencial y Hover Dinámico */}
+        {/* 3 Modality Cards con Sunset Gradient idéntico a Figma */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
           {modalidades.map((mod) => {
             const IconComponent = mod.icon;
             return (
               <div
                 key={mod.id}
-                className={`${mod.cardBg} ${mod.cardBgHover} rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] hover:shadow-[7px_7px_0px_#001837] hover:-translate-y-1.5 active:translate-y-0 active:shadow-[4px_4px_0px_#001837] transition-all duration-300 flex flex-col justify-between group`}
+                className="bg-gradient-to-b from-[#F58220] via-[#853D94] to-[#4A154B] rounded-3xl p-7 sm:p-8 border-2 border-[#001837] shadow-[5px_5px_0px_#001837] hover:shadow-[7px_7px_0px_#001837] hover:-translate-y-1.5 active:translate-y-0 active:shadow-[4px_4px_0px_#001837] transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
-                  {/* Top Header Row: Badge + Circular Icon */}
+                  {/* Top Header Row: White Badge + White Circular Icon */}
                   <div className="flex items-center justify-between">
-                    <span className={`inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full border shadow-2xs ${mod.badgeColor}`}>
+                    <span className="inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full bg-white text-[#834296] shadow-xs">
                       {mod.badge}
                     </span>
 
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${mod.iconBg} shadow-xs group-hover:scale-105 transition-transform duration-300`}>
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#834296] shadow-xs group-hover:scale-105 transition-transform duration-300">
                       <IconComponent className="w-5 h-5 stroke-[2.2]" />
                     </div>
                   </div>
@@ -105,19 +105,19 @@ export const ModalidadesSection = () => {
                     <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
                       {mod.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed">
                       {mod.subtitle}
                     </p>
                   </div>
 
-                  {/* Lista de Features con Checkmarks Circulares */}
-                  <ul className="space-y-3 pt-4 border-t border-[#001837]/10">
+                  {/* Lista de Features con Checkmarks Circulares Blancos */}
+                  <ul className="space-y-3 pt-4 border-t border-white/20">
                     {mod.features.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-3">
-                        <div className={`w-5 h-5 rounded-full ${mod.checkBg} flex items-center justify-center shrink-0 mt-0.5 shadow-2xs`}>
+                        <div className="w-5 h-5 rounded-full bg-white text-[#834296] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                           <Check className="w-3 h-3 stroke-[3]" />
                         </div>
-                        <span className="text-xs sm:text-sm text-slate-700 font-body-regular leading-snug">
+                        <span className="text-xs sm:text-sm text-white font-medium leading-snug">
                           {feat}
                         </span>
                       </li>
@@ -126,10 +126,10 @@ export const ModalidadesSection = () => {
                 </div>
 
                 {/* Action Ghost Link */}
-                <div className="pt-6 border-t border-[#001837]/10 mt-6">
+                <div className="pt-6 border-t border-white/20 mt-6">
                   <Link
                     href="/como-funciona"
-                    className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold ${mod.linkColor} hover:underline transition-colors`}
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-white hover:underline transition-colors"
                   >
                     <span>Cómo funciona</span>
                     <span>→</span>

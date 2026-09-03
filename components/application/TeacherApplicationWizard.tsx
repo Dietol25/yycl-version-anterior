@@ -153,56 +153,66 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs animate-in fade-in duration-200">
-        <div className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 border-2 border-[#001837] shadow-[8px_8px_0px_#001837] text-center space-y-4 animate-in zoom-in-95 duration-300">
+        <div className="relative w-full max-w-sm bg-white rounded-3xl p-5 sm:p-6 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] text-center space-y-3.5 animate-in zoom-in-95 duration-300">
           
           {/* Botón cerrar ✕ -> Lleva al Home */}
           <Link
             href={homeUrl}
             aria-label="Cerrar modal e ir al inicio"
-            className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
+            className="absolute top-3 right-3 w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5" />
           </Link>
 
           {/* Animated Celebration Icon Compact */}
-          <div className="relative w-12 h-12 mx-auto flex items-center justify-center">
+          <div className="relative w-10 h-10 mx-auto flex items-center justify-center">
             <div className="absolute inset-0 rounded-full bg-emerald-400/25 animate-ping duration-1000" />
-            <div className="relative w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-600 shadow-xs">
-              <CheckCircle2 className="w-7 h-7 stroke-[2.5]" />
+            <div className="relative w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-600 shadow-2xs">
+              <CheckCircle2 className="w-6 h-6 stroke-[2.5]" />
             </div>
           </div>
 
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             <span className="text-[10px] font-heading font-extrabold uppercase tracking-widest text-[#834296] block">
               {isEn ? 'Application Received' : 'Postulación Recibida'}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
+            <h2 className="text-xl font-extrabold font-heading text-[#001837] tracking-tight">
               {isEn ? `Thank you, ${formData.fullName.split(' ')[0] || 'Teacher'}!` : `¡Muchas gracias, ${formData.fullName.split(' ')[0] || 'Docente'}!`}
             </h2>
-            <p className="text-xs text-slate-500 font-body-regular leading-relaxed max-w-xs mx-auto">
+            <p className="text-[11.5px] text-slate-500 font-body-regular leading-snug max-w-[260px] mx-auto">
               {isEn 
                 ? "We've received your profile. Natty, Néstor, and the academic team will review your application."
                 : "Registramos tu información. Natty, Néstor y el equipo académico revisarán tu perfil."}
             </p>
           </div>
 
-          <div className="bg-[#FFE2C0]/35 rounded-2xl p-3.5 border border-[#EC9519]/40 text-left space-y-1.5">
-            <p className="text-[10px] font-heading font-extrabold uppercase tracking-widest text-[#EC9519]">
+          {/* Micro-Frame "¿Qué sigue ahora?" ultra compacto y estilizado */}
+          <div className="bg-[#FFE2C0]/25 rounded-xl p-2.5 sm:p-3 border border-[#EC9519]/30 text-left space-y-1">
+            <p className="text-[9.5px] font-heading font-extrabold uppercase tracking-wider text-[#EC9519]">
               {isEn ? 'What happens next?' : '¿Qué sigue ahora?'}
             </p>
-            <ul className="text-[11px] text-slate-600 font-body-regular space-y-1 list-disc pl-4 leading-normal">
-              <li>{isEn ? 'Application review (24 to 48 business hours).' : 'Revisión de tu perfil y experiencia (24 a 48 hs hábiles).'}</li>
-              <li>{isEn ? 'We will contact you via WhatsApp or Email.' : 'Te contactaremos vía WhatsApp o correo electrónico.'}</li>
-              <li>{isEn ? 'Brief conversational interview with our Academic Director.' : 'Entrevista conversacional breve con nuestra Dirección de Estudios.'}</li>
+            <ul className="text-[10.5px] text-slate-600 font-body-regular space-y-0.5 leading-tight">
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-[#EC9519] shrink-0" />
+                <span>{isEn ? 'Application review (24 to 48 business hours)' : 'Revisión de perfil docente (24 a 48 hs)'}</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-[#EC9519] shrink-0" />
+                <span>{isEn ? 'Contact via WhatsApp or Email' : 'Contacto vía WhatsApp o correo electrónico'}</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-[#EC9519] shrink-0" />
+                <span>{isEn ? 'Brief conversational interview with our team' : 'Breve entrevista con el equipo académico'}</span>
+              </li>
             </ul>
           </div>
 
-          <div className="pt-2">
+          <div className="pt-1">
             <Link href={homeUrl} className="block w-full">
               <Button
                 variant="primary"
-                size="md"
-                className="w-full font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
+                size="sm"
+                className="w-full font-heading font-bold text-xs h-10 shadow-[3px_3px_0px_#EC9519]"
               >
                 {isEn ? '← Back to Home' : '← Volver al inicio'}
               </Button>
