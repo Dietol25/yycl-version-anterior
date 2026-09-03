@@ -1,8 +1,14 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { BookingWizard } from '@/components/booking/BookingWizard';
 import { EnglishCategoryTabs } from '@/components/navigation/EnglishCategoryTabs';
+
+export const metadata: Metadata = {
+  title: "Book your no-cost interview",
+  description: "15-minute 1-on-1 live session with a real teacher on Google Meet. Level assessment and personalized roadmap with zero obligation.",
+};
 
 export default function EnAgendarPage() {
   return (

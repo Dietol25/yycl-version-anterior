@@ -1,12 +1,16 @@
-"use client";
-
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
 import { BrushStroke } from '@/components/ui/BrushStroke';
 import { EnglishCategoryTabs } from '@/components/navigation/EnglishCategoryTabs';
+
+export const metadata: Metadata = {
+  title: "About Us | Conversational Language Academy",
+  description: "Who we are: one method, three languages. Discover our conversational methodology and the passionate teachers behind Yes You Can Languages.",
+};
 
 export default function AboutUsPage() {
   const cards = [

@@ -137,6 +137,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               <div className="space-y-1">
                 <button
                   type="button"
+                  aria-expanded={programasOpen}
                   onClick={() => setProgramasOpen(!programasOpen)}
                   className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-[15px] font-heading font-bold text-[#001837] hover:bg-slate-50 transition-colors cursor-pointer text-left"
                 >
@@ -194,6 +195,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               <div className="space-y-1">
                 <button
                   type="button"
+                  aria-expanded={sobreOpen}
                   onClick={() => setSobreOpen(!sobreOpen)}
                   className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-[15px] font-heading font-bold text-[#001837] hover:bg-slate-50 transition-colors cursor-pointer text-left"
                 >

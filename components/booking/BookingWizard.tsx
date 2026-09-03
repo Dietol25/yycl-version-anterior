@@ -371,14 +371,28 @@ export const BookingWizard = () => {
             </div>
 
             {/* Session Options Cards */}
-            <div className="space-y-3.5 pt-1">
+            <div
+              role="radiogroup"
+              aria-label={isEn ? "Select a session type" : "Elige un tipo de sesión"}
+              className="space-y-3.5 pt-1"
+            >
               {services.map((opt) => {
                 const isSelected = selectedService === opt.id;
                 return (
-                  <div
+                  <button
                     key={opt.id}
+                    type="button"
+                    role="radio"
+                    aria-checked={isSelected}
+                    tabIndex={0}
                     onClick={() => setSelectedService(opt.id)}
-                    className={`cursor-pointer rounded-2xl p-5 sm:p-6 border-2 transition-all flex items-center justify-between gap-4 ${
+                    onKeyDown={(e) => {
+                      if (e.key === ' ' || e.key === 'Enter') {
+                        e.preventDefault();
+                        setSelectedService(opt.id);
+                      }
+                    }}
+                    className={`w-full text-left cursor-pointer rounded-2xl p-5 sm:p-6 border-2 transition-all flex items-center justify-between gap-4 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#834296] ${
                       isSelected
                         ? 'border-[#001837] bg-[#FFE2C0]/25 shadow-[4px_4px_0px_#001837]'
                         : 'border-slate-200 bg-white hover:border-slate-300'
@@ -396,6 +410,11 @@ export const BookingWizard = () => {
                           <Badge variant={opt.badgeVariant}>
                             {opt.badge}
                           </Badge>
+                          {isSelected && (
+                            <span className="inline-flex items-center gap-1 text-[11px] font-heading font-black text-[#834296] bg-[#834296]/10 px-2.5 py-0.5 rounded-full border border-[#834296]/20">
+                              ✓ {isEn ? 'Selected' : 'Seleccionado'}
+                            </span>
+                          )}
                         </div>
                         <p className="text-xs text-slate-500 font-medium">
                           {isEn ? `With ${opt.host}` : `Con ${opt.host}`}
@@ -415,7 +434,7 @@ export const BookingWizard = () => {
                     }`}>
                       {isSelected && <div className="w-2 h-2 rounded-full bg-[#001837]" />}
                     </div>
-                  </div>
+                  </button>
                 );
               })}
             </div>
@@ -592,7 +611,7 @@ export const BookingWizard = () => {
                 <input
                   type="text"
                   required
-                  placeholder={isEn ? 'John' : 'Diego'}
+                  placeholder={isEn ? 'e.g. Maria' : 'Ej. Camila'}
                   value={formData.firstName}
                   onChange={(e) => {
                     setFormData({ ...formData, firstName: e.target.value });
@@ -620,7 +639,7 @@ export const BookingWizard = () => {
                 <input
                   type="text"
                   required
-                  placeholder={isEn ? 'Smith' : 'Torres'}
+                  placeholder={isEn ? 'e.g. Miller' : 'Ej. Gómez'}
                   value={formData.lastName}
                   onChange={(e) => {
                     setFormData({ ...formData, lastName: e.target.value });
@@ -651,7 +670,7 @@ export const BookingWizard = () => {
                 <input
                   type="email"
                   required
-                  placeholder={isEn ? 'name@example.com' : 'dietol25@hotmail.com'}
+                  placeholder={isEn ? 'name@example.com' : 'ejemplo@correo.com'}
                   value={formData.email}
                   onChange={(e) => {
                     setFormData({ ...formData, email: e.target.value });
@@ -701,7 +720,7 @@ export const BookingWizard = () => {
                     placeholder={
                       formData.phoneCode === '+1' ? '555 123 4567' :
                       formData.phoneCode === '+57' ? '300 123 4567' :
-                      formData.phoneCode === '+54' ? '11 2542 0791' :
+                      formData.phoneCode === '+54' ? '11 2345 6789' :
                       '300 123 4567'
                     }
                     value={formData.phoneNumber}

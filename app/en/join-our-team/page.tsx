@@ -1,9 +1,15 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { TeacherApplicationWizard } from '@/components/application/TeacherApplicationWizard';
 import { EnglishCategoryTabs } from '@/components/navigation/EnglishCategoryTabs';
 import { Heart, Sparkles, Users } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Join Our Teaching Team | Careers at YYCL",
+  description: "We're looking for passionate language coaches who love conversation-first learning, genuine human connection, and empowering students.",
+};
 
 export default function EnglishJoinOurTeamPage() {
   return (

@@ -1,12 +1,16 @@
-"use client";
-
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
 import { BrushStroke } from '@/components/ui/BrushStroke';
 import { EnglishCategoryTabs } from '@/components/navigation/EnglishCategoryTabs';
+
+export const metadata: Metadata = {
+  title: "English Classes for International Students",
+  description: "The English course you'll actually finish — no Spanish needed. Built for international students who want to learn English directly.",
+};
 
 export default function EnglishClassesPage() {
   const cards = [

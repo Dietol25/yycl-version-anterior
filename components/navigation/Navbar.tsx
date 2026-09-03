@@ -142,6 +142,9 @@ export const Navbar = () => {
               >
                 <button
                   type="button"
+                  aria-haspopup="true"
+                  aria-expanded={programasDropdownOpen}
+                  aria-controls="nav-programas-dropdown"
                   className={`relative h-full inline-flex items-center gap-1 text-[14px] font-heading font-semibold transition-colors hover:text-[#001837] cursor-pointer ${
                     isProgramasActive ? 'text-[#001837] font-bold' : 'text-slate-700'
                   }`}
@@ -154,10 +157,15 @@ export const Navbar = () => {
                 </button>
 
                 {programasDropdownOpen && (
-                  <div className="absolute top-[calc(100%-2px)] left-0 pt-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                  <div
+                    id="nav-programas-dropdown"
+                    role="menu"
+                    className="absolute top-[calc(100%-2px)] left-0 pt-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                  >
                     <div className="w-80 bg-white rounded-2xl border-2 border-yycl-navy shadow-[4px_4px_0px_#001837] p-2 space-y-1">
                       <Link
                         href="/planes"
+                        role="menuitem"
                         className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
                           pathname === '/planes' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
                         }`}
@@ -167,6 +175,7 @@ export const Navbar = () => {
                       </Link>
                       <Link
                         href="/idiomas"
+                        role="menuitem"
                         className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
                           pathname === '/idiomas' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
                         }`}
@@ -176,6 +185,7 @@ export const Navbar = () => {
                       </Link>
                       <Link
                         href="/kids"
+                        role="menuitem"
                         className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
                           pathname === '/kids' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
                         }`}
@@ -185,6 +195,7 @@ export const Navbar = () => {
                       </Link>
                       <Link
                         href="/empresas"
+                        role="menuitem"
                         className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
                           pathname === '/empresas' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
                         }`}
@@ -194,6 +205,7 @@ export const Navbar = () => {
                       </Link>
                       <Link
                         href="/servicios-especiales"
+                        role="menuitem"
                         className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
                           pathname === '/servicios-especiales' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
                         }`}
@@ -214,6 +226,9 @@ export const Navbar = () => {
               >
                 <button
                   type="button"
+                  aria-haspopup="true"
+                  aria-expanded={sobreDropdownOpen}
+                  aria-controls="nav-sobre-dropdown"
                   className={`relative h-full inline-flex items-center gap-1 text-[14px] font-heading font-semibold transition-colors hover:text-[#001837] cursor-pointer ${
                     isSobreActive ? 'text-[#001837] font-bold' : 'text-slate-700'
                   }`}
@@ -226,10 +241,15 @@ export const Navbar = () => {
                 </button>
 
                 {sobreDropdownOpen && (
-                  <div className="absolute top-[calc(100%-2px)] left-0 pt-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                  <div
+                    id="nav-sobre-dropdown"
+                    role="menu"
+                    className="absolute top-[calc(100%-2px)] left-0 pt-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                  >
                     <div className="w-60 bg-white rounded-2xl border-2 border-yycl-navy shadow-[4px_4px_0px_#001837] p-2 space-y-1">
                       <Link
                         href="/sobre-yycl"
+                        role="menuitem"
                         className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
                           pathname === '/sobre-yycl' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
                         }`}
@@ -238,6 +258,7 @@ export const Navbar = () => {
                       </Link>
                       <Link
                         href="/profesores"
+                        role="menuitem"
                         className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
                           pathname === '/profesores' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
                         }`}
@@ -246,6 +267,7 @@ export const Navbar = () => {
                       </Link>
                       <Link
                         href="/trabaja-con-nosotros"
+                        role="menuitem"
                         className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
                           pathname === '/trabaja-con-nosotros' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
                         }`}
@@ -260,7 +282,7 @@ export const Navbar = () => {
           )}
 
           {/* Right Side: [LanguageToggle] -> [Plataforma (#3C4C92)] -> [CTA Agendar (#FFD203)] */}
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="hidden xl:flex items-center gap-5">
             <LanguageToggle />
 
             {!isEn && (

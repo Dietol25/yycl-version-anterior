@@ -155,9 +155,9 @@ export const Footer = () => {
               <a href="https://www.facebook.com/yesyoucan.languages.7" target="_blank" rel="noreferrer" className="text-white/90 hover:text-yycl-yellow transition-colors flex items-center justify-center w-8 h-8 rounded-lg hover:bg-white/10" aria-label="Facebook">
                 <FacebookIcon size={19} />
               </a>
-              <Link href={isEn ? "/en/not-found" : "/404"} className="text-white/90 hover:text-yycl-yellow transition-colors flex items-center justify-center w-8 h-8 rounded-lg hover:bg-white/10" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/yesyoucanlanguages/" target="_blank" rel="noreferrer" className="text-white/90 hover:text-yycl-yellow transition-colors flex items-center justify-center w-8 h-8 rounded-lg hover:bg-white/10" aria-label="LinkedIn">
                 <LinkedinIcon size={19} />
-              </Link>
+              </a>
               <a href="https://www.youtube.com/@yesyoucanlanguages" target="_blank" rel="noreferrer" className="text-white/90 hover:text-yycl-yellow transition-colors flex items-center justify-center w-8 h-8 rounded-lg hover:bg-white/10" aria-label="YouTube">
                 <YoutubeIcon size={21} />
               </a>
@@ -303,9 +303,9 @@ export const Footer = () => {
             <a href="https://www.facebook.com/yesyoucan.languages.7" target="_blank" rel="noreferrer" className="text-white hover:text-yycl-yellow p-2 rounded-lg bg-white/10" aria-label="Facebook">
               <FacebookIcon size={19} />
             </a>
-            <Link href={isEn ? "/en/not-found" : "/404"} className="text-white hover:text-yycl-yellow p-2 rounded-lg bg-white/10" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/yesyoucanlanguages/" target="_blank" rel="noreferrer" className="text-white hover:text-yycl-yellow p-2 rounded-lg bg-white/10" aria-label="LinkedIn">
               <LinkedinIcon size={19} />
-            </Link>
+            </a>
             <a href="https://www.youtube.com/@yesyoucanlanguages" target="_blank" rel="noreferrer" className="text-white hover:text-yycl-yellow p-2 rounded-lg bg-white/10" aria-label="YouTube">
               <YoutubeIcon size={21} />
             </a>
