@@ -291,26 +291,24 @@ export const Navbar = () => {
             </nav>
           )}
 
-          {/* Right Side: [LanguageToggle] -> [Plataforma (#3C4C92)] -> [CTA Agendar (#FFD203)] */}
+          {/* Right Side: [LanguageToggle] -> [Plataforma / Student Portal] -> [CTA Agendar (#FFD203)] */}
           <div className="hidden xl:flex items-center gap-5">
             <LanguageToggle />
 
-            {!isEn && (
-              <Link
-                href="/login"
-                className={`text-[14px] font-heading font-semibold transition-colors ${
-                  pathname === '/login' ? 'text-[#001837] font-bold underline' : 'text-[#3C4C92] hover:text-[#001837]'
-                }`}
-              >
-                Plataforma
-              </Link>
-            )}
+            <Link
+              href="/login"
+              className={`text-[14px] font-heading font-semibold transition-colors whitespace-nowrap ${
+                pathname === '/login' ? 'text-[#001837] font-bold underline' : 'text-[#3C4C92] hover:text-[#001837]'
+              }`}
+            >
+              {isEn ? 'Student Portal' : 'Plataforma'}
+            </Link>
 
             <Link href={isEn ? '/en/agendar' : '/agendar'}>
               <Button
                 variant="primary"
                 size="sm"
-                className="font-heading font-bold text-xs sm:text-sm px-5 py-2 h-10 shadow-[3px_3px_0px_#EC9519]"
+                className="font-heading font-bold text-xs sm:text-sm px-5 py-2 h-10 shadow-[3px_3px_0px_#EC9519] whitespace-nowrap min-w-[140px]"
               >
                 {isEn ? 'Book an interview' : 'Agendar gratis'}
               </Button>

@@ -59,7 +59,7 @@ export const HeroSection = () => {
 
           {/* Right Column: Prominent Large Transparent Collage Illustration */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end pt-2 lg:pt-0">
-            <div className="relative w-full max-w-[380px] sm:max-w-[480px] lg:max-w-[620px]">
+            <div className="relative w-full max-w-[440px] sm:max-w-[540px] lg:max-w-[680px] xl:max-w-[740px] lg:-mr-4 xl:-mr-8 scale-100 lg:scale-[1.12] xl:scale-[1.16] origin-center lg:origin-right transition-transform duration-300">
               <img
                 src="/assets/01_INICIO/YYCL_01_HOME_INGLES_CONVERSACION.png"
                 alt="Estudiante practicando inglés conversacional en YYCL"
