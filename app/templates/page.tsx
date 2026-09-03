@@ -44,6 +44,11 @@ import {
   TemplateInternal04Certificate,
 } from "@/components/templates/InternalCommercialTemplates";
 import {
+  HighlightsProfileBar,
+  HighlightStoryCover,
+  HIGHLIGHTS_DATA,
+} from "@/components/templates/InstagramHighlightsTemplates";
+import {
   Layers,
   Copy,
   Check,
@@ -52,9 +57,17 @@ import {
   Maximize2,
   Camera,
   Share2,
+  Sparkles,
 } from "lucide-react";
 
-type CategoryKey = "all" | "ig-feed" | "ig-stories" | "linkedin" | "tiktok" | "commercial";
+type CategoryKey =
+  | "all"
+  | "ig-feed"
+  | "ig-stories"
+  | "ig-highlights"
+  | "linkedin"
+  | "tiktok"
+  | "commercial";
 
 export default function TemplatesPage() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>("all");
@@ -62,9 +75,10 @@ export default function TemplatesPage() {
   const [copied, setCopied] = useState<boolean>(false);
 
   const categories = [
-    { id: "all", label: "Todas las piezas (28)", icon: Layers },
+    { id: "all", label: "Todas las piezas (37)", icon: Layers },
     { id: "ig-feed", label: "Instagram Feed (10)", icon: Camera },
     { id: "ig-stories", label: "Instagram Stories (6)", icon: Camera },
+    { id: "ig-highlights", label: "Historias Destacadas (9)", icon: Sparkles },
     { id: "linkedin", label: "LinkedIn (6)", icon: Share2 },
     { id: "tiktok", label: "TikTok & Reels (6)", icon: Video },
     { id: "commercial", label: "Interno & Comercial (4)", icon: FileText },
@@ -492,6 +506,54 @@ export default function TemplatesPage() {
                   <TemplateStory06CTA />
                 </div>
               </div>
+            </div>
+          </section>
+        )}
+
+        {/* ======================================================== */}
+        {/* SECCIÓN NUEVA: HISTORIAS DESTACADAS (HIGHLIGHTS COVERS)  */}
+        {/* ======================================================== */}
+        {(selectedCategory === "all" || selectedCategory === "ig-highlights") && (
+          <section className="mb-20 max-w-7xl mx-auto space-y-8">
+            <div className="flex items-center gap-3 border-b border-white/15 pb-4">
+              <Sparkles className="w-8 h-8 text-[#FFD203]" />
+              <div>
+                <h2 className="text-3xl font-heading font-black text-white">
+                  3. Historias Destacadas (Highlight Covers)
+                </h2>
+                <p className="text-sm text-white/70">
+                  Sistema de 9 iconos oficiales con código semántico de color (Amarillo, Cyan, Navy, Violeta y Crema)
+                </p>
+              </div>
+            </div>
+
+            {/* Simulador de Barra de Perfil de Instagram */}
+            {!exportMode && <HighlightsProfileBar />}
+
+            {/* Portadas Completas 9:16 (1080 x 1920 px) */}
+            <div
+              className={
+                exportMode
+                  ? "flex flex-col gap-16 items-center"
+                  : "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pt-4"
+              }
+            >
+              {HIGHLIGHTS_DATA.map((item, idx) => (
+                <div key={item.id} className="flex flex-col gap-3">
+                  <span className="text-xs font-heading font-bold text-[#FFD203]">
+                    {`Highlight 0${idx + 1} · ${item.title}`}
+                  </span>
+                  <div
+                    className={
+                      exportMode
+                        ? ""
+                        : "origin-top-left transform scale-[0.32] w-[1080px] h-[1920px] -mb-[1300px] -mr-[730px] rounded-3xl overflow-hidden shadow-2xl border border-white/20"
+                    }
+                  >
+                    <HighlightStoryCover item={item} />
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
         )}

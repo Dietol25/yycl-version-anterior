@@ -196,11 +196,13 @@ export const OfferingsTabWidget = () => {
 
             {/* Right Organic Floating Collage Asset */}
             <div className="lg:col-span-6 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[480px]">
+              <div className="relative w-full max-w-[480px] aspect-[1535/1024]">
                 <img
                   src={current.image}
                   alt={current.imageAlt}
-                  className="w-full h-auto object-contain select-none transition-all duration-300 hover:scale-[1.02]"
+                  width={1535}
+                  height={1024}
+                  className="w-full h-full object-contain select-none transition-all duration-300 hover:scale-[1.02]"
                 />
               </div>
             </div>
@@ -214,24 +216,37 @@ export const OfferingsTabWidget = () => {
         <div className="mt-20 pt-16 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Illustration: order-2 on mobile (below pillars), lg:order-1 on desktop (left side) */}
           <div className="order-2 lg:order-1 lg:col-span-6 flex justify-center">
-            <div key={activePillar} className="relative w-full max-w-[480px] animate-in fade-in duration-300 group">
-              <img
-                src={currentPillar.image}
-                alt={currentPillar.alt}
-                className="w-full h-auto object-contain select-none"
-              />
+            <div 
+              className="relative w-full max-w-[480px] aspect-[1535/1024] group select-none"
+              style={{ minHeight: '260px' }}
+            >
+              {PILLARS.map((pillar) => {
+                const isCurrent = activePillar === pillar.id;
+                return (
+                  <img
+                    key={pillar.id}
+                    src={pillar.image}
+                    alt={pillar.alt}
+                    width={1535}
+                    height={1024}
+                    className={`absolute inset-0 w-full h-full object-contain select-none transition-opacity duration-300 ${
+                      isCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+                    }`}
+                  />
+                );
+              })}
 
               {/* Botón de Play Flotante en 'Hablas desde el minuto uno' (Laptop Video Preview) */}
-              {activePillar === 0 && (
-                <button
-                  type="button"
-                  onClick={() => setIsPlayingVideo(true)}
-                  className="absolute top-[44%] left-[48%] -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 bg-[#FFD203] hover:bg-[#FFE2C0] text-[#001837] rounded-full border-2 border-[#001837] shadow-[3px_3px_0px_#001837] flex items-center justify-center transition-all duration-200 hover:scale-110 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none cursor-pointer z-20 group-hover:scale-105"
-                  aria-label="Reproducir video de clase real"
-                >
-                  <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-[#001837] text-[#001837] ml-0.5" />
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={() => setIsPlayingVideo(true)}
+                className={`absolute top-[44%] left-[48%] -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 bg-[#FFD203] hover:bg-[#FFE2C0] text-[#001837] rounded-full border-2 border-[#001837] shadow-[3px_3px_0px_#001837] flex items-center justify-center transition-all duration-300 hover:scale-110 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none cursor-pointer z-20 group-hover:scale-105 ${
+                  activePillar === 0 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                }`}
+                aria-label="Reproducir video de clase real"
+              >
+                <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-[#001837] text-[#001837] ml-0.5" />
+              </button>
             </div>
           </div>
 
@@ -243,7 +258,7 @@ export const OfferingsTabWidget = () => {
                 <div
                   key={pillar.id}
                   onClick={() => setActivePillar(pillar.id)}
-                  className={`border-l-4 pl-5 py-2.5 transition-all duration-200 cursor-pointer rounded-r-2xl ${
+                  className={`border-l-4 pl-5 py-3 transition-all duration-200 cursor-pointer rounded-r-2xl min-h-[86px] flex flex-col justify-center ${
                     isSelected
                       ? 'border-[#001837] bg-slate-50/80 shadow-xs'
                       : 'border-transparent hover:border-[#834296]/50 hover:bg-slate-50/40'
