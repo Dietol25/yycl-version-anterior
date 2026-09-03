@@ -245,17 +245,17 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
         {step === 1 && (
           <div className="space-y-5 animate-in fade-in-50 duration-200">
             <div>
-              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
                 {isEn ? 'Tell us about yourself' : 'Cuéntanos sobre ti'}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+              <p className="text-xs sm:text-[13px] text-slate-500 font-body-regular mt-0.5">
                 {isEn ? 'Basic details so we can get in touch with you.' : 'Tus datos básicos de contacto para comunicarnos contigo.'}
               </p>
             </div>
 
             <div className="space-y-4">
               <div>
-                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Full Name *' : 'Nombre Completo *'}
                 </label>
                 <div className="relative">
@@ -272,7 +272,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
               </div>
 
               <div>
-                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Email Address *' : 'Correo Electrónico *'}
                 </label>
                 <div className="relative">
@@ -289,14 +289,14 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
               </div>
 
               <div>
-                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'WhatsApp Phone *' : 'WhatsApp / Teléfono *'}
                 </label>
                 <div className="flex gap-2">
                   <select
                     value={formData.countryCode}
                     onChange={e => updateField('countryCode', e.target.value)}
-                    className="h-11 px-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs sm:text-sm font-heading font-bold text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] shrink-0"
+                    className="h-11 px-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs sm:text-sm font-heading font-bold text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] shrink-0 cursor-pointer"
                   >
                     {COUNTRY_CODES.map(c => (
                       <option key={c.code} value={c.code}>
@@ -319,7 +319,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
               </div>
 
               <div>
-                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'City & Country of Residence *' : 'Ciudad y País de Residencia *'}
                 </label>
                 <div className="relative">
@@ -356,17 +356,17 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
         {step === 2 && (
           <div className="space-y-6 animate-in fade-in-50 duration-200">
             <div>
-              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
                 {isEn ? 'Teaching Profile & Languages' : 'Idiomas y Perfil Docente'}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+              <p className="text-xs sm:text-[13px] text-slate-500 font-body-regular mt-0.5">
                 {isEn ? 'What languages and formats do you specialize in?' : '¿Qué idiomas enseñas y con qué modalidades te sientes más cómodo/a?'}
               </p>
             </div>
 
             {/* Idioma Principal (Dropdown) */}
             <div>
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+              <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                 {isEn ? 'Primary Language you Teach *' : 'Idioma Principal que Enseñas *'}
               </label>
               <div className="relative">
@@ -387,7 +387,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
 
             {/* Años de Experiencia (Dropdown) */}
             <div>
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+              <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                 {isEn ? 'Teaching Experience *' : 'Años de Experiencia Docente *'}
               </label>
               <div className="relative">
@@ -408,7 +408,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
 
             {/* Público de Preferencia (Chips Compactos Multi-select) */}
             <div className="space-y-1.5">
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+              <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block">
                 {isEn ? 'Target Audience (Select all that apply)' : 'Público Objetivo con el que te gusta trabajar'}
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -434,7 +434,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
 
             {/* Certificaciones o Título */}
             <div>
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+              <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                 {isEn ? 'Certifications or Degrees' : 'Certificaciones o Títulos (Opcional)'}
               </label>
               <div className="relative">
@@ -444,7 +444,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
                   placeholder={isEn ? "e.g. TEFL, CELTA, TESOL, Bachelor in Languages" : "ej. TEFL, CELTA, Licenciatura en Lenguas Modernas, Traductorado"}
                   value={formData.certifications}
                   onChange={e => updateField('certifications', e.target.value)}
-                  className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] transition-all"
+                  className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] transition-all font-body-regular"
                 />
               </div>
             </div>
@@ -477,17 +477,17 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
         {step === 3 && (
           <div className="space-y-6 animate-in fade-in-50 duration-200">
             <div>
-              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
                 {isEn ? 'Availability & Style' : 'Disponibilidad y Estilo de Enseñanza'}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+              <p className="text-xs sm:text-[13px] text-slate-500 font-body-regular mt-0.5">
                 {isEn ? 'Help us match you with the right schedule and students.' : 'Cuéntanos tus horarios disponibles y cómo te gusta conectar con tus alumnos.'}
               </p>
             </div>
 
             {/* Disponibilidad semanal (Dropdown Selector) */}
             <div>
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+              <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                 {isEn ? 'Weekly Hours Available *' : 'Horas Semanales Disponibles *'}
               </label>
               <div className="relative">
@@ -507,7 +507,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
 
             {/* Franja horaria preferida */}
             <div className="space-y-1.5">
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
+              <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block">
                 {isEn ? 'Preferred Time Slots' : 'Franjas Horarias Preferidas'}
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -537,7 +537,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
 
             {/* Enfoque / Filosofía */}
             <div>
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+              <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                 {isEn 
                   ? 'What makes your teaching style human and engaging?' 
                   : '¿Qué hace único tu estilo de enseñanza y cómo ayudas a perder el miedo a hablar?'}
@@ -581,10 +581,10 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
         {step === 4 && (
           <div className="space-y-6 animate-in fade-in-50 duration-200">
             <div>
-              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+              <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
                 {isEn ? 'CV & Final Submission' : 'CV, Enlaces y Envío'}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+              <p className="text-xs sm:text-[13px] text-slate-500 font-body-regular mt-0.5">
                 {isEn ? 'Almost done! Share your professional profile link.' : '¡Casi listo! Comparte tu perfil profesional o enlace a tu hoja de vida.'}
               </p>
             </div>
@@ -592,7 +592,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
             <div className="space-y-4">
               {/* Direct File Upload for CV */}
               <div>
-                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Upload your CV / Resume (PDF, DOCX) *' : 'Cargar Hoja de Vida / CV (PDF, DOCX) *'}
                 </label>
                 <div className="relative border-2 border-dashed border-slate-300 hover:border-[#834296] rounded-2xl p-5 bg-slate-50/60 hover:bg-[#FAF5FC] transition-all text-center cursor-pointer group">
@@ -638,7 +638,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
 
               {/* O Enlace Alternativo a LinkedIn o Google Drive */}
               <div>
-                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-slate-600 block mb-1.5">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
                   {isEn ? 'Or share your LinkedIn / Google Drive link' : 'O comparte tu enlace de LinkedIn / Google Drive'}
                 </label>
                 <div className="relative">
@@ -654,7 +654,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
               </div>
 
               <div>
-                <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Video Introduction Link (Loom/YouTube/Drive) - Optional' : 'Video de Presentación Breve (Loom / YouTube / Drive) - Opcional'}
                 </label>
                 <div className="relative">

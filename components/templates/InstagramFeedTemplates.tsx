@@ -105,6 +105,7 @@ export function TemplateIG01Quote() {
                 src="/images/SRC_001_Imagen de Codex 22 ago 2026, 10_05_51 p.m..png"
                 alt="Naty Sánchez"
                 fill
+                sizes="120px"
                 className="object-cover"
               />
             </div>

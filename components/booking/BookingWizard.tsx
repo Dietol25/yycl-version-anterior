@@ -585,8 +585,8 @@ export const BookingWizard = () => {
 
             {/* First & Last Name */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
+              <div className="space-y-1">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'First Name' : 'Nombre'}
                 </label>
                 <input
@@ -613,8 +613,8 @@ export const BookingWizard = () => {
                 )}
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
+              <div className="space-y-1">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Last Name' : 'Apellido'}
                 </label>
                 <input
@@ -644,8 +644,8 @@ export const BookingWizard = () => {
 
             {/* Email & Phone */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
+              <div className="space-y-1">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Email Address' : 'Correo Electrónico'}
                 </label>
                 <input
@@ -674,8 +674,8 @@ export const BookingWizard = () => {
                 )}
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
+              <div className="space-y-1">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'WhatsApp / Phone Number' : 'WhatsApp / Teléfono'}
                 </label>
                 <div className="flex gap-2">
@@ -686,7 +686,7 @@ export const BookingWizard = () => {
                       setFormData({ ...formData, phoneCode: newCode });
                       if (phoneError) setPhoneError(null);
                     }}
-                    className="w-28 shrink-0 h-11 px-2 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
+                    className="w-28 shrink-0 h-11 px-2 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
                   >
                     {COUNTRY_CODES.map((c) => (
                       <option key={c.code} value={c.code}>
@@ -731,14 +731,14 @@ export const BookingWizard = () => {
 
             {/* Dropdowns: Level & Goal */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
+              <div className="space-y-1">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Current language level?' : '¿Nivel actual de idioma?'}
                 </label>
                 <select
                   value={formData.currentLevel}
                   onChange={(e) => setFormData({ ...formData, currentLevel: e.target.value })}
-                  className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
+                  className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
                 >
                   {isEn ? (
                     <>
@@ -760,14 +760,14 @@ export const BookingWizard = () => {
                 </select>
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
+              <div className="space-y-1">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Main goal?' : '¿Objetivo principal?'}
                 </label>
                 <select
                   value={formData.goal}
                   onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
-                  className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
+                  className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
                 >
                   {isEn ? (
                     <>
@@ -792,14 +792,14 @@ export const BookingWizard = () => {
 
             {/* Dropdowns: Language & Audience */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
+              <div className="space-y-1">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Language you want to learn' : 'Idioma de interés'}
                 </label>
                 <select
                   value={formData.language}
                   onChange={(e) => setFormData({ ...formData, language: e.target.value })}
-                  className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
+                  className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
                 >
                   {isEn ? (
                     <>
@@ -819,14 +819,14 @@ export const BookingWizard = () => {
                 </select>
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-heading font-extrabold text-[#001837] uppercase tracking-wider block">
+              <div className="space-y-1">
+                <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                   {isEn ? 'Classes are for:' : 'Las clases son para:'}
                 </label>
                 <select
                   value={formData.audience}
                   onChange={(e) => setFormData({ ...formData, audience: e.target.value })}
-                  className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837]"
+                  className="w-full h-11 px-3.5 bg-white text-slate-800 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
                 >
                   {isEn ? (
                     <>
