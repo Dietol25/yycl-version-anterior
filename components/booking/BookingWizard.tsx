@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Calendar, Clock, ArrowRight, ArrowLeft, Video, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, ArrowLeft, Video, AlertCircle, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 
 const SERVICE_OPTIONS_ES = [
@@ -886,94 +887,93 @@ export const BookingWizard = () => {
         )}
 
         {/* ========================================================================= */}
-        {/* PASO 4: CONFIRMACIÓN COMPACTA Y ELEGANTE                                  */}
+        {/* PASO 4: MODAL CON OVERLAY DE CONFIRMACIÓN ELEGANTE                        */}
         {/* ========================================================================= */}
         {step === 4 && (
-          <div className="text-center py-4 sm:py-6 space-y-5 animate-in zoom-in-95 duration-300">
-            
-            {/* Animated Celebration Icon */}
-            <div className="relative w-16 h-16 mx-auto flex items-center justify-center">
-              <div className="absolute inset-0 rounded-full bg-emerald-400/25 animate-ping duration-1000" />
-              <div className="relative w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md border-2 border-white">
-                <svg
-                  className="w-7 h-7"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Title */}
-            <div className="space-y-1">
-              <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
-                {isEn ? 'Booking Confirmed!' : '¡Cita Confirmada!'}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
-                {isEn
-                  ? `See you in class, ${formData.firstName || 'Student'}!`
-                  : `¡Nos vemos en clase, ${formData.firstName || 'Diego'}!`}
-              </h2>
-            </div>
-
-            {/* Clean Summary Pill */}
-            <div className="max-w-sm mx-auto bg-slate-50/90 rounded-2xl p-4 border border-slate-200 text-center space-y-1.5 shadow-xs">
-              <div className="flex items-center justify-center gap-2 text-sm font-heading font-bold text-[#001837]">
-                <Calendar className="w-4 h-4 text-[#834296]" />
-                <span>{selectedDate} · {selectedTime}</span>
-              </div>
-              <p className="text-xs text-slate-500 font-body-regular leading-relaxed">
-                {isEn ? (
-                  <>We sent the Google Meet access link to <strong className="text-[#001837]">{formData.email || 'your email'}</strong> and a WhatsApp reminder.</>
-                ) : (
-                  <>Enviamos el enlace de Google Meet a <strong className="text-[#001837]">{formData.email || 'tu correo'}</strong> y recordatorio a tu WhatsApp.</>
-                )}
-              </p>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href={generateGoogleCalendarUrl()}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto"
-              >
-                <button
-                  type="button"
-                  className="w-full sm:w-auto h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center justify-center gap-2"
-                >
-                  <Calendar className="w-4 h-4 text-[#001837]" />
-                  <span>{isEn ? 'Add to Google Calendar' : 'Agregar a Google Calendar'}</span>
-                </button>
-              </a>
-
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs animate-in fade-in duration-200">
+            <div className="relative w-full max-w-lg bg-white rounded-3xl p-7 sm:p-10 border-2 border-[#001837] shadow-[8px_8px_0px_#001837] text-center space-y-6 animate-in zoom-in-95 duration-300">
+              
+              {/* Botón cerrar ✕ */}
               <button
                 type="button"
-                onClick={() => {
-                  setStep(1);
-                  setFormData({
-                    firstName: '',
-                    lastName: '',
-                    email: '',
-                    phoneCode: isEn ? '+1' : '+57',
-                    phoneNumber: '',
-                    language: isEn ? 'Spanish' : 'Inglés',
-                    currentLevel: isEn ? 'Zero / Absolute Beginner (A1)' : 'Cero / Principiante (A1)',
-                    goal: isEn ? 'Travel / Cultural Immersion' : 'Viajes / Inmigración',
-                    audience: isEn ? 'For myself (Adult)' : 'Para mí (un adulto)',
-                    referral: 'Instagram',
-                  });
-                }}
-                className="h-9 px-3 rounded-xl text-slate-500 hover:text-[#001837] font-heading font-bold text-xs hover:bg-slate-100 transition-colors cursor-pointer"
+                onClick={() => setStep(1)}
+                aria-label="Cerrar modal"
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
               >
-                {isEn ? 'Book another session' : 'Agendar otra sesión'}
+                <X className="w-5 h-5" />
               </button>
+
+              {/* Animated Celebration Icon */}
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full bg-emerald-400/25 animate-ping duration-1000" />
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md border-2 border-white">
+                  <svg
+                    className="w-8 h-8 sm:w-10 sm:h-10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Title */}
+              <div className="space-y-1.5">
+                <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+                  {isEn ? 'Booking Confirmed!' : '¡Cita Confirmada!'}
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
+                  {isEn
+                    ? `See you in class, ${formData.firstName || 'Student'}!`
+                    : `¡Nos vemos en clase, ${formData.firstName || 'Diego'}!`}
+                </h2>
+              </div>
+
+              {/* Clean Summary Pill */}
+              <div className="bg-slate-50/90 rounded-2xl p-4 sm:p-5 border border-slate-200 text-center space-y-1.5 shadow-xs">
+                <div className="flex items-center justify-center gap-2 text-sm sm:text-base font-heading font-bold text-[#001837]">
+                  <Calendar className="w-4 h-4 text-[#834296]" />
+                  <span>{selectedDate} · {selectedTime}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 font-body-regular leading-relaxed">
+                  {isEn ? (
+                    <>We sent the Google Meet access link to <strong className="text-[#001837]">{formData.email || 'your email'}</strong> and a WhatsApp reminder.</>
+                  ) : (
+                    <>Enviamos el enlace de Google Meet a <strong className="text-[#001837]">{formData.email || 'tu correo'}</strong> y recordatorio a tu WhatsApp.</>
+                  )}
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={generateGoogleCalendarUrl()}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto"
+                >
+                  <button
+                    type="button"
+                    className="w-full sm:w-auto h-12 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center justify-center gap-2"
+                  >
+                    <Calendar className="w-4 h-4 text-[#001837]" />
+                    <span>{isEn ? 'Add to Google Calendar' : 'Agregar a Google Calendar'}</span>
+                  </button>
+                </a>
+
+                <Link href={isEn ? "/en" : "/"} className="w-full sm:w-auto">
+                  <button
+                    type="button"
+                    className="w-full sm:w-auto h-11 px-5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-heading font-bold text-xs transition-colors cursor-pointer"
+                  >
+                    {isEn ? '← Back to Home' : '← Volver al inicio'}
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         )}

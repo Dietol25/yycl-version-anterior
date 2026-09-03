@@ -18,7 +18,8 @@ import {
   Sparkles,
   Heart,
   UploadCloud,
-  FileText
+  FileText,
+  X
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -132,57 +133,85 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
   };
 
   // =========================================================================
-  // PANTALLA DE ÉXITO TRAS EL ENVÍO
+  // MODAL CON OVERLAY DE CONFIRMACIÓN TRAS EL ENVÍO
   // =========================================================================
-  if (isSubmitted) {
+  const renderConfirmationModal = () => {
+    if (!isSubmitted) return null;
+
     return (
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] text-center space-y-6 animate-in fade-in zoom-in-95 duration-300 max-w-2xl mx-auto">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center border-2 border-emerald-600 shadow-[3px_3px_0px_#001837]">
-          <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11 stroke-[2.5]" />
-        </div>
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs animate-in fade-in duration-200">
+        <div className="relative w-full max-w-lg bg-white rounded-3xl p-7 sm:p-10 border-2 border-[#001837] shadow-[8px_8px_0px_#001837] text-center space-y-6 animate-in zoom-in-95 duration-300">
+          
+          {/* Botón cerrar ✕ */}
+          <button
+            type="button"
+            onClick={() => setIsSubmitted(false)}
+            aria-label="Cerrar modal"
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
+          >
+            <X className="w-5 h-5" />
+          </button>
 
-        <div className="space-y-2">
-          <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
-            {isEn ? 'Application Received' : 'Postulación Recibida'}
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
-            {isEn ? `Thank you, ${formData.fullName.split(' ')[0]}!` : `¡Muchas gracias, ${formData.fullName.split(' ')[0]}!`}
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 font-body-regular max-w-md mx-auto leading-relaxed">
-            {isEn 
-              ? "We've received your profile and recorded your details in our recruitment system. Natty, Néstor, and the academic team will review your application."
-              : "Hemos registrado tu información en nuestro sistema de selección docente. Natty, Néstor y el equipo académico revisarán tu perfil."}
-          </p>
-        </div>
+          {/* Animated Celebration Icon */}
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center">
+            <div className="absolute inset-0 rounded-full bg-emerald-400/25 animate-ping duration-1000" />
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-600 shadow-[3px_3px_0px_#001837]">
+              <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11 stroke-[2.5]" />
+            </div>
+          </div>
 
-        <div className="bg-[#FFE2C0]/30 rounded-2xl p-5 border border-[#EC9519]/40 text-left space-y-2 max-w-md mx-auto">
-          <p className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#EC9519]">
-            {isEn ? 'What happens next?' : '¿Qué sigue ahora?'}
-          </p>
-          <ul className="text-xs sm:text-sm text-slate-700 font-body-regular space-y-1.5 list-disc pl-4">
-            <li>{isEn ? 'Application review (24 to 48 business hours).' : 'Revisión de tu perfil y experiencia (24 a 48 hs hábiles).'}</li>
-            <li>{isEn ? 'We will contact you via WhatsApp or Email.' : 'Te contactaremos vía WhatsApp o correo electrónico.'}</li>
-            <li>{isEn ? 'Brief conversational interview with our Academic Director.' : 'Entrevista conversacional breve con nuestra Dirección de Estudios.'}</li>
-          </ul>
-        </div>
+          <div className="space-y-2">
+            <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+              {isEn ? 'Application Received' : 'Postulación Recibida'}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
+              {isEn ? `Thank you, ${formData.fullName.split(' ')[0] || 'Teacher'}!` : `¡Muchas gracias, ${formData.fullName.split(' ')[0] || 'Docente'}!`}
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 font-body-regular leading-relaxed">
+              {isEn 
+                ? "We've received your profile and recorded your details in our recruitment system. Natty, Néstor, and the academic team will review your application."
+                : "Hemos registrado tu información en nuestro sistema de selección docente. Natty, Néstor y el equipo académico revisarán tu perfil."}
+            </p>
+          </div>
 
-        <div className="pt-3">
-          <Link href={isEn ? "/en" : "/"}>
-            <Button
-              variant="primary"
-              size="md"
-              className="font-heading font-bold text-xs sm:text-sm px-8 h-12 shadow-[3px_3px_0px_#EC9519]"
+          <div className="bg-[#FFE2C0]/35 rounded-2xl p-4 sm:p-5 border border-[#EC9519]/40 text-left space-y-2">
+            <p className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#EC9519]">
+              {isEn ? 'What happens next?' : '¿Qué sigue ahora?'}
+            </p>
+            <ul className="text-xs text-slate-700 font-body-regular space-y-1.5 list-disc pl-4">
+              <li>{isEn ? 'Application review (24 to 48 business hours).' : 'Revisión de tu perfil y experiencia (24 a 48 hs hábiles).'}</li>
+              <li>{isEn ? 'We will contact you via WhatsApp or Email.' : 'Te contactaremos vía WhatsApp o correo electrónico.'}</li>
+              <li>{isEn ? 'Brief conversational interview with our Academic Director.' : 'Entrevista conversacional breve con nuestra Dirección de Estudios.'}</li>
+            </ul>
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link href={isEn ? "/en" : "/"} className="w-full sm:w-auto">
+              <Button
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto font-heading font-bold text-xs sm:text-sm px-8 h-12 shadow-[3px_3px_0px_#EC9519]"
+              >
+                {isEn ? '← Back to Home' : '← Volver al inicio'}
+              </Button>
+            </Link>
+            <button
+              type="button"
+              onClick={() => setIsSubmitted(false)}
+              className="w-full sm:w-auto h-11 px-5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-heading font-bold text-xs transition-colors cursor-pointer"
             >
-              {isEn ? 'Back to Home' : 'Volver al inicio'}
-            </Button>
-          </Link>
+              {isEn ? 'Close' : 'Cerrar'}
+            </button>
+          </div>
         </div>
       </div>
     );
-  }
+  };
 
   return (
-    <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] space-y-8 max-w-3xl mx-auto">
+    <>
+      {renderConfirmationModal()}
+      <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] space-y-8 max-w-3xl mx-auto">
       
       {/* Barra de Progreso de Pasos (1 a 4) */}
       <div className="space-y-3">
