@@ -81,7 +81,7 @@ export default function EnglishHomePage() {
                   Conversational Spanish for speakers of other languages, from day one.
                 </p>
 
-                <div className="pt-2 space-y-3">
+                <div className="pt-2">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <Link href="/en/agendar">
                       <Button
@@ -100,14 +100,6 @@ export default function EnglishHomePage() {
                       Looking for English courses instead? →
                     </Link>
                   </div>
-
-                  {/* Aclaración bilingüe para hispanohablantes que aterrizan en /en */}
-                  <p className="text-[11px] text-slate-500 font-body-regular">
-                    ¿Buscas aprender inglés, francés o portugués?{' '}
-                    <Link href="/" className="font-semibold text-[#834296] hover:underline">
-                      Ir a la versión en español de YYCL →
-                    </Link>
-                  </p>
                 </div>
               </div>
 
