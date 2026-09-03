@@ -142,75 +142,69 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
   };
 
   // =========================================================================
-  // MODAL CON OVERLAY DE CONFIRMACIÓN TRAS EL ENVÍO
+  // MODAL CON OVERLAY DE CONFIRMACIÓN COMPACTO & ELEGANTE
   // =========================================================================
   const renderConfirmationModal = () => {
     if (!isSubmitted) return null;
 
+    const homeUrl = isEn ? "/en" : "/";
+
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs animate-in fade-in duration-200">
-        <div className="relative w-full max-w-lg bg-white rounded-3xl p-7 sm:p-10 border-2 border-[#001837] shadow-[8px_8px_0px_#001837] text-center space-y-6 animate-in zoom-in-95 duration-300">
+        <div className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 border-2 border-[#001837] shadow-[8px_8px_0px_#001837] text-center space-y-4 animate-in zoom-in-95 duration-300">
           
-          {/* Botón cerrar ✕ */}
-          <button
-            type="button"
-            onClick={() => setIsSubmitted(false)}
-            aria-label="Cerrar modal"
-            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
+          {/* Botón cerrar ✕ -> Lleva al Home */}
+          <Link
+            href={homeUrl}
+            aria-label="Cerrar modal e ir al inicio"
+            className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
           >
-            <X className="w-5 h-5" />
-          </button>
+            <X className="w-4 h-4" />
+          </Link>
 
-          {/* Animated Celebration Icon */}
-          <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center">
+          {/* Animated Celebration Icon Compact */}
+          <div className="relative w-12 h-12 mx-auto flex items-center justify-center">
             <div className="absolute inset-0 rounded-full bg-emerald-400/25 animate-ping duration-1000" />
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-600 shadow-[3px_3px_0px_#001837]">
-              <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11 stroke-[2.5]" />
+            <div className="relative w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-600 shadow-xs">
+              <CheckCircle2 className="w-7 h-7 stroke-[2.5]" />
             </div>
           </div>
 
-          <div className="space-y-2">
-            <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+          <div className="space-y-1">
+            <span className="text-[11px] font-heading font-extrabold uppercase tracking-widest text-[#834296]">
               {isEn ? 'Application Received' : 'Postulación Recibida'}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
               {isEn ? `Thank you, ${formData.fullName.split(' ')[0] || 'Teacher'}!` : `¡Muchas gracias, ${formData.fullName.split(' ')[0] || 'Docente'}!`}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-body-regular leading-relaxed">
+            <p className="text-xs text-slate-600 font-body-regular leading-relaxed">
               {isEn 
-                ? "We've received your profile and recorded your details in our recruitment system. Natty, Néstor, and the academic team will review your application."
-                : "Hemos registrado tu información en nuestro sistema de selección docente. Natty, Néstor y el equipo académico revisarán tu perfil."}
+                ? "We've received your profile. Natty, Néstor, and the academic team will review your application."
+                : "Registramos tu información. Natty, Néstor y el equipo académico revisarán tu perfil."}
             </p>
           </div>
 
-          <div className="bg-[#FFE2C0]/35 rounded-2xl p-4 sm:p-5 border border-[#EC9519]/40 text-left space-y-2">
-            <p className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#EC9519]">
+          <div className="bg-[#FFE2C0]/35 rounded-2xl p-3.5 sm:p-4 border border-[#EC9519]/40 text-left space-y-1.5">
+            <p className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-[#EC9519]">
               {isEn ? 'What happens next?' : '¿Qué sigue ahora?'}
             </p>
-            <ul className="text-xs text-slate-700 font-body-regular space-y-1.5 list-disc pl-4">
+            <ul className="text-xs text-slate-700 font-body-regular space-y-1 list-disc pl-4">
               <li>{isEn ? 'Application review (24 to 48 business hours).' : 'Revisión de tu perfil y experiencia (24 a 48 hs hábiles).'}</li>
               <li>{isEn ? 'We will contact you via WhatsApp or Email.' : 'Te contactaremos vía WhatsApp o correo electrónico.'}</li>
               <li>{isEn ? 'Brief conversational interview with our Academic Director.' : 'Entrevista conversacional breve con nuestra Dirección de Estudios.'}</li>
             </ul>
           </div>
 
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link href={isEn ? "/en" : "/"} className="w-full sm:w-auto">
+          <div className="pt-2">
+            <Link href={homeUrl} className="block w-full">
               <Button
                 variant="primary"
                 size="md"
-                className="w-full sm:w-auto font-heading font-bold text-xs sm:text-sm px-8 h-12 shadow-[3px_3px_0px_#EC9519]"
+                className="w-full font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
               >
                 {isEn ? '← Back to Home' : '← Volver al inicio'}
               </Button>
             </Link>
-            <button
-              type="button"
-              onClick={() => setIsSubmitted(false)}
-              className="w-full sm:w-auto h-11 px-5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-heading font-bold text-xs transition-colors cursor-pointer"
-            >
-              {isEn ? 'Close' : 'Cerrar'}
-            </button>
           </div>
         </div>
       </div>
@@ -493,39 +487,32 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
               </p>
             </div>
 
-            {/* Disponibilidad semanal */}
-            <div className="space-y-2">
-              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
-                {isEn ? 'Weekly Hours Available' : 'Horas Semanales Disponibles'}
+            {/* Disponibilidad semanal (Dropdown Selector) */}
+            <div>
+              <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block mb-1.5">
+                {isEn ? 'Weekly Hours Available *' : 'Horas Semanales Disponibles *'}
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                {[
-                  '5 a 10 hs (Part-time flexible)',
-                  '10 a 20 horas / semana (Part-time)',
-                  'Más de 20 horas / semana'
-                ].map(hrs => (
-                  <button
-                    key={hrs}
-                    type="button"
-                    onClick={() => updateField('availabilityHours', hrs)}
-                    className={`py-3 px-3 rounded-2xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
-                      formData.availabilityHours === hrs
-                        ? 'bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] border-0 scale-[1.02]'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
-                    }`}
-                  >
-                    {hrs}
-                  </button>
-                ))}
+              <div className="relative">
+                <Clock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 pointer-events-none" />
+                <select
+                  value={formData.availabilityHours}
+                  onChange={e => updateField('availabilityHours', e.target.value)}
+                  className="w-full h-11 pl-10 pr-8 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] font-body-regular cursor-pointer appearance-none transition-all"
+                >
+                  <option value="5 a 10 hs (Part-time flexible)">5 a 10 hs / semana (Part-time flexible)</option>
+                  <option value="10 a 20 horas / semana (Part-time)">10 a 20 horas / semana (Part-time regular)</option>
+                  <option value="Más de 20 horas / semana">Más de 20 horas / semana (Dedicación amplia)</option>
+                </select>
+                <div className="absolute right-3.5 top-4 pointer-events-none border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-slate-500" />
               </div>
             </div>
 
             {/* Franja horaria preferida */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <label className="text-xs font-heading font-extrabold uppercase tracking-wider text-[#001837] block">
                 {isEn ? 'Preferred Time Slots' : 'Franjas Horarias Preferidas'}
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {[
                   'Mañanas (7:00 AM - 12:00 PM)',
                   'Tardes (2:00 PM - 7:00 PM)',
@@ -537,9 +524,9 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
                       key={slot}
                       type="button"
                       onClick={() => toggleArrayItem('preferredTimeSlot', slot)}
-                      className={`py-3 px-3 rounded-2xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
+                      className={`py-2.5 px-2 rounded-xl text-xs font-heading font-bold transition-all text-center cursor-pointer ${
                         isSel
-                          ? 'bg-[#834296] text-white shadow-[3px_3px_0px_#001837] border-0'
+                          ? 'bg-[#834296] text-white shadow-[2px_2px_0px_#001837] border-0'
                           : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
                       }`}
                     >

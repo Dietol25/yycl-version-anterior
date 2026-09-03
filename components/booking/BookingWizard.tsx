@@ -887,28 +887,27 @@ export const BookingWizard = () => {
         )}
 
         {/* ========================================================================= */}
-        {/* PASO 4: MODAL CON OVERLAY DE CONFIRMACIÓN ELEGANTE                        */}
+        {/* PASO 4: MODAL CON OVERLAY DE CONFIRMACIÓN COMPACTO & ELEGANTE             */}
         {/* ========================================================================= */}
         {step === 4 && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs animate-in fade-in duration-200">
-            <div className="relative w-full max-w-lg bg-white rounded-3xl p-7 sm:p-10 border-2 border-[#001837] shadow-[8px_8px_0px_#001837] text-center space-y-6 animate-in zoom-in-95 duration-300">
+            <div className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 border-2 border-[#001837] shadow-[8px_8px_0px_#001837] text-center space-y-4 animate-in zoom-in-95 duration-300">
               
-              {/* Botón cerrar ✕ */}
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                aria-label="Cerrar modal"
-                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
+              {/* Botón cerrar ✕ -> Lleva al Home */}
+              <Link
+                href={isEn ? "/en" : "/"}
+                aria-label="Cerrar modal e ir al inicio"
+                className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-[#001837] flex items-center justify-center transition-colors cursor-pointer"
               >
-                <X className="w-5 h-5" />
-              </button>
+                <X className="w-4 h-4" />
+              </Link>
 
-              {/* Animated Celebration Icon */}
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center">
+              {/* Animated Celebration Icon Compact */}
+              <div className="relative w-12 h-12 mx-auto flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-emerald-400/25 animate-ping duration-1000" />
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md border-2 border-white">
+                <div className="relative w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center border-2 border-emerald-600 shadow-xs">
                   <svg
-                    className="w-8 h-8 sm:w-10 sm:h-10"
+                    className="w-6 h-6 stroke-[3]"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
