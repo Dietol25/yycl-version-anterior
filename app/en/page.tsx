@@ -61,9 +61,9 @@ export default function EnglishHomePage() {
               
               {/* Left Column */}
               <div className="lg:col-span-6 space-y-5 text-left">
-                <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+                <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296] bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-200">
                   <span className="w-2 h-2 rounded-full bg-[#834296]" />
-                  <span>Spanish Classes</span>
+                  <span>Spanish Classes for Adults · Live Online</span>
                 </div>
 
                 <div className="space-y-1 relative">
@@ -81,16 +81,33 @@ export default function EnglishHomePage() {
                   Conversational Spanish for speakers of other languages, from day one.
                 </p>
 
-                <div className="pt-2">
-                  <Link href="/en/agendar">
-                    <Button
-                      variant="primary"
-                      size="md"
-                      className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+                <div className="pt-2 space-y-3">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <Link href="/en/agendar">
+                      <Button
+                        variant="primary"
+                        size="md"
+                        className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+                      >
+                        Book an interview
+                      </Button>
+                    </Link>
+
+                    <Link
+                      href="/en/english-classes"
+                      className="text-xs sm:text-sm font-heading font-semibold text-[#001837] hover:text-[#834296] transition-colors py-1"
                     >
-                      Book an interview
-                    </Button>
-                  </Link>
+                      Looking for English courses instead? →
+                    </Link>
+                  </div>
+
+                  {/* Aclaración bilingüe para hispanohablantes que aterrizan en /en */}
+                  <p className="text-[11px] text-slate-500 font-body-regular">
+                    ¿Buscas aprender inglés, francés o portugués?{' '}
+                    <Link href="/" className="font-semibold text-[#834296] hover:underline">
+                      Ir a la versión en español de YYCL →
+                    </Link>
+                  </p>
                 </div>
               </div>
 

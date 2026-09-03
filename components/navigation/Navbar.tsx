@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, ChevronDown } from 'lucide-react';
+import { Menu, ChevronDown, BookOpen, Globe2, Sparkles, Building2, Award } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/icons/Logo';
 import { LanguageToggle } from '@/components/navigation/LanguageToggle';
@@ -166,52 +166,62 @@ export const Navbar = () => {
                       <Link
                         href="/planes"
                         role="menuitem"
-                        className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/planes' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
+                          pathname === '/planes' ? 'bg-purple-50 text-[#834296] font-bold' : 'text-slate-800 hover:bg-slate-50'
                         }`}
                       >
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#834296] shrink-0" />
+                        <span className="w-7 h-7 rounded-full bg-[#834296] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                          <BookOpen className="w-3.5 h-3.5 stroke-[2.2]" />
+                        </span>
                         <span>Nuestros programas</span>
                       </Link>
                       <Link
                         href="/idiomas"
                         role="menuitem"
-                        className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/idiomas' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
+                          pathname === '/idiomas' ? 'bg-amber-50 text-[#EC9519] font-bold' : 'text-slate-800 hover:bg-slate-50'
                         }`}
                       >
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#EC9519] shrink-0" />
-                        <span>Otros idiomas</span>
+                        <span className="w-7 h-7 rounded-full bg-[#EC9519] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                          <Globe2 className="w-3.5 h-3.5 stroke-[2.2]" />
+                        </span>
+                        <span>Otros idiomas (Francés y Portugués)</span>
                       </Link>
                       <Link
                         href="/kids"
                         role="menuitem"
-                        className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/kids' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
+                          pathname === '/kids' ? 'bg-cyan-50 text-[#0284C7] font-bold' : 'text-slate-800 hover:bg-slate-50'
                         }`}
                       >
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#4DC2DA] shrink-0" />
+                        <span className="w-7 h-7 rounded-full bg-[#4DC2DA] text-[#001837] flex items-center justify-center shrink-0 shadow-2xs">
+                          <Sparkles className="w-3.5 h-3.5 stroke-[2.2]" />
+                        </span>
                         <span>Kids & Teens (Niños y adolescentes)</span>
                       </Link>
                       <Link
                         href="/empresas"
                         role="menuitem"
-                        className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/empresas' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
+                          pathname === '/empresas' ? 'bg-slate-100 text-[#001837] font-bold' : 'text-slate-800 hover:bg-slate-50'
                         }`}
                       >
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#001837] shrink-0" />
-                        <span>Capacitación corporativa en idiomas</span>
+                        <span className="w-7 h-7 rounded-full bg-[#001837] text-[#FFD203] flex items-center justify-center shrink-0 shadow-2xs">
+                          <Building2 className="w-3.5 h-3.5 stroke-[2.2]" />
+                        </span>
+                        <span>Capacitación corporativa</span>
                       </Link>
                       <Link
                         href="/servicios-especiales"
                         role="menuitem"
-                        className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/servicios-especiales' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
+                          pathname === '/servicios-especiales' ? 'bg-amber-50 text-[#B26B06] font-bold' : 'text-slate-800 hover:bg-slate-50'
                         }`}
                       >
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#EC9519] shrink-0" />
-                        <span>Servicios Especiales</span>
+                        <span className="w-7 h-7 rounded-full bg-[#FFD203] text-[#001837] flex items-center justify-center shrink-0 shadow-2xs">
+                          <Award className="w-3.5 h-3.5 stroke-[2.2]" />
+                        </span>
+                        <span>Servicios Especiales (Exámenes / ESP)</span>
                       </Link>
                     </div>
                   </div>

@@ -154,13 +154,13 @@ export default function OtrosIdiomasPage() {
               ¿Conoces a alguien que quiera aprender? Cuéntale.
             </p>
             <div className="pt-2">
-              <Link href="/agendar">
+              <Link href="/en/spanish-classes">
                 <Button
                   variant="secondary"
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
                 >
-                  Ver clases de español
+                  Ver clases de español para extranjeros →
                 </Button>
               </Link>
             </div>

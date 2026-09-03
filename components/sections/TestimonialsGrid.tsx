@@ -45,7 +45,7 @@ export const TestimonialsGrid = () => {
   };
 
   return (
-    <section className="py-18 lg:py-24 bg-white border-t border-slate-100">
+    <section className="pt-10 sm:pt-14 pb-16 sm:pb-20 bg-white border-t border-slate-100">
       <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">

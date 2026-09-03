@@ -37,17 +37,17 @@ export const LanguageToggle = () => {
   const ariaText = isEn ? 'Switch to Spanish language website' : 'Cambiar al sitio web en inglés';
 
   return (
-    <div className="flex items-center justify-center min-h-[44px] py-1">
+    <div className="flex items-center justify-center">
       <Link
         href={targetHref}
         prefetch={true}
         title={titleText}
         aria-label={ariaText}
-        className="relative inline-flex items-center w-[74px] sm:w-[82px] h-[34px] sm:h-[38px] bg-white border-2 border-[#001837] rounded-full p-[2px] cursor-pointer select-none shadow-[2px_2px_0px_#001837] hover:shadow-[1px_1px_0px_#001837] active:translate-x-[0.5px] active:translate-y-[0.5px] shrink-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#834296]/40 transition-shadow"
+        className="relative inline-flex items-center w-[86px] h-[44px] bg-white border-2 border-[#001837] rounded-full p-[2px] cursor-pointer select-none shadow-[2px_2px_0px_#001837] hover:shadow-[1px_1px_0px_#001837] active:translate-x-[0.5px] active:translate-y-[0.5px] shrink-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#834296]/40 transition-all duration-200"
       >
         {/* Label ES (Lado izquierdo, visible cuando está en modo EN) */}
         <span
-          className={`w-1/2 text-center text-[11px] sm:text-xs font-heading font-black tracking-tight text-[#001837] transition-all duration-300 ease-out select-none ${
+          className={`w-1/2 text-center text-xs font-heading font-black tracking-tight text-[#001837] transition-all duration-300 ease-out select-none ${
             isEn ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-75 -translate-x-1.5 pointer-events-none'
           }`}
         >
@@ -56,17 +56,17 @@ export const LanguageToggle = () => {
 
         {/* Label EN (Lado derecho, visible cuando está en modo ES) */}
         <span
-          className={`w-1/2 text-center text-[11px] sm:text-xs font-heading font-black tracking-tight text-[#001837] transition-all duration-300 ease-out select-none ${
+          className={`w-1/2 text-center text-xs font-heading font-black tracking-tight text-[#001837] transition-all duration-300 ease-out select-none ${
             isEn ? 'opacity-0 scale-75 translate-x-1.5 pointer-events-none' : 'opacity-100 scale-100 translate-x-0'
           }`}
         >
           EN
         </span>
 
-        {/* Sliding Tactile Knob */}
+        {/* Sliding Tactile Knob (36x36 dentro de 44px) */}
         <div
-          className={`absolute top-[2px] left-[2px] w-[26px] sm:w-[30px] h-[26px] sm:h-[30px] rounded-full border border-[#001837] shadow-[1px_1px_0px_#001837] overflow-hidden flex items-center justify-center bg-white transition-transform duration-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] will-change-transform ${
-            isEn ? 'translate-x-[40px] sm:translate-x-[46px]' : 'translate-x-0'
+          className={`absolute top-[2px] left-[2px] w-[36px] h-[36px] rounded-full border border-[#001837] shadow-[1px_1px_0px_#001837] overflow-hidden flex items-center justify-center bg-white transition-transform duration-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] will-change-transform ${
+            isEn ? 'translate-x-[44px]' : 'translate-x-0'
           }`}
         >
           <div className="relative w-full h-full flex items-center justify-center">
@@ -76,7 +76,7 @@ export const LanguageToggle = () => {
                 isEn ? 'opacity-0 rotate-90 scale-50 pointer-events-none' : 'opacity-100 rotate-0 scale-100'
               }`}
             >
-              <SpainFlag size={26} />
+              <SpainFlag size={32} />
             </div>
 
             {/* Indicador bandera USA en EN */}
@@ -85,7 +85,7 @@ export const LanguageToggle = () => {
                 isEn ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50 pointer-events-none'
               }`}
             >
-              <UsaFlag size={26} />
+              <UsaFlag size={32} />
             </div>
           </div>
         </div>

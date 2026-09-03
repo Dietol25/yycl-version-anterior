@@ -125,7 +125,7 @@ export const OfferingsTabWidget = () => {
   const currentPillar = PILLARS[activePillar];
 
   return (
-    <section className="py-20 lg:py-24 bg-white border-t border-slate-100">
+    <section className="pt-16 sm:pt-20 pb-12 sm:pb-14 bg-white border-t border-slate-100">
       <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">

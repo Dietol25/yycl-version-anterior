@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, ChevronLeft, GraduationCap, Star, ArrowUpRight } from 'lucide-react';
+import { ChevronDown, ChevronLeft, GraduationCap, Star, ArrowUpRight, BookOpen, Globe2, Sparkles, Building2, Award } from 'lucide-react';
 import { Logo } from '@/components/icons/Logo';
 import { Button } from '@/components/ui/Button';
 import { LanguageToggle } from '@/components/navigation/LanguageToggle';
@@ -146,45 +146,55 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 </button>
 
                 {programasOpen && (
-                  <div className="pl-3 pr-1 py-1 space-y-1 animate-in fade-in-50 duration-150 border-l-2 border-[#834296]/20 ml-3">
+                  <div className="pl-2 pr-1 py-1 space-y-1.5 animate-in fade-in-50 duration-150 border-l-2 border-[#834296]/20 ml-3">
                     <Link
                       href="/planes"
                       onClick={onClose}
-                      className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
+                      className="flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
                     >
-                      <span className="w-2 h-2 rounded-full bg-[#834296] shrink-0" />
+                      <span className="w-6 h-6 rounded-full bg-[#834296] text-white flex items-center justify-center shrink-0">
+                        <BookOpen className="w-3 h-3 stroke-[2.2]" />
+                      </span>
                       <span>Nuestros programas</span>
                     </Link>
                     <Link
                       href="/idiomas"
                       onClick={onClose}
-                      className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
+                      className="flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
                     >
-                      <span className="w-2 h-2 rounded-full bg-[#EC9519] shrink-0" />
+                      <span className="w-6 h-6 rounded-full bg-[#EC9519] text-white flex items-center justify-center shrink-0">
+                        <Globe2 className="w-3 h-3 stroke-[2.2]" />
+                      </span>
                       <span>Otros idiomas</span>
                     </Link>
                     <Link
                       href="/kids"
                       onClick={onClose}
-                      className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
+                      className="flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
                     >
-                      <span className="w-2 h-2 rounded-full bg-[#4DC2DA] shrink-0" />
+                      <span className="w-6 h-6 rounded-full bg-[#4DC2DA] text-[#001837] flex items-center justify-center shrink-0">
+                        <Sparkles className="w-3 h-3 stroke-[2.2]" />
+                      </span>
                       <span>Kids & Teens</span>
                     </Link>
                     <Link
                       href="/empresas"
                       onClick={onClose}
-                      className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
+                      className="flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
                     >
-                      <span className="w-2 h-2 rounded-full bg-[#001837] shrink-0" />
+                      <span className="w-6 h-6 rounded-full bg-[#001837] text-[#FFD203] flex items-center justify-center shrink-0">
+                        <Building2 className="w-3 h-3 stroke-[2.2]" />
+                      </span>
                       <span>Capacitación corporativa</span>
                     </Link>
                     <Link
                       href="/servicios-especiales"
                       onClick={onClose}
-                      className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
+                      className="flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
                     >
-                      <span className="w-2 h-2 rounded-full bg-[#EC9519] shrink-0" />
+                      <span className="w-6 h-6 rounded-full bg-[#FFD203] text-[#001837] flex items-center justify-center shrink-0">
+                        <Award className="w-3 h-3 stroke-[2.2]" />
+                      </span>
                       <span>Servicios Especiales</span>
                     </Link>
                   </div>
