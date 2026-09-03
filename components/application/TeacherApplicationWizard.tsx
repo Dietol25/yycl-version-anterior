@@ -172,25 +172,25 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
             </div>
           </div>
 
-          <div className="space-y-1">
-            <span className="text-[11px] font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-heading font-extrabold uppercase tracking-widest text-[#834296] block">
               {isEn ? 'Application Received' : 'Postulación Recibida'}
             </span>
-            <h2 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
               {isEn ? `Thank you, ${formData.fullName.split(' ')[0] || 'Teacher'}!` : `¡Muchas gracias, ${formData.fullName.split(' ')[0] || 'Docente'}!`}
             </h2>
-            <p className="text-xs text-slate-600 font-body-regular leading-relaxed">
+            <p className="text-xs text-slate-500 font-body-regular leading-relaxed max-w-xs mx-auto">
               {isEn 
                 ? "We've received your profile. Natty, Néstor, and the academic team will review your application."
                 : "Registramos tu información. Natty, Néstor y el equipo académico revisarán tu perfil."}
             </p>
           </div>
 
-          <div className="bg-[#FFE2C0]/35 rounded-2xl p-3.5 sm:p-4 border border-[#EC9519]/40 text-left space-y-1.5">
-            <p className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-[#EC9519]">
+          <div className="bg-[#FFE2C0]/35 rounded-2xl p-3.5 border border-[#EC9519]/40 text-left space-y-1.5">
+            <p className="text-[10px] font-heading font-extrabold uppercase tracking-widest text-[#EC9519]">
               {isEn ? 'What happens next?' : '¿Qué sigue ahora?'}
             </p>
-            <ul className="text-xs text-slate-700 font-body-regular space-y-1 list-disc pl-4">
+            <ul className="text-[11px] text-slate-600 font-body-regular space-y-1 list-disc pl-4 leading-normal">
               <li>{isEn ? 'Application review (24 to 48 business hours).' : 'Revisión de tu perfil y experiencia (24 a 48 hs hábiles).'}</li>
               <li>{isEn ? 'We will contact you via WhatsApp or Email.' : 'Te contactaremos vía WhatsApp o correo electrónico.'}</li>
               <li>{isEn ? 'Brief conversational interview with our Academic Director.' : 'Entrevista conversacional breve con nuestra Dirección de Estudios.'}</li>

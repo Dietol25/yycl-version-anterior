@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Montserrat, Nunito } from "next/font/google";
+import { Montserrat, Nunito, Caveat } from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -13,6 +13,13 @@ const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-handwritten",
+  subsets: ["latin"],
+  weight: ["500", "700"],
   display: "swap",
 });
 
@@ -30,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${montserrat.variable} ${nunito.variable} scroll-smooth antialiased`}
+      className={`${montserrat.variable} ${nunito.variable} ${caveat.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-white text-yycl-navy selection:bg-yycl-yellow selection:text-yycl-navy">
         {children}

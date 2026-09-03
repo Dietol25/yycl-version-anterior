@@ -922,7 +922,7 @@ export const BookingWizard = () => {
 
               {/* Title */}
               <div className="space-y-1.5">
-                <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+                <span className="text-[10px] font-heading font-extrabold uppercase tracking-widest text-[#834296] block">
                   {isEn ? 'Booking Confirmed!' : '¡Cita Confirmada!'}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
@@ -933,12 +933,12 @@ export const BookingWizard = () => {
               </div>
 
               {/* Clean Summary Pill */}
-              <div className="bg-slate-50/90 rounded-2xl p-4 sm:p-5 border border-slate-200 text-center space-y-1.5 shadow-xs">
-                <div className="flex items-center justify-center gap-2 text-sm sm:text-base font-heading font-bold text-[#001837]">
+              <div className="bg-slate-50/90 rounded-2xl p-3.5 sm:p-4 border border-slate-200 text-center space-y-1 shadow-xs">
+                <div className="flex items-center justify-center gap-2 text-sm font-heading font-bold text-[#001837]">
                   <Calendar className="w-4 h-4 text-[#834296]" />
                   <span>{selectedDate} · {selectedTime}</span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 font-body-regular leading-relaxed">
+                <p className="text-[11px] text-slate-500 font-body-regular leading-relaxed max-w-xs mx-auto">
                   {isEn ? (
                     <>We sent the Google Meet access link to <strong className="text-[#001837]">{formData.email || 'your email'}</strong> and a WhatsApp reminder.</>
                   ) : (

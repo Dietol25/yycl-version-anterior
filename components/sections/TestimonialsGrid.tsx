@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Star, ArrowRight, ExternalLink } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/data';
 
-const GOOGLE_REVIEWS_URL = 'https://maps.app.goo.gl/y5jZ7M8q6Q2z7K8K8';
+const GOOGLE_REVIEWS_URL = '/resultados';
 
 export const TestimonialsGrid = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -121,15 +121,13 @@ export const TestimonialsGrid = () => {
                 </div>
 
                 <div className="flex items-center justify-between text-[11px] pt-0.5">
-                  <a
-                    href={GOOGLE_REVIEWS_URL}
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    href="/resultados"
                     className="inline-flex items-center gap-1 font-heading font-bold text-white/90 hover:text-[#FFD203] hover:underline transition-colors cursor-pointer"
                   >
                     <span>Google Reviews 5.0★</span>
                     <ExternalLink className="w-3 h-3 text-[#FFD203]" />
-                  </a>
+                  </Link>
                   <span className="text-xs">{item.countryFlag || '🇨🇴'}</span>
                 </div>
               </div>
@@ -184,15 +182,13 @@ export const TestimonialsGrid = () => {
               </div>
 
               <div className="flex items-center justify-between text-[11px] pt-0.5">
-                <a
-                  href={GOOGLE_REVIEWS_URL}
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  href="/resultados"
                   className="inline-flex items-center gap-1 font-heading font-bold text-white/90 hover:text-[#FFD203] hover:underline transition-colors cursor-pointer"
                 >
                   <span>Google Reviews 5.0★</span>
                   <ExternalLink className="w-3 h-3 text-[#FFD203]" />
-                </a>
+                </Link>
                 <span className="text-xs">{TESTIMONIALS[activeIndex].countryFlag || '🇨🇴'}</span>
               </div>
             </div>
