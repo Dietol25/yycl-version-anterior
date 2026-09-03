@@ -1,20 +1,13 @@
 import React from "react";
-import Image from "next/image";
 import {
-  Tape,
-  StickerBadge,
+  BrandHeader,
+  BrandFooter,
+  UserAvatar,
   MarkerHighlight,
-  BrushStroke,
-  DoodleArrow,
-  DoodleSpark,
-  DoodleCircle,
-  HandwrittenNote,
-  StickyNote,
-  TornPaperEdge,
-  YYCLLogoMark,
   StarRating,
+  YYCLStickerLogo,
 } from "./DesignElements";
-import { Check, X, ArrowRight, Bookmark, MessageCircle } from "lucide-react";
+import { Check, X, ArrowRight, Bookmark, Sparkles } from "lucide-react";
 
 // Wrapper base para Instagram Feed (1080 x 1350 px exactos)
 export function FeedFrameWrapper({
@@ -32,7 +25,7 @@ export function FeedFrameWrapper({
     <div
       id={id}
       data-template-type="instagram-feed"
-      className={`w-[1080px] h-[1350px] relative overflow-hidden flex flex-col justify-between p-[76px] text-white select-none ${className}`}
+      className={`w-[1080px] h-[1350px] relative overflow-hidden flex flex-col justify-between p-[84px] text-white select-none ${className}`}
       style={{ boxSizing: "border-box" }}
     >
       {children}
@@ -40,280 +33,198 @@ export function FeedFrameWrapper({
   );
 }
 
-// 01. Quote / Frase de Impacto (Editorial Collage)
+// 01. Quote / Frase de Impacto (Limpio y coherente con la web)
 export function TemplateIG01Quote() {
   return (
     <FeedFrameWrapper
       id="ig-feed-01-quote"
       title="01 · Quote / Frase de Impacto"
-      className="bg-[#001837] bg-notebook-grid"
+      className="bg-[#001837]"
     >
-      {/* Mancha orgánica de pintura en el fondo */}
-      <div className="absolute top-20 right-10 w-[420px] h-[420px] bg-[#834296]/25 rounded-full blur-[90px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-[#FFD203]/15 rounded-full blur-[80px] pointer-events-none" />
+      {/* Header Limpio: Solo Logo Sticker Oficial + Badge de Categoría */}
+      <BrandHeader badge="YYCL MINDSET" badgeVariant="yellow" />
 
-      {/* Header */}
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="white" />
-        <StickerBadge text="YYCL MINDSET" variant="yellow" rotate="-2deg" />
-      </div>
+      {/* Contenido Central: Tipografía Montserrat limpia y contundente */}
+      <div className="my-auto z-10 flex flex-col gap-10 max-w-[940px]">
+        <h1 className="font-heading font-black text-[68px] leading-[1.14] tracking-tight text-white">
+          You already know{" "}
+          <MarkerHighlight color="bg-[#FFD203]" textColor="text-[#001837]">
+            more English
+          </MarkerHighlight>{" "}
+          than you think.
+        </h1>
 
-      {/* Composición Central Collage */}
-      <div className="my-auto z-10 flex flex-col gap-8 relative">
-        <Tape className="absolute -top-6 left-12" color="bg-[#FFD203]/90" rotate="-4deg" />
-        
-        <div className="relative pt-4">
-          <DoodleSpark color="#FFD203" className="absolute -top-4 -left-6" />
-          <h1 className="font-heading font-black text-[68px] leading-[1.12] tracking-tight text-white max-w-[940px]">
-            You already know{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-[#001837] px-3 py-1 font-black">
-                more English
-              </span>
-              <span className="absolute inset-0 bg-[#FFD203] -rotate-1 rounded-sm -z-0" />
-            </span>{" "}
-            than you think.
-          </h1>
-        </div>
-
-        {/* Tarjeta tipo recorte de papel con sombra física */}
-        <div className="relative mt-2">
-          <div className="bg-[#FFE2C0] text-[#001837] p-8 rounded-2xl border-3 border-[#001837] shadow-[8px_8px_0px_#834296] max-w-[860px] relative">
-            <Tape className="absolute -top-4 right-8 w-24 h-6" color="bg-white/80" rotate="3deg" />
-            <p className="font-body text-[26px] leading-[1.45] text-[#001837]/90 font-medium">
-              El verdadero bloqueo nunca fue tu vocabulario. Fue el miedo a equivocarte
-              frente a otros. Cuando el entorno es seguro,{" "}
-              <strong className="text-[#834296] font-bold">tu inglés fluye solo.</strong>
-            </p>
-          </div>
-
-          {/* Anotación manuscrita con flecha doodle */}
-          <div className="absolute -bottom-10 right-4 flex items-center gap-3">
-            <DoodleArrow color="#FFD203" rotate="-15deg" className="w-14 h-10" />
-            <HandwrittenNote text="¡Sí puedes!" color="text-[#FFD203]" rotate="4deg" />
-          </div>
+        {/* Tarjeta Limpia de Reflexión (Estilo Web YYCL) */}
+        <div className="bg-[#834296] text-white p-9 rounded-3xl border border-white/20 shadow-[6px_6px_0px_#001837] space-y-3">
+          <p className="font-heading font-bold text-[28px] leading-relaxed text-white">
+            El verdadero bloqueo nunca fue tu vocabulario. Fue el miedo a equivocarte
+            frente a otros. Cuando el entorno es seguro,{" "}
+            <span className="text-[#FFD203]">tu inglés fluye naturalmente.</span>
+          </p>
         </div>
       </div>
 
-      {/* Footer con foto polaroid del equipo */}
-      <div className="flex items-center justify-between border-t border-white/15 pt-8 z-10">
-        <div className="flex items-center gap-5">
-          {/* Polaroid Mini */}
-          <div className="bg-white p-2 pb-4 rounded-lg shadow-xl -rotate-2 border border-black/10 flex flex-col items-center">
-            <div className="w-16 h-16 rounded-xs overflow-hidden relative bg-[#834296]">
-              <Image
-                src="/images/SRC_001_Imagen de Codex 22 ago 2026, 10_05_51 p.m..png"
-                alt="Naty Sánchez"
-                fill
-                sizes="120px"
-                className="object-cover"
-              />
-            </div>
-            <span className="font-handwritten text-xs text-[#001837] mt-1 font-bold">
-              Naty S.
-            </span>
-          </div>
-
-          <div>
-            <p className="font-heading font-extrabold text-[22px] text-white leading-tight">
-              Naty Sánchez
-            </p>
-            <p className="font-body text-[16px] text-[#4DC2DA]">
-              Directora Académica · YYCL
-            </p>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3 text-white/90 font-heading font-bold text-[18px]">
-          <Bookmark className="w-6 h-6 text-[#FFD203]" />
-          <span>Guarda este recordatorio</span>
+      {/* Footer Limpio con Avatar Real */}
+      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10 w-full">
+        <UserAvatar
+          src="/images/SRC_001_Imagen de Codex 22 ago 2026, 10_05_51 p.m..png"
+          alt="Naty Sánchez"
+          name="Naty Sánchez"
+          role="Directora Académica · YYCL"
+          size={64}
+        />
+        <div className="flex items-center gap-2 text-white/80 font-heading font-semibold text-[17px]">
+          <Bookmark className="w-5 h-5 text-[#FFD203]" />
+          <span>Guarda este post</span>
         </div>
       </div>
     </FeedFrameWrapper>
   );
 }
 
-// 02. Tip de Inglés (Collage Cuaderno de Notas)
+// 02. Tip de Inglés (Limpio y Profesional)
 export function TemplateIG02Tip() {
   return (
     <FeedFrameWrapper
       id="ig-feed-02-tip"
       title="02 · Tip de Inglés Profesional"
-      className="bg-[#FBF8F2] bg-notebook-grid text-[#001837]"
+      className="bg-[#001837]"
     >
-      {/* Header */}
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="default" />
-        <StickerBadge text="TIP DE LA SEMANA" variant="purple" rotate="2deg" />
-      </div>
+      <BrandHeader badge="BUSINESS ENGLISH" badgeVariant="cyan" />
 
-      {/* Body */}
-      <div className="my-auto z-10 flex flex-col gap-6 text-[#001837]">
-        <div className="relative">
-          <span className="font-heading font-black uppercase text-[17px] tracking-widest text-[#834296] block">
-            Business English Hacks
+      <div className="my-auto z-10 flex flex-col gap-8">
+        <div>
+          <span className="font-heading font-bold text-[18px] text-[#4DC2DA] uppercase tracking-widest block mb-1">
+            Tips para tus reuniones
           </span>
-          <h2 className="font-heading font-black text-[54px] leading-[1.12] text-[#001837] mt-1">
+          <h2 className="font-heading font-black text-[56px] leading-[1.15] text-white">
             3 phrasal verbs para sonar más{" "}
-            <span className="relative inline-block px-1">
-              <span className="relative z-10">natural</span>
-              <BrushStroke color="#FFD203" className="absolute -bottom-2 -left-2 w-full h-8 -z-0 opacity-80" />
-            </span>{" "}
-            en reuniones
+            <MarkerHighlight color="bg-[#FFD203]" textColor="text-[#001837]">
+              natural
+            </MarkerHighlight>{" "}
+            al hablar
           </h2>
         </div>
 
-        {/* 3 Tarjetas tipo Notas Adhesivas / Recortes */}
+        {/* 3 Tarjetas Limpias */}
         <div className="grid grid-cols-1 gap-4">
-          <div className="bg-white p-6 rounded-xl border-2 border-[#001837] shadow-[5px_5px_0px_#001837] relative -rotate-0.5">
-            <Tape className="absolute -top-3.5 left-6 w-20 h-5" color="bg-[#FFD203]/70" rotate="-2deg" />
-            <div className="flex items-center justify-between">
+          <div className="bg-white text-[#001837] p-7 rounded-2xl border border-black/10 shadow-[4px_4px_0px_#4DC2DA]">
+            <div className="flex items-center justify-between mb-1">
               <span className="font-heading font-black text-[26px] text-[#834296]">
                 1. Bring up
               </span>
-              <span className="text-[15px] font-bold bg-[#FFD203] text-[#001837] px-3 py-1 rounded-md">
-                = Mencionar un tema
+              <span className="text-[14px] font-heading font-bold bg-[#FFE2C0] text-[#001837] px-3.5 py-1 rounded-full">
+                Mencionar un tema
               </span>
             </div>
-            <p className="font-body text-[21px] text-[#001837]/85 mt-2">
-              “I’d like to <strong className="text-[#001837]">bring up</strong> the budget before we finish.”
+            <p className="font-body text-[20px] text-slate-700">
+              “I’d like to <strong className="text-[#001837]">bring up</strong> the budget question before we finish.”
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl border-2 border-[#001837] shadow-[5px_5px_0px_#001837] relative rotate-0.5">
-            <Tape className="absolute -top-3.5 right-6 w-20 h-5" color="bg-[#4DC2DA]/70" rotate="2deg" />
-            <div className="flex items-center justify-between">
+          <div className="bg-white text-[#001837] p-7 rounded-2xl border border-black/10 shadow-[4px_4px_0px_#4DC2DA]">
+            <div className="flex items-center justify-between mb-1">
               <span className="font-heading font-black text-[26px] text-[#834296]">
                 2. Follow up
               </span>
-              <span className="text-[15px] font-bold bg-[#4DC2DA] text-[#001837] px-3 py-1 rounded-md">
-                = Dar seguimiento
+              <span className="text-[14px] font-heading font-bold bg-[#CAFFFF] text-[#001837] px-3.5 py-1 rounded-full">
+                Dar seguimiento
               </span>
             </div>
-            <p className="font-body text-[21px] text-[#001837]/85 mt-2">
+            <p className="font-body text-[20px] text-slate-700">
               “Let’s <strong className="text-[#001837]">follow up</strong> on this next Tuesday via email.”
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl border-2 border-[#001837] shadow-[5px_5px_0px_#001837] relative -rotate-0.5">
-            <Tape className="absolute -top-3.5 left-10 w-20 h-5" color="bg-[#FFE2C0]" rotate="-1deg" />
-            <div className="flex items-center justify-between">
+          <div className="bg-white text-[#001837] p-7 rounded-2xl border border-black/10 shadow-[4px_4px_0px_#4DC2DA]">
+            <div className="flex items-center justify-between mb-1">
               <span className="font-heading font-black text-[26px] text-[#834296]">
                 3. Wrap up
               </span>
-              <span className="text-[15px] font-bold bg-[#FFE2C0] text-[#001837] px-3 py-1 rounded-md border border-[#001837]">
-                = Concluir / Cerrar
+              <span className="text-[14px] font-heading font-bold bg-[#FFD203]/70 text-[#001837] px-3.5 py-1 rounded-full">
+                Concluir la sesión
               </span>
             </div>
-            <p className="font-body text-[21px] text-[#001837]/85 mt-2">
+            <p className="font-body text-[20px] text-slate-700">
               “Let’s <strong className="text-[#001837]">wrap up</strong> today’s sync with key action items.”
             </p>
           </div>
         </div>
-
-        <div className="flex justify-end items-center gap-2 -mt-2">
-          <HandwrittenNote text="Guarda esto para tu próxima llamada 📌" color="text-[#834296]" rotate="-2deg" />
-        </div>
       </div>
 
-      {/* Footer */}
-      <div className="flex items-center justify-between border-t-2 border-[#001837]/15 pt-6 z-10 text-[#001837]">
-        <div className="flex items-center gap-3">
-          <DoodleSpark color="#834296" />
-          <span className="font-heading font-bold text-[19px]">
-            Yes You Can Languages
-          </span>
-        </div>
-        <div className="bg-[#001837] text-[#FFD203] px-6 py-2.5 rounded-xl font-heading font-black text-[18px] shadow-md">
-          @yyclanguages
-        </div>
-      </div>
+      <BrandFooter actionText="Practícalo hoy en tu próxima llamada de trabajo" />
     </FeedFrameWrapper>
   );
 }
 
-// 03. Error Común (Recortes Rasgados & Pinceladas)
+// 03. Error Común (Don't Say X → Say Y)
 export function TemplateIG03Error() {
   return (
     <FeedFrameWrapper
       id="ig-feed-03-error"
       title="03 · Error Común: Don't say X → Say Y"
-      className="bg-[#001837] bg-notebook-dots"
+      className="bg-[#001837]"
     >
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="white" />
-        <StickerBadge text="ERROR FRECUENTE" variant="red" rotate="-3deg" />
-      </div>
+      <BrandHeader badge="ERROR COMÚN" badgeVariant="yellow" />
 
-      <div className="my-auto z-10 flex flex-col gap-8">
-        <div className="text-center relative">
-          <h2 className="font-heading font-black text-[56px] leading-tight text-white">
+      <div className="my-auto z-10 flex flex-col gap-9">
+        <div>
+          <span className="font-heading font-bold text-[18px] text-[#4DC2DA] uppercase tracking-widest block mb-1">
+            Evita traducir palabra por palabra
+          </span>
+          <h2 className="font-heading font-black text-[58px] leading-tight text-white">
             ¿Cómo dices tu edad en inglés?
           </h2>
-          <p className="font-body text-[23px] text-white/70 mt-1">
-            Uno de los errores más comunes de traducción literal:
-          </p>
-          <HandwrittenNote text="¡Cuidado con esto!" color="text-[#FFD203]" rotate="3deg" className="absolute -top-6 right-8" />
         </div>
 
-        {/* 2 Bloques de Collage */}
-        <div className="flex flex-col gap-6">
-          {/* Bloque Incorrecto */}
-          <div className="bg-white/10 backdrop-blur-md border-2 border-red-500/70 rounded-2xl p-7 flex items-center justify-between shadow-lg relative">
-            <Tape className="absolute -top-3.5 left-8 w-20 h-5" color="bg-red-500/80" rotate="-2deg" />
-            <div className="flex items-center gap-6">
-              <div className="w-14 h-14 rounded-xl bg-red-600 text-white flex items-center justify-center font-bold text-3xl shrink-0 shadow-md">
-                <X className="w-9 h-9" />
+        {/* Cajas Comparativas Nítidas */}
+        <div className="flex flex-col gap-5">
+          {/* Incorrecto */}
+          <div className="bg-red-950/40 border-2 border-red-500/60 rounded-3xl p-7 flex items-center justify-between">
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-red-600 text-white flex items-center justify-center font-bold text-2xl shrink-0">
+                <X className="w-8 h-8" />
               </div>
               <div>
-                <span className="text-[17px] font-heading font-extrabold uppercase text-red-400">
+                <span className="text-sm font-heading font-bold uppercase tracking-wider text-red-400">
                   Don’t say:
                 </span>
-                <p className="font-heading font-bold text-[38px] text-white/90 line-through decoration-red-500 decoration-4">
+                <p className="font-heading font-bold text-[36px] text-white/90 line-through decoration-red-500 decoration-3">
                   “I have 35 years”
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Bloque Correcto con Papel Amarillo Rasgado */}
-          <div className="bg-[#FFD203] border-4 border-[#001837] rounded-2xl p-7 flex items-center justify-between shadow-[8px_8px_0px_#4DC2DA] text-[#001837] relative rotate-0.5">
-            <Tape className="absolute -top-3.5 right-8 w-24 h-5" color="bg-[#001837]/80" rotate="2deg" />
-            <div className="flex items-center gap-6">
-              <div className="w-14 h-14 rounded-xl bg-[#001837] text-[#FFD203] flex items-center justify-center font-bold text-3xl shrink-0 shadow-md">
-                <Check className="w-9 h-9" />
+          {/* Correcto */}
+          <div className="bg-[#FFD203] border-3 border-[#001837] rounded-3xl p-7 flex items-center justify-between shadow-[6px_6px_0px_#4DC2DA] text-[#001837]">
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-[#001837] text-[#FFD203] flex items-center justify-center font-bold text-2xl shrink-0">
+                <Check className="w-8 h-8" />
               </div>
               <div>
-                <span className="text-[17px] font-heading font-extrabold uppercase text-[#001837]">
+                <span className="text-sm font-heading font-bold uppercase tracking-wider text-[#001837]">
                   Say instead:
                 </span>
-                <p className="font-heading font-black text-[40px] text-[#001837]">
+                <p className="font-heading font-black text-[38px] text-[#001837]">
                   “I am 35 years old”
                 </p>
               </div>
             </div>
-            <StickerBadge text="NATURAL" variant="purple" rotate="3deg" />
+            <span className="font-heading font-black text-xs bg-[#834296] text-white px-3.5 py-1.5 rounded-full uppercase">
+              Natural
+            </span>
           </div>
         </div>
 
-        {/* Nota explicativa tipo papel */}
-        <div className="bg-[#FFE2C0] text-[#001837] p-6 rounded-xl border-2 border-[#001837] shadow-md flex items-center gap-4">
-          <span className="text-3xl shrink-0">💡</span>
-          <p className="font-body text-[21px] text-[#001837]">
-            <strong>En inglés no “tienes” la edad:</strong> tú “eres” esa cantidad de años (verbo <em>To Be</em>).
+        <div className="bg-white/10 p-6 rounded-2xl border border-white/15">
+          <p className="font-body text-[22px] text-white/90 font-medium">
+            💡 <strong>En inglés la edad no se “tiene”:</strong> tú “eres” esa cantidad de años de vida (se usa el verbo <em>To Be</em>).
           </p>
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10">
-        <span className="font-heading font-bold text-[19px] text-[#4DC2DA]">
-          ¿Te ha pasado alguna vez? Cuéntanos 👇
-        </span>
-        <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl">
-          <MessageCircle className="w-5 h-5 text-[#FFD203]" />
-          <span className="font-heading font-bold text-sm">Comentar</span>
-        </div>
-      </div>
+      <BrandFooter actionText="¿Te ha pasado alguna vez? Cuéntanos en comentarios 👇" />
     </FeedFrameWrapper>
   );
 }
@@ -324,147 +235,120 @@ export function TemplateIG04MiniClass() {
     <FeedFrameWrapper
       id="ig-feed-04-miniclass"
       title="04 · Mini Clase Rápida"
-      className="bg-[#834296] bg-notebook-grid"
+      className="bg-[#834296]"
     >
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="white" />
-        <StickerBadge text="MINI CLASE · 60s" variant="yellow" rotate="-2deg" />
-      </div>
+      <BrandHeader badge="MINI CLASE · 60s" badgeVariant="yellow" />
 
-      <div className="my-auto z-10 flex flex-col gap-7">
-        <div className="relative">
-          <span className="font-heading font-bold text-[19px] uppercase text-[#FFD203] tracking-wider block">
-            Vocabulario Real para el Trabajo
+      <div className="my-auto z-10 flex flex-col gap-8">
+        <div>
+          <span className="font-heading font-bold text-[18px] uppercase text-[#FFE2C0] tracking-widest block mb-1">
+            Alternativas a frases de libro
           </span>
-          <h2 className="font-heading font-black text-[52px] text-white leading-tight mt-1">
+          <h2 className="font-heading font-black text-[54px] text-white leading-tight">
             Deja de responder siempre: <br />
-            <span className="text-[#001837] bg-[#FFD203] px-4 py-1 rounded-lg inline-block mt-2 -rotate-1">
+            <span className="text-[#001837] bg-[#FFD203] px-4 py-1 rounded-xl inline-block mt-2">
               “Fine, thanks. And you?”
             </span>
           </h2>
-          <DoodleArrow color="#FFE2C0" rotate="30deg" className="absolute top-4 right-6 w-14 h-10" />
         </div>
 
-        {/* 4 Opciones en formato collage */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-[#001837] p-6 rounded-2xl border-2 border-white/20 shadow-md relative -rotate-0.5">
-            <span className="text-[12px] font-heading font-extrabold text-[#4DC2DA] uppercase tracking-wider block">
-              Opción 1 · Casual
+          <div className="bg-[#001837] p-6 rounded-2xl border border-white/20 shadow-md">
+            <span className="text-[12px] font-heading font-bold text-[#4DC2DA] uppercase tracking-wider block">
+              1. Casual / Amistoso
             </span>
-            <p className="font-heading font-black text-[28px] text-[#FFD203] mt-1">
+            <p className="font-heading font-black text-[26px] text-[#FFD203] mt-1">
               “Can’t complain!”
             </p>
-            <p className="font-body text-[17px] text-white/80 mt-1">
+            <p className="font-body text-[16px] text-white/80 mt-1">
               Ideal para romper el hielo.
             </p>
           </div>
 
-          <div className="bg-[#001837] p-6 rounded-2xl border-2 border-white/20 shadow-md relative rotate-0.5">
-            <span className="text-[12px] font-heading font-extrabold text-[#4DC2DA] uppercase tracking-wider block">
-              Opción 2 · Profesional
+          <div className="bg-[#001837] p-6 rounded-2xl border border-white/20 shadow-md">
+            <span className="text-[12px] font-heading font-bold text-[#4DC2DA] uppercase tracking-wider block">
+              2. Profesional
             </span>
-            <p className="font-heading font-black text-[28px] text-[#FFD203] mt-1">
+            <p className="font-heading font-black text-[26px] text-[#FFD203] mt-1">
               “Doing well, thanks!”
             </p>
-            <p className="font-body text-[17px] text-white/80 mt-1">
-              Perfecto para clientes y jefes.
+            <p className="font-body text-[16px] text-white/80 mt-1">
+              Para llamadas de trabajo.
             </p>
           </div>
 
-          <div className="bg-[#001837] p-6 rounded-2xl border-2 border-white/20 shadow-md relative -rotate-0.5">
-            <span className="text-[12px] font-heading font-extrabold text-[#4DC2DA] uppercase tracking-wider block">
-              Opción 3 · En ritmo
+          <div className="bg-[#001837] p-6 rounded-2xl border border-white/20 shadow-md">
+            <span className="text-[12px] font-heading font-bold text-[#4DC2DA] uppercase tracking-wider block">
+              3. Ocupado
             </span>
-            <p className="font-heading font-black text-[28px] text-[#FFD203] mt-1">
+            <p className="font-heading font-black text-[26px] text-[#FFD203] mt-1">
               “Keeping busy!”
             </p>
-            <p className="font-body text-[17px] text-white/80 mt-1">
-              Transmite dinamismo y acción.
+            <p className="font-body text-[16px] text-white/80 mt-1">
+              Transmite ritmo y dinamismo.
             </p>
           </div>
 
-          <div className="bg-[#001837] p-6 rounded-2xl border-2 border-white/20 shadow-md relative rotate-0.5">
-            <span className="text-[12px] font-heading font-extrabold text-[#4DC2DA] uppercase tracking-wider block">
-              Opción 4 · Positiva
+          <div className="bg-[#001837] p-6 rounded-2xl border border-white/20 shadow-md">
+            <span className="text-[12px] font-heading font-bold text-[#4DC2DA] uppercase tracking-wider block">
+              4. Directo
             </span>
-            <p className="font-heading font-black text-[28px] text-[#FFD203] mt-1">
+            <p className="font-heading font-black text-[26px] text-[#FFD203] mt-1">
               “All good here!”
             </p>
-            <p className="font-body text-[17px] text-white/80 mt-1">
-              Natural entre colegas de equipo.
+            <p className="font-body text-[16px] text-white/80 mt-1">
+              Natural entre compañeros de equipo.
             </p>
           </div>
         </div>
-
-        <div className="flex justify-between items-center">
-          <HandwrittenNote text="¡Úsalo hoy mismo en Slack o Zoom!" color="text-[#FFE2C0]" rotate="-1deg" />
-        </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-white/20 pt-7 z-10">
-        <span className="font-heading font-bold text-[19px] text-white">
-          Aprende inglés hablando · Sin memorizar tablas
-        </span>
-        <div className="bg-[#FFD203] text-[#001837] px-6 py-2.5 rounded-xl font-heading font-black text-[17px]">
-          YYCL Academia
-        </div>
-      </div>
+      <BrandFooter actionText="Clases 100% conversacionales en vivo con profesores reales" />
     </FeedFrameWrapper>
   );
 }
 
-// 05. Carrusel Educativo (Portada de Alto Impacto)
+// 05. Carrusel Educativo (Portada)
 export function TemplateIG05CarouselCover() {
   return (
     <FeedFrameWrapper
       id="ig-feed-05-carousel"
       title="05 · Carrusel Educativo (Portada)"
-      className="bg-[#001837] bg-notebook-dots"
+      className="bg-[#001837]"
     >
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="white" />
-        <StickerBadge text="CARRUSEL · 5 SLIDES" variant="yellow" rotate="3deg" />
-      </div>
+      <BrandHeader badge="GUÍA PRÁCTICA" badgeVariant="yellow" />
 
-      <div className="my-auto z-10 flex flex-col gap-8 relative">
-        <Tape color="bg-[#4DC2DA]/90" rotate="-3deg" className="self-start -mb-4" />
-        
+      <div className="my-auto z-10 flex flex-col gap-8 max-w-[920px]">
         <div>
-          <span className="text-[20px] font-heading font-bold text-[#FFD203] uppercase tracking-widest block mb-2">
-            Guía Práctica para Profesionales
+          <span className="text-[19px] font-heading font-bold text-[#FFD203] uppercase tracking-widest block mb-2">
+            Fluidez sin bloqueos
           </span>
 
-          <h1 className="font-heading font-black text-[68px] leading-[1.1] text-white">
+          <h1 className="font-heading font-black text-[68px] leading-[1.12] text-white">
             Cómo dejar de traducir en tu mente{" "}
-            <span className="relative inline-block mt-2">
-              <span className="relative z-10 text-[#001837] px-3 py-1 font-black">
-                antes de hablar
-              </span>
-              <span className="absolute inset-0 bg-[#FFD203] -rotate-1 rounded-sm -z-0" />
-            </span>
+            <MarkerHighlight color="bg-[#834296]" textColor="text-white">
+              antes de hablar
+            </MarkerHighlight>
           </h1>
         </div>
 
-        <div className="bg-white/10 p-7 rounded-2xl border border-white/20 max-w-[850px] shadow-lg">
-          <p className="font-body text-[25px] text-white/90 leading-relaxed font-medium">
-            El método de 3 pasos que usan nuestros alumnos de 35+ años para responder de forma automática y sin quedarse en blanco.
-          </p>
-        </div>
+        <p className="font-body text-[26px] text-white/80 leading-relaxed font-medium">
+          El método de 3 pasos que usan nuestros alumnos profesionales para responder en inglés sin quedarse en blanco.
+        </p>
 
-        <div className="flex items-center gap-4 mt-2">
-          <div className="bg-[#FFD203] text-[#001837] px-8 py-4 rounded-2xl font-heading font-black text-[22px] flex items-center gap-3 shadow-[6px_6px_0px_#834296]">
-            <span>Desliza para ver la guía</span>
+        <div className="pt-2">
+          <div className="inline-flex items-center gap-3 bg-[#FFD203] text-[#001837] px-8 py-4 rounded-2xl font-heading font-black text-[22px] shadow-[4px_4px_0px_#4DC2DA]">
+            <span>Desliza para ver los 3 pasos</span>
             <ArrowRight className="w-6 h-6" />
           </div>
-          <HandwrittenNote text="Toma 2 minutos ⚡" color="text-[#4DC2DA]" rotate="2deg" />
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10">
+      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10 w-full">
         <span className="font-body text-[18px] text-white/70">
           Desliza para continuar 👉
         </span>
-        <span className="font-heading font-extrabold text-[20px] text-[#FFD203]">
+        <span className="font-heading font-bold text-[20px] text-[#FFD203]">
           Slide 1/5
         </span>
       </div>
@@ -472,131 +356,85 @@ export function TemplateIG05CarouselCover() {
   );
 }
 
-// 06. Caso / Transformación de Alumno
+// 06. Caso de Éxito / Transformación (Avatar Real + Reseña)
 export function TemplateIG06Case() {
   return (
     <FeedFrameWrapper
       id="ig-feed-06-case"
       title="06 · Caso de Éxito / Transformación"
-      className="bg-[#FBF8F2] bg-notebook-grid text-[#001837]"
+      className="bg-[#001837]"
     >
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="default" />
-        <StickerBadge text="CASO REAL · ALUMNA" variant="purple" rotate="-2deg" />
-      </div>
+      <BrandHeader badge="CASO REAL" badgeVariant="purple" />
 
-      <div className="my-auto z-10 flex flex-col gap-7 text-[#001837]">
-        <div>
-          <h2 className="font-heading font-black text-[50px] leading-[1.18] text-[#001837]">
-            “Pasé de temblar antes de entrar al Zoom… a{" "}
-            <MarkerHighlight color="bg-[#FFD203]">
-              liderar la reunión
-            </MarkerHighlight>{" "}
-            frente al cliente de USA.”
-          </h2>
-        </div>
+      <div className="my-auto z-10 flex flex-col gap-8">
+        <h2 className="font-heading font-black text-[52px] leading-[1.2] text-white">
+          “Pasé de temblar antes de entrar al Zoom… a{" "}
+          <MarkerHighlight color="bg-[#FFD203]" textColor="text-[#001837]">
+            liderar la presentación
+          </MarkerHighlight>{" "}
+          frente al cliente de USA.”
+        </h2>
 
-        {/* Card Collage con Polaroid y Tape */}
-        <div className="bg-white p-7 rounded-3xl border-3 border-[#001837] shadow-[8px_8px_0px_#001837] flex items-center gap-8 relative">
-          <Tape className="absolute -top-4 left-10 w-24 h-6" color="bg-[#FFD203]/80" rotate="-2deg" />
-
-          {/* Marco Polaroid con foto real */}
-          <div className="bg-white p-3 pb-6 rounded-xl border-2 border-[#001837] shadow-lg -rotate-2 shrink-0">
-            <div className="w-40 h-40 rounded-xs overflow-hidden relative">
-              <Image
-                src="/images/SRC_002_Imagen de Codex 22 ago 2026, 10_06_16 p.m..png"
-                alt="Valeria Morales"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <p className="font-handwritten text-base text-[#001837] text-center font-bold mt-2">
-              Valeria M. (38)
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-2">
+        {/* Tarjeta de Caso Estilo Web */}
+        <div className="bg-[#834296] p-8 rounded-3xl border border-white/20 shadow-[6px_6px_0px_#001837] flex items-center gap-7">
+          <UserAvatar
+            src="/images/SRC_002_Imagen de Codex 22 ago 2026, 10_06_16 p.m..png"
+            alt="Valeria Morales"
+            name="Valeria Morales"
+            role="Gerente de Proyectos · Bogotá"
+            size={80}
+            borderColor="border-[#FFD203]"
+          />
+          <div className="h-16 w-px bg-white/20" />
+          <div>
             <StarRating count={5} />
-            <p className="font-heading font-black text-[30px] text-[#001837] leading-tight">
-              Valeria Morales
-            </p>
-            <p className="font-body text-[19px] text-[#834296] font-bold">
-              Gerente de Proyectos · Bogotá, Colombia
-            </p>
-            <p className="font-body text-[18px] text-[#001837]/85 mt-1">
-              <strong>Resultado:</strong> 4 meses en YYCL Club de Conversación. Ascenso confirmado en multinacional.
+            <p className="font-body text-[18px] text-white/90 mt-1 font-medium">
+              4 meses en el Club de Conversación YYCL. Ascenso confirmado en empresa multinacional.
             </p>
           </div>
         </div>
-
-        <div className="flex justify-end">
-          <HandwrittenNote text="¡Tú también puedes lograrlo!" color="text-[#834296]" rotate="2deg" />
-        </div>
       </div>
 
-      <div className="flex items-center justify-between border-t-2 border-[#001837]/15 pt-6 z-10 text-[#001837]">
-        <span className="font-heading font-bold text-[19px]">
-          Pierde el miedo a hablar inglés
-        </span>
-        <div className="bg-[#001837] text-[#FFD203] px-6 py-2.5 rounded-xl font-heading font-bold text-[17px]">
-          Test Gratis en Bio 🔗
-        </div>
-      </div>
+      <BrandFooter actionText="Agenda tu prueba de diagnóstico gratuita" />
     </FeedFrameWrapper>
   );
 }
 
-// 07. Testimonio Directo
+// 07. Testimonio Directo (Google Reviews 5.0★)
 export function TemplateIG07Testimonial() {
   return (
     <FeedFrameWrapper
       id="ig-feed-07-testimonial"
       title="07 · Testimonio de Confianza"
-      className="bg-[#001837] bg-notebook-dots"
+      className="bg-[#001837]"
     >
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="white" />
+      <BrandHeader badge="GOOGLE REVIEWS 5.0★" badgeVariant="yellow" />
+
+      <div className="my-auto z-10 flex flex-col gap-8 max-w-[920px]">
         <StarRating count={5} />
-      </div>
 
-      <div className="my-auto z-10 flex flex-col gap-8 relative">
-        <Tape color="bg-[#FFD203]/90" rotate="-2deg" className="self-start -mb-4" />
-        
-        <h2 className="font-heading font-black text-[54px] leading-[1.2] text-white">
+        <blockquote className="font-heading font-extrabold text-[52px] leading-[1.2] text-white">
           “Lo mejor de YYCL es que los profesores{" "}
-          <span className="text-[#FFD203]">no te juzgan</span>. Es el primer curso donde realmente hablo el 80% del tiempo.”
-        </h2>
+          <span className="text-[#FFD203]">no te juzgan</span>. Es el primer curso donde realmente hablo el 80% del tiempo de la clase.”
+        </blockquote>
 
-        {/* Tarjeta Collage con Foto Recortada */}
-        <div className="flex items-center gap-6 bg-[#FFE2C0] text-[#001837] p-7 rounded-2xl border-3 border-[#001837] shadow-[6px_6px_0px_#834296] relative">
-          <div className="w-20 h-20 rounded-full overflow-hidden border-3 border-[#001837] relative shrink-0 shadow-md">
-            <Image
-              src="/images/SRC_003_Imagen de Codex 22 ago 2026, 10_06_22 p.m..png"
-              alt="Carlos Andrés Gómez"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <p className="font-heading font-black text-[26px] text-[#001837]">
-              Carlos Andrés Gómez
-            </p>
-            <p className="font-body text-[18px] text-[#834296] font-bold">
-              Arquitecto de Software · Estudiante Plan Dúo
-            </p>
-          </div>
-          <div className="ml-auto">
-            <StickerBadge text="VERIFICADO" variant="navy" rotate="2deg" />
-          </div>
+        <div className="flex items-center gap-5 pt-2">
+          <UserAvatar
+            src="/images/SRC_003_Imagen de Codex 22 ago 2026, 10_06_22 p.m..png"
+            alt="Nicolas Ibañez"
+            name="Nicolas Ibañez Esenarro"
+            role="Profesional en Tecnología · Alumno YYCL"
+            size={72}
+          />
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10">
-        <span className="font-heading font-semibold text-[19px] text-[#4DC2DA]">
-          +95% de satisfacción en más de 500 alumnos
+      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10 w-full">
+        <span className="font-body text-[18px] text-white/70">
+          +1.000 estudiantes · 94-98% satisfacción
         </span>
-        <span className="font-handwritten text-2xl text-[#FFD203]">
-          Let&apos;s make it real ✨
+        <span className="font-heading font-black text-[18px] text-[#FFD203]">
+          yyclanguages.com
         </span>
       </div>
     </FeedFrameWrapper>
@@ -609,61 +447,44 @@ export function TemplateIG08Teacher() {
     <FeedFrameWrapper
       id="ig-feed-08-teacher"
       title="08 · Conoce a tus Profesores"
-      className="bg-[#3C4C92] bg-notebook-grid"
+      className="bg-[#001837]"
     >
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="white" />
-        <StickerBadge text="EQUIPO DOCENTE" variant="yellow" rotate="2deg" />
-      </div>
+      <BrandHeader badge="EQUIPO DOCENTE" badgeVariant="yellow" />
 
       <div className="my-auto z-10 flex flex-col gap-8">
-        <div className="flex items-center gap-8">
-          {/* Polaroid del Profesor */}
-          <div className="bg-white p-3 pb-6 rounded-2xl shadow-2xl -rotate-2 border-2 border-black/10 shrink-0">
-            <div className="w-[320px] h-[380px] rounded-xs overflow-hidden relative">
-              <Image
-                src="/images/SRC_004_Imagen de Codex 22 ago 2026, 10_06_30 p.m..png"
-                alt="Profesor Jordi"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <p className="font-handwritten text-xl text-[#001837] text-center font-bold mt-3">
-              Profe Jordi · Pronunciación
-            </p>
+        <div className="flex items-center gap-8 bg-white/10 p-8 rounded-3xl border border-white/15">
+          <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-[#FFD203] relative shrink-0 shadow-xl">
+            <UserAvatar
+              src="/images/SRC_004_Imagen de Codex 22 ago 2026, 10_06_30 p.m..png"
+              alt="Profe Jordi"
+              name=""
+              size={192}
+            />
           </div>
 
-          <div className="flex flex-col gap-3">
-            <span className="text-[17px] font-heading font-bold text-[#4DC2DA] uppercase tracking-widest">
-              Profesor Destacado
+          <div className="flex flex-col gap-2">
+            <span className="text-sm font-heading font-bold text-[#4DC2DA] uppercase tracking-widest">
+              Speaking Coach
             </span>
-            <h2 className="font-heading font-black text-[48px] leading-tight text-white">
+            <h2 className="font-heading font-black text-[46px] leading-tight text-white">
               Profe Jordi
             </h2>
-            <p className="font-body text-[21px] text-white/90 leading-relaxed font-medium">
-              Especialista en fluidez y reducción del miedo escénico. En sus clases la prioridad es que hables sin pena.
+            <p className="font-body text-[20px] text-white/85 leading-relaxed font-medium">
+              Especialista en pronunciación y fluidez. En sus clases la prioridad es que hables sin miedo a equivocarte.
             </p>
-            <div className="flex gap-2 mt-2">
-              <span className="bg-[#FFD203] text-[#001837] px-3.5 py-1.5 rounded-lg font-heading font-bold text-xs">
+            <div className="flex gap-2.5 mt-2">
+              <span className="bg-[#FFD203] text-[#001837] px-4 py-1.5 rounded-lg font-heading font-bold text-xs uppercase">
                 100% Conversacional
               </span>
-              <span className="bg-white/20 text-white px-3.5 py-1.5 rounded-lg font-heading font-bold text-xs">
+              <span className="bg-white/20 text-white px-4 py-1.5 rounded-lg font-heading font-bold text-xs uppercase">
                 Nivel B1 / B2 / C1
               </span>
             </div>
-            <HandwrittenNote text="“El error es parte del aprendizaje”" color="text-[#FFE2C0]" rotate="1deg" className="mt-2" />
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-white/20 pt-7 z-10">
-        <span className="font-heading font-bold text-[19px] text-white">
-          Aprende con profesores humanos
-        </span>
-        <div className="bg-[#FFD203] text-[#001837] px-6 py-2.5 rounded-xl font-heading font-black text-[17px]">
-          Conoce el Equipo
-        </div>
-      </div>
+      <BrandFooter actionText="Aprende con profesores humanos que te inspiran" />
     </FeedFrameWrapper>
   );
 }
@@ -674,59 +495,56 @@ export function TemplateIG09Promo() {
     <FeedFrameWrapper
       id="ig-feed-09-promo"
       title="09 · Promocional / Club de Conversación"
-      className="bg-[#001837] bg-notebook-dots"
+      className="bg-[#001837]"
     >
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="white" />
-        <StickerBadge text="NUEVOS GRUPOS" variant="yellow" rotate="-2deg" />
-      </div>
+      <BrandHeader badge="NUEVOS GRUPOS" badgeVariant="yellow" />
 
-      <div className="my-auto z-10 flex flex-col gap-7">
+      <div className="my-auto z-10 flex flex-col gap-8">
         <div>
-          <span className="font-heading font-bold text-[19px] text-[#4DC2DA] uppercase tracking-widest">
+          <span className="font-heading font-bold text-[18px] text-[#4DC2DA] uppercase tracking-widest block mb-1">
             Inscripciones Abiertas
           </span>
-          <h2 className="font-heading font-black text-[58px] leading-tight text-white mt-1">
+          <h2 className="font-heading font-black text-[58px] leading-tight text-white">
             Club de Conversación <br />
             <span className="text-[#FFD203]">Grupos de Máx. 6 Alumnos</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-3.5">
-          <div className="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/15 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg bg-[#FFD203] text-[#001837] flex items-center justify-center font-bold text-xl shrink-0">
+        <div className="grid grid-cols-1 gap-4">
+          <div className="bg-white text-[#001837] p-6 rounded-2xl border border-black/10 flex items-center gap-4 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-[#FFD203] text-[#001837] flex items-center justify-center font-black text-xl shrink-0">
               ✓
             </div>
-            <p className="font-heading font-bold text-[22px] text-white">
+            <p className="font-heading font-bold text-[22px] text-[#001837]">
               Habla desde el primer minuto en cada sesión
             </p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/15 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg bg-[#FFD203] text-[#001837] flex items-center justify-center font-bold text-xl shrink-0">
+
+          <div className="bg-white text-[#001837] p-6 rounded-2xl border border-black/10 flex items-center gap-4 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-[#FFD203] text-[#001837] flex items-center justify-center font-black text-xl shrink-0">
               ✓
             </div>
-            <p className="font-heading font-bold text-[22px] text-white">
-              Temas reales: Trabajo, viajes, entrevistas y debate
+            <p className="font-heading font-bold text-[22px] text-[#001837]">
+              Temas reales: Trabajo, entrevistas, viajes y debate
             </p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/15 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg bg-[#FFD203] text-[#001837] flex items-center justify-center font-bold text-xl shrink-0">
+
+          <div className="bg-white text-[#001837] p-6 rounded-2xl border border-black/10 flex items-center gap-4 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-[#FFD203] text-[#001837] flex items-center justify-center font-black text-xl shrink-0">
               ✓
             </div>
-            <p className="font-heading font-bold text-[22px] text-white">
+            <p className="font-heading font-bold text-[22px] text-[#001837]">
               Feedback constructivo sin notas punitivas
             </p>
           </div>
         </div>
-
-        <HandwrittenNote text="Cupos limitados por horario ⏰" color="text-[#FFE2C0]" rotate="-2deg" />
       </div>
 
-      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10">
-        <span className="font-heading font-bold text-[19px] text-white/80">
-          Yes You Can Languages
+      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10 w-full">
+        <span className="font-body text-[18px] text-white/70">
+          Cupos limitados por horario
         </span>
-        <div className="bg-[#FFD203] text-[#001837] px-7 py-3 rounded-xl font-heading font-black text-[20px] shadow-lg">
+        <div className="bg-[#FFD203] text-[#001837] px-7 py-3 rounded-xl font-heading font-black text-[18px] shadow-sm">
           Aparta tu Lugar →
         </div>
       </div>
@@ -734,46 +552,89 @@ export function TemplateIG09Promo() {
   );
 }
 
-// 10. CTA Directo / Cierre
+// 10. CTA Directo / Cierre Nativo para Instagram
 export function TemplateIG10CTA() {
   return (
     <FeedFrameWrapper
       id="ig-feed-10-cta"
-      title="10 · CTA Directo: Agenda tu Clase"
-      className="bg-[#834296] bg-notebook-grid"
+      title="10 · CTA Nativo de Instagram"
+      className="bg-[#001837]"
     >
-      <div className="flex items-center justify-between z-10">
-        <YYCLLogoMark variant="white" />
-        <StickerBadge text="CLASE DIAGNÓSTICO GRATIS" variant="yellow" rotate="3deg" />
-      </div>
+      <BrandHeader badge="DIAGNÓSTICO ORAL GRATIS" badgeVariant="yellow" />
 
-      <div className="my-auto z-10 flex flex-col gap-7 text-center items-center relative">
-        <Tape color="bg-[#FFD203]/90" rotate="-2deg" className="self-center" />
-        
-        <h2 className="font-heading font-black text-[70px] leading-[1.08] text-white max-w-[920px]">
-          Pierde el miedo a hablar inglés.
-        </h2>
-
-        <p className="font-body text-[26px] text-white/90 max-w-[820px] leading-relaxed font-medium">
-          Agenda hoy tu prueba de diagnóstico 1-a-1 de 20 minutos con nuestros profesores. Evaluamos tu nivel real y diseñamos tu plan.
-        </p>
-
-        <div className="mt-3 bg-[#FFD203] text-[#001837] px-9 py-5 rounded-2xl font-heading font-black text-[28px] border-3 border-[#001837] shadow-[8px_8px_0px_#001837] flex items-center gap-4">
-          <span>Agenda en el link de la Bio</span>
-          <ArrowRight className="w-7 h-7" />
+      <div className="my-auto z-10 flex flex-col gap-8 max-w-[920px]">
+        <div>
+          <span className="font-heading font-bold text-[18px] text-[#4DC2DA] uppercase tracking-widest block mb-1">
+            Da el primer paso hoy
+          </span>
+          <h2 className="font-heading font-black text-[62px] leading-[1.12] text-white">
+            ¿Listo para perder el miedo a hablar inglés?
+          </h2>
         </div>
 
-        <HandwrittenNote text="Sin compromiso · 100% online por Zoom" color="text-[#FFE2C0]" rotate="2deg" />
+        {/* Action Card Nativa de Instagram (3 Acciones Reales) */}
+        <div className="bg-white/10 p-8 rounded-3xl border border-white/20 space-y-5 shadow-xl">
+          <p className="font-heading font-bold text-[22px] text-white">
+            Elige cómo agendar tu sesión de 15 min sin costo:
+          </p>
+
+          <div className="grid grid-cols-1 gap-4">
+            {/* Acción 1: DM por comentario */}
+            <div className="bg-white text-[#001837] p-5 rounded-2xl flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#834296] text-white flex items-center justify-center font-bold text-xl shrink-0">
+                  💬
+                </div>
+                <div>
+                  <span className="font-heading font-black text-[20px] text-[#001837] block">
+                    Comenta la palabra <span className="bg-[#FFD203] px-2 py-0.5 rounded text-[#001837]">“QUIERO”</span>
+                  </span>
+                  <span className="font-body text-[15px] text-slate-600">
+                    Te enviamos el enlace directo a tu DM al instante.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Acción 2: Link en Bio */}
+            <div className="bg-white text-[#001837] p-5 rounded-2xl flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#001837] text-[#FFD203] flex items-center justify-center font-bold text-xl shrink-0">
+                  🔗
+                </div>
+                <div>
+                  <span className="font-heading font-black text-[20px] text-[#001837] block">
+                    Entra al link en nuestro perfil <span className="text-[#834296]">@yyclanguages</span>
+                  </span>
+                  <span className="font-body text-[15px] text-slate-600">
+                    Elige el día y horario que mejor te convenga.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <UserAvatar
+            src="/images/SRC_001_Imagen de Codex 22 ago 2026, 10_05_51 p.m..png"
+            alt="Naty Sánchez"
+            name="Naty Sánchez"
+            role="Directora Académica · Evaluación 1-a-1 por Zoom"
+            size={60}
+          />
+        </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-white/20 pt-7 z-10 w-full">
-        <span className="font-body text-[19px] text-white/80">
-          Yes You Can Languages · Since 2019
+      <div className="flex items-center justify-between border-t border-white/15 pt-7 z-10 w-full text-white/70">
+        <span className="font-body text-[18px]">
+          Sin notas punitivas · 100% online
         </span>
-        <span className="font-heading font-extrabold text-[20px] text-[#FFD203]">
-          yyclanguages.com
+        <span className="font-heading font-bold text-[18px] text-[#FFD203]">
+          @yyclanguages
         </span>
       </div>
     </FeedFrameWrapper>
   );
 }
+

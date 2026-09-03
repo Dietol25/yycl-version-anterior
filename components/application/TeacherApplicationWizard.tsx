@@ -186,25 +186,25 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
             </p>
           </div>
 
-          {/* Micro-Frame "¿Qué sigue ahora?" ultra compacto y estilizado */}
-          <div className="bg-[#FFE2C0]/25 rounded-xl p-2.5 sm:p-3 border border-[#EC9519]/30 text-left space-y-1">
-            <p className="text-[9.5px] font-heading font-extrabold uppercase tracking-wider text-[#EC9519]">
-              {isEn ? 'What happens next?' : '¿Qué sigue ahora?'}
-            </p>
-            <ul className="text-[10.5px] text-slate-600 font-body-regular space-y-0.5 leading-tight">
-              <li className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[#EC9519] shrink-0" />
-                <span>{isEn ? 'Application review (24 to 48 business hours)' : 'Revisión de perfil docente (24 a 48 hs)'}</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[#EC9519] shrink-0" />
-                <span>{isEn ? 'Contact via WhatsApp or Email' : 'Contacto vía WhatsApp o correo electrónico'}</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[#EC9519] shrink-0" />
-                <span>{isEn ? 'Brief conversational interview with our team' : 'Breve entrevista con el equipo académico'}</span>
-              </li>
-            </ul>
+          {/* Minimalist Next Steps (Ultra Slim & Elegant) */}
+          <div className="pt-2 pb-1 border-t border-slate-100 text-left space-y-1.5">
+            <span className="text-[9.5px] font-heading font-extrabold uppercase tracking-wider text-slate-400 block">
+              {isEn ? 'Next steps' : '¿Qué sigue ahora?'}
+            </span>
+            <div className="space-y-1 text-[11px] text-slate-600 font-body-regular">
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-500 font-bold shrink-0">✓</span>
+                <span className="truncate">{isEn ? 'Profile review (24 to 48 business hrs)' : 'Revisión de perfil (24 a 48 hs hábiles)'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-500 font-bold shrink-0">✓</span>
+                <span className="truncate">{isEn ? 'Contact via WhatsApp or Email' : 'Te contactamos por WhatsApp o email'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-500 font-bold shrink-0">✓</span>
+                <span className="truncate">{isEn ? 'Brief conversational interview' : 'Breve entrevista con Dirección de Estudios'}</span>
+              </div>
+            </div>
           </div>
 
           <div className="pt-1">
@@ -374,7 +374,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
               </p>
             </div>
 
-            {/* Idioma Principal (Dropdown) */}
+            {/* Idioma Principal (Dropdown Bilingüe) */}
             <div>
               <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                 {isEn ? 'Primary Language you Teach *' : 'Idioma Principal que Enseñas *'}
@@ -386,16 +386,16 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
                   onChange={e => updateField('primaryLanguage', e.target.value)}
                   className="w-full h-11 pl-10 pr-8 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] font-body-regular cursor-pointer appearance-none transition-all"
                 >
-                  <option value="Inglés">Inglés</option>
-                  <option value="Francés">Francés</option>
-                  <option value="Portugués">Portugués</option>
-                  <option value="Español (para extranjeros)">Español (para extranjeros)</option>
+                  <option value={isEn ? "English" : "Inglés"}>{isEn ? "English" : "Inglés"}</option>
+                  <option value={isEn ? "French" : "Francés"}>{isEn ? "French" : "Francés"}</option>
+                  <option value={isEn ? "Portuguese" : "Portugués"}>{isEn ? "Portuguese" : "Portugués"}</option>
+                  <option value={isEn ? "Spanish (for foreigners)" : "Español (para extranjeros)"}>{isEn ? "Spanish (for foreigners)" : "Español (para extranjeros)"}</option>
                 </select>
                 <div className="absolute right-3.5 top-4 pointer-events-none border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-slate-500" />
               </div>
             </div>
 
-            {/* Años de Experiencia (Dropdown) */}
+            {/* Años de Experiencia (Dropdown Bilingüe) */}
             <div>
               <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                 {isEn ? 'Teaching Experience *' : 'Años de Experiencia Docente *'}
@@ -407,22 +407,33 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
                   onChange={e => updateField('experienceYears', e.target.value)}
                   className="w-full h-11 pl-10 pr-8 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] font-body-regular cursor-pointer appearance-none transition-all"
                 >
-                  <option value="Menos de 1 año">Menos de 1 año (Iniciando en docencia)</option>
-                  <option value="1 a 3 años">1 a 3 años (Experiencia comprobada)</option>
-                  <option value="3 a 5 años">3 a 5 años (Experiencia sólida)</option>
-                  <option value="Más de 5 años">Más de 5 años (Docente Senior / Coach)</option>
+                  <option value={isEn ? "Less than 1 year" : "Menos de 1 año"}>
+                    {isEn ? "Less than 1 year (Starting out in teaching)" : "Menos de 1 año (Iniciando en docencia)"}
+                  </option>
+                  <option value={isEn ? "1 to 3 years" : "1 a 3 años"}>
+                    {isEn ? "1 to 3 years (Proven experience)" : "1 a 3 años (Experiencia comprobada)"}
+                  </option>
+                  <option value={isEn ? "3 to 5 years" : "3 a 5 años"}>
+                    {isEn ? "3 to 5 years (Solid track record)" : "3 a 5 años (Experiencia sólida)"}
+                  </option>
+                  <option value={isEn ? "More than 5 years" : "Más de 5 años"}>
+                    {isEn ? "More than 5 years (Senior Teacher / Coach)" : "Más de 5 años (Docente Senior / Coach)"}
+                  </option>
                 </select>
                 <div className="absolute right-3.5 top-4 pointer-events-none border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-slate-500" />
               </div>
             </div>
 
-            {/* Público de Preferencia (Chips Compactos Multi-select) */}
+            {/* Público de Preferencia (Chips Compactos Multi-select Bilingüe) */}
             <div className="space-y-1.5">
               <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block">
                 {isEn ? 'Target Audience (Select all that apply)' : 'Público Objetivo con el que te gusta trabajar'}
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {['Adultos', 'Niños y Teens', 'Empresas / Corporativo', 'Todos'].map(aud => {
+                {(isEn 
+                  ? ['Adults', 'Kids & Teens', 'Corporate / B2B', 'All audiences']
+                  : ['Adultos', 'Niños y Teens', 'Empresas / Corporativo', 'Todos']
+                ).map(aud => {
                   const isSel = formData.audiencePreference.includes(aud);
                   return (
                     <button
@@ -495,7 +506,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
               </p>
             </div>
 
-            {/* Disponibilidad semanal (Dropdown Selector) */}
+            {/* Disponibilidad semanal (Dropdown Selector Bilingüe) */}
             <div>
               <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block mb-1.5">
                 {isEn ? 'Weekly Hours Available *' : 'Horas Semanales Disponibles *'}
@@ -507,25 +518,30 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
                   onChange={e => updateField('availabilityHours', e.target.value)}
                   className="w-full h-11 pl-10 pr-8 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] font-body-regular cursor-pointer appearance-none transition-all"
                 >
-                  <option value="5 a 10 hs (Part-time flexible)">5 a 10 hs / semana (Part-time flexible)</option>
-                  <option value="10 a 20 horas / semana (Part-time)">10 a 20 horas / semana (Part-time regular)</option>
-                  <option value="Más de 20 horas / semana">Más de 20 horas / semana (Dedicación amplia)</option>
+                  <option value={isEn ? "5 to 10 hrs / week (Part-time)" : "5 a 10 hs (Part-time flexible)"}>
+                    {isEn ? "5 to 10 hrs / week (Part-time flexible)" : "5 a 10 hs / semana (Part-time flexible)"}
+                  </option>
+                  <option value={isEn ? "10 to 20 hrs / week (Part-time)" : "10 a 20 horas / semana (Part-time)"}>
+                    {isEn ? "10 to 20 hrs / week (Part-time regular)" : "10 a 20 horas / semana (Part-time regular)"}
+                  </option>
+                  <option value={isEn ? "More than 20 hrs / week" : "Más de 20 horas / semana"}>
+                    {isEn ? "More than 20 hrs / week (Full-time dedication)" : "Más de 20 horas / semana (Dedicación amplia)"}
+                  </option>
                 </select>
                 <div className="absolute right-3.5 top-4 pointer-events-none border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-slate-500" />
               </div>
             </div>
 
-            {/* Franja horaria preferida */}
+            {/* Franja horaria preferida (Bilingüe) */}
             <div className="space-y-1.5">
               <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-700 block">
                 {isEn ? 'Preferred Time Slots' : 'Franjas Horarias Preferidas'}
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                {[
-                  'Mañanas (7:00 AM - 12:00 PM)',
-                  'Tardes (2:00 PM - 7:00 PM)',
-                  'Noches (7:00 PM - 10:00 PM)'
-                ].map(slot => {
+                {(isEn
+                  ? ['Mornings (7:00 AM - 12:00 PM)', 'Afternoons (2:00 PM - 7:00 PM)', 'Evenings (7:00 PM - 10:00 PM)']
+                  : ['Mañanas (7:00 AM - 12:00 PM)', 'Tardes (2:00 PM - 7:00 PM)', 'Noches (7:00 PM - 10:00 PM)']
+                ).map(slot => {
                   const isSel = formData.preferredTimeSlot.includes(slot);
                   return (
                     <button
@@ -655,7 +671,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
                   <LinkIcon className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                   <input
                     type="text"
-                    placeholder="https://linkedin.com/in/tu-perfil o https://drive.google.com/..."
+                    placeholder={isEn ? "https://linkedin.com/in/your-profile or https://drive.google.com/..." : "https://linkedin.com/in/tu-perfil o https://drive.google.com/..."}
                     value={formData.linkedinOrCvUrl}
                     onChange={e => updateField('linkedinOrCvUrl', e.target.value)}
                     className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/50 text-xs sm:text-sm text-[#001837] focus:bg-white focus:outline-none focus:border-[#834296] transition-all font-body-regular"
