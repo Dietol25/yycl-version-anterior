@@ -4,6 +4,29 @@ import React from 'react';
 import Link from 'next/link';
 import { Check, Users, User, UserPlus } from 'lucide-react';
 
+// Icono de 3 personas para modalidad Grupal
+const Group3UsersIcon = ({ className }: { className?: string }) => (
+  <svg 
+    className={className} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2.2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    {/* Persona Centro */}
+    <circle cx="12" cy="7" r="3" />
+    <path d="M7 20v-1.5a3.5 3.5 0 0 1 7 0V20" />
+    {/* Persona Izquierda */}
+    <circle cx="5" cy="8.5" r="2.2" />
+    <path d="M1 20v-1a2.8 2.8 0 0 1 3.5-2.6" />
+    {/* Persona Derecha */}
+    <circle cx="19" cy="8.5" r="2.2" />
+    <path d="M19.5 16.4a2.8 2.8 0 0 1 3.5 2.6v1" />
+  </svg>
+);
+
 export const ModalidadesSection = () => {
   const modalidades = [
     {
@@ -16,7 +39,7 @@ export const ModalidadesSection = () => {
       cardBg: 'bg-gradient-to-b from-[#FAF5FC] to-[#F3E8FA]',
       cardBgHover: 'hover:from-[#F7EDFC] hover:to-[#EEDCF6]',
       linkColor: 'text-[#834296]',
-      icon: Users,
+      icon: Group3UsersIcon,
       subtitle: 'Aprende junto a otros, con la energía de un grupo pequeño.',
       features: [
         'Máximo 8 alumnos',

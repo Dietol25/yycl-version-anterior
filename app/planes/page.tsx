@@ -7,6 +7,29 @@ import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
 
+// Icono de 3 personas para modalidad Grupal
+const Group3UsersIcon = ({ className }: { className?: string }) => (
+  <svg 
+    className={className} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2.2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    {/* Persona Centro */}
+    <circle cx="12" cy="7" r="3" />
+    <path d="M7 20v-1.5a3.5 3.5 0 0 1 7 0V20" />
+    {/* Persona Izquierda */}
+    <circle cx="5" cy="8.5" r="2.2" />
+    <path d="M1 20v-1a2.8 2.8 0 0 1 3.5-2.6" />
+    {/* Persona Derecha */}
+    <circle cx="19" cy="8.5" r="2.2" />
+    <path d="M19.5 16.4a2.8 2.8 0 0 1 3.5 2.6v1" />
+  </svg>
+);
+
 export default function PlanesPage() {
   const planes = [
     {
@@ -128,7 +151,7 @@ export default function PlanesPage() {
             {/* 3 Modality Pricing Cards con Sunset Gradient idéntico a Figma */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
               {planes.map((plan, pIdx) => {
-                const IconComponent = pIdx === 0 ? Users : pIdx === 1 ? User : Users;
+                const IconComponent = pIdx === 0 ? Group3UsersIcon : pIdx === 1 ? User : Users;
                 return (
                   <div
                     key={plan.id}
