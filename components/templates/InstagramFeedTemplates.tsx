@@ -10,7 +10,7 @@ import {
 } from "./DesignElements";
 import { Check, X, ArrowRight, Bookmark } from "lucide-react";
 
-// Wrapper base para Instagram Feed (1080 x 1350 px exactos con padding optimizado)
+// Wrapper base para Instagram Feed (1080 x 1350 px exactos)
 export function FeedFrameWrapper({
   id,
   title,
@@ -34,7 +34,7 @@ export function FeedFrameWrapper({
   );
 }
 
-// 01. Quote / Frase de Impacto (Violeta Estándar + Acento Amarillo Conversacional)
+// 01. Quote / Frase de Impacto
 export function TemplateIG01Quote() {
   return (
     <FeedFrameWrapper
@@ -52,7 +52,6 @@ export function TemplateIG01Quote() {
           eyebrowColor="text-[#FFE2C0]"
         />
 
-        {/* Tarjeta Crema con borde Navy y acento amarillo */}
         <div className="bg-[#FFE2C0] text-[#001837] p-8 rounded-3xl border-3 border-[#001837] shadow-[8px_8px_0px_#001837] space-y-3">
           <p className="font-body text-[32px] leading-relaxed text-[#001837] font-medium">
             El verdadero bloqueo nunca fue tu vocabulario. Fue el miedo a equivocarte
@@ -64,15 +63,15 @@ export function TemplateIG01Quote() {
 
       <div className="flex items-center justify-between border-t border-white/20 pt-6 z-10 w-full">
         <UserAvatar
-          src="/images/SRC_001_Imagen de Codex 22 ago 2026, 10_05_51 p.m..png"
+          src="/images/naty-sanchez.png"
           alt="Naty Sánchez"
           name="Naty Sánchez"
           role="Directora Académica · YYCL"
           size={76}
           borderColor="border-[#FFD203]"
         />
-        <div className="flex items-center gap-2 text-white font-heading font-bold text-[22px]">
-          <Bookmark className="w-6 h-6 text-[#FFD203]" />
+        <div className="flex items-center gap-2.5 text-white font-heading font-bold text-[24px]">
+          <Bookmark className="w-7 h-7 text-[#FFD203]" />
           <span>Guarda este post</span>
         </div>
       </div>
@@ -142,7 +141,7 @@ export function TemplateIG02Tip() {
   );
 }
 
-// 03. Error Común (Don't Say X → Say Y)
+// 03. Error Común
 export function TemplateIG03Error() {
   return (
     <FeedFrameWrapper
@@ -161,7 +160,6 @@ export function TemplateIG03Error() {
         />
 
         <div className="flex flex-col gap-4">
-          {/* Don't Say */}
           <div className="bg-red-950/60 border-3 border-red-500 rounded-3xl p-6 flex items-center justify-between shadow-md">
             <div className="flex items-center gap-5">
               <div className="w-14 h-14 rounded-2xl bg-red-600 text-white flex items-center justify-center font-bold text-2xl shrink-0">
@@ -178,7 +176,6 @@ export function TemplateIG03Error() {
             </div>
           </div>
 
-          {/* Say Instead */}
           <div className="bg-[#FFD203] border-4 border-[#001837] rounded-3xl p-6 flex items-center justify-between shadow-[8px_8px_0px_#001837] text-[#001837]">
             <div className="flex items-center gap-5">
               <div className="w-14 h-14 rounded-2xl bg-[#001837] text-[#FFD203] flex items-center justify-center font-bold text-2xl shrink-0">
@@ -209,7 +206,7 @@ export function TemplateIG03Error() {
   );
 }
 
-// 04. Mini Clase Rápida (Fondo Violeta Estándar + Amarillo Conversacional)
+// 04. Mini Clase Rápida
 export function TemplateIG04MiniClass() {
   return (
     <FeedFrameWrapper
@@ -283,7 +280,7 @@ export function TemplateIG04MiniClass() {
   );
 }
 
-// 05. Carrusel Educativo (Fondo Crema Cálido + Acento Amarillo/Violeta)
+// 05. Carrusel Educativo
 export function TemplateIG05CarouselCover() {
   return (
     <FeedFrameWrapper
@@ -325,7 +322,7 @@ export function TemplateIG05CarouselCover() {
   );
 }
 
-// 06. Caso de Éxito / Transformación (TestimonialCard Variante Crema)
+// 06. Caso de Éxito / Transformación
 export function TemplateIG06Case() {
   return (
     <FeedFrameWrapper
@@ -347,7 +344,7 @@ export function TemplateIG06Case() {
           quote="Pasé de congelarme cada vez que un cliente de USA me hacía una pregunta a explicar la arquitectura técnica del proyecto con total naturalidad."
           name="Valeria Morales"
           role="Gerente de Proyectos · 4 meses en YYCL"
-          avatar="/images/SRC_002_Imagen de Codex 22 ago 2026, 10_06_16 p.m..png"
+          avatar="/images/valeria-morales.png"
           countryFlag="🇨🇴"
           variant="cream"
         />
@@ -358,7 +355,7 @@ export function TemplateIG06Case() {
   );
 }
 
-// 07. Testimonio Directo (TestimonialCard Variante Blanca)
+// 07. Testimonio Directo
 export function TemplateIG07Testimonial() {
   return (
     <FeedFrameWrapper
@@ -380,7 +377,7 @@ export function TemplateIG07Testimonial() {
           quote="Es el primer curso donde realmente hablo el 80% del tiempo. Jose is THE GOAT! He progresado mucho en poco tiempo con sus clases, siempre paciente y pedagógico."
           name="Nicolas Ibañez Esenarro"
           role="Profesional en Tecnología · Estudiante Modalidad Personalizada"
-          avatar="/images/SRC_003_Imagen de Codex 22 ago 2026, 10_06_22 p.m..png"
+          avatar="/images/nicolas-ibanez.png"
           countryFlag="🇨🇴"
           variant="white"
         />
@@ -398,7 +395,7 @@ export function TemplateIG07Testimonial() {
   );
 }
 
-// 08. Presentación de Profesores (Kids & Teens con Acento Cyan)
+// 08. Presentación de Profesores
 export function TemplateIG08Teacher() {
   return (
     <FeedFrameWrapper
@@ -412,7 +409,7 @@ export function TemplateIG08Teacher() {
         <div className="flex items-center gap-8 bg-white text-[#001837] p-8 rounded-3xl border-3 border-[#001837] shadow-[8px_8px_0px_#4DC2DA]">
           <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-[#4DC2DA] relative shrink-0 shadow-xl">
             <UserAvatar
-              src="/images/SRC_004_Imagen de Codex 22 ago 2026, 10_06_30 p.m..png"
+              src="/images/profe-jordi.png"
               alt="Profe Jordi"
               name=""
               size={192}
@@ -442,7 +439,7 @@ export function TemplateIG08Teacher() {
   );
 }
 
-// 09. Promocional (Empresas / Corporativo con Acento Navy)
+// 09. Promocional
 export function TemplateIG09Promo() {
   return (
     <FeedFrameWrapper
@@ -501,7 +498,7 @@ export function TemplateIG09Promo() {
   );
 }
 
-// 10. CTA Nativo de Instagram (Violeta + Amarillo Conversacional)
+// 10. CTA Nativo
 export function TemplateIG10CTA() {
   return (
     <FeedFrameWrapper
@@ -519,14 +516,12 @@ export function TemplateIG10CTA() {
           eyebrowColor="text-[#FFE2C0]"
         />
 
-        {/* Action Card Nativa */}
         <div className="bg-[#001837] p-8 rounded-3xl border-3 border-white/20 space-y-5 shadow-2xl">
           <p className="font-heading font-bold text-[25px] text-white">
             Elige cómo agendar tu sesión de 15 min sin costo:
           </p>
 
           <div className="grid grid-cols-1 gap-4">
-            {/* Opción 1: Comentar */}
             <div className="bg-white text-[#001837] p-6 rounded-2xl flex items-center justify-between shadow-sm border-2 border-[#001837]">
               <div className="flex items-center gap-5">
                 <div className="w-14 h-14 rounded-2xl bg-[#834296] text-white flex items-center justify-center font-bold text-2xl shrink-0">
@@ -543,7 +538,6 @@ export function TemplateIG10CTA() {
               </div>
             </div>
 
-            {/* Opción 2: Link en Bio */}
             <div className="bg-white text-[#001837] p-6 rounded-2xl flex items-center justify-between shadow-sm border-2 border-[#001837]">
               <div className="flex items-center gap-5">
                 <div className="w-14 h-14 rounded-2xl bg-[#001837] text-[#FFD203] flex items-center justify-center font-bold text-2xl shrink-0">
@@ -564,7 +558,7 @@ export function TemplateIG10CTA() {
 
         <div className="flex items-center gap-4">
           <UserAvatar
-            src="/images/SRC_001_Imagen de Codex 22 ago 2026, 10_05_51 p.m..png"
+            src="/images/naty-sanchez.png"
             alt="Naty Sánchez"
             name="Naty Sánchez"
             role="Directora Académica · Evaluación 1-a-1 por Zoom"

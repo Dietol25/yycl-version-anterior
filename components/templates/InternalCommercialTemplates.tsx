@@ -134,7 +134,7 @@ export function TemplateInternal02Workshop() {
 
         <div className="bg-[#834296] p-6 rounded-2xl flex items-center gap-5 border border-white/20">
           <UserAvatar
-            src="/images/SRC_001_Imagen de Codex 22 ago 2026, 10_05_51 p.m..png"
+            src="/assets/profesores/natty-sanchez.png"
             alt="Naty Sánchez"
             name="Host: Naty Sánchez"
             role="Directora Académica · Sesión interactiva por Zoom"

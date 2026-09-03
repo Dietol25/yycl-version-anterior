@@ -93,22 +93,22 @@ export default function TemplatesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#001026] text-white selection:bg-[#FFD203] selection:text-[#001837]">
+    <div className="min-h-screen bg-[#F4F5F7] text-[#001837] selection:bg-[#FFD203] selection:text-[#001837]">
       {/* Header flotante de control */}
       {!exportMode && (
-        <header className="sticky top-0 z-50 bg-[#001837]/90 backdrop-blur-md border-b border-white/10 px-6 py-4">
+        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-4 shadow-xs">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#FFD203] flex items-center justify-center font-heading font-black text-[#001837] text-lg shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-[#FFD203] flex items-center justify-center font-heading font-black text-[#001837] text-lg shadow-sm border border-black/10">
                 YY
               </div>
               <div>
-                <h1 className="font-heading font-extrabold text-xl leading-tight">
+                <h1 className="font-heading font-extrabold text-xl leading-tight text-[#001837]">
                   YYCL 2026 · Suite de Piezas Gráficas
                 </h1>
-                <p className="text-xs text-[#4DC2DA] font-body">
+                <p className="text-xs text-slate-500 font-body">
                   Templates Modulares listos para exportar con{" "}
-                  <strong className="text-[#FFD203]">html.to.design</strong>
+                  <strong className="text-[#834296]">html.to.design</strong>
                 </p>
               </div>
             </div>
@@ -117,15 +117,15 @@ export default function TemplatesPage() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setExportMode(true)}
-                className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl text-sm font-heading font-semibold flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
+                className="bg-slate-100 hover:bg-slate-200 text-[#001837] px-4 py-2 rounded-xl text-sm font-heading font-bold flex items-center gap-2 border border-slate-300 transition-all cursor-pointer"
               >
-                <Maximize2 className="w-4 h-4 text-[#FFD203]" />
+                <Maximize2 className="w-4 h-4 text-[#834296]" />
                 <span>Modo Render 1:1 (Figma Export)</span>
               </button>
 
               <button
                 onClick={handleCopyUrl}
-                className="bg-[#FFD203] hover:bg-[#ffe252] text-[#001837] px-4 py-2 rounded-xl text-sm font-heading font-black flex items-center gap-2 shadow-md transition-all cursor-pointer"
+                className="bg-[#FFD203] hover:bg-[#ffe252] text-[#001837] px-5 py-2 rounded-xl text-sm font-heading font-black flex items-center gap-2 shadow-sm border border-black/10 transition-all cursor-pointer"
               >
                 {copied ? (
                   <>
@@ -153,8 +153,8 @@ export default function TemplatesPage() {
                   onClick={() => setSelectedCategory(cat.id as CategoryKey)}
                   className={`px-4 py-2 rounded-xl text-xs md:text-sm font-heading font-bold flex items-center gap-2 transition-all shrink-0 cursor-pointer ${
                     isActive
-                      ? "bg-[#834296] text-white shadow-lg border border-white/30"
-                      : "bg-white/5 text-white/70 hover:text-white hover:bg-white/10 border border-white/5"
+                      ? "bg-[#834296] text-white shadow-sm"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -168,7 +168,7 @@ export default function TemplatesPage() {
 
       {/* Barra de regreso cuando está en modo Exportación 1:1 */}
       {exportMode && (
-        <div className="fixed top-4 right-4 z-50 bg-[#001837] border-2 border-[#FFD203] p-3 rounded-2xl shadow-2xl flex items-center gap-3">
+        <div className="fixed top-4 right-4 z-50 bg-[#001837] border-2 border-[#FFD203] p-3 rounded-2xl shadow-2xl flex items-center gap-3 text-white">
           <span className="text-xs font-heading font-bold text-[#FFD203]">
             Modo Render 1:1 Activo
           </span>
@@ -185,21 +185,21 @@ export default function TemplatesPage() {
       <main className="p-6 md:p-12">
         {/* Banner de Instrucción rápida para html.to.design */}
         {!exportMode && (
-          <div className="max-w-7xl mx-auto mb-12 bg-gradient-to-r from-[#834296]/40 via-[#001837] to-[#3C4C92]/40 border-2 border-[#4DC2DA]/30 rounded-3xl p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="max-w-7xl mx-auto mb-12 bg-white border-2 border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2">
               <span className="bg-[#FFD203] text-[#001837] text-xs font-heading font-extrabold px-3 py-1 rounded-full uppercase">
                 Workflow Figma Instantáneo
               </span>
-              <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-white">
-                Cómo importar estas 28 piezas a Figma en 1 minuto:
+              <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-[#001837]">
+                Cómo importar estas piezas a Figma en 1 minuto:
               </h2>
-              <ol className="text-sm md:text-base text-white/80 space-y-1 font-body list-decimal list-inside">
+              <ol className="text-sm md:text-base text-slate-600 space-y-1 font-body list-decimal list-inside">
                 <li>
                   Abre tu archivo de Figma (YYCL 2026) y ejecuta el plugin{" "}
-                  <strong className="text-[#FFD203]">html.to.design</strong>.
+                  <strong className="text-[#834296]">html.to.design</strong>.
                 </li>
                 <li>
-                  Pega la URL de esta página (ej. <code className="bg-black/40 px-2 py-0.5 rounded text-[#4DC2DA]">http://localhost:3000/templates</code>).
+                  Pega la URL de esta página (ej. <code className="bg-slate-100 px-2 py-0.5 rounded text-[#834296] font-mono font-bold">http://localhost:3000/templates</code>).
                 </li>
                 <li>
                   ¡Listo! El plugin convertirá cada tarjeta en un Frame nativo con capas vectoriales, tipografías y colores de marca.
@@ -208,9 +208,9 @@ export default function TemplatesPage() {
             </div>
             <button
               onClick={handleCopyUrl}
-              className="bg-[#4DC2DA] text-[#001837] hover:bg-[#38b2ca] px-6 py-4 rounded-2xl font-heading font-black text-base shadow-xl flex items-center gap-3 shrink-0 cursor-pointer"
+              className="bg-[#834296] text-white hover:bg-[#723784] px-6 py-4 rounded-2xl font-heading font-black text-base shadow-sm flex items-center gap-3 shrink-0 cursor-pointer"
             >
-              <Copy className="w-5 h-5" />
+              <Copy className="w-5 h-5 text-[#FFD203]" />
               <span>Copiar Enlace de Importación</span>
             </button>
           </div>
@@ -221,13 +221,13 @@ export default function TemplatesPage() {
         {/* ======================================================== */}
         {(selectedCategory === "all" || selectedCategory === "ig-feed") && (
           <section className="mb-20 max-w-7xl mx-auto">
-            <div className="flex items-center gap-3 mb-8 border-b border-white/15 pb-4">
-              <Camera className="w-8 h-8 text-[#FFD203]" />
+            <div className="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+              <Camera className="w-8 h-8 text-[#834296]" />
               <div>
-                <h2 className="text-3xl font-heading font-black text-white">
+                <h2 className="text-3xl font-heading font-black text-[#001837]">
                   1. Instagram Feed & Carruseles
                 </h2>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-600">
                   Formato vertical 4:5 (1080 × 1350 px) · Máximo impacto visual y retención en feed
                 </p>
               </div>
@@ -401,10 +401,10 @@ export default function TemplatesPage() {
             <div className="flex items-center gap-3 mb-8 border-b border-white/15 pb-4">
               <Camera className="w-8 h-8 text-[#4DC2DA]" />
               <div>
-                <h2 className="text-3xl font-heading font-black text-white">
+                <h2 className="text-3xl font-heading font-black text-[#001837]">
                   2. Instagram Stories (Interactivas)
                 </h2>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-600">
                   Formato vertical 9:16 (1080 × 1920 px) · Diseñadas para stickers de votación, encuestas y engagement
                 </p>
               </div>
@@ -518,10 +518,10 @@ export default function TemplatesPage() {
             <div className="flex items-center gap-3 border-b border-white/15 pb-4">
               <Sparkles className="w-8 h-8 text-[#FFD203]" />
               <div>
-                <h2 className="text-3xl font-heading font-black text-white">
+                <h2 className="text-3xl font-heading font-black text-[#001837]">
                   3. Historias Destacadas (Highlight Covers)
                 </h2>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-600">
                   Sistema de 9 iconos oficiales con código semántico de color (Amarillo, Cyan, Navy, Violeta y Crema)
                 </p>
               </div>
@@ -566,10 +566,10 @@ export default function TemplatesPage() {
             <div className="flex items-center gap-3 mb-8 border-b border-white/15 pb-4">
               <Share2 className="w-8 h-8 text-[#4DC2DA]" />
               <div>
-                <h2 className="text-3xl font-heading font-black text-white">
+                <h2 className="text-3xl font-heading font-black text-[#001837]">
                   3. LinkedIn (Posts & Carruseles PDF)
                 </h2>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-600">
                   Formato editorial sobrio (1080 × 1350 px) · Pensado para tomadores de decisión, B2B y directivos
                 </p>
               </div>
@@ -683,10 +683,10 @@ export default function TemplatesPage() {
             <div className="flex items-center gap-3 mb-8 border-b border-white/15 pb-4">
               <Video className="w-8 h-8 text-[#FFD203]" />
               <div>
-                <h2 className="text-3xl font-heading font-black text-white">
+                <h2 className="text-3xl font-heading font-black text-[#001837]">
                   4. TikTok & Reels (Overlays Dinámicos)
                 </h2>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-600">
                   Formato vertical 9:16 (1080 × 1920 px) · Hooks de retención, marcos para video de profesores y end cards
                 </p>
               </div>
@@ -800,10 +800,10 @@ export default function TemplatesPage() {
             <div className="flex items-center gap-3 mb-8 border-b border-white/15 pb-4">
               <FileText className="w-8 h-8 text-[#834296]" />
               <div>
-                <h2 className="text-3xl font-heading font-black text-white">
+                <h2 className="text-3xl font-heading font-black text-[#001837]">
                   5. Piezas Internas y Material Comercial
                 </h2>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-600">
                   Formatos institucionales, bienvenida, workshops, planes y certificados
                 </p>
               </div>
