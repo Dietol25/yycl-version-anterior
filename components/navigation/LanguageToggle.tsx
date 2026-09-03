@@ -62,10 +62,16 @@ export const LanguageToggle = () => {
     setIsSliding(true);
     setOptimisticEn(!optimisticEn);
 
-    // Permitir que la física del spring termine (260ms) antes de transicionar
+    // Ejecutar transición con View Transition API (Figma Smart Animate Dissolve)
     setTimeout(() => {
-      router.push(targetHref);
-    }, 260);
+      if (typeof document !== 'undefined' && 'startViewTransition' in document) {
+        (document as any).startViewTransition(() => {
+          router.push(targetHref);
+        });
+      } else {
+        router.push(targetHref);
+      }
+    }, 240);
   };
 
   return (
@@ -76,12 +82,12 @@ export const LanguageToggle = () => {
         onClick={handleToggleClick}
         title={titleText}
         aria-label={ariaText}
-        className="relative inline-flex items-center w-[88px] h-[44px] bg-slate-50 border-2 border-[#001837] rounded-full p-[2px] cursor-pointer select-none shadow-[2px_2px_0px_#001837] hover:shadow-[3px_3px_0px_#001837] active:shadow-[1px_1px_0px_#001837] active:translate-x-[1px] active:translate-y-[1px] shrink-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#834296]/50 transition-all duration-200"
+        className="relative inline-flex items-center w-[88px] h-[44px] bg-slate-100/90 border-2 border-[#001837] rounded-full p-[2px] cursor-pointer select-none shadow-[2px_2px_0px_#001837] hover:shadow-[3px_3px_0px_#001837] active:shadow-[1px_1px_0px_#001837] active:translate-x-[1px] active:translate-y-[1px] shrink-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#834296]/50 transition-all duration-200"
       >
         {/* Label ES (Visible en modo EN cuando el switch viaja a la derecha) */}
         <span
-          className={`w-1/2 text-center text-xs font-heading font-black tracking-wider text-[#001837] transition-all duration-280 ease-out select-none ${
-            optimisticEn ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-75 -translate-x-2 pointer-events-none'
+          className={`w-1/2 text-center text-xs font-heading font-black tracking-wider text-[#001837] transition-all duration-250 ease-out select-none ${
+            optimisticEn ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-90 -translate-x-1 pointer-events-none'
           }`}
         >
           ES
@@ -89,37 +95,37 @@ export const LanguageToggle = () => {
 
         {/* Label EN (Visible en modo ES cuando el switch está a la izquierda) */}
         <span
-          className={`w-1/2 text-center text-xs font-heading font-black tracking-wider text-[#001837] transition-all duration-280 ease-out select-none ${
-            optimisticEn ? 'opacity-0 scale-75 translate-x-2 pointer-events-none' : 'opacity-100 scale-100 translate-x-0'
+          className={`w-1/2 text-center text-xs font-heading font-black tracking-wider text-[#001837] transition-all duration-250 ease-out select-none ${
+            optimisticEn ? 'opacity-0 scale-90 translate-x-1 pointer-events-none' : 'opacity-100 scale-100 translate-x-0'
           }`}
         >
           EN
         </span>
 
-        {/* Sliding Tactile Knob con física de resorte (Spring) */}
+        {/* Sliding Tactile Knob con Smart Animate Glide */}
         <div
-          className={`absolute top-[2px] left-[2px] w-[36px] h-[36px] rounded-full border-2 border-[#001837] shadow-[1px_1px_0px_rgba(0,24,55,0.35)] overflow-hidden flex items-center justify-center bg-white transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] will-change-transform ${
+          className={`absolute top-[2px] left-[2px] w-[36px] h-[36px] rounded-full border-2 border-[#001837] shadow-[1px_1px_0px_rgba(0,24,55,0.3)] overflow-hidden flex items-center justify-center bg-white transition-transform duration-280 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
             optimisticEn ? 'translate-x-[44px]' : 'translate-x-0'
           }`}
         >
           <div className="relative w-full h-full flex items-center justify-center">
-            {/* Bandera de España con rotación y scale orgánico */}
+            {/* Bandera de España con Smart Dissolve */}
             <div
-              className={`absolute inset-0 flex items-center justify-center transition-all duration-280 ease-out ${
+              className={`absolute inset-0 flex items-center justify-center transition-all duration-250 ease-out ${
                 optimisticEn
-                  ? 'opacity-0 -rotate-90 scale-50 pointer-events-none'
-                  : 'opacity-100 rotate-0 scale-100'
+                  ? 'opacity-0 scale-90 pointer-events-none'
+                  : 'opacity-100 scale-100'
               }`}
             >
               <SpainFlag size={32} />
             </div>
 
-            {/* Bandera de USA con rotación y scale orgánico */}
+            {/* Bandera de USA con Smart Dissolve */}
             <div
-              className={`absolute inset-0 flex items-center justify-center transition-all duration-280 ease-out ${
+              className={`absolute inset-0 flex items-center justify-center transition-all duration-250 ease-out ${
                 optimisticEn
-                  ? 'opacity-100 rotate-0 scale-100'
-                  : 'opacity-0 rotate-90 scale-50 pointer-events-none'
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-90 pointer-events-none'
               }`}
             >
               <UsaFlag size={32} />
