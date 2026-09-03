@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { 
   User, 
@@ -86,6 +86,15 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
   const [formData, setFormData] = useState<ApplicationFormData>(INITIAL_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const scrollToFormTop = () => {
+    if (containerRef.current) {
+      const yOffset = -90;
+      const y = containerRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
+  };
 
   const updateField = (field: keyof ApplicationFormData, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -105,14 +114,14 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
   const handleNext = () => {
     if (step < 4) {
       setStep(prev => prev + 1);
-      window.scrollTo({ top: 120, behavior: 'smooth' });
+      scrollToFormTop();
     }
   };
 
   const handleBack = () => {
     if (step > 1) {
       setStep(prev => prev - 1);
-      window.scrollTo({ top: 120, behavior: 'smooth' });
+      scrollToFormTop();
     }
   };
 
@@ -211,7 +220,7 @@ export const TeacherApplicationWizard: React.FC<{ isEn?: boolean }> = ({ isEn = 
   return (
     <>
       {renderConfirmationModal()}
-      <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] space-y-8 max-w-3xl mx-auto">
+      <div ref={containerRef} className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] space-y-8 max-w-3xl mx-auto scroll-mt-24">
       
       {/* Barra de Progreso de Pasos (1 a 4) */}
       <div className="space-y-3">
