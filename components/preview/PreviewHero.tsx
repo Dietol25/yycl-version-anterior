@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Star, ShieldCheck, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { BrushStroke } from '@/components/ui/BrushStroke';
+import { PreviewSquarespaceLoop } from '@/components/preview/PreviewSquarespaceLoop';
 
 export const PreviewHero = () => {
   return (
@@ -91,83 +92,56 @@ export const PreviewHero = () => {
 
           </div>
 
-          {/* Columna Derecha: Tarjeta Escenario Modular con Micro-Motion (Inspiración Jitter) */}
+          {/* Columna Derecha: Bucle Infinito de Vida de la Academia (Inspiración Squarespace) */}
           <div className="lg:col-span-5 relative flex justify-center">
-            
-            {/* Card Principal Flotante con Borde Físico */}
-            <div className="w-full max-w-[420px] bg-white rounded-3xl p-6 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] space-y-5 transition-transform hover:-translate-y-1 duration-300">
-              
-              {/* Header de la tarjeta */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#001837] bg-purple-50 shrink-0">
-                    <img
-                      src="/assets/profesores/natty-sanchez.png"
-                      alt="Natty Sánchez - Head of Studies YYCL"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-extrabold text-sm text-[#001837]">
-                      Natty Sánchez
-                    </h3>
-                    <p className="text-[11px] text-[#834296] font-heading font-bold">
-                      Co-founder & Head of Studies
-                    </p>
-                  </div>
-                </div>
-
-                <span className="bg-emerald-50 text-emerald-700 text-[10px] font-heading font-black px-2.5 py-1 rounded-full border border-emerald-200">
-                  ONLINE
-                </span>
-              </div>
-
-              {/* Mensaje de diálogo simulado (Micro-interacción Jitter) */}
-              <div className="space-y-3 font-body-regular text-xs">
-                <div className="bg-[#FDF8F3] p-3.5 rounded-2xl rounded-tl-xs border border-[#001837]/10 space-y-1">
-                  <span className="text-[10px] font-heading font-bold text-[#834296] uppercase">
-                    Clase en vivo 1-a-1
-                  </span>
-                  <p className="text-slate-800 leading-relaxed">
-                    «Acá no te juzgamos por equivocarte. Hablar con fluidez empieza perdiendo el miedo a pronunciar mal la primera vez.»
-                  </p>
-                </div>
-
-                {/* Checklist de lo que recibes */}
-                <div className="pt-2 space-y-2">
-                  <div className="flex items-center gap-2 text-slate-700 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Evaluación oral de nivel en vivo (Marco Europeo)</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-700 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Plan personalizado a tu objetivo exacto</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-700 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Eliges tu horario ideal sin costo inicial</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA dentro de la tarjeta */}
-              <div className="pt-2">
-                <Link href="/agendar" className="block">
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    className="w-full font-heading font-bold text-xs h-10 shadow-[2px_2px_0px_#EC9519]"
-                  >
-                    Reservar mi evaluación gratuita
-                  </Button>
-                </Link>
-              </div>
-
-            </div>
-
+            <PreviewSquarespaceLoop />
           </div>
 
         </div>
+
+        {/* Barra de Notoriedad Institucional & Acreditación (Berlitz / Wall Street English) */}
+        <div className="pt-10 sm:pt-14 mt-10 sm:mt-14 border-t border-[#001837]/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center">
+            
+            <div className="space-y-1 p-2">
+              <span className="text-xs font-heading font-black text-[#001837] tracking-wider uppercase block">
+                Marco Europeo (CEFR)
+              </span>
+              <p className="text-[11px] text-slate-500 font-body-regular">
+                Planes estructurados de A1 a C1
+              </p>
+            </div>
+
+            <div className="space-y-1 p-2">
+              <span className="text-xs font-heading font-black text-[#834296] tracking-wider uppercase block">
+                Docentes Certificados
+              </span>
+              <p className="text-[11px] text-slate-500 font-body-regular">
+                Titulación universitaria y supervisión docente
+              </p>
+            </div>
+
+            <div className="space-y-1 p-2">
+              <span className="text-xs font-heading font-black text-[#EC9519] tracking-wider uppercase block">
+                Google Reviews 5.0 ★
+              </span>
+              <p className="text-[11px] text-slate-500 font-body-regular">
+                +1.200 estudiantes y profesionales
+              </p>
+            </div>
+
+            <div className="space-y-1 p-2">
+              <span className="text-xs font-heading font-black text-[#16A34A] tracking-wider uppercase block">
+                Diagnóstico Sin Riesgo
+              </span>
+              <p className="text-[11px] text-slate-500 font-body-regular">
+                15 min orales 1-a-1 sin costo inicial
+              </p>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );

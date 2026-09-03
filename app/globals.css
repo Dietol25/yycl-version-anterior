@@ -97,7 +97,39 @@ button, a {
   touch-action: manipulation;
 }
 
-/* Gradiente de marca v2 (135deg, #EC9519 -> #834296) */
+/* Animaciones de bucle infinito (Estilo Squarespace) */
+@keyframes marquee-vertical-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes marquee-vertical-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes marquee-horizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-up {
+  animation: marquee-vertical-up 32s linear infinite;
+}
+
+.animate-marquee-down {
+  animation: marquee-vertical-down 38s linear infinite;
+}
+
+.animate-marquee-x {
+  animation: marquee-horizontal 40s linear infinite;
+}
+
+.animate-marquee-up:hover,
+.animate-marquee-down:hover,
+.animate-marquee-x:hover {
+  animation-play-state: paused;
+}
 .bg-gradient-brand-v2 {
   background: linear-gradient(135deg, #EC9519, #834296);
 }

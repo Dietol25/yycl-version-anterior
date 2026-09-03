@@ -27,10 +27,13 @@ export const PreviewJitterShowcase = () => {
           </p>
         </div>
 
-        {/* ========================================================================= */}
-        {/* BLOQUE MODULAR 1: MODALIDAD GRUPAL (Jitter Pattern 1)                     */}
-        {/* ========================================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-[#FDF8F3] rounded-3xl p-6 sm:p-10 lg:p-14 border-2 border-[#001837] shadow-[6px_6px_0px_#001837]">
+        {/* Contenedor de Sticky Stacking Cards (Efecto Jitter) */}
+        <div className="relative space-y-10 sm:space-y-14 pb-8">
+          
+          {/* ========================================================================= */}
+          {/* BLOQUE MODULAR 1: MODALIDAD GRUPAL (Sticky Stacking 1)                    */}
+          {/* ========================================================================= */}
+          <div className="sticky top-24 lg:top-28 z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-[#FDF8F3] rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-[#001837] shadow-[6px_6px_0px_#001837] transition-all">
           
           {/* Texto y Explicación */}
           <div className="lg:col-span-6 space-y-5">
@@ -117,9 +120,9 @@ export const PreviewJitterShowcase = () => {
         </div>
 
         {/* ========================================================================= */}
-        {/* BLOQUE MODULAR 2: MODALIDAD PERSONALIZADA 1-A-1 (Jitter Pattern 2)        */}
+        {/* BLOQUE MODULAR 2: MODALIDAD PERSONALIZADA 1-A-1 (Sticky Stacking 2)       */}
         {/* ========================================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-white rounded-3xl p-6 sm:p-10 lg:p-14 border-2 border-[#001837] shadow-[6px_6px_0px_#001837]">
+        <div className="sticky top-28 lg:top-32 z-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-[#001837] shadow-[6px_6px_0px_#EC9519] transition-all">
           
           {/* Micro-Motion Stage (Interactive Goal Selector) */}
           <div className="lg:col-span-6 flex justify-center order-2 lg:order-1">
@@ -233,9 +236,9 @@ export const PreviewJitterShowcase = () => {
         </div>
 
         {/* ========================================================================= */}
-        {/* BLOQUE MODULAR 3: MODALIDAD DÚO (Jitter Pattern 3)                         */}
+        {/* BLOQUE MODULAR 3: MODALIDAD DÚO (Sticky Stacking 3)                       */}
         {/* ========================================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-[#FDF8F3] rounded-3xl p-6 sm:p-10 lg:p-14 border-2 border-[#001837] shadow-[6px_6px_0px_#001837]">
+        <div className="sticky top-32 lg:top-36 z-30 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-[#FDF8F3] rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-[#001837] shadow-[6px_6px_0px_#4DC2DA] transition-all">
           
           <div className="lg:col-span-6 space-y-5">
             <div className="inline-flex items-center gap-2 bg-[#4DC2DA] text-[#001837] text-[11px] font-heading font-black px-3 py-1 rounded-full uppercase tracking-wider">
@@ -299,6 +302,8 @@ export const PreviewJitterShowcase = () => {
           </div>
 
         </div>
+
+        </div> {/* Cierre del contenedor de Sticky Stacking Cards */}
 
       </div>
     </section>
