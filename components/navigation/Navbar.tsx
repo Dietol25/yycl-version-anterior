@@ -160,9 +160,12 @@ export const Navbar = () => {
                   <div
                     id="nav-programas-dropdown"
                     role="menu"
-                    className="absolute top-[calc(100%-2px)] left-0 pt-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                    className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                   >
-                    <div className="w-80 bg-white rounded-2xl border-2 border-yycl-navy shadow-[4px_4px_0px_#001837] p-2 space-y-1">
+                    {/* Flecha indicadora superior que conecta visualmente con el navbar */}
+                    <div className="w-3 h-3 bg-white border-t border-l border-slate-200/90 rotate-45 mx-auto -mb-1.5 relative z-10" />
+
+                    <div className="w-[324px] bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 shadow-[0_16px_36px_rgba(0,24,55,0.09),0_2px_8px_rgba(0,24,55,0.04)] p-2 space-y-1">
                       <Link
                         href="/planes"
                         role="menuitem"
@@ -173,7 +176,10 @@ export const Navbar = () => {
                         <span className="w-7 h-7 rounded-full bg-[#834296] text-white flex items-center justify-center shrink-0 shadow-2xs">
                           <BookOpen className="w-3.5 h-3.5 stroke-[2.2]" />
                         </span>
-                        <span>Nuestros programas</span>
+                        <div className="flex flex-col text-left">
+                          <span className="leading-tight">Planes de inglés (Adultos)</span>
+                          <span className="text-[10px] text-slate-500 font-normal">Grupal, Personalizada y Dúo</span>
+                        </div>
                       </Link>
                       <Link
                         href="/idiomas"
@@ -254,14 +260,17 @@ export const Navbar = () => {
                   <div
                     id="nav-sobre-dropdown"
                     role="menu"
-                    className="absolute top-[calc(100%-2px)] left-0 pt-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                    className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                   >
-                    <div className="w-60 bg-white rounded-2xl border-2 border-yycl-navy shadow-[4px_4px_0px_#001837] p-2 space-y-1">
+                    {/* Flecha indicadora superior que conecta visualmente con el navbar */}
+                    <div className="w-3 h-3 bg-white border-t border-l border-slate-200/90 rotate-45 mx-auto -mb-1.5 relative z-10" />
+
+                    <div className="w-56 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 shadow-[0_16px_36px_rgba(0,24,55,0.09),0_2px_8px_rgba(0,24,55,0.04)] p-2 space-y-1">
                       <Link
                         href="/sobre-yycl"
                         role="menuitem"
                         className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/sobre-yycl' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
+                          pathname === '/sobre-yycl' ? 'bg-slate-100 text-[#001837] font-bold' : 'text-slate-700 hover:bg-slate-50'
                         }`}
                       >
                         Sobre YYCL
@@ -270,7 +279,7 @@ export const Navbar = () => {
                         href="/profesores"
                         role="menuitem"
                         className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/profesores' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
+                          pathname === '/profesores' ? 'bg-slate-100 text-[#001837] font-bold' : 'text-slate-700 hover:bg-slate-50'
                         }`}
                       >
                         Nuestro equipo
@@ -279,7 +288,7 @@ export const Navbar = () => {
                         href="/trabaja-con-nosotros"
                         role="menuitem"
                         className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/trabaja-con-nosotros' ? 'bg-slate-100 text-yycl-navy font-bold' : 'text-slate-800 hover:bg-slate-100'
+                          pathname === '/trabaja-con-nosotros' ? 'bg-slate-100 text-[#001837] font-bold' : 'text-slate-700 hover:bg-slate-50'
                         }`}
                       >
                         Trabaja con nosotros
