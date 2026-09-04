@@ -7,6 +7,7 @@ import {
   TestimonialCardDS,
   BadgeDS,
   MarkerHighlight,
+  YYCLStickerLogo,
 } from "./DesignElements";
 import { Check, X, ArrowRight, Bookmark } from "lucide-react";
 
@@ -40,44 +41,113 @@ export function TemplateIG01Quote() {
     <FeedFrameWrapper
       id="ig-feed-01-quote"
       title="01 · Quote / Frase de Impacto"
-      className="bg-[#834296]"
+      className="bg-[#7F3692] p-[68px] justify-between"
     >
-      <BrandHeader badge="CONVERSACIONAL" badgeVariant="yellow" />
+      {/* Header Superior: Sticker YYCL Oficial + Badge Conversacional */}
+      <div className="flex items-center justify-between z-10 w-full">
+        <YYCLStickerLogo size={145} rotate="-3deg" />
+        <div className="bg-[#FFD203] text-[#001837] px-8 py-3 rounded-full border-3 border-[#001837] font-heading font-black text-[22px] tracking-wider uppercase shadow-[3px_3px_0px_#001837]">
+          Conversacional
+        </div>
+      </div>
 
-      <div className="my-auto z-10 flex flex-col gap-8 max-w-[940px]">
-        <SectionHeaderDS
-          eyebrow="Desbloqueo Mental"
-          title="You already know more English than you think."
-          theme="dark"
-          eyebrowColor="text-[#FFE2C0]"
-        />
+      {/* Bloque Central: Eyebrow + Titular Display con Destellos y Subrayado + Card Crema */}
+      <div className="my-auto z-10 flex flex-col gap-6 max-w-[944px]">
+        {/* Eyebrow con Bullet Amarillo */}
+        <div className="flex items-center gap-3.5">
+          <div className="w-4 h-4 rounded-full bg-[#FFD203] shadow-sm" />
+          <span className="font-heading font-black text-[24px] uppercase tracking-widest text-white">
+            Desbloqueo Mental
+          </span>
+        </div>
 
-        <div className="bg-[#FFE2C0] text-[#001837] p-8 rounded-3xl border-3 border-[#001837] shadow-[8px_8px_0px_#001837] space-y-3">
-          <p className="font-body text-[32px] leading-relaxed text-[#001837] font-medium">
-            El verdadero bloqueo nunca fue tu vocabulario. Fue el miedo a equivocarte
-            frente a otros. Cuando el entorno es seguro,{" "}
-            <strong className="text-[#834296] font-black">tu inglés fluye naturalmente.</strong>
+        {/* Titular Display con Destellos y Trazo Amarillo */}
+        <div className="relative">
+          <h1 className="font-heading font-black text-[84px] leading-[1.02] text-white tracking-tight">
+            You already <br />
+            know more <br />
+            English than <br />
+            <span className="relative inline-block">
+              you think.
+              {/* Trazo curvo amarillo dibujado a mano debajo de "you think." */}
+              <svg
+                className="absolute -bottom-3 left-0 w-full h-[20px] text-[#FFD203]"
+                viewBox="0 0 380 20"
+                fill="none"
+              >
+                <path
+                  d="M4 14C80 4 280 4 374 14"
+                  stroke="currentColor"
+                  strokeWidth="9"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+          </h1>
+
+          {/* Destello de 3 rayitas de energía lúdica a la derecha */}
+          <div className="absolute top-[80px] right-[40px] text-[#FFD203]">
+            <svg className="w-24 h-24" viewBox="0 0 80 80" fill="none">
+              <path
+                d="M16 16L32 32"
+                stroke="currentColor"
+                strokeWidth="7"
+                strokeLinecap="round"
+              />
+              <path
+                d="M42 12L42 34"
+                stroke="currentColor"
+                strokeWidth="7"
+                strokeLinecap="round"
+              />
+              <path
+                d="M68 20L50 36"
+                stroke="currentColor"
+                strokeWidth="7"
+                strokeLinecap="round"
+              />
+              <path
+                d="M74 48L52 48"
+                stroke="currentColor"
+                strokeWidth="7"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        {/* Card Crema con Sombra Dura */}
+        <div className="bg-[#FFF2E0] text-[#001837] p-8 px-9 rounded-[30px] border-3 border-[#001837] shadow-[10px_10px_0px_#001837] space-y-2 mt-2">
+          <p className="font-body text-[30px] leading-[1.38] text-[#001837] font-semibold">
+            El verdadero bloqueo nunca fue tu vocabulario. <br />
+            Fue el miedo a equivocarte frente a otros. <br />
+            Cuando el entorno es seguro, <br />
+            <strong className="text-[#834296] font-black">
+              tu inglés fluye naturalmente.
+            </strong>
           </p>
         </div>
       </div>
 
+      {/* Footer Inferior: Avatar Naty Sánchez + Guarda este post */}
       <div className="flex items-center justify-between border-t border-white/20 pt-6 z-10 w-full">
         <UserAvatar
           src="/images/naty-sanchez.png"
           alt="Naty Sánchez"
           name="Naty Sánchez"
           role="Directora Académica · YYCL"
-          size={76}
+          size={74}
           borderColor="border-[#FFD203]"
         />
-        <div className="flex items-center gap-2.5 text-white font-heading font-bold text-[24px]">
-          <Bookmark className="w-7 h-7 text-[#FFD203]" />
+        <div className="flex items-center gap-3 text-white font-heading font-bold text-[24px]">
+          <Bookmark className="w-8 h-8 text-[#FFD203] fill-[#FFD203]" />
           <span>Guarda este post</span>
         </div>
       </div>
     </FeedFrameWrapper>
   );
 }
+
 
 // 02. Tip de Inglés (Acento Amarillo Conversacional)
 export function TemplateIG02Tip() {

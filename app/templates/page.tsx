@@ -69,6 +69,7 @@ type CategoryKey =
 
 export default function TemplatesPage() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>("all");
+  const exportMode = false;
 
   const categories = [
     { id: "all", label: "Todas las piezas (37)", icon: Layers },
