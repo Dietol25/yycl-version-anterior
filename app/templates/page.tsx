@@ -48,13 +48,11 @@ import {
   HighlightStoryCover,
   HIGHLIGHTS_DATA,
 } from "@/components/templates/InstagramHighlightsTemplates";
+import { YYCLStickerLogo } from "@/components/templates/DesignElements";
 import {
   Layers,
-  Copy,
-  Check,
   Video,
   FileText,
-  Maximize2,
   Camera,
   Share2,
   Sparkles,
@@ -71,8 +69,6 @@ type CategoryKey =
 
 export default function TemplatesPage() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>("all");
-  const [exportMode, setExportMode] = useState<boolean>(false);
-  const [copied, setCopied] = useState<boolean>(false);
 
   const categories = [
     { id: "all", label: "Todas las piezas (37)", icon: Layers },
@@ -84,137 +80,51 @@ export default function TemplatesPage() {
     { id: "commercial", label: "Interno & Comercial (4)", icon: FileText },
   ];
 
-  const handleCopyUrl = () => {
-    if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#F4F5F7] text-[#001837] selection:bg-[#FFD203] selection:text-[#001837]">
       {/* Header flotante de control */}
-      {!exportMode && (
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-4 shadow-xs">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#FFD203] flex items-center justify-center font-heading font-black text-[#001837] text-lg shadow-sm border border-black/10">
-                YY
-              </div>
-              <div>
-                <h1 className="font-heading font-extrabold text-xl leading-tight text-[#001837]">
-                  YYCL 2026 · Suite de Piezas Gráficas
-                </h1>
-                <p className="text-xs text-slate-500 font-body">
-                  Templates Modulares listos para exportar con{" "}
-                  <strong className="text-[#834296]">html.to.design</strong>
-                </p>
-              </div>
-            </div>
-
-            {/* Controles de Vista & Acción */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setExportMode(true)}
-                className="bg-slate-100 hover:bg-slate-200 text-[#001837] px-4 py-2 rounded-xl text-sm font-heading font-bold flex items-center gap-2 border border-slate-300 transition-all cursor-pointer"
-              >
-                <Maximize2 className="w-4 h-4 text-[#834296]" />
-                <span>Modo Render 1:1 (Figma Export)</span>
-              </button>
-
-              <button
-                onClick={handleCopyUrl}
-                className="bg-[#FFD203] hover:bg-[#ffe252] text-[#001837] px-5 py-2 rounded-xl text-sm font-heading font-black flex items-center gap-2 shadow-sm border border-black/10 transition-all cursor-pointer"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4 text-green-700" />
-                    <span>¡Enlace Copiado!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" />
-                    <span>Copiar URL para html.to.design</span>
-                  </>
-                )}
-              </button>
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-4 shadow-xs">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <YYCLStickerLogo size={52} rotate="-2deg" />
+            <div>
+              <h1 className="font-heading font-black text-2xl leading-tight text-[#001837]">
+                YYCL 2026 · Suite de Piezas Gráficas
+              </h1>
+              <p className="text-xs text-slate-500 font-body">
+                Sistema oficial de templates modulares y piezas de marca
+              </p>
             </div>
           </div>
-
-          {/* Selector de Categorías */}
-          <div className="max-w-7xl mx-auto mt-4 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            {categories.map((cat) => {
-              const Icon = cat.icon;
-              const isActive = selectedCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id as CategoryKey)}
-                  className={`px-4 py-2 rounded-xl text-xs md:text-sm font-heading font-bold flex items-center gap-2 transition-all shrink-0 cursor-pointer ${
-                    isActive
-                      ? "bg-[#834296] text-white shadow-sm"
-                      : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{cat.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </header>
-      )}
-
-      {/* Barra de regreso cuando está en modo Exportación 1:1 */}
-      {exportMode && (
-        <div className="fixed top-4 right-4 z-50 bg-[#001837] border-2 border-[#FFD203] p-3 rounded-2xl shadow-2xl flex items-center gap-3 text-white">
-          <span className="text-xs font-heading font-bold text-[#FFD203]">
-            Modo Render 1:1 Activo
-          </span>
-          <button
-            onClick={() => setExportMode(false)}
-            className="bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg text-xs font-heading font-bold cursor-pointer"
-          >
-            Volver a Vista Catálogo
-          </button>
         </div>
-      )}
+
+        {/* Selector de Categorías */}
+        <div className="max-w-7xl mx-auto mt-4 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+          {categories.map((cat) => {
+            const Icon = cat.icon;
+            const isActive = selectedCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id as CategoryKey)}
+                className={`px-4 py-2 rounded-xl text-xs md:text-sm font-heading font-bold flex items-center gap-2 transition-all shrink-0 cursor-pointer ${
+                  isActive
+                    ? "bg-[#834296] text-white shadow-sm"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                <span>{cat.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </header>
+
 
       {/* Contenedor Principal */}
       <main className="p-6 md:p-12">
-        {/* Banner de Instrucción rápida para html.to.design */}
-        {!exportMode && (
-          <div className="max-w-7xl mx-auto mb-12 bg-white border-2 border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2">
-              <span className="bg-[#FFD203] text-[#001837] text-xs font-heading font-extrabold px-3 py-1 rounded-full uppercase">
-                Workflow Figma Instantáneo
-              </span>
-              <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-[#001837]">
-                Cómo importar estas piezas a Figma en 1 minuto:
-              </h2>
-              <ol className="text-sm md:text-base text-slate-600 space-y-1 font-body list-decimal list-inside">
-                <li>
-                  Abre tu archivo de Figma (YYCL 2026) y ejecuta el plugin{" "}
-                  <strong className="text-[#834296]">html.to.design</strong>.
-                </li>
-                <li>
-                  Pega la URL de esta página (ej. <code className="bg-slate-100 px-2 py-0.5 rounded text-[#834296] font-mono font-bold">http://localhost:3000/templates</code>).
-                </li>
-                <li>
-                  ¡Listo! El plugin convertirá cada tarjeta en un Frame nativo con capas vectoriales, tipografías y colores de marca.
-                </li>
-              </ol>
-            </div>
-            <button
-              onClick={handleCopyUrl}
-              className="bg-[#834296] text-white hover:bg-[#723784] px-6 py-4 rounded-2xl font-heading font-black text-base shadow-sm flex items-center gap-3 shrink-0 cursor-pointer"
-            >
-              <Copy className="w-5 h-5 text-[#FFD203]" />
-              <span>Copiar Enlace de Importación</span>
-            </button>
-          </div>
-        )}
+
 
         {/* ======================================================== */}
         {/* SECCIÓN 1: INSTAGRAM FEED (1080 x 1350 px · Ratio 4:5) */}
