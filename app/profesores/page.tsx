@@ -61,7 +61,7 @@ export default function ProfesoresPage() {
       id: 'jose-funes',
       name: 'José Funes',
       role: 'Profesor de Inglés',
-      bio: 'I bring a little know-how, a sense of humor, and a bit of chaos to teaching English. Somehow, it works.',
+      bio: 'Aporto un poco de experiencia, sentido del humor y un poquito de caos a la hora de enseñar inglés. De alguna manera, ¡funciona!',
       image: '/assets/profesores/jose-funes.png',
       avatarBg: 'bg-[#D4B6E3]',
     },
