@@ -165,69 +165,79 @@ export const Navbar = () => {
                     {/* Flecha indicadora superior que conecta visualmente con el navbar */}
                     <div className="w-3 h-3 bg-white border-t border-l border-slate-200/90 rotate-45 mx-auto -mb-1.5 relative z-10" />
 
-                    <div className="w-[324px] bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 shadow-[0_16px_36px_rgba(0,24,55,0.09),0_2px_8px_rgba(0,24,55,0.04)] p-2 space-y-1">
+                    <div className="w-[328px] bg-white rounded-2xl border border-slate-200/90 shadow-[0_16px_36px_rgba(0,24,55,0.12),0_2px_8px_rgba(0,24,55,0.06)] p-2 space-y-1">
                       <Link
                         href="/planes"
                         role="menuitem"
-                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/planes' ? 'bg-purple-50 text-[#834296] font-bold' : 'text-slate-800 hover:bg-slate-50'
+                        className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/planes'
+                            ? 'bg-purple-100/80 text-[#834296] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-purple-50 hover:text-[#834296]'
                         }`}
                       >
-                        <span className="w-7 h-7 rounded-full bg-[#834296] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                        <span className="w-7 h-7 rounded-full bg-[#834296] text-white flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                           <BookOpen className="w-3.5 h-3.5 stroke-[2.2]" />
                         </span>
                         <div className="flex flex-col text-left">
-                          <span className="leading-tight">Planes de inglés (Adultos)</span>
+                          <span className="leading-tight group-hover:text-[#834296] transition-colors">Planes de inglés (Adultos)</span>
                           <span className="text-[10px] text-slate-500 font-normal">Grupal, Personalizada y Dúo</span>
                         </div>
                       </Link>
                       <Link
                         href="/idiomas"
                         role="menuitem"
-                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/idiomas' ? 'bg-amber-50 text-[#EC9519] font-bold' : 'text-slate-800 hover:bg-slate-50'
+                        className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/idiomas'
+                            ? 'bg-amber-100/80 text-[#EC9519] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-amber-50 hover:text-[#D97706]'
                         }`}
                       >
-                        <span className="w-7 h-7 rounded-full bg-[#EC9519] text-white flex items-center justify-center shrink-0 shadow-2xs">
+                        <span className="w-7 h-7 rounded-full bg-[#EC9519] text-white flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                           <Globe2 className="w-3.5 h-3.5 stroke-[2.2]" />
                         </span>
-                        <span>Otros idiomas (Francés y Portugués)</span>
+                        <span className="transition-colors">Otros idiomas (Francés y Portugués)</span>
                       </Link>
                       <Link
                         href="/kids"
                         role="menuitem"
-                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/kids' ? 'bg-cyan-50 text-[#0284C7] font-bold' : 'text-slate-800 hover:bg-slate-50'
+                        className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/kids'
+                            ? 'bg-sky-100/80 text-[#0284C7] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-sky-50 hover:text-[#0284C7]'
                         }`}
                       >
-                        <span className="w-7 h-7 rounded-full bg-[#4DC2DA] text-[#001837] flex items-center justify-center shrink-0 shadow-2xs">
+                        <span className="w-7 h-7 rounded-full bg-[#4DC2DA] text-[#001837] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                           <Sparkles className="w-3.5 h-3.5 stroke-[2.2]" />
                         </span>
-                        <span>Kids & Teens (Niños y adolescentes)</span>
+                        <span className="transition-colors">Kids & Teens (Niños y adolescentes)</span>
                       </Link>
                       <Link
                         href="/empresas"
                         role="menuitem"
-                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/empresas' ? 'bg-slate-100 text-[#001837] font-bold' : 'text-slate-800 hover:bg-slate-50'
+                        className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/empresas'
+                            ? 'bg-slate-200 text-[#001837] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-slate-100 hover:text-[#001837]'
                         }`}
                       >
-                        <span className="w-7 h-7 rounded-full bg-[#001837] text-[#FFD203] flex items-center justify-center shrink-0 shadow-2xs">
+                        <span className="w-7 h-7 rounded-full bg-[#001837] text-[#FFD203] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                           <Building2 className="w-3.5 h-3.5 stroke-[2.2]" />
                         </span>
-                        <span>Capacitación corporativa</span>
+                        <span className="transition-colors">Capacitación corporativa</span>
                       </Link>
                       <Link
                         href="/servicios-especiales"
                         role="menuitem"
-                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/servicios-especiales' ? 'bg-amber-50 text-[#B26B06] font-bold' : 'text-slate-800 hover:bg-slate-50'
+                        className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/servicios-especiales'
+                            ? 'bg-amber-100/80 text-[#B26B06] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-amber-50/90 hover:text-[#B26B06]'
                         }`}
                       >
-                        <span className="w-7 h-7 rounded-full bg-[#FFD203] text-[#001837] flex items-center justify-center shrink-0 shadow-2xs">
+                        <span className="w-7 h-7 rounded-full bg-[#FFD203] text-[#001837] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                           <Award className="w-3.5 h-3.5 stroke-[2.2]" />
                         </span>
-                        <span>Servicios Especiales (Exámenes / ESP)</span>
+                        <span className="transition-colors">Servicios Especiales (Exámenes / ESP)</span>
                       </Link>
                     </div>
                   </div>
@@ -265,12 +275,14 @@ export const Navbar = () => {
                     {/* Flecha indicadora superior que conecta visualmente con el navbar */}
                     <div className="w-3 h-3 bg-white border-t border-l border-slate-200/90 rotate-45 mx-auto -mb-1.5 relative z-10" />
 
-                    <div className="w-56 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 shadow-[0_16px_36px_rgba(0,24,55,0.09),0_2px_8px_rgba(0,24,55,0.04)] p-2 space-y-1">
+                    <div className="w-56 bg-white rounded-2xl border border-slate-200/90 shadow-[0_16px_36px_rgba(0,24,55,0.12),0_2px_8px_rgba(0,24,55,0.06)] p-2 space-y-1">
                       <Link
                         href="/sobre-yycl"
                         role="menuitem"
-                        className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/sobre-yycl' ? 'bg-slate-100 text-[#001837] font-bold' : 'text-slate-700 hover:bg-slate-50'
+                        className={`block px-3.5 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/sobre-yycl'
+                            ? 'bg-purple-100/80 text-[#834296] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-purple-50 hover:text-[#834296]'
                         }`}
                       >
                         Sobre YYCL
@@ -278,8 +290,10 @@ export const Navbar = () => {
                       <Link
                         href="/profesores"
                         role="menuitem"
-                        className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/profesores' ? 'bg-slate-100 text-[#001837] font-bold' : 'text-slate-700 hover:bg-slate-50'
+                        className={`block px-3.5 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/profesores'
+                            ? 'bg-purple-100/80 text-[#834296] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-purple-50 hover:text-[#834296]'
                         }`}
                       >
                         Nuestro equipo
@@ -287,8 +301,10 @@ export const Navbar = () => {
                       <Link
                         href="/trabaja-con-nosotros"
                         role="menuitem"
-                        className={`block px-3 py-2 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-colors ${
-                          pathname === '/trabaja-con-nosotros' ? 'bg-slate-100 text-[#001837] font-bold' : 'text-slate-700 hover:bg-slate-50'
+                        className={`block px-3.5 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/trabaja-con-nosotros'
+                            ? 'bg-purple-100/80 text-[#834296] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-purple-50 hover:text-[#834296]'
                         }`}
                       >
                         Trabaja con nosotros
