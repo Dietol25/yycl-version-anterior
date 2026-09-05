@@ -44,7 +44,7 @@ export default function ProfesoresPage() {
     {
       id: 'micaela-sedan',
       name: 'Micaela Sedan',
-      role: 'Profesora de Inglés y Español',
+      role: 'Coordinadora y Profesora de Inglés y Español',
       bio: 'Hi! Mi objetivo es crear clases dinámicas, personalizadas y enfocadas en las necesidades de cada estudiante, para que puedan aprender, comunicarse y ganar confianza mientras se divierten.',
       image: '/assets/profesores/micaela-sedan.png',
       avatarBg: 'bg-[#D4B6E3]',
@@ -96,6 +96,22 @@ export default function ProfesoresPage() {
       bio: 'Bonjour! En YYCL hago único mi estilo integrando tecnología y materiales de vanguardia para crear clases humanas, apasionantes e innovadoras.',
       image: '/assets/profesores/sara-dominguez.png',
       avatarBg: 'bg-[#FFE2C0]',
+    },
+    {
+      id: 'nicolas-malchiodi',
+      name: 'Nicolás Malchiodi',
+      role: 'Profesor de Inglés',
+      bio: '¡Buenas! ¿Cómo están? Si están buscando un ambiente relajado, tranquilo, donde pueden equivocarse sin ningún problema, pues yo los espero en Yes You Can Languages. Bye, bye! See you soon!',
+      image: '/assets/profesores/nicolas-malchiodi.png',
+      avatarBg: 'bg-[#E0F7FA]',
+    },
+    {
+      id: 'katherin-patino',
+      name: 'Katherin Patiño',
+      role: 'Profesora de Portugués',
+      bio: 'Bom dia!!! En YYCL intento crear clases dinámicas y divertidas, que aproximen a los estudiantes de la lengua y la cultura brasileña, de forma simple y en confianza, logrando avances significativos en poco tiempo.',
+      image: '/assets/profesores/katherine-patino.png',
+      avatarBg: 'bg-[#CAFFFF]',
     },
   ];
 
