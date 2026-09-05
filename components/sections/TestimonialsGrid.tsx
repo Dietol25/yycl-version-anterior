@@ -131,9 +131,8 @@ export const TestimonialsGrid = () => {
                     <span>Google Reviews 5.0★</span>
                     <ExternalLink className="w-3 h-3 text-[#FFD203]" />
                   </a>
-                  <span className="flex items-center gap-1.5 font-heading font-semibold text-[11px] text-white/90">
-                    <CountryFlag code={item.countryFlag || item.country || 'CO'} size={16} />
-                    <span>{item.country || 'Colombia'}</span>
+                  <span title={item.country} className="flex items-center">
+                    <CountryFlag code={item.countryFlag || item.country || 'CO'} size={18} />
                   </span>
                 </div>
               </div>
@@ -197,9 +196,8 @@ export const TestimonialsGrid = () => {
                   <span>Google Reviews 5.0★</span>
                   <ExternalLink className="w-3 h-3 text-[#FFD203]" />
                 </a>
-                <span className="flex items-center gap-1.5 font-heading font-semibold text-[11px] text-white/90">
-                  <CountryFlag code={TESTIMONIALS[activeIndex].countryFlag || TESTIMONIALS[activeIndex].country || 'CO'} size={16} />
-                  <span>{TESTIMONIALS[activeIndex].country || 'Colombia'}</span>
+                <span title={TESTIMONIALS[activeIndex].country} className="flex items-center">
+                  <CountryFlag code={TESTIMONIALS[activeIndex].countryFlag || TESTIMONIALS[activeIndex].country || 'CO'} size={18} />
                 </span>
               </div>
             </div>

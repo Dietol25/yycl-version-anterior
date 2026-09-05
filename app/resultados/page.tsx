@@ -284,9 +284,8 @@ export default function ResultadosPage() {
                         <span>{item.source}</span>
                         <ExternalLink className="w-3 h-3 opacity-70 group-hover:opacity-100 transition-opacity" />
                       </a>
-                      <span className="flex items-center gap-1.5 font-heading font-semibold text-[11px] text-white/90">
-                        <CountryFlag code={item.countryFlag || item.country || 'ES'} size={16} />
-                        <span>{item.country}</span>
+                      <span title={item.country} className="flex items-center">
+                        <CountryFlag code={item.countryFlag || item.country || 'ES'} size={18} />
                       </span>
                     </div>
                   </div>
@@ -346,12 +345,11 @@ export default function ResultadosPage() {
                       <span>{VERIFIED_TESTIMONIALS[activeIndex].source}</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
-                    <span className="flex items-center gap-1.5 font-heading font-semibold text-[11px] text-white/90">
+                    <span title={VERIFIED_TESTIMONIALS[activeIndex].country} className="flex items-center">
                       <CountryFlag
                         code={VERIFIED_TESTIMONIALS[activeIndex].countryFlag || VERIFIED_TESTIMONIALS[activeIndex].country || 'ES'}
-                        size={16}
+                        size={18}
                       />
-                      <span>{VERIFIED_TESTIMONIALS[activeIndex].country}</span>
                     </span>
                   </div>
                 </div>
