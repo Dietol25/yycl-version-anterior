@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Star, Award, Calendar, Languages } from 'lucide-react';
 import { Teacher } from '@/lib/types';
 import { Button } from '@/components/ui/Button';
+import { CountryFlag } from '@/components/icons/FlagIcons';
 
 export const TeamMemberCard: React.FC<{ teacher: Teacher }> = ({ teacher }) => {
   return (
@@ -19,7 +20,7 @@ export const TeamMemberCard: React.FC<{ teacher: Teacher }> = ({ teacher }) => {
             <span>{teacher.rating}</span>
           </div>
           <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-xs text-yycl-navy text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1.5">
-            <span>{teacher.countryFlag}</span>
+            <CountryFlag code={teacher.countryFlag || teacher.country} size={15} />
             <span>{teacher.country}</span>
           </div>
         </div>

@@ -8,6 +8,7 @@ import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
 import { SliderControls } from '@/components/ui/SliderControls';
 import { TESTIMONIALS } from '@/lib/data';
+import { CountryFlag } from '@/components/icons/FlagIcons';
 
 const GOOGLE_MAPS_REVIEWS_URL = 'https://www.google.com/maps/place//@-12.060543,-70.6361328,3z/data=!3m1!4b1!4m3!3m2!1s0x95bccb681a6ea077:0xd57ae9c7c1891e35!12e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D';
 const INSTAGRAM_HIGHLIGHTS_URL = 'https://www.instagram.com/stories/highlights/17913912476880324/?hl=es-la';
@@ -22,6 +23,7 @@ const VERIFIED_TESTIMONIALS = [
     avatar: '/assets/avatares/mujer.png',
     source: 'Google Reviews 5.0★',
     sourceUrl: GOOGLE_MAPS_REVIEWS_URL,
+    country: 'México',
     countryFlag: '🇲🇽',
   },
   {
@@ -32,6 +34,7 @@ const VERIFIED_TESTIMONIALS = [
     avatar: '/assets/avatares/hombre.png',
     source: 'Google Reviews 5.0★',
     sourceUrl: GOOGLE_MAPS_REVIEWS_URL,
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
   },
   {
@@ -42,6 +45,7 @@ const VERIFIED_TESTIMONIALS = [
     avatar: '/assets/avatares/hombre.png',
     source: 'Google Reviews 5.0★',
     sourceUrl: GOOGLE_MAPS_REVIEWS_URL,
+    country: 'España',
     countryFlag: '🇪🇸',
   },
   {
@@ -52,6 +56,7 @@ const VERIFIED_TESTIMONIALS = [
     avatar: '/assets/avatares/hombre.png',
     source: 'Google Reviews 5.0★',
     sourceUrl: GOOGLE_MAPS_REVIEWS_URL,
+    country: 'Argentina',
     countryFlag: '🇦🇷',
   },
   {
@@ -62,7 +67,19 @@ const VERIFIED_TESTIMONIALS = [
     avatar: '/assets/avatares/mujer.png',
     source: 'Instagram Stories',
     sourceUrl: INSTAGRAM_HIGHLIGHTS_URL,
+    country: 'España',
     countryFlag: '🇪🇸',
+  },
+  {
+    id: '6',
+    name: 'Carolina Cepeda',
+    role: 'Ingeniera de Software',
+    quote: 'Buscaba perder el miedo en entrevistas en inglés con clientes en el extranjero. En 2 meses pasé de bloquearme a responder con total soltura y seguridad.',
+    avatar: '/assets/avatares/mujer.png',
+    source: 'Reseña Verificada 5.0★',
+    sourceUrl: GOOGLE_MAPS_REVIEWS_URL,
+    country: 'Colombia',
+    countryFlag: '🇨🇴',
   },
 ];
 
@@ -267,7 +284,10 @@ export default function ResultadosPage() {
                         <span>{item.source}</span>
                         <ExternalLink className="w-3 h-3 opacity-70 group-hover:opacity-100 transition-opacity" />
                       </a>
-                      <span className="text-xs">{item.countryFlag}</span>
+                      <span className="flex items-center gap-1.5 font-heading font-semibold text-[11px] text-white/90">
+                        <CountryFlag code={item.countryFlag || item.country || 'ES'} size={16} />
+                        <span>{item.country}</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -326,7 +346,13 @@ export default function ResultadosPage() {
                       <span>{VERIFIED_TESTIMONIALS[activeIndex].source}</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
-                    <span className="text-xs">{VERIFIED_TESTIMONIALS[activeIndex].countryFlag}</span>
+                    <span className="flex items-center gap-1.5 font-heading font-semibold text-[11px] text-white/90">
+                      <CountryFlag
+                        code={VERIFIED_TESTIMONIALS[activeIndex].countryFlag || VERIFIED_TESTIMONIALS[activeIndex].country || 'ES'}
+                        size={16}
+                      />
+                      <span>{VERIFIED_TESTIMONIALS[activeIndex].country}</span>
+                    </span>
                   </div>
                 </div>
               </div>

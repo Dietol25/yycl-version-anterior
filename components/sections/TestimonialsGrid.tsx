@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { Star, ArrowRight, ExternalLink } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/data';
+import { CountryFlag } from '@/components/icons/FlagIcons';
 
 const GOOGLE_REVIEWS_URL = 'https://www.google.com/maps/place//@-12.060543,-70.6361328,3z/data=!3m1!4b1!4m3!3m2!1s0x95bccb681a6ea077:0xd57ae9c7c1891e35!12e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D';
 
@@ -130,7 +131,10 @@ export const TestimonialsGrid = () => {
                     <span>Google Reviews 5.0★</span>
                     <ExternalLink className="w-3 h-3 text-[#FFD203]" />
                   </a>
-                  <span className="text-xs">{item.countryFlag || '🇨🇴'}</span>
+                  <span className="flex items-center gap-1.5 font-heading font-semibold text-[11px] text-white/90">
+                    <CountryFlag code={item.countryFlag || item.country || 'CO'} size={16} />
+                    <span>{item.country || 'Colombia'}</span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -193,7 +197,10 @@ export const TestimonialsGrid = () => {
                   <span>Google Reviews 5.0★</span>
                   <ExternalLink className="w-3 h-3 text-[#FFD203]" />
                 </a>
-                <span className="text-xs">{TESTIMONIALS[activeIndex].countryFlag}</span>
+                <span className="flex items-center gap-1.5 font-heading font-semibold text-[11px] text-white/90">
+                  <CountryFlag code={TESTIMONIALS[activeIndex].countryFlag || TESTIMONIALS[activeIndex].country || 'CO'} size={16} />
+                  <span>{TESTIMONIALS[activeIndex].country || 'Colombia'}</span>
+                </span>
               </div>
             </div>
           </div>
