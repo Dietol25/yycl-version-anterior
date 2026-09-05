@@ -28,7 +28,7 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       {/* 1. Circular Avatar con Sombra Violeta (#834296) */}
       <div className="relative mb-5">
         <div
-          className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center border-2 border-[#001837] shadow-[4px_4px_0px_#834296] ${avatarBg} select-none group-hover:scale-105 group-hover:shadow-[5px_5px_0px_#834296] transition-all duration-300`}
+          className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center border-[3.5px] border-[#834296] shadow-[0_8px_20px_rgba(131,66,150,0.18)] ${avatarBg} select-none group-hover:scale-105 group-hover:shadow-[0_12px_28px_rgba(131,66,150,0.30)] transition-all duration-300`}
         >
           {image ? (
             <img
