@@ -13,11 +13,11 @@ export const TestimonialsGrid = () => {
   const touchEndX = useRef<number | null>(null);
 
   const prevSlide = () => {
-    setActiveIndex((prev) => (prev === 0 ? 2 : prev - 1));
+    setActiveIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setActiveIndex((prev) => (prev === 2 ? 0 : prev + 1));
+    setActiveIndex((prev) => (prev === TESTIMONIALS.length - 1 ? 0 : prev + 1));
   };
 
   // Touch handlers for fluid mobile swipe gesture
@@ -166,11 +166,11 @@ export const TestimonialsGrid = () => {
 
             <div className="space-y-2.5 pt-3 border-t border-white/15">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden border border-white/80 bg-white/20 shadow-xs shrink-0 p-0.5">
+                <div className="w-11 h-11 shrink-0 select-none">
                   <img
                     src={TESTIMONIALS[activeIndex].avatar}
                     alt={TESTIMONIALS[activeIndex].name}
-                    className="w-full h-full object-cover rounded-full"
+                    className="w-full h-full object-contain select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
                   />
                 </div>
                 <div>
@@ -193,14 +193,14 @@ export const TestimonialsGrid = () => {
                   <span>Google Reviews 5.0★</span>
                   <ExternalLink className="w-3 h-3 text-[#FFD203]" />
                 </a>
-                <span className="text-xs">{TESTIMONIALS[activeIndex].countryFlag || '🇨🇴'}</span>
+                <span className="text-xs">{TESTIMONIALS[activeIndex].countryFlag}</span>
               </div>
             </div>
           </div>
 
-          {/* Slim Dots Indicator (Sin botones gigantes redundantes) */}
+          {/* Slim Dots Indicator */}
           <div className="flex items-center justify-center gap-2 py-1">
-            {[0, 1, 2].map((idx) => {
+            {TESTIMONIALS.map((_, idx) => {
               const isActive = activeIndex === idx;
               return (
                 <button

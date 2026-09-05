@@ -3,51 +3,63 @@ import { Teacher, PricingPlan, Testimonial } from './types';
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
-    name: 'Yuliana Navarro',
-    role: 'Estudiante YYCL',
+    name: 'Clara Reinoso',
+    role: 'Profesional en Finanzas',
     company: 'Google Reviews 5.0★',
     avatar: '/assets/avatares/mujer.png',
-    country: 'Colombia',
-    countryFlag: '🇨🇴',
+    country: 'México',
+    countryFlag: '🇲🇽',
     rating: 5,
-    highlight: 'Me he permitido preguntar, hablar y lanzarme.',
-    quote: 'Me han encantado... Me he permitido preguntar, hablar y lanzarme. Me gusta que no hay juzgamientos; por eso aprovecho todo.'
+    highlight: 'Gané seguridad para expresarme con soltura.',
+    quote: 'Las clases son súper dinámicas y personalizadas. Pasé de tener temor a hablar en juntas de trabajo a expresarme con fluidez y confianza total.'
   },
   {
     id: '2',
-    name: 'Nicolas Ibañez Esenarro',
-    role: 'Profesional en Tecnología',
+    name: 'Jefferson González',
+    role: 'Desarrollador de Software',
     company: 'Google Reviews 5.0★',
     avatar: '/assets/avatares/hombre.png',
-    country: 'Colombia',
-    countryFlag: '🇨🇴',
+    country: 'Estados Unidos',
+    countryFlag: '🇺🇸',
     rating: 5,
-    highlight: 'Jose is THE GOAT!',
-    quote: 'Lo puedo decir en inglés: "Jose is THE GOAT". He progresado mucho (presente perfecto simple) en poco tiempo con sus clases! Siempre muy paciente y pedagógico.'
+    highlight: 'El método conversacional me ayudó a integrarme rápido.',
+    quote: 'Vivir en USA exige comunicarse sin trabas. Con el enfoque 100% conversacional de YYCL logré soltarme en reuniones técnicas y el día a día sin miedo a equivocarme.'
   },
   {
     id: '3',
-    name: 'Diana Proaño',
-    role: 'Guía de Turismo',
+    name: 'Yulian Sentani',
+    role: 'Especialista en Marketing Digital',
     company: 'Google Reviews 5.0★',
-    avatar: '/assets/avatares/mujer.png',
-    country: 'Ecuador',
-    countryFlag: '🇪🇨',
+    avatar: '/assets/avatares/hombre.png',
+    country: 'España',
+    countryFlag: '🇪🇸',
     rating: 5,
-    highlight: 'Pude mejorar la gramática, vocabulario y habla.',
-    quote: 'YYCL me ayudó a refrescar mis conocimientos y a practicar toda la teoría que había estudiado hace tiempo, también pude mejorar la gramática, el vocabulario, la lectura y el habla de una manera fácil y con tiempo flexible.'
+    highlight: 'Clases prácticas desde el primer minuto.',
+    quote: 'Me encanta que no hay juzgamientos ni teoría aburrida; te lanzas a hablar desde la primera clase. Es el empujón práctico que necesitaba para dar el salto profesional.'
   },
   {
     id: '4',
-    name: 'Maria Badano',
-    role: 'Estudiante Modalidad Personalizada',
+    name: 'Nicolás Ibáñez',
+    role: 'Profesional en Tecnología',
     company: 'Google Reviews 5.0★',
-    avatar: '/assets/avatares/mujer.png',
+    avatar: '/assets/avatares/hombre.png',
     country: 'Argentina',
     countryFlag: '🇦🇷',
     rating: 5,
-    highlight: 'Super flexible a los objetivos.',
-    quote: 'En mi caso particular, que tengo de profe a Mica Sedan, estoy muy contenta. Es super flexible a los pedidos, objetivos, adapta todo el material en función de lo que uno quiere desarrollar.'
+    highlight: 'Jose is THE GOAT!',
+    quote: 'Lo puedo decir en inglés: "Jose is THE GOAT". He progresado mucho en poco tiempo con sus clases! Siempre muy paciente y pedagógico.'
+  },
+  {
+    id: '5',
+    name: 'Caro Corchuelo',
+    role: 'Diseñadora UX / Creativa',
+    company: 'Google Reviews 5.0★',
+    avatar: '/assets/avatares/mujer.png',
+    country: 'España',
+    countryFlag: '🇪🇸',
+    rating: 5,
+    highlight: 'Hermosa, práctica y hablé un montón.',
+    quote: 'La clase hermosa, súper práctica y hablé un montón. El ambiente de confianza te hace sentir cómoda desde el inicio para soltarte sin presiones.'
   }
 ];
 
