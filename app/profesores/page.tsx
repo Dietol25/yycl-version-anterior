@@ -8,7 +8,8 @@ import { Button } from '@/components/ui/Button';
 import { TeamMemberCard } from '@/components/ui/TeamMemberCard';
 
 export default function ProfesoresPage() {
-  const teachers = [
+  // 1. Fundadores / Dirección — Centrados en el medio arriba
+  const founders = [
     {
       id: 'natty-sanchez',
       name: 'Natty Sánchez',
@@ -25,6 +26,18 @@ export default function ProfesoresPage() {
       image: '/assets/profesores/nestor-montano.png',
       avatarBg: 'bg-[#CAFFFF]',
     },
+  ];
+
+  // 2. Coordinación — Micaela y Carolina centradas en el siguiente bloque
+  const coordinators = [
+    {
+      id: 'micaela-sedan',
+      name: 'Micaela Sedan',
+      role: 'Coordinadora Académica',
+      bio: 'Hi! Mi objetivo es crear clases dinámicas, personalizadas y enfocadas en las necesidades de cada estudiante, para que puedan aprender, comunicarse y ganar confianza mientras se divierten.',
+      image: '/assets/profesores/micaela-sedan.png',
+      avatarBg: 'bg-[#D4B6E3]',
+    },
     {
       id: 'carolina-correal',
       name: 'Carolina Correal',
@@ -33,6 +46,10 @@ export default function ProfesoresPage() {
       image: '/assets/profesores/carolina-correal.png',
       avatarBg: 'bg-[#E0F7FA]',
     },
+  ];
+
+  // 3. Profesores — Alternancia exacta Hombre y Mujer (5 hombres, 4 mujeres) en grilla armónica 3x3
+  const teachers = [
     {
       id: 'alan-vera',
       name: 'Alan Vera',
@@ -40,22 +57,6 @@ export default function ProfesoresPage() {
       bio: 'Disfruto acompañando a mis alumnos en su proceso, creando clases dinámicas y personalizadas que les permitan ganar confianza y alcanzar sus metas.',
       image: '/assets/profesores/alan-vera.png',
       avatarBg: 'bg-[#FFE2C0]',
-    },
-    {
-      id: 'micaela-sedan',
-      name: 'Micaela Sedan',
-      role: 'Coordinadora y Profesora de Inglés y Español',
-      bio: 'Hi! Mi objetivo es crear clases dinámicas, personalizadas y enfocadas en las necesidades de cada estudiante, para que puedan aprender, comunicarse y ganar confianza mientras se divierten.',
-      image: '/assets/profesores/micaela-sedan.png',
-      avatarBg: 'bg-[#D4B6E3]',
-    },
-    {
-      id: 'gabriel-acosta',
-      name: 'Gabriel Acosta',
-      role: 'Profesor de Inglés',
-      bio: '¡Hola! Me apasiona el idioma y me da mucha satisfacción poder enseñarlo de la manera que más me gusta en YYCL.',
-      image: '/assets/profesores/gabriel-acosta.png',
-      avatarBg: 'bg-[#E0F7FA]',
     },
     {
       id: 'catalina-fiori',
@@ -66,6 +67,22 @@ export default function ProfesoresPage() {
       avatarBg: 'bg-[#CAFFFF]',
     },
     {
+      id: 'gabriel-acosta',
+      name: 'Gabriel Acosta',
+      role: 'Profesor de Inglés',
+      bio: '¡Hola! Me apasiona el idioma y me da mucha satisfacción poder enseñarlo de la manera que más me gusta en YYCL.',
+      image: '/assets/profesores/gabriel-acosta.png',
+      avatarBg: 'bg-[#E0F7FA]',
+    },
+    {
+      id: 'ana-belen-ochoa',
+      name: 'Ana Belén Ochoa',
+      role: 'Profesora de Inglés',
+      bio: 'Me enfoco en la comunicación real y en hacer del aprendizaje una experiencia positiva. Creo un espacio de confianza donde cada estudiante pueda ganar seguridad y animarse a hablar.',
+      image: '/assets/profesores/ana-belen-ochoa.png',
+      avatarBg: 'bg-[#D4B6E3]',
+    },
+    {
       id: 'jose-funes',
       name: 'José Funes',
       role: 'Profesor de Inglés',
@@ -74,11 +91,11 @@ export default function ProfesoresPage() {
       avatarBg: 'bg-[#FFE2C0]',
     },
     {
-      id: 'ana-belen-ochoa',
-      name: 'Ana Belén Ochoa',
-      role: 'Profesora de Inglés',
-      bio: 'Me enfoco en la comunicación real y en hacer del aprendizaje una experiencia positiva. Creo un espacio de confianza donde cada estudiante pueda ganar seguridad y animarse a hablar.',
-      image: '/assets/profesores/ana-belen-ochoa.png',
+      id: 'sara-dominguez',
+      name: 'Sara Dominguez',
+      role: 'Profesora de Francés',
+      bio: 'Bonjour! En YYCL hago único mi estilo integrando tecnología y materiales de vanguardia para crear clases humanas, apasionantes e innovadoras.',
+      image: '/assets/profesores/sara-dominguez.png',
       avatarBg: 'bg-[#D4B6E3]',
     },
     {
@@ -90,11 +107,11 @@ export default function ProfesoresPage() {
       avatarBg: 'bg-[#CAFFFF]',
     },
     {
-      id: 'sara-dominguez',
-      name: 'Sara Dominguez',
-      role: 'Profesora de Francés',
-      bio: 'Bonjour! En YYCL hago único mi estilo integrando tecnología y materiales de vanguardia para crear clases humanas, apasionantes e innovadoras.',
-      image: '/assets/profesores/sara-dominguez.png',
+      id: 'katherin-patino',
+      name: 'Katherin Patiño',
+      role: 'Profesora de Portugués',
+      bio: 'Bom dia!!! En YYCL intento crear clases dinámicas y divertidas, que aproximen a los estudiantes de la lengua y la cultura brasileña, de forma simple y en confianza, logrando avances significativos en poco tiempo.',
+      image: '/assets/profesores/katherine-patino.png',
       avatarBg: 'bg-[#FFE2C0]',
     },
     {
@@ -104,14 +121,6 @@ export default function ProfesoresPage() {
       bio: '¡Buenas! ¿Cómo están? Si están buscando un ambiente relajado, tranquilo, donde pueden equivocarse sin ningún problema, pues yo los espero en Yes You Can Languages. Bye, bye! See you soon!',
       image: '/assets/profesores/nicolas-malchiodi.png',
       avatarBg: 'bg-[#E0F7FA]',
-    },
-    {
-      id: 'katherin-patino',
-      name: 'Katherin Patiño',
-      role: 'Profesora de Portugués',
-      bio: 'Bom dia!!! En YYCL intento crear clases dinámicas y divertidas, que aproximen a los estudiantes de la lengua y la cultura brasileña, de forma simple y en confianza, logrando avances significativos en poco tiempo.',
-      image: '/assets/profesores/katherine-patino.png',
-      avatarBg: 'bg-[#CAFFFF]',
     },
   ];
 
@@ -141,22 +150,78 @@ export default function ProfesoresPage() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 2. TEAM MEMBERS GRID (4 Columnas Desktop / 2 Tablet / 1 Mobile)           */}
+        {/* 2. TEAM MEMBERS SECTION                                                   */}
         {/* ========================================================================= */}
         <section className="py-12 lg:py-16 bg-white border-t border-slate-100">
-          <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-              {teachers.map((teacher) => (
-                <TeamMemberCard
-                  key={teacher.id}
-                  name={teacher.name}
-                  role={teacher.role}
-                  bio={teacher.bio}
-                  image={teacher.image}
-                  avatarBg={teacher.avatarBg}
-                />
-              ))}
+          <div className="max-w-[1280px] mx-auto px-5 lg:px-12 space-y-12 sm:space-y-16">
+            
+            {/* Nivel 1: Fundadores (Natty y Néstor) centrados en el medio */}
+            <div>
+              <div className="text-center mb-8">
+                <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+                  Fundadores & Dirección
+                </span>
+              </div>
+              <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
+                {founders.map((member) => (
+                  <TeamMemberCard
+                    key={member.id}
+                    name={member.name}
+                    role={member.role}
+                    bio={member.bio}
+                    image={member.image}
+                    avatarBg={member.avatarBg}
+                  />
+                ))}
+              </div>
             </div>
+
+            <div className="w-24 h-px bg-slate-200 mx-auto" />
+
+            {/* Nivel 2: Coordinación (Micaela y Carolina) centradas */}
+            <div>
+              <div className="text-center mb-8">
+                <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#001837]">
+                  Coordinación
+                </span>
+              </div>
+              <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
+                {coordinators.map((member) => (
+                  <TeamMemberCard
+                    key={member.id}
+                    name={member.name}
+                    role={member.role}
+                    bio={member.bio}
+                    image={member.image}
+                    avatarBg={member.avatarBg}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="w-24 h-px bg-slate-200 mx-auto" />
+
+            {/* Nivel 3: Cuerpo Docente — 9 Profesores intercalados Hombre y Mujer en grilla 3x3 */}
+            <div>
+              <div className="text-center mb-10">
+                <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-slate-500">
+                  Profesores
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
+                {teachers.map((teacher) => (
+                  <TeamMemberCard
+                    key={teacher.id}
+                    name={teacher.name}
+                    role={teacher.role}
+                    bio={teacher.bio}
+                    image={teacher.image}
+                    avatarBg={teacher.avatarBg}
+                  />
+                ))}
+              </div>
+            </div>
+
           </div>
         </section>
 
