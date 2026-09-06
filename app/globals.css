@@ -92,6 +92,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Títulos con Montserrat del Design System Figma */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
 /* Microinteracción de toque y click táctil optimizada */
 button, a {
   touch-action: manipulation;
