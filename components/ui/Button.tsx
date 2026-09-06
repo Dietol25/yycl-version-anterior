@@ -29,11 +29,11 @@ export const Button: React.FC<ButtonProps> = ({
   rel,
   ...props
 }) => {
-  // Base styles: rounded-xl (12px), SemiBold font, touch-friendly
+  // Base styles: rounded-xl (12px), SemiBold font, touch-friendly, accessible focus
   const baseStyles = [
     'inline-flex items-center justify-center font-heading font-semibold rounded-xl',
-    'transition-all duration-150 cursor-pointer touch-manipulation',
-    'focus:outline-none focus:ring-0 focus:shadow-[0_0_0_3px_#001837]',
+    'transition-all duration-200 ease-out motion-reduce:transition-none cursor-pointer touch-manipulation',
+    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#834296] focus-visible:ring-offset-2',
     'disabled:opacity-50 disabled:pointer-events-none disabled:shadow-none disabled:bg-[#A3ABB8] disabled:text-white disabled:border-transparent',
   ].join(' ');
 

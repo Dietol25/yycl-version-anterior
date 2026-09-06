@@ -144,7 +144,7 @@ export default function SobreYYCLPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Agenda tu entrevista gratuita.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
               <Link href="/agendar">
                 <Button
                   variant="primary"
@@ -154,6 +154,9 @@ export default function SobreYYCLPage() {
                   Agendar entrevista gratis
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · Sin costo · Sin compromiso
+              </p>
             </div>
           </div>
         </section>

@@ -76,12 +76,12 @@ export const ModalidadesSection = () => {
       cardBgHover: 'hover:from-[#EBF9FD] hover:to-[#D5F2F8]',
       linkColor: 'text-[#001837]',
       icon: Users,
-      subtitle: 'Mismo profesor exclusivo, mismo plan a medida, compartido con alguien que va por lo mismo que tú.',
+      subtitle: 'Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas.',
       features: [
-        'Clases para dos',
-        'Ritmo en pareja',
-        'Cada uno paga menos que en Personalizada individual',
-        'Clases enfocadas a tu objetivo'
+        'Clases para dos personas',
+        'Mismo plan personalizado',
+        'Menor costo por persona que la individual',
+        'Clases enfocadas a su objetivo común'
       ]
     }
   ];

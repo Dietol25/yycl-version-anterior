@@ -21,11 +21,11 @@ const TABS: TabItem[] = [
   {
     id: 'ingles',
     tabLabel: 'Inglés',
-    tag: 'Inglés',
+    tag: 'Programa Principal · Inglés Conversacional',
     tagColor: 'text-[#834296]',
     dotColor: 'bg-[#834296]',
     title: 'Aprende a hablar, no solo a estudiar',
-    description: 'Clases 100% conversacionales desde la primera clase con profesores reales.',
+    description: 'Clases 100% conversacionales desde tu primera clase con un profesor real. Diseñado específicamente para adultos que ya saben teoría pero se traban o sienten inseguridad al momento de hablar.',
     link: '/planes',
     image: '/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png',
     imageAlt: 'Clases conversacionales de inglés en YYCL',
@@ -33,11 +33,11 @@ const TABS: TabItem[] = [
   {
     id: 'idiomas',
     tabLabel: 'Francés y Portugués',
-    tag: 'Idiomas',
+    tag: 'Idiomas Adicionales',
     tagColor: 'text-[#EC9519]',
     dotColor: 'bg-[#FFD203]',
     title: 'También hablamos francés y portugués',
-    description: 'Clases 100% personalizadas de francés y portugués, sin examen de nivel previo.',
+    description: 'Clases 100% personalizadas de francés y portugués, con el mismo método conversacional y sin examen de nivel previo.',
     link: '/idiomas',
     image: '/assets/06_IDIOMAS/YYCL_13_IDIOMAS_FRANCES_PORTUGUES_REVISION_BANDERA.png',
     imageAlt: 'Clases de francés y portugués en YYCL',
@@ -48,20 +48,20 @@ const TABS: TabItem[] = [
     tag: 'Kids & Teens',
     tagColor: 'text-[#4DC2DA]',
     dotColor: 'bg-[#4DC2DA]',
-    title: 'Inglés para niños',
-    description: 'Clases uno a uno, adaptadas a su edad e intereses, con seguimiento constante.',
+    title: 'Inglés para niños y adolescentes',
+    description: 'Clases uno a uno, dinámicas y adaptadas a su edad e intereses, con seguimiento cercano para familias.',
     link: '/kids',
     image: '/assets/07_KIDS/YYCL_15_KIDS_JUEGO.png',
     imageAlt: 'Inglés para niños y adolescentes en YYCL',
   },
   {
     id: 'empresas',
-    tabLabel: 'Capacitación corporativa en idiomas',
+    tabLabel: 'Capacitación corporativa',
     tag: 'Empresas',
     tagColor: 'text-[#001837]',
     dotColor: 'bg-[#001837]',
-    title: 'Idiomas para tu equipo',
-    description: 'Programas in-company de inglés, francés y portugués, a medida de tu empresa.',
+    title: 'Idiomas para tu equipo de trabajo',
+    description: 'Programas in-company de inglés, francés y portugués orientados a negocios, presentaciones y reuniones globales.',
     link: '/empresas',
     image: '/assets/08_EMPRESAS/YYCL_19_EMPRESAS_EQUIPO_COLABORACION.png',
     imageAlt: 'Capacitación corporativa de idiomas para empresas',
@@ -69,11 +69,11 @@ const TABS: TabItem[] = [
   {
     id: 'examenes',
     tabLabel: 'Servicios Especiales',
-    tag: 'Exámenes',
+    tag: 'Servicios Especiales',
     tagColor: 'text-[#EC9519]',
     dotColor: 'bg-[#EC9519]',
-    title: 'Prepárate para tu examen',
-    description: 'TOEFL, IELTS, CELPIP y examen de ciudadanía. Solo para nivel B2 o C1.',
+    title: 'Prepárate para tu examen internacional',
+    description: 'TOEFL, IELTS, CELPIP y examen de ciudadanía. Diseñado para estudiantes con nivel intermedio-avanzado (B2/C1).',
     link: '/servicios-especiales',
     image: '/assets/05_SERVICIOS_ESPECIALES/YYCL_11_SERVICIOS_ESTUDIO_ENFOCADO.png',
     imageAlt: 'Preparación de exámenes internacionales TOEFL e IELTS',
@@ -81,11 +81,11 @@ const TABS: TabItem[] = [
   {
     id: 'equipo',
     tabLabel: 'Nuestro equipo',
-    tag: 'Equipo',
+    tag: 'Docentes YYCL',
     tagColor: 'text-[#834296]',
     dotColor: 'bg-[#834296]',
     title: 'Conoce a tus profesores',
-    description: 'Profesores reales, con experiencia, enfocados en que hables con confianza.',
+    description: 'Profesores reales, empáticos y con amplia experiencia, enfocados en que hables con total confianza.',
     link: '/profesores',
     image: '/assets/10_SOBRE_YYCL/YYCL_24_SOBRE_YYCL_CONVERSACION_HUMANA.png',
     imageAlt: 'Docentes y equipo humano de YYCL',
@@ -95,22 +95,25 @@ const TABS: TabItem[] = [
 const PILLARS = [
   {
     id: 0,
+    number: '01',
     title: 'Hablas desde el minuto uno',
-    desc: 'Nada de ejercicios mudos. La conversación real con un profesor es el centro de cada clase.',
+    desc: 'Nada de ejercicios mudos ni gramática aislada. La conversación real con un profesor es el centro de cada clase.',
     image: '/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png',
     alt: 'Estudiantes hablando inglés desde el primer minuto'
   },
   {
     id: 1,
+    number: '02',
     title: 'Corrección en el momento justo',
-    desc: 'Corrección que te hace avanzar sin interrumpir tu fluidez.',
+    desc: 'Corrección pedagógica que te hace avanzar y ganar seguridad sin interrumpir tu flujo natural al hablar.',
     image: '/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png',
     alt: 'Profesor corrigiendo con pedagogía y empatía'
   },
   {
     id: 2,
+    number: '03',
     title: 'Practicas hasta que sale solo',
-    desc: 'Con espacios de práctica rotativos incluidos, refuerzas lo aprendido en situaciones reales y sin presión.',
+    desc: 'Con espacios de práctica rotativos incluidos, refuerzas lo aprendido en situaciones reales y sin la presión de un examen.',
     image: '/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png',
     alt: 'Práctica constante y natural'
   }
@@ -122,37 +125,42 @@ export const OfferingsTabWidget = () => {
   const [isPlayingVideo, setIsPlayingVideo] = useState(false);
 
   const current = TABS.find((t) => t.id === activeTab) || TABS[0];
-  const currentPillar = PILLARS[activePillar];
+  const isEnglishHero = current.id === 'ingles';
 
   return (
     <section className="pt-16 sm:pt-20 pb-12 sm:pb-14 bg-white border-t border-slate-100">
       <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#3C4C92]">
-            Oferta
+        {/* Section Header with Clear Hierarchy */}
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+          <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#834296]">
+            Nuestra Oferta
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
-            Todo lo que ofrecemos
+            Inglés conversacional y programas a tu medida
           </h2>
           <p className="text-sm sm:text-base text-slate-600 font-medium pt-1">
-            Un camino directo para cada necesidad. Sin rodeos, sin relleno.
+            El corazón de YYCL es el inglés para adultos. También ofrecemos opciones especializadas para otras metas y formatos.
           </p>
         </div>
 
-        {/* Tab Navigation Buttons with Category Colors */}
-        <div className="flex items-center justify-start lg:justify-center gap-2.5 overflow-x-auto pb-4 mb-12 no-scrollbar">
+        {/* Tab Navigation Buttons with Hero Highlight & Visual Hierarchy */}
+        <div className="flex flex-wrap items-center justify-start lg:justify-center gap-2.5 pb-4 mb-10">
           {TABS.map((tab) => {
             const isActive = activeTab === tab.id;
+            const isHero = tab.id === 'ingles';
             return (
               <button
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-heading font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-heading font-bold transition-all duration-200 cursor-pointer whitespace-nowrap focus-visible:ring-2 focus-visible:ring-[#834296] focus-visible:outline-none ${
                   isActive
-                    ? 'bg-[#001837] text-white shadow-[2px_2px_0px_#001837] scale-102 ring-2 ring-[#001837]/10'
-                    : 'bg-white text-[#3C4C92] hover:text-[#001837] hover:bg-slate-50 border border-black/10 shadow-[1px_1px_0px_rgba(0,0,0,0.06)]'
+                    ? isHero
+                      ? 'bg-[#834296] text-white shadow-[2px_2px_0px_#001837] scale-102 ring-2 ring-[#834296]/20'
+                      : 'bg-[#001837] text-white shadow-[2px_2px_0px_#001837] scale-102'
+                    : isHero
+                      ? 'bg-[#834296]/10 text-[#834296] hover:bg-[#834296]/20 border-2 border-[#834296]/40'
+                      : 'bg-white text-[#3C4C92] hover:text-[#001837] hover:bg-slate-50 border border-black/10 shadow-[1px_1px_0px_rgba(0,0,0,0.06)]'
                 }`}
               >
                 <span
@@ -161,6 +169,11 @@ export const OfferingsTabWidget = () => {
                   }`}
                 />
                 <span>{tab.tabLabel}</span>
+                {isHero && (
+                  <span className="ml-1 px-2 py-0.5 rounded-full text-[10px] uppercase font-black tracking-wider bg-[#FFD203] text-[#001837] shadow-xs">
+                    Principal
+                  </span>
+                )}
               </button>
             );
           })}
@@ -184,13 +197,31 @@ export const OfferingsTabWidget = () => {
               </p>
 
               <div className="pt-3">
-                <Link
-                  href={current.link}
-                  className="inline-flex items-center gap-2 text-sm sm:text-base font-heading font-bold text-[#001837] hover:text-[#834296] transition-colors"
-                >
-                  <span>Más información</span>
-                  <ArrowRight className="w-4 h-4 text-[#001837]" />
-                </Link>
+                {isEnglishHero ? (
+                  <div className="flex flex-wrap items-center gap-4">
+                    <Link
+                      href={current.link}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#001837] hover:bg-[#834296] text-white text-sm sm:text-base font-heading font-bold transition-all shadow-[2px_2px_0px_#001837]"
+                    >
+                      <span>Ver planes de inglés</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <Link
+                      href="/agendar"
+                      className="inline-flex items-center gap-1.5 text-sm sm:text-base font-heading font-bold text-[#834296] hover:text-[#001837] transition-colors"
+                    >
+                      <span>Entrevista gratis de 20 min →</span>
+                    </Link>
+                  </div>
+                ) : (
+                  <Link
+                    href={current.link}
+                    className="inline-flex items-center gap-2 text-sm sm:text-base font-heading font-bold text-[#001837] hover:text-[#834296] transition-colors"
+                  >
+                    <span>Más información</span>
+                    <ArrowRight className="w-4 h-4 text-[#001837]" />
+                  </Link>
+                )}
               </div>
             </div>
 
@@ -209,10 +240,7 @@ export const OfferingsTabWidget = () => {
           </div>
         </div>
 
-        {/* Sub-Feature 3 Interactive Pillars:
-            - Mobile: Pillars appear FIRST (order-1), Photo appears BELOW (order-2) to break up consecutive images!
-            - Desktop: Photo on LEFT (lg:order-1), Pillars on RIGHT (lg:order-2).
-        */}
+        {/* Sub-Feature 3 Interactive Pillars with 01, 02, 03 Editorial Numbering */}
         <div className="mt-20 pt-16 border-t border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Illustration: order-2 on mobile (below pillars), lg:order-1 on desktop (left side) */}
           <div className="order-2 lg:order-1 lg:col-span-6 flex justify-center">
@@ -250,28 +278,39 @@ export const OfferingsTabWidget = () => {
             </div>
           </div>
 
-          {/* 3 Pillars: order-1 on mobile (above photo), lg:order-2 on desktop (right side) */}
-          <div className="order-1 lg:order-2 lg:col-span-6 space-y-4">
+          {/* 3 Pillars with Editorial Numbers 01, 02, 03: order-1 on mobile, lg:order-2 on desktop */}
+          <div className="order-1 lg:order-2 lg:col-span-6 space-y-3.5">
             {PILLARS.map((pillar) => {
               const isSelected = activePillar === pillar.id;
               return (
                 <div
                   key={pillar.id}
                   onClick={() => setActivePillar(pillar.id)}
-                  className={`border-l-4 pl-5 py-3 transition-all duration-200 cursor-pointer rounded-r-2xl min-h-[86px] flex flex-col justify-center ${
+                  className={`border-l-4 pl-5 pr-4 py-3.5 transition-all duration-200 cursor-pointer rounded-r-2xl flex items-start gap-4 ${
                     isSelected
-                      ? 'border-[#001837] bg-slate-50/80 shadow-xs'
-                      : 'border-transparent hover:border-[#834296]/50 hover:bg-slate-50/40'
+                      ? 'border-[#834296] bg-gradient-to-r from-[#834296]/10 to-transparent shadow-xs'
+                      : 'border-transparent hover:border-slate-300 hover:bg-slate-50/70'
                   }`}
                 >
-                  <h4 className={`text-lg sm:text-xl font-heading font-bold transition-colors ${
-                    isSelected ? 'text-[#001837]' : 'text-slate-700 hover:text-[#001837]'
-                  }`}>
-                    {pillar.title}
-                  </h4>
-                  <p className="text-sm text-slate-600 leading-relaxed font-body-regular pt-0.5">
-                    {pillar.desc}
-                  </p>
+                  <span
+                    className={`text-2xl sm:text-3xl font-heading font-black tracking-tight shrink-0 select-none transition-colors ${
+                      isSelected ? 'text-[#834296]' : 'text-slate-300'
+                    }`}
+                  >
+                    {pillar.number}
+                  </span>
+                  <div>
+                    <h4
+                      className={`text-lg sm:text-xl font-heading font-bold transition-colors ${
+                        isSelected ? 'text-[#001837]' : 'text-slate-700 hover:text-[#001837]'
+                      }`}
+                    >
+                      {pillar.title}
+                    </h4>
+                    <p className="text-sm text-slate-600 leading-relaxed font-body-regular pt-1">
+                      {pillar.desc}
+                    </p>
+                  </div>
                 </div>
               );
             })}

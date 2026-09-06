@@ -73,16 +73,19 @@ export default function KidsPage() {
                   Que empiecen a jugar en inglés desde ya — con clases pensadas para su edad, no una clase de adultos en miniatura.
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 space-y-2">
                   <Link href="/agendar">
                     <Button
                       variant="primary"
                       size="md"
                       className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Encontrar el plan ideal
+                      Agendar entrevista gratis
                     </Button>
                   </Link>
+                  <p className="text-xs font-heading font-medium text-slate-500">
+                    20 min · Sin costo · Sin compromiso
+                  </p>
                 </div>
               </div>
 
@@ -145,7 +148,7 @@ export default function KidsPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Conoce el programa sin compromiso.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
               <Link href="/agendar">
                 <Button
                   variant="primary"
@@ -155,6 +158,9 @@ export default function KidsPage() {
                   Agendar entrevista gratis
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · Sin costo · Sin compromiso
+              </p>
             </div>
           </div>
         </section>

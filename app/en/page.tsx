@@ -81,7 +81,7 @@ export default function EnglishHomePage() {
                   Conversational Spanish for speakers of other languages, from day one.
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 space-y-2">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <Link href="/en/agendar">
                       <Button
@@ -89,7 +89,7 @@ export default function EnglishHomePage() {
                         size="md"
                         className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                       >
-                        Book an interview
+                        Book free interview
                       </Button>
                     </Link>
 
@@ -100,6 +100,9 @@ export default function EnglishHomePage() {
                       Looking for English courses instead? →
                     </Link>
                   </div>
+                  <p className="text-xs font-heading font-medium text-slate-500">
+                    20 min · No cost · No commitment
+                  </p>
                 </div>
               </div>
 
@@ -185,16 +188,19 @@ export default function EnglishHomePage() {
               Book your no-cost interview to find your level.
             </p>
 
-            <div className="pt-3">
+            <div className="pt-3 space-y-2">
               <Link href="/en/agendar">
                 <Button
                   variant="primary"
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Book your no-cost interview
+                  Book free interview
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · No cost · No commitment
+              </p>
             </div>
           </div>
         </section>

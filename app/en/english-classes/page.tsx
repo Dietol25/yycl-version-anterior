@@ -71,16 +71,19 @@ export default function EnglishClassesPage() {
                   Live English classes, taught 100% in English — no Spanish needed. Built for international students who want to learn English directly, without translation getting in the way.
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 space-y-2">
                   <Link href="/en/agendar">
                     <Button
                       variant="primary"
                       size="md"
                       className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Book an interview
+                      Book free interview
                     </Button>
                   </Link>
+                  <p className="text-xs font-heading font-medium text-slate-500">
+                    20 min · No cost · No commitment
+                  </p>
                 </div>
               </div>
 
@@ -166,16 +169,19 @@ export default function EnglishClassesPage() {
               Book your no-cost interview and find your starting point.
             </p>
 
-            <div className="pt-3">
+            <div className="pt-3 space-y-2">
               <Link href="/en/agendar">
                 <Button
                   variant="primary"
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Book your no-cost interview
+                  Book free interview
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · No cost · No commitment
+              </p>
             </div>
           </div>
         </section>

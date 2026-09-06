@@ -149,16 +149,19 @@ export default function ResultadosPage() {
                   Lo que importa no es cuánto estudiaste antes, sino que esta vez sí lo lograste. Historias reales de estudiantes que transformaron su conversación.
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 space-y-2">
                   <Link href="/agendar">
                     <Button
                       variant="primary"
                       size="md"
                       className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Quiero esos resultados
+                      Agendar entrevista gratis
                     </Button>
                   </Link>
+                  <p className="text-xs font-heading font-medium text-slate-500 pl-1">
+                    20 min · Sin costo · Sin compromiso
+                  </p>
                 </div>
               </div>
 
@@ -206,8 +209,11 @@ export default function ResultadosPage() {
                 <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-yycl-purple tracking-tight block">
                   94–98%
                 </span>
-                <span className="text-xs sm:text-sm font-heading font-bold text-slate-500 uppercase tracking-wider">
+                <span className="text-xs sm:text-sm font-heading font-bold text-slate-500 uppercase tracking-wider block">
                   De satisfacción
+                </span>
+                <span className="text-[10px] font-heading font-medium text-slate-400 block pt-0.5">
+                  Según encuestas internas
                 </span>
               </div>
             </div>
@@ -435,7 +441,7 @@ export default function ResultadosPage() {
               Agenda tu entrevista gratuita.
             </p>
 
-            <div className="pt-3">
+            <div className="pt-3 space-y-2">
               <Link href="/agendar">
                 <Button
                   variant="primary"
@@ -445,6 +451,9 @@ export default function ResultadosPage() {
                   Agendar entrevista gratis
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · Sin costo · Sin compromiso
+              </p>
             </div>
           </div>
         </section>

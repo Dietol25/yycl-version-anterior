@@ -13,9 +13,11 @@ export const HeroSection = () => {
           <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-left">
             
             {/* 1. Eyebrow */}
-            <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#001837]">
-              <span className="w-2 h-2 rounded-full bg-[#FFD203]" />
-              <span>El último curso de inglés que necesitarás</span>
+            <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+              <span className="w-2 h-2 rounded-full bg-[#834296]" />
+              <span>Inglés conversacional</span>
+              <span className="text-slate-300">·</span>
+              <span className="text-slate-500 font-semibold lowercase tracking-normal">el último curso que necesitarás</span>
             </div>
 
             {/* 2. Headline: Escala equilibrada y armónica en mobile y desktop */}
@@ -33,27 +35,34 @@ export const HeroSection = () => {
 
             {/* 3. Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 font-body-large max-w-lg leading-relaxed">
-              ¿Ya probaste apps, cursos, de todo? El problema nunca fue lo que sabes — es soltarte a hablar. Eso se practica, no se memoriza, desde tu primera clase con un profesor real.
+              El problema nunca fue lo que sabes. Es soltarte a hablar. Eso se practica, no se memoriza, desde tu primera clase con un profesor real.
             </p>
 
-            {/* 4. Dual Actions alineados a la izquierda (F-Pattern UX) */}
-            <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-5 text-left">
-              <Link href="/agendar">
-                <Button
-                  variant="primary"
-                  size="md"
-                  className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
-                >
-                  Quiero hablar sin miedo
-                </Button>
-              </Link>
+            {/* 4. Dual Actions alineados a la izquierda con Microcopy reductor de fricción */}
+            <div className="pt-2 space-y-2.5">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-5 text-left">
+                <Link href="/agendar">
+                  <Button
+                    variant="primary"
+                    size="md"
+                    className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+                  >
+                    Agendar entrevista gratis
+                  </Button>
+                </Link>
 
-              <Link
-                href="/como-funciona"
-                className="font-heading font-semibold text-sm sm:text-base text-[#3C4C92] hover:text-[#001837] transition-colors py-1.5 text-left"
-              >
-                Conoce cómo funciona →
-              </Link>
+                <Link
+                  href="/como-funciona"
+                  className="font-heading font-semibold text-sm sm:text-base text-[#3C4C92] hover:text-[#001837] transition-colors py-1.5 text-left"
+                >
+                  Cómo funciona →
+                </Link>
+              </div>
+
+              {/* Microcopy de confianza */}
+              <p className="text-xs font-heading font-medium text-slate-500 pl-1">
+                20 min · Sin costo · Sin compromiso
+              </p>
             </div>
           </div>
 

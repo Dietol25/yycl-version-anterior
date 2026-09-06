@@ -73,8 +73,11 @@ export const TestimonialsGrid = () => {
             <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#834296] tracking-tight block">
               94–98%
             </span>
-            <span className="text-xs sm:text-sm font-heading font-bold text-slate-500 uppercase tracking-wider">
+            <span className="text-xs sm:text-sm font-heading font-bold text-slate-500 uppercase tracking-wider block">
               De satisfacción
+            </span>
+            <span className="text-[10px] font-heading font-medium text-slate-400 block pt-0.5">
+              Según encuestas internas
             </span>
           </div>
         </div>

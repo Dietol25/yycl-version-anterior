@@ -236,7 +236,7 @@ export default function ProfesoresPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Sin costo, sin compromiso.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
               <Link href="/agendar">
                 <Button
                   variant="primary"
@@ -246,6 +246,9 @@ export default function ProfesoresPage() {
                   Agendar entrevista gratis
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · Sin costo · Sin compromiso
+              </p>
             </div>
           </div>
         </section>

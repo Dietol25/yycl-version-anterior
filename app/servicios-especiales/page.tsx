@@ -77,16 +77,19 @@ export default function ServiciosEspecialesPage() {
                   Para lo que no entra en una clase estándar: preparación para certificaciones internacionales o el inglés puntual de tu profesión.
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 space-y-2">
                   <Link href="/agendar">
                     <Button
-                      variant="secondary"
+                      variant="primary"
                       size="md"
-                      className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
+                      className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Prepararme ahora
+                      Agendar entrevista gratis
                     </Button>
                   </Link>
+                  <p className="text-xs font-heading font-medium text-slate-500">
+                    20 min · Sin costo · Sin compromiso
+                  </p>
                 </div>
               </div>
 
@@ -218,7 +221,7 @@ export default function ServiciosEspecialesPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Evaluamos tu nivel y armamos tu plan de preparación.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
               <Link href="/agendar">
                 <Button
                   variant="primary"
@@ -228,6 +231,9 @@ export default function ServiciosEspecialesPage() {
                   Agendar entrevista gratis
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · Sin costo · Sin compromiso
+              </p>
             </div>
           </div>
         </section>

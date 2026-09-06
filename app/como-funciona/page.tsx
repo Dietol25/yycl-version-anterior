@@ -179,7 +179,7 @@ export default function ComoFuncionaPage() {
                 title="Dúo"
                 hasCheckmark={true}
                 subtitle="Personalizada, en pareja"
-                description="Mismo profesor exclusivo, mismo plan a medida, compartido con alguien que va por lo mismo que tú."
+                description="Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas. Menor costo por persona que la individual."
                 href="/planes#duo"
                 linkText="Más información →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
@@ -203,16 +203,16 @@ export default function ComoFuncionaPage() {
                 Principiante, intermedio o avanzado
               </h2>
               <p className="text-sm sm:text-base text-slate-600 font-medium max-w-xl mx-auto">
-                Tu nivel exacto se define en la entrevista, no antes. Nos manejamos con el Marco Común Europeo (A1-C1).
+                No necesitas saber tu nivel antes de empezar. Lo identificamos contigo durante la entrevista gratuita de 20 minutos.
               </p>
             </div>
 
-            {/* 2 Level Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* 2 Level Comparison Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
               {/* Principiante */}
-              <div className="bg-white rounded-3xl p-8 border border-black/10 border-t-4 border-t-[#4DC2DA] shadow-[3px_3px_0px_#001837] space-y-6">
+              <div className="bg-white rounded-3xl p-8 border border-black/10 border-t-4 border-t-[#001837] shadow-[3px_3px_0px_#001837] space-y-6">
                 <div className="text-center pb-4 border-b border-black/10">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0284C7] font-heading font-bold text-xs uppercase tracking-wider mb-2">
+                  <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-[#001837] font-heading font-bold text-xs uppercase tracking-wider mb-2">
                     A1 y A2
                   </span>
                   <h3 className="text-2xl font-extrabold font-heading text-[#001837]">
@@ -222,19 +222,19 @@ export default function ComoFuncionaPage() {
 
                 <div className="space-y-3.5 text-sm">
                   <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Construyes las bases</span>
+                    <span className="text-slate-700 font-medium">Desde cero o bases olvidadas</span>
                     <span className="font-extrabold text-[#001837]">A1</span>
                   </div>
                   <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Presentaciones y rutinas</span>
+                    <span className="text-slate-700 font-medium">Conversaciones cotidianas</span>
                     <span className="font-extrabold text-[#001837]">A2</span>
                   </div>
                   <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Conversaciones cotidianas</span>
-                    <span className="font-extrabold text-[#0284C7] bg-[#E0F2FE] px-2 py-0.5 rounded">80%</span>
+                    <span className="text-slate-700 font-medium">Pierdes el miedo a cometer errores</span>
+                    <span className="font-extrabold text-[#834296] bg-[#F5E6F8] px-2 py-0.5 rounded text-xs">Desde el inicio</span>
                   </div>
                   <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Confianza al hablar</span>
+                    <span className="text-slate-700 font-medium">Fluidez conversacional</span>
                     <span className="font-extrabold text-[#16A34A]">Sí</span>
                   </div>
                 </div>
@@ -246,11 +246,11 @@ export default function ComoFuncionaPage() {
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Check className="w-4 h-4 text-[#16A34A] stroke-[2.5]" />
-                    <span className="font-semibold">Material auténtico incluido</span>
+                    <span className="font-semibold">Acceso a la plataforma de práctica</span>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Check className="w-4 h-4 text-[#16A34A] stroke-[2.5]" />
-                    <span className="font-semibold">Profesor asignado</span>
+                    <span className="font-semibold">Profesor asignado en vivo</span>
                   </div>
                 </div>
               </div>
@@ -277,7 +277,7 @@ export default function ComoFuncionaPage() {
                   </div>
                   <div className="flex justify-between pb-2 border-b border-slate-100">
                     <span className="text-slate-700 font-medium">Debates y opiniones</span>
-                    <span className="font-extrabold text-[#834296] bg-[#F5E6F8] px-2 py-0.5 rounded">95%</span>
+                    <span className="font-extrabold text-[#834296] bg-[#F5E6F8] px-2 py-0.5 rounded text-xs">Avanzado</span>
                   </div>
                   <div className="flex justify-between pb-2 border-b border-slate-100">
                     <span className="text-slate-700 font-medium">Fluidez conversacional</span>
@@ -333,33 +333,47 @@ export default function ComoFuncionaPage() {
                 </div>
               </div>
 
-              {/* Right 3 Info Blocks */}
+              {/* Right Content: Headline + Structured Features */}
               <div className="order-1 lg:order-2 lg:col-span-6 space-y-6">
-                <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
-                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-[#834296] tracking-tight">
-                    Plataforma de práctica incluida
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
-                    Incluido en todos los planes, sin costo adicional: talleres temáticos, material auténtico, invitados de distintos países y llamadas simuladas. Va rotando, así siempre tienes dónde seguir practicando.
+                <div className="space-y-2">
+                  <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+                    Más allá de la clase
+                  </span>
+                  <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight leading-tight">
+                    Sigue practicando cuando termina la clase.
+                  </h2>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-body-regular pt-1">
+                    Todos los planes incluyen espacios y recursos para seguir usando el idioma fuera de tu clase habitual. La programación va rotando durante el año para que tengas nuevas formas de practicar sin presiones.
                   </p>
                 </div>
 
-                <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
-                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-[#834296] tracking-tight">
-                    Sin libros de texto ni tareas para memorizar
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
-                    Solo conversación real con un profesor, desde el primer minuto.
-                  </p>
-                </div>
+                <div className="space-y-3.5 pt-1">
+                  <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
+                    <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
+                      Espacios de inmersión y conversación
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
+                      Clubes de conversación y llamadas guiadas diseñadas para activar tu vocabulario en situaciones reales, sin ejercicios mudos ni libros de texto.
+                    </p>
+                  </div>
 
-                <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
-                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-[#834296] tracking-tight">
-                    Todos los paquetes incluyen la plataforma de práctica
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
-                    No es un extra. Es parte del método. Porque hablar es la única forma de aprender de verdad.
-                  </p>
+                  <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
+                    <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
+                      Actividades especiales rotativas
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
+                      Talleres temáticos e invitados de distintos países que programamos a lo largo del año para exponerte a diferentes acentos, culturas y contextos profesionales.
+                    </p>
+                  </div>
+
+                  <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
+                    <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
+                      100% incluido en tu plan
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
+                      No es un costo adicional ni un servicio extra. Es parte integral del método YYCL porque la constancia conversacional es lo que te da soltura.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -375,9 +389,9 @@ export default function ComoFuncionaPage() {
               Agenda tu entrevista gratuita y descubre tu punto de partida
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Sin costo, sin compromiso.
+              Conversa con un profesor real y define tu camino sin ningún compromiso.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
               <Link href="/agendar">
                 <Button
                   variant="primary"
@@ -387,6 +401,9 @@ export default function ComoFuncionaPage() {
                   Agendar entrevista gratis
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · Sin costo · Sin compromiso
+              </p>
             </div>
           </div>
         </section>

@@ -61,12 +61,12 @@ export default function PlanesPage() {
       title: 'Dúo',
       color: 'text-[#4DC2DA]',
       borderTop: 'border-t-[#4DC2DA]',
-      subtitle: 'Mismo profesor exclusivo, mismo plan a medida, compartido con alguien que va por lo mismo que tú.',
+      subtitle: 'Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas.',
       features: [
-        'Clases para dos',
-        'Ritmo en pareja',
-        'Cada uno paga menos que en Personalizada individual',
-        'Clases enfocadas a tu objetivo'
+        'Clases para dos personas',
+        'Mismo plan personalizado a tu medida',
+        'Menor costo por persona que la individual',
+        'Clases enfocadas a su objetivo común'
       ]
     }
   ];
@@ -104,16 +104,19 @@ export default function PlanesPage() {
                   Tres modalidades, un mismo método. El plan a tu medida lo definimos en tu entrevista gratuita.
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-2 space-y-2">
                   <Link href="/agendar">
                     <Button
-                      variant="secondary"
+                      variant="primary"
                       size="md"
-                      className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#001837]"
+                      className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
                       Agendar entrevista gratis
                     </Button>
                   </Link>
+                  <p className="text-xs font-heading font-medium text-slate-500">
+                    20 min · Sin costo · Sin compromiso
+                  </p>
                 </div>
               </div>
 
@@ -268,7 +271,7 @@ export default function PlanesPage() {
                   ¿Cómo sé cuál es mi nivel de inglés?
                 </h3>
                 <p className="text-sm text-slate-600 font-body-regular leading-relaxed">
-                  Tu nivel exacto se define durante la entrevista gratuita de 15 minutos con un profesor de YYCL, evaluando tu fluidez y comprensión real al hablar.
+                  Tu nivel exacto se define durante la entrevista gratuita de 20 minutos con un profesor de YYCL, evaluando tu fluidez y comprensión real al hablar.
                 </p>
               </div>
 
@@ -313,16 +316,19 @@ export default function PlanesPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Sin sorpresas: todo se conversa antes de que decidas.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
               <Link href="/agendar">
                 <Button
                   variant="primary"
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar tu entrevista
+                  Agendar entrevista gratis
                 </Button>
               </Link>
+              <p className="text-xs font-heading font-medium text-slate-500">
+                20 min · Sin costo · Sin compromiso
+              </p>
             </div>
           </div>
         </section>
