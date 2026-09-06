@@ -34,16 +34,16 @@ export default function HomePage() {
           <p className="text-sm text-slate-600 font-medium">
             Agenda tu entrevista gratuita y da el primer paso.
           </p>
-          <div className="pt-3 space-y-2">
-            <Link href="/agendar">
-              <Button
-                variant="primary"
-                size="md"
-                className="w-full font-bold text-sm h-12 shadow-[3px_3px_0px_#001837]"
-              >
-                Agendar entrevista
-              </Button>
-            </Link>
+          <div className="pt-3 flex flex-col items-center gap-2.5">
+            <Button
+              href="/agendar"
+              variant="primary"
+              size="md"
+              fullWidth
+              className="font-bold text-sm h-12 shadow-[3px_3px_0px_#001837]"
+            >
+              Agendar entrevista
+            </Button>
             <p className="text-xs font-heading font-medium text-slate-500">
               20 min · Sin costo
             </p>

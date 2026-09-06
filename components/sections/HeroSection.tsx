@@ -39,17 +39,16 @@ export const HeroSection = () => {
             </p>
 
             {/* 4. Dual Actions alineados a la izquierda con Microcopy reductor de fricción */}
-            <div className="pt-2 space-y-2.5">
+            <div className="pt-2 flex flex-col items-start gap-2.5">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-5 text-left">
-                <Link href="/agendar">
-                  <Button
-                    variant="primary"
-                    size="md"
-                    className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
-                  >
-                    Agendar entrevista
-                  </Button>
-                </Link>
+                <Button
+                  href="/agendar"
+                  variant="primary"
+                  size="md"
+                  className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+                >
+                  Agendar entrevista
+                </Button>
 
                 <Link
                   href="/como-funciona"

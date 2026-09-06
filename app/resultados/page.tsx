@@ -149,16 +149,15 @@ export default function ResultadosPage() {
                   Lo que importa no es cuánto estudiaste antes, sino que esta vez sí lo lograste. Historias reales de estudiantes que transformaron su conversación.
                 </p>
 
-                <div className="pt-2 space-y-2">
-                  <Link href="/agendar">
-                    <Button
-                      variant="primary"
-                      size="md"
-                      className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
-                    >
-                      Agendar entrevista
-                    </Button>
-                  </Link>
+                <div className="pt-2 flex flex-col items-start gap-2.5">
+                  <Button
+                    href="/agendar"
+                    variant="primary"
+                    size="md"
+                    className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+                  >
+                    Agendar entrevista
+                  </Button>
                   <p className="text-xs font-heading font-medium text-slate-500 pl-1">
                     20 min · Sin costo
                   </p>
@@ -438,16 +437,15 @@ export default function ResultadosPage() {
               Agenda tu entrevista gratuita.
             </p>
 
-            <div className="pt-3 space-y-2">
-              <Link href="/agendar">
-                <Button
-                  variant="primary"
-                  size="md"
-                  className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
-                >
-                  Agendar entrevista
-                </Button>
-              </Link>
+            <div className="pt-3 flex flex-col items-center gap-2.5">
+              <Button
+                href="/agendar"
+                variant="primary"
+                size="md"
+                className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+              >
+                Agendar entrevista
+              </Button>
               <p className="text-xs font-heading font-medium text-slate-500">
                 20 min · Sin costo
               </p>
