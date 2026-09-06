@@ -49,7 +49,11 @@ export default function PlanesPage() {
       title: 'Personalizada',
       color: 'text-[#834296]',
       borderTop: 'border-t-[#834296]',
-      subtitle: 'Un profesor, un plan, hecho para ti.',
+      subtitle: (
+        <>
+          Un profesor, un plan.<br className="hidden sm:inline" /> Hecho para ti.
+        </>
+      ),
       features: [
         'Clases uno a uno',
         'Clases enfocadas a tu objetivo',
@@ -176,7 +180,7 @@ export default function PlanesPage() {
                         <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
                           {plan.title}
                         </h3>
-                        <p className="text-xs sm:text-[13px] text-white/95 font-medium mt-1 leading-relaxed">
+                        <p className="text-xs sm:text-[13px] text-white/95 font-medium mt-1 leading-relaxed sm:min-h-[40px]">
                           {plan.subtitle}
                         </p>
                       </div>

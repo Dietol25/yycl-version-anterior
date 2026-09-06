@@ -58,7 +58,11 @@ export const ModalidadesSection = () => {
       cardBgHover: 'hover:from-[#FFF8E8] hover:to-[#FFEDCC]',
       linkColor: 'text-[#001837]',
       icon: User,
-      subtitle: 'Un profesor, un plan, hecho para ti.',
+      subtitle: (
+        <>
+          Un profesor, un plan.<br className="hidden sm:inline" /> Hecho para ti.
+        </>
+      ),
       features: [
         'Clases uno a uno',
         'Clases enfocadas a tu objetivo',
@@ -123,12 +127,12 @@ export const ModalidadesSection = () => {
                     </div>
                   </div>
 
-                  {/* Titular & Subtítulo */}
+                  {/* Titular & Subtítulo con altura mínima para alineación precisa */}
                   <div className="space-y-1 pt-1">
                     <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
                       {mod.title}
                     </h3>
-                    <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px]">
                       {mod.subtitle}
                     </p>
                   </div>
