@@ -146,20 +146,6 @@ export default function ComoFuncionaPage() {
             {/* 3 Modality Cards con IDs de anclaje nativos y 100% Responsive */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
               <PhotoCard
-                id="grupal"
-                category="default"
-                title="Grupal"
-                hasCheckmark={true}
-                subtitle="Aprende junto a otros"
-                description="La energía de un grupo pequeño."
-                href="/planes#grupal"
-                linkText="Más información →"
-                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png"
-                imageAlt="Modalidad Grupal YYCL"
-                className="scroll-mt-28"
-              />
-
-              <PhotoCard
                 id="personalizada"
                 category="default"
                 title="Personalizada"
@@ -184,6 +170,20 @@ export default function ComoFuncionaPage() {
                 linkText="Más información →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
                 imageAlt="Modalidad Dúo YYCL"
+                className="scroll-mt-28"
+              />
+
+              <PhotoCard
+                id="grupal"
+                category="default"
+                title="Grupal"
+                hasCheckmark={true}
+                subtitle="Aprende junto a otros"
+                description="La energía de un grupo pequeño."
+                href="/planes#grupal"
+                linkText="Más información →"
+                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png"
+                imageAlt="Modalidad Grupal YYCL"
                 className="scroll-mt-28"
               />
             </div>

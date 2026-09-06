@@ -33,20 +33,10 @@ const Group3UsersIcon = ({ className }: { className?: string }) => (
 export default function PlanesPage() {
   const planes = [
     {
-      id: 'grupal',
-      title: 'Grupal',
-      color: 'text-[#4DC2DA]',
-      borderTop: 'border-t-[#4DC2DA]',
-      subtitle: 'Aprende junto a otros, con la energía de un grupo pequeño.',
-      features: [
-        'Máximo 8 alumnos',
-        'Clases en vivo',
-        'Profesores con años de experiencia'
-      ]
-    },
-    {
       id: 'personalizada',
       title: 'Personalizada',
+      badge: 'Personalizada',
+      icon: User,
       color: 'text-[#834296]',
       borderTop: 'border-t-[#834296]',
       subtitle: (
@@ -63,6 +53,8 @@ export default function PlanesPage() {
     {
       id: 'duo',
       title: 'Dúo',
+      badge: 'Dúo',
+      icon: Users,
       color: 'text-[#4DC2DA]',
       borderTop: 'border-t-[#4DC2DA]',
       subtitle: 'Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas.',
@@ -71,6 +63,20 @@ export default function PlanesPage() {
         'Mismo plan personalizado a tu medida',
         'Menor costo por persona que la individual',
         'Clases enfocadas a su objetivo común'
+      ]
+    },
+    {
+      id: 'grupal',
+      title: 'Grupal',
+      badge: 'Grupal',
+      icon: Group3UsersIcon,
+      color: 'text-[#4DC2DA]',
+      borderTop: 'border-t-[#4DC2DA]',
+      subtitle: 'Aprende junto a otros, con la energía de un grupo pequeño.',
+      features: [
+        'Máximo 8 alumnos',
+        'Clases en vivo',
+        'Profesores con años de experiencia'
       ]
     }
   ];
@@ -145,10 +151,10 @@ export default function PlanesPage() {
           <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
             <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
               <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#3C4C92]">
-                Nuestros programas
+                Modalidades
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
-                Modalidades
+                Nuestras Modalidades
               </h2>
               <p className="text-sm sm:text-base text-slate-600 font-medium">
                 Elige cómo quieres aprender. El precio lo hablamos en tu entrevista gratuita.
@@ -157,8 +163,8 @@ export default function PlanesPage() {
 
             {/* 3 Modality Pricing Cards con Sunset Gradient idéntico a Figma */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
-              {planes.map((plan, pIdx) => {
-                const IconComponent = pIdx === 0 ? Group3UsersIcon : pIdx === 1 ? User : Users;
+              {planes.map((plan) => {
+                const IconComponent = plan.icon;
                 return (
                   <div
                     key={plan.id}
@@ -169,7 +175,7 @@ export default function PlanesPage() {
                       {/* Top Header Row: White Badge + White Circular Icon */}
                       <div className="flex items-center justify-between">
                         <span className="inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full bg-white text-[#834296] shadow-xs">
-                          {pIdx === 0 ? 'Grupal' : pIdx === 1 ? 'Personalizada' : 'Dúo'}
+                          {plan.badge}
                         </span>
                         <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#834296] shadow-xs">
                           <IconComponent className="w-5 h-5 stroke-[2.2]" />

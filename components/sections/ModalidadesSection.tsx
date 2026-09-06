@@ -30,24 +30,6 @@ const Group3UsersIcon = ({ className }: { className?: string }) => (
 export const ModalidadesSection = () => {
   const modalidades = [
     {
-      id: 'grupal',
-      title: 'Grupal',
-      badge: 'GRUPAL',
-      badgeColor: 'bg-white/80 text-[#834296] border-[#834296]/40',
-      iconBg: 'bg-[#834296] text-white',
-      checkBg: 'bg-[#834296] text-white',
-      cardBg: 'bg-gradient-to-b from-[#FAF5FC] to-[#F3E8FA]',
-      cardBgHover: 'hover:from-[#F7EDFC] hover:to-[#EEDCF6]',
-      linkColor: 'text-[#834296]',
-      icon: Group3UsersIcon,
-      subtitle: 'Aprende junto a otros, con la energía de un grupo pequeño.',
-      features: [
-        'Máximo 8 alumnos',
-        'Clases en vivo',
-        'Profesores con años de experiencia'
-      ]
-    },
-    {
       id: 'personalizada',
       title: 'Personalizada',
       badge: 'PERSONALIZADA',
@@ -86,6 +68,24 @@ export const ModalidadesSection = () => {
         'Mismo plan personalizado',
         'Menor costo por persona que la individual',
         'Clases enfocadas a su objetivo común'
+      ]
+    },
+    {
+      id: 'grupal',
+      title: 'Grupal',
+      badge: 'GRUPAL',
+      badgeColor: 'bg-white/80 text-[#834296] border-[#834296]/40',
+      iconBg: 'bg-[#834296] text-white',
+      checkBg: 'bg-[#834296] text-white',
+      cardBg: 'bg-gradient-to-b from-[#FAF5FC] to-[#F3E8FA]',
+      cardBgHover: 'hover:from-[#F7EDFC] hover:to-[#EEDCF6]',
+      linkColor: 'text-[#834296]',
+      icon: Group3UsersIcon,
+      subtitle: 'Aprende junto a otros, con la energía de un grupo pequeño.',
+      features: [
+        'Máximo 8 alumnos',
+        'Clases en vivo',
+        'Profesores con años de experiencia'
       ]
     }
   ];
