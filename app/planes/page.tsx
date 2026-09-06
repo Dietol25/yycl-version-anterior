@@ -121,11 +121,11 @@ export default function PlanesPage() {
                       size="md"
                       className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Agendar entrevista gratis
+                      Agendar entrevista
                     </Button>
                   </Link>
                   <p className="text-xs font-heading font-medium text-slate-500">
-                    20 min · Sin costo · Sin compromiso
+                    20 min · Sin costo
                   </p>
                 </div>
               </div>
@@ -333,11 +333,11 @@ export default function PlanesPage() {
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar entrevista gratis
+                  Agendar entrevista
                 </Button>
               </Link>
               <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · Sin costo · Sin compromiso
+                20 min · Sin costo
               </p>
             </div>
           </div>

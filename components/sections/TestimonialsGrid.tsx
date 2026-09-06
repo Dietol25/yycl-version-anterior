@@ -71,13 +71,10 @@ export const TestimonialsGrid = () => {
           <div className="w-px h-14 bg-slate-200" />
           <div className="space-y-1">
             <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#834296] tracking-tight block">
-              94–98%
+              96%
             </span>
             <span className="text-xs sm:text-sm font-heading font-bold text-slate-500 uppercase tracking-wider block">
               De satisfacción
-            </span>
-            <span className="text-[10px] font-heading font-medium text-slate-400 block pt-0.5">
-              Según encuestas internas
             </span>
           </div>
         </div>
@@ -231,13 +228,13 @@ export const TestimonialsGrid = () => {
           </div>
         </div>
 
-        {/* Ghost Button: Ver más testimonios (Desktop y Mobile) */}
+        {/* Ghost Button: Ver todos los testimonios (Desktop y Mobile) */}
         <div className="pt-8 text-center">
           <Link
             href="/resultados"
             className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:bg-purple-50/70 px-5 py-2.5 rounded-full transition-all group cursor-pointer"
           >
-            <span>Ver más testimonios y casos de éxito</span>
+            <span>Ver todos los testimonios</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#834296]" />
           </Link>
         </div>

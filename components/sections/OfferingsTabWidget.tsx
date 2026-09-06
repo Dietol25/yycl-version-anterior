@@ -77,18 +77,6 @@ const TABS: TabItem[] = [
     link: '/servicios-especiales',
     image: '/assets/05_SERVICIOS_ESPECIALES/YYCL_11_SERVICIOS_ESTUDIO_ENFOCADO.png',
     imageAlt: 'Preparación de exámenes internacionales TOEFL e IELTS',
-  },
-  {
-    id: 'equipo',
-    tabLabel: 'Nuestro equipo',
-    tag: 'Docentes YYCL',
-    tagColor: 'text-[#834296]',
-    dotColor: 'bg-[#834296]',
-    title: 'Conoce a tus profesores',
-    description: 'Profesores reales, empáticos y con amplia experiencia, enfocados en que hables con total confianza.',
-    link: '/profesores',
-    image: '/assets/10_SOBRE_YYCL/YYCL_24_SOBRE_YYCL_CONVERSACION_HUMANA.png',
-    imageAlt: 'Docentes y equipo humano de YYCL',
   }
 ];
 
@@ -143,8 +131,8 @@ export const OfferingsTabWidget = () => {
           </p>
         </div>
 
-        {/* Tab Navigation Buttons with Hero Highlight & Visual Hierarchy */}
-        <div className="flex flex-wrap items-center justify-start lg:justify-center gap-2.5 pb-4 mb-10">
+        {/* Tab Navigation Buttons with Touch Horizontal Scroll on Mobile */}
+        <div className="flex flex-nowrap items-center justify-start lg:justify-center gap-2.5 overflow-x-auto no-scrollbar scroll-smooth pb-3 mb-10 px-1">
           {TABS.map((tab) => {
             const isActive = activeTab === tab.id;
             const isHero = tab.id === 'ingles';
@@ -153,13 +141,13 @@ export const OfferingsTabWidget = () => {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-heading font-bold transition-all duration-200 cursor-pointer whitespace-nowrap focus-visible:ring-2 focus-visible:ring-[#834296] focus-visible:outline-none ${
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-heading font-bold transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 focus-visible:ring-2 focus-visible:ring-[#834296] focus-visible:outline-none ${
                   isActive
                     ? isHero
                       ? 'bg-[#834296] text-white shadow-[2px_2px_0px_#001837] scale-102 ring-2 ring-[#834296]/20'
                       : 'bg-[#001837] text-white shadow-[2px_2px_0px_#001837] scale-102'
                     : isHero
-                      ? 'bg-[#834296]/10 text-[#834296] hover:bg-[#834296]/20 border-2 border-[#834296]/40'
+                      ? 'bg-[#834296]/10 text-[#834296] hover:bg-[#834296]/20 border border-[#834296]/30'
                       : 'bg-white text-[#3C4C92] hover:text-[#001837] hover:bg-slate-50 border border-black/10 shadow-[1px_1px_0px_rgba(0,0,0,0.06)]'
                 }`}
               >
@@ -169,11 +157,6 @@ export const OfferingsTabWidget = () => {
                   }`}
                 />
                 <span>{tab.tabLabel}</span>
-                {isHero && (
-                  <span className="ml-1 px-2 py-0.5 rounded-full text-[10px] uppercase font-black tracking-wider bg-[#FFD203] text-[#001837] shadow-xs">
-                    Principal
-                  </span>
-                )}
               </button>
             );
           })}
@@ -210,7 +193,7 @@ export const OfferingsTabWidget = () => {
                       href="/agendar"
                       className="inline-flex items-center gap-1.5 text-sm sm:text-base font-heading font-bold text-[#834296] hover:text-[#001837] transition-colors"
                     >
-                      <span>Entrevista gratis de 20 min →</span>
+                      <span>Agendar entrevista →</span>
                     </Link>
                   </div>
                 ) : (

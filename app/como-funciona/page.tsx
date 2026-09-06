@@ -191,7 +191,7 @@ export default function ComoFuncionaPage() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 4. NIVELES: "Principiante, intermedio o avanzado"                          */}
+        {/* 4. NIVELES: "Tu nivel, sin complicaciones." (3 Niveles: A1-A2, B1-B2, C1)   */}
         {/* ========================================================================= */}
         <section className="py-20 lg:py-24 bg-white border-t border-slate-100">
           <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
@@ -200,104 +200,123 @@ export default function ComoFuncionaPage() {
                 Niveles
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
-                Principiante, intermedio o avanzado
+                Tu nivel, sin complicaciones.
               </h2>
               <p className="text-sm sm:text-base text-slate-600 font-medium max-w-xl mx-auto">
                 No necesitas saber tu nivel antes de empezar. Lo identificamos contigo durante la entrevista gratuita de 20 minutos.
               </p>
             </div>
 
-            {/* 2 Level Comparison Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
-              {/* Principiante */}
-              <div className="bg-white rounded-3xl p-8 border border-black/10 border-t-4 border-t-[#001837] shadow-[3px_3px_0px_#001837] space-y-6">
-                <div className="text-center pb-4 border-b border-black/10">
-                  <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-[#001837] font-heading font-bold text-xs uppercase tracking-wider mb-2">
-                    A1 y A2
-                  </span>
-                  <h3 className="text-2xl font-extrabold font-heading text-[#001837]">
-                    Principiante
-                  </h3>
+            {/* 3 Level Comparison Cards: Principiante, Intermedio, Avanzado */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+              {/* Principiante (A1 · A2) */}
+              <div className="bg-white rounded-3xl p-7 border border-black/10 border-t-4 border-t-[#001837] shadow-[3px_3px_0px_#001837] flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="text-left pb-3 border-b border-black/10">
+                    <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-[#001837] font-heading font-bold text-xs uppercase tracking-wider mb-2">
+                      A1 · A2
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+                      Principiante
+                    </h3>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    Desde cero o bases olvidadas. Empiezas a hablar en situaciones cotidianas desde la primera sesión.
+                  </p>
+
+                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-2">
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Pierdes el miedo al error desde el inicio</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Vocabulario cotidiano y frases útiles</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Profesor en vivo y corrección guiada</span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-3.5 text-sm">
-                  <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Desde cero o bases olvidadas</span>
-                    <span className="font-extrabold text-[#001837]">A1</span>
-                  </div>
-                  <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Conversaciones cotidianas</span>
-                    <span className="font-extrabold text-[#001837]">A2</span>
-                  </div>
-                  <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Pierdes el miedo a cometer errores</span>
-                    <span className="font-extrabold text-[#834296] bg-[#F5E6F8] px-2 py-0.5 rounded text-xs">Desde el inicio</span>
-                  </div>
-                  <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Fluidez conversacional</span>
-                    <span className="font-extrabold text-[#16A34A]">Sí</span>
-                  </div>
-                </div>
-
-                <div className="pt-2 space-y-2.5 text-xs text-slate-700">
-                  <div className="flex items-center gap-2.5">
-                    <Check className="w-4 h-4 text-[#16A34A] stroke-[2.5]" />
-                    <span className="font-semibold">Beneficios Extras</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Check className="w-4 h-4 text-[#16A34A] stroke-[2.5]" />
-                    <span className="font-semibold">Acceso a la plataforma de práctica</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Check className="w-4 h-4 text-[#16A34A] stroke-[2.5]" />
-                    <span className="font-semibold">Profesor asignado en vivo</span>
-                  </div>
+                <div className="pt-2 border-t border-slate-100 text-xs font-heading font-bold text-slate-500 uppercase tracking-wider">
+                  Objetivo: Soltar la lengua
                 </div>
               </div>
 
-              {/* Intermedio */}
-              <div className="bg-white rounded-3xl p-8 border border-black/10 border-t-4 border-t-[#834296] shadow-[3px_3px_0px_#001837] space-y-6">
-                <div className="text-center pb-4 border-b border-black/10">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#F5E6F8] text-[#834296] font-heading font-bold text-xs uppercase tracking-wider mb-2">
-                    B1 y B2
-                  </span>
-                  <h3 className="text-2xl font-extrabold font-heading text-[#001837]">
-                    Intermedio
-                  </h3>
+              {/* Intermedio (B1 · B2) */}
+              <div className="bg-white rounded-3xl p-7 border border-black/10 border-t-4 border-t-[#834296] shadow-[3px_3px_0px_#834296] flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="text-left pb-3 border-b border-black/10">
+                    <span className="inline-block px-3 py-1 rounded-full bg-[#F5E6F8] text-[#834296] font-heading font-bold text-xs uppercase tracking-wider mb-2">
+                      B1 · B2
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+                      Intermedio
+                    </h3>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    Entiendes mucho pero te trabas al hablar. Desarrollas fluidez para reuniones de trabajo, viajes y opiniones espontáneas.
+                  </p>
+
+                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-2">
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Fluidez sin traducir mentalmente</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Debates, reuniones y situaciones de trabajo</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Espacios de inmersión rotativos incluidos</span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-3.5 text-sm">
-                  <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Dominas la lengua</span>
-                    <span className="font-extrabold text-[#001837]">B1</span>
+                <div className="pt-2 border-t border-slate-100 text-xs font-heading font-bold text-[#834296] uppercase tracking-wider">
+                  Objetivo: Pensar en inglés
+                </div>
+              </div>
+
+              {/* Avanzado (C1) */}
+              <div className="bg-white rounded-3xl p-7 border border-black/10 border-t-4 border-t-[#EC9519] shadow-[3px_3px_0px_#EC9519] flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="text-left pb-3 border-b border-black/10">
+                    <span className="inline-block px-3 py-1 rounded-full bg-[#FFF5E6] text-[#EC9519] font-heading font-bold text-xs uppercase tracking-wider mb-2">
+                      C1
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
+                      Avanzado
+                    </h3>
                   </div>
-                  <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Viajes y trabajo</span>
-                    <span className="font-extrabold text-[#001837]">B2</span>
-                  </div>
-                  <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Debates y opiniones</span>
-                    <span className="font-extrabold text-[#834296] bg-[#F5E6F8] px-2 py-0.5 rounded text-xs">Avanzado</span>
-                  </div>
-                  <div className="flex justify-between pb-2 border-b border-slate-100">
-                    <span className="text-slate-700 font-medium">Fluidez conversacional</span>
-                    <span className="font-extrabold text-[#16A34A]">Sí</span>
+
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    Ya te comunicas con naturalidad y buscas pulir matices, precisión léxica y desenvolver profesionalmente al más alto nivel.
+                  </p>
+
+                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-2">
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Matices y naturalidad ejecutiva</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Presentaciones complejas y entrevistas de liderazgo</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <span>Corrección quirúrgica de estilo</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="pt-2 space-y-2.5 text-xs text-slate-700">
-                  <div className="flex items-center gap-2.5">
-                    <Check className="w-4 h-4 text-[#16A34A] stroke-[2.5]" />
-                    <span className="font-semibold">Beneficios Extras</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Check className="w-4 h-4 text-[#16A34A] stroke-[2.5]" />
-                    <span className="font-semibold">Material auténtico incluido</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Check className="w-4 h-4 text-[#16A34A] stroke-[2.5]" />
-                    <span className="font-semibold">Profesor asignado</span>
-                  </div>
+                <div className="pt-2 border-t border-slate-100 text-xs font-heading font-bold text-[#EC9519] uppercase tracking-wider">
+                  Objetivo: Precisión y liderazgo
                 </div>
               </div>
             </div>
@@ -305,7 +324,7 @@ export default function ComoFuncionaPage() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 5. PLATAFORMA DE PRÁCTICA                                                 */}
+        {/* 5. PLATAFORMA DE PRÁCTICA & MÁS ALLÁ DE LA CLASE (Refinado y Compacto)   */}
         {/* ========================================================================= */}
         <section className="py-20 lg:py-24 bg-white border-t border-slate-100">
           <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
@@ -333,7 +352,7 @@ export default function ComoFuncionaPage() {
                 </div>
               </div>
 
-              {/* Right Content: Headline + Structured Features */}
+              {/* Right Content: Headline + 2 Structured Features + Inclusive Microcopy */}
               <div className="order-1 lg:order-2 lg:col-span-6 space-y-6">
                 <div className="space-y-2">
                   <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
@@ -348,6 +367,7 @@ export default function ComoFuncionaPage() {
                 </div>
 
                 <div className="space-y-3.5 pt-1">
+                  {/* Block 1: Principal */}
                   <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
                     <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
                       Espacios de inmersión y conversación
@@ -357,6 +377,7 @@ export default function ComoFuncionaPage() {
                     </p>
                   </div>
 
+                  {/* Block 2: Secundario Rotativo */}
                   <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
                     <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
                       Actividades especiales rotativas
@@ -365,15 +386,12 @@ export default function ComoFuncionaPage() {
                       Talleres temáticos e invitados de distintos países que programamos a lo largo del año para exponerte a diferentes acentos, culturas y contextos profesionales.
                     </p>
                   </div>
+                </div>
 
-                  <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
-                    <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
-                      100% incluido en tu plan
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
-                      No es un costo adicional ni un servicio extra. Es parte integral del método YYCL porque la constancia conversacional es lo que te da soltura.
-                    </p>
-                  </div>
+                {/* Subtitle / Microcopy (Replaces previous bulky 3rd card) */}
+                <div className="pt-2 flex items-center gap-2 text-xs sm:text-sm font-heading font-bold text-slate-500">
+                  <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                  <span>Incluido en todos los planes · Sin costo adicional</span>
                 </div>
               </div>
             </div>
@@ -398,11 +416,11 @@ export default function ComoFuncionaPage() {
                   size="md"
                   className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar entrevista gratis
+                  Agendar entrevista
                 </Button>
               </Link>
               <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · Sin costo · Sin compromiso
+                20 min · Sin costo
               </p>
             </div>
           </div>

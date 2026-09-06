@@ -335,7 +335,7 @@ export const Navbar = () => {
                 size="sm"
                 className="font-heading font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 h-10 shadow-[3px_3px_0px_#EC9519] whitespace-nowrap min-w-[150px]"
               >
-                {isEn ? 'Book free interview' : 'Agendar entrevista gratis'}
+                {isEn ? 'Book interview' : 'Agendar entrevista'}
               </Button>
             </Link>
           </div>
@@ -348,9 +348,9 @@ export const Navbar = () => {
               <Button
                 variant="primary"
                 size="sm"
-                className="font-bold text-[11px] sm:text-xs h-8 sm:h-8.5 px-2.5 sm:px-3 shadow-[2px_2px_0px_#EC9519] whitespace-nowrap"
+                className="font-bold text-[11px] sm:text-xs h-8 sm:h-8.5 px-3 shadow-[2px_2px_0px_#EC9519] whitespace-nowrap"
               >
-                {isEn ? 'Free interview' : 'Entrevista gratis'}
+                {isEn ? 'Book' : 'Agendar'}
               </Button>
             </Link>
 

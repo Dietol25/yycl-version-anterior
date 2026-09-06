@@ -41,11 +41,11 @@ export default function HomePage() {
                 size="md"
                 className="w-full font-bold text-sm h-12 shadow-[3px_3px_0px_#001837]"
               >
-                Agendar entrevista gratis
+                Agendar entrevista
               </Button>
             </Link>
             <p className="text-xs font-heading font-medium text-slate-500">
-              20 min · Sin costo · Sin compromiso
+              20 min · Sin costo
             </p>
           </div>
         </div>

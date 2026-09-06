@@ -156,11 +156,11 @@ export default function ResultadosPage() {
                       size="md"
                       className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Agendar entrevista gratis
+                      Agendar entrevista
                     </Button>
                   </Link>
                   <p className="text-xs font-heading font-medium text-slate-500 pl-1">
-                    20 min · Sin costo · Sin compromiso
+                    20 min · Sin costo
                   </p>
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default function ResultadosPage() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 2. STAT COUNTERS: +1.000 y 94–98% en Violeta de Marca                    */}
+        {/* 2. STAT COUNTERS: +1.000 y 96% en Violeta de Marca                        */}
         {/* ========================================================================= */}
         <section className="py-10 bg-slate-50/70 border-y border-slate-100">
           <div className="max-w-[1280px] mx-auto px-5 lg:px-12">
@@ -207,13 +207,10 @@ export default function ResultadosPage() {
               <div className="w-px h-14 bg-slate-200" />
               <div className="space-y-1">
                 <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-yycl-purple tracking-tight block">
-                  94–98%
+                  96%
                 </span>
                 <span className="text-xs sm:text-sm font-heading font-bold text-slate-500 uppercase tracking-wider block">
                   De satisfacción
-                </span>
-                <span className="text-[10px] font-heading font-medium text-slate-400 block pt-0.5">
-                  Según encuestas internas
                 </span>
               </div>
             </div>
@@ -448,11 +445,11 @@ export default function ResultadosPage() {
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar entrevista gratis
+                  Agendar entrevista
                 </Button>
               </Link>
               <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · Sin costo · Sin compromiso
+                20 min · Sin costo
               </p>
             </div>
           </div>
