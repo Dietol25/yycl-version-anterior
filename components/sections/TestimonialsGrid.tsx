@@ -217,14 +217,14 @@ export const TestimonialsGrid = () => {
           </div>
         </div>
 
-        {/* Ghost Button: Ver todos los testimonios (Desktop y Mobile) */}
+        {/* CTA: Quiero esos resultados → (Desktop y Mobile) */}
         <div className="pt-8 text-center">
           <Link
             href="/resultados"
-            className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#3C4C92] hover:text-[#001837] hover:bg-purple-50/70 px-5 py-2.5 rounded-full transition-all group cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-sm sm:text-base font-heading font-bold text-[#834296] hover:text-[#001837] hover:underline px-5 py-2.5 rounded-full transition-all group cursor-pointer"
           >
-            <span>Ver todos los testimonios</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#834296]" />
+            <span>Quiero esos resultados</span>
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
 

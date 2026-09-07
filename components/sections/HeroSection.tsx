@@ -54,7 +54,7 @@ export const HeroSection = () => {
                   size="md"
                   className="w-full sm:w-auto font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519] justify-center"
                 >
-                  Agendar entrevista
+                  Quiero hablar sin miedo →
                 </Button>
 
                 <Link
@@ -67,7 +67,7 @@ export const HeroSection = () => {
 
               {/* Microcopy de confianza */}
               <p className="text-[11px] sm:text-xs font-heading font-medium text-slate-500 pl-1">
-                20 min · Sin costo
+                20 min · Sin costo · Sin compromiso
               </p>
             </div>
           </div>

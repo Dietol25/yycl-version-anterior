@@ -147,7 +147,7 @@ export default function KidsPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Conoce el programa sin compromiso.
             </p>
-            <div className="pt-2 flex flex-col items-center gap-2.5">
+            <div className="pt-2 flex flex-col items-center">
               <Button
                 href="/agendar"
                 variant="primary"
@@ -156,9 +156,6 @@ export default function KidsPage() {
               >
                 Agendar entrevista
               </Button>
-              <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · Sin costo
-              </p>
             </div>
           </div>
         </section>

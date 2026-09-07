@@ -335,7 +335,7 @@ export const Navbar = () => {
                 size="sm"
                 className="font-heading font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 h-10 shadow-[3px_3px_0px_#EC9519] whitespace-nowrap min-w-[150px]"
               >
-                {isEn ? 'Book interview' : 'Agendar entrevista'}
+                {isEn ? 'Book an interview' : 'Agendar entrevista'}
               </Button>
             </Link>
           </div>

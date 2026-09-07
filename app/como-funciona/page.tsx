@@ -166,6 +166,7 @@ export default function ComoFuncionaPage() {
                 hasCheckmark={true}
                 subtitle="Personalizada, en pareja"
                 description="Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas. Menor costo por persona que la individual."
+                referralNote="¿Tienes una amiga o colega que también quiere perder el miedo al inglés? Empiecen juntas."
                 href="/planes#duo"
                 linkText="Más información →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
@@ -373,28 +374,28 @@ export default function ComoFuncionaPage() {
                     Sigue practicando cuando termina la clase.
                   </h2>
                   <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-body-regular pt-1">
-                    Todos los planes incluyen espacios y recursos para seguir usando el idioma fuera de tu clase habitual. La programación va rotando durante el año para que tengas nuevas formas de practicar sin presiones.
+                    Todos los planes incluyen espacios y recursos para seguir practicando fuera de clase. La programación va cambiando durante el año.
                   </p>
                 </div>
 
                 <div className="space-y-3.5 pt-1">
-                  {/* Block 1: Principal */}
+                  {/* Card 1 */}
                   <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
                     <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
-                      Espacios de inmersión y conversación
+                      Espacios de conversación
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
-                      Clubes de conversación y llamadas guiadas diseñadas para activar tu vocabulario en situaciones reales, sin ejercicios mudos ni libros de texto.
+                      Clubes de conversación y llamadas guiadas para usar el idioma en situaciones reales.
                     </p>
                   </div>
 
-                  {/* Block 2: Secundario Rotativo */}
+                  {/* Card 2 */}
                   <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
                     <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
-                      Actividades especiales rotativas
+                      Actividades especiales
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
-                      Talleres temáticos e invitados de distintos países que programamos a lo largo del año para exponerte a diferentes acentos, culturas y contextos profesionales.
+                      Talleres temáticos, encuentros e invitados según la programación.
                     </p>
                   </div>
                 </div>
@@ -420,7 +421,7 @@ export default function ComoFuncionaPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Conversa con un profesor real y define tu camino sin ningún compromiso.
             </p>
-            <div className="pt-2 flex flex-col items-center gap-2.5">
+            <div className="pt-2 flex flex-col items-center">
               <Button
                 href="/agendar"
                 variant="primary"
@@ -429,9 +430,6 @@ export default function ComoFuncionaPage() {
               >
                 Agendar entrevista
               </Button>
-              <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · Sin costo
-              </p>
             </div>
           </div>
         </section>

@@ -188,6 +188,11 @@ export default function PlanesPage() {
                         <p className="text-xs sm:text-[13px] text-white/95 font-medium mt-1 leading-relaxed sm:min-h-[40px]">
                           {plan.subtitle}
                         </p>
+                        {plan.id === 'duo' && (
+                          <p className="text-[11px] sm:text-xs text-white/80 font-normal leading-snug pt-1 italic">
+                            ¿Tienes una amiga o colega que también quiere perder el miedo al inglés? Empiecen juntas.
+                          </p>
+                        )}
                       </div>
 
                       <ul className="space-y-3 pt-3 border-t border-white/20">
@@ -325,7 +330,7 @@ export default function PlanesPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Sin sorpresas: todo se conversa antes de que decidas.
             </p>
-            <div className="pt-2 flex flex-col items-center gap-2.5">
+            <div className="pt-2 flex flex-col items-center">
               <Button
                 href="/agendar"
                 variant="primary"
@@ -334,9 +339,6 @@ export default function PlanesPage() {
               >
                 Agendar entrevista
               </Button>
-              <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · Sin costo
-              </p>
             </div>
           </div>
         </section>

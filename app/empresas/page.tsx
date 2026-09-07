@@ -350,7 +350,7 @@ export default function EmpresasPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Conversamos el alcance y armamos el plan para tu equipo.
             </p>
-            <div className="pt-2 space-y-2">
+            <div className="pt-2">
               <Link href="/agendar">
                 <Button
                   variant="primary"
@@ -360,9 +360,6 @@ export default function EmpresasPage() {
                   Agendar reunión
                 </Button>
               </Link>
-              <p className="text-xs font-heading font-medium text-slate-500">
-                Reunión de 20 min · Sin costo · Sin compromiso
-              </p>
             </div>
           </div>
         </section>

@@ -128,13 +128,18 @@ export const ModalidadesSection = () => {
                   </div>
 
                   {/* Titular & Subtítulo con altura mínima para alineación precisa */}
-                  <div className="space-y-1 pt-1">
+                  <div className="space-y-1.5 pt-1">
                     <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
                       {mod.title}
                     </h3>
                     <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px]">
                       {mod.subtitle}
                     </p>
+                    {mod.id === 'duo' && (
+                      <p className="text-[11px] sm:text-xs text-white/80 font-normal leading-snug pt-1 italic">
+                        ¿Tienes una amiga o colega que también quiere perder el miedo al inglés? Empiecen juntas.
+                      </p>
+                    )}
                   </div>
 
                   {/* Lista de Features con Checkmarks Circulares Blancos */}

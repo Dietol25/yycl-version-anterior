@@ -220,7 +220,7 @@ export default function ServiciosEspecialesPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Evaluamos tu nivel y armamos tu plan de preparación.
             </p>
-            <div className="pt-2 flex flex-col items-center gap-2.5">
+            <div className="pt-2 flex flex-col items-center">
               <Button
                 href="/agendar"
                 variant="primary"
@@ -229,9 +229,6 @@ export default function ServiciosEspecialesPage() {
               >
                 Agendar entrevista
               </Button>
-              <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · Sin costo
-              </p>
             </div>
           </div>
         </section>

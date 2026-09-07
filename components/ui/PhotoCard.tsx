@@ -16,6 +16,7 @@ export interface PhotoCardProps {
   hasCheckmark?: boolean;
   subtitle?: string;
   description: string;
+  referralNote?: string;
   href?: string;
   linkText?: string;
   hasButton?: boolean;
@@ -33,6 +34,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
   hasCheckmark = true,
   subtitle,
   description,
+  referralNote,
   href = '#',
   linkText,
   hasButton = false,
@@ -59,23 +61,27 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
 
     let badgeVariant: 'kids' | 'empresas' | 'conversacion' = 'conversacion';
     if (category === 'kids') badgeVariant = 'kids';
-    if (category === 'empresas') badgeVariant = 'empresas';
+    else if (category === 'empresas') badgeVariant = 'empresas';
 
     return (
-      <div className="absolute top-3.5 left-3.5 z-10">
-        <Badge variant={badgeVariant}>{badgeText}</Badge>
-      </div>
+      <Badge variant={badgeVariant}>
+        {badgeText}
+      </Badge>
     );
   };
 
   return (
     <div
       id={id}
-      className={`w-full bg-white rounded-3xl overflow-hidden border border-black/10 border-t-4 ${getTopStripeColor()} shadow-[3px_3px_0px_#001837] flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 ${className}`}
+      className={`bg-white rounded-3xl overflow-hidden border border-[#001837] border-t-4 ${getTopStripeColor()} shadow-[3px_3px_0px_#001837] flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 ${className}`}
     >
-      {/* 1. Top Media Area */}
-      <div className="relative w-full h-48 sm:h-52 bg-white flex items-center justify-center overflow-hidden p-3 select-none">
-        {renderBadge()}
+      {/* 1. Photo Container */}
+      <div className="h-56 sm:h-64 bg-slate-50 relative overflow-hidden flex items-center justify-center p-4 border-b border-[#001837]/15">
+        {renderBadge() && (
+          <div className="absolute top-4 left-4 z-10">
+            {renderBadge()}
+          </div>
+        )}
 
         {imageSrc ? (
           <img
@@ -116,6 +122,13 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
           <p className="text-xs sm:text-[13px] font-body-regular text-slate-600 leading-relaxed pt-1">
             {description}
           </p>
+
+          {/* Secondary Referral Note */}
+          {referralNote && (
+            <p className="text-[11px] sm:text-xs text-slate-500 font-normal leading-snug pt-1 italic border-t border-slate-100 mt-2">
+              {referralNote}
+            </p>
+          )}
         </div>
 
         {/* 3. Footer Action */}
