@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { SliderControls } from '@/components/ui/SliderControls';
 import { TESTIMONIALS } from '@/lib/data';
 import { CountryFlag } from '@/components/icons/FlagIcons';
+import { AvatarInitials } from '@/components/ui/AvatarInitials';
 
 const GOOGLE_MAPS_REVIEWS_URL = 'https://www.google.com/maps/place//@-12.060543,-70.6361328,3z/data=!3m1!4b1!4m3!3m2!1s0x95bccb681a6ea077:0xd57ae9c7c1891e35!12e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D';
 const INSTAGRAM_HIGHLIGHTS_URL = 'https://www.instagram.com/stories/highlights/17913912476880324/?hl=es-la';
@@ -259,13 +260,7 @@ export default function ResultadosPage() {
                   {/* Author Info + Enlace Verificado */}
                   <div className="space-y-2.5 pt-3 border-t border-white/15">
                     <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 shrink-0 select-none">
-                        <img
-                          src={item.avatar}
-                          alt={item.name}
-                          className="w-full h-full object-contain select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
-                        />
-                      </div>
+                      <AvatarInitials name={item.name} size="md" />
                       <div>
                         <span className="block font-heading font-bold text-xs sm:text-sm text-white leading-tight">
                           {item.name}
@@ -320,13 +315,7 @@ export default function ResultadosPage() {
 
                 <div className="space-y-2.5 pt-3 border-t border-white/15">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 shrink-0 select-none">
-                      <img
-                        src={VERIFIED_TESTIMONIALS[activeIndex].avatar}
-                        alt={VERIFIED_TESTIMONIALS[activeIndex].name}
-                        className="w-full h-full object-contain select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
-                      />
-                    </div>
+                    <AvatarInitials name={VERIFIED_TESTIMONIALS[activeIndex].name} size="md" />
                     <div>
                       <span className="block font-heading font-bold text-xs sm:text-sm text-white leading-tight">
                         {VERIFIED_TESTIMONIALS[activeIndex].name}
