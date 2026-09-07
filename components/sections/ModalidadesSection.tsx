@@ -155,10 +155,10 @@ export const ModalidadesSection = () => {
                 {/* Action Ghost Link */}
                 <div className="pt-6 border-t border-white/20 mt-6">
                   <Link
-                    href="/como-funciona"
+                    href="/planes"
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-white hover:underline transition-colors"
                   >
-                    <span>Cómo funciona</span>
+                    <span>Ver qué opción me conviene</span>
                     <span>→</span>
                   </Link>
                 </div>

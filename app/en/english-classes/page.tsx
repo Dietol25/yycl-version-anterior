@@ -78,7 +78,7 @@ export default function EnglishClassesPage() {
                       size="md"
                       className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                     >
-                      Book free interview
+                      Book an interview
                     </Button>
                   </Link>
                   <p className="text-xs font-heading font-medium text-slate-500">
@@ -169,19 +169,16 @@ export default function EnglishClassesPage() {
               Book your no-cost interview and find your starting point.
             </p>
 
-            <div className="pt-3 space-y-2">
+            <div className="pt-3">
               <Link href="/en/agendar">
                 <Button
                   variant="primary"
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Book free interview
+                  Book an interview
                 </Button>
               </Link>
-              <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · No cost · No commitment
-              </p>
             </div>
           </div>
         </section>

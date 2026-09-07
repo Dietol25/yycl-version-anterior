@@ -320,6 +320,17 @@ export default function ComoFuncionaPage() {
                 </div>
               </div>
             </div>
+
+            {/* Contextual Link */}
+            <div className="mt-10 text-center">
+              <Link
+                href="/agendar"
+                className="inline-flex items-center gap-1.5 font-heading font-bold text-sm sm:text-base text-[#834296] hover:text-[#001837] hover:underline transition-colors"
+              >
+                <span>Quiero conocer mi nivel</span>
+                <span>→</span>
+              </Link>
+            </div>
           </div>
         </section>
 

@@ -371,6 +371,17 @@ export default function ResultadosPage() {
               </div>
             </div>
 
+            {/* Contextual CTA */}
+            <div className="mt-12 text-center">
+              <Link
+                href="/agendar"
+                className="inline-flex items-center gap-1.5 font-heading font-bold text-sm sm:text-base text-[#834296] hover:text-[#001837] hover:underline transition-colors"
+              >
+                <span>Quiero esos resultados</span>
+                <span>→</span>
+              </Link>
+            </div>
+
           </div>
         </section>
 

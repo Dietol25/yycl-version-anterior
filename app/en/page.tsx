@@ -39,7 +39,7 @@ export default function EnglishHomePage() {
       tag: 'Culture',
       tagColor: 'text-[#4DC2DA]',
       borderTop: 'border-t-[#4DC2DA]',
-      title: 'The Spanish people actually speak',
+      title: "Spanish you'll actually use",
       desc: 'Learn with context and culture, not just textbook phrases.',
       image: '/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png',
       alt: 'Cultural and real-world Spanish language immersion',
@@ -77,9 +77,14 @@ export default function EnglishHomePage() {
                   </div>
                 </div>
 
-                <p className="text-base sm:text-lg text-slate-600 font-body-large max-w-lg leading-relaxed">
-                  Conversational Spanish for speakers of other languages, from day one.
-                </p>
+                <div className="space-y-2 max-w-lg">
+                  <p className="text-base sm:text-lg text-slate-600 font-body-large leading-relaxed">
+                    Conversational Spanish for speakers of other languages, from day one.
+                  </p>
+                  <p className="text-sm text-slate-500 font-medium">
+                    For international students and English learners who want to speak with confidence.
+                  </p>
+                </div>
 
                 <div className="pt-2 space-y-2">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -89,7 +94,7 @@ export default function EnglishHomePage() {
                         size="md"
                         className="font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                       >
-                        Book free interview
+                        Book an interview
                       </Button>
                     </Link>
 
@@ -188,19 +193,16 @@ export default function EnglishHomePage() {
               Book your no-cost interview to find your level.
             </p>
 
-            <div className="pt-3 space-y-2">
+            <div className="pt-3">
               <Link href="/en/agendar">
                 <Button
                   variant="primary"
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Book free interview
+                  Book an interview
                 </Button>
               </Link>
-              <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · No cost · No commitment
-              </p>
             </div>
           </div>
         </section>

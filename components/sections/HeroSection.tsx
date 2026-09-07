@@ -33,10 +33,15 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            {/* 3. Subtitle */}
-            <p className="text-base sm:text-lg text-slate-600 font-body-large max-w-lg leading-relaxed">
-              El problema nunca fue lo que sabes. Es soltarte a hablar. Eso se practica, no se memoriza, desde tu primera clase con un profesor real.
-            </p>
+            {/* 3. Subtitle & Insight Editorial */}
+            <div className="space-y-2 max-w-lg">
+              <p className="text-base sm:text-lg text-slate-600 font-body-large leading-relaxed">
+                El problema nunca fue lo que sabes. Es soltarte a hablar. Eso se practica, no se memoriza, desde tu primera clase con un profesor real.
+              </p>
+              <p className="text-sm sm:text-base text-[#834296] font-heading font-bold">
+                Lo que cambia primero no es el vocabulario — es el miedo.
+              </p>
+            </div>
 
             {/* 4. Dual Actions alineados a la izquierda con Microcopy reductor de fricción */}
             <div className="pt-2 flex flex-col items-start gap-2.5">

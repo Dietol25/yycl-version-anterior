@@ -25,11 +25,11 @@ export default function HomePage() {
       {/* 4. MODALIDADES (3 Cards Blancas con checklist fiel al Figma) */}
       <ModalidadesSection />
 
-      {/* 5. CIERRE: Sí puedes. Yes you can. */}
+      {/* 5. CIERRE: Sí puedes. Yes You Can. */}
       <section className="py-20 lg:py-24 bg-white text-center border-t border-slate-100">
         <div className="max-w-md mx-auto px-5 space-y-4">
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-yycl-navy tracking-tight leading-tight">
-            Sí puedes. Yes you can.
+            Sí puedes. Yes You Can.
           </h2>
           <p className="text-sm text-slate-600 font-medium">
             Agenda tu entrevista gratuita y da el primer paso.

@@ -15,7 +15,7 @@ export const CtaBanner = () => {
         </span>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight">
-          Sí puedes. Yes you can.
+          Sí puedes. Yes You Can.
         </h2>
 
         <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto">
