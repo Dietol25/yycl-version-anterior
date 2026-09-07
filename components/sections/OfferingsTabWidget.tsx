@@ -184,25 +184,23 @@ export const OfferingsTabWidget = () => {
                   <div className="flex flex-wrap items-center gap-4">
                     <Link
                       href={current.link}
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#001837] hover:bg-[#834296] text-white text-sm sm:text-base font-heading font-bold transition-all shadow-[2px_2px_0px_#001837]"
+                      className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[#001837] hover:bg-[#834296] text-white text-sm sm:text-base font-heading font-bold transition-all shadow-[2px_2px_0px_#001837]"
                     >
                       <span>Ver planes de inglés</span>
-                      <ArrowRight className="w-4 h-4" />
                     </Link>
                     <Link
-                      href="/agendar"
+                      href="/como-funciona"
                       className="inline-flex items-center gap-1.5 text-sm sm:text-base font-heading font-bold text-[#834296] hover:text-[#001837] transition-colors"
                     >
-                      <span>Agendar entrevista →</span>
+                      <span>Conoce cómo funciona →</span>
                     </Link>
                   </div>
                 ) : (
                   <Link
                     href={current.link}
-                    className="inline-flex items-center gap-2 text-sm sm:text-base font-heading font-bold text-[#001837] hover:text-[#834296] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-sm sm:text-base font-heading font-bold text-[#001837] hover:text-[#834296] transition-colors"
                   >
-                    <span>Más información</span>
-                    <ArrowRight className="w-4 h-4 text-[#001837]" />
+                    <span>Más información →</span>
                   </Link>
                 )}
               </div>
