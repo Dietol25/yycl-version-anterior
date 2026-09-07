@@ -61,22 +61,22 @@ const SERVICE_OPTIONS_EN = [
 ];
 
 const COUNTRY_CODES = [
-  { code: '+57', flag: '🇨🇴', label: 'Colombia' },
-  { code: '+1', flag: '🇺🇸', label: 'EE.UU. / Canadá' },
-  { code: '+52', flag: '🇲🇽', label: 'México' },
-  { code: '+54', flag: '🇦🇷', label: 'Argentina' },
-  { code: '+56', flag: '🇨🇱', label: 'Chile' },
-  { code: '+51', flag: '🇵🇪', label: 'Perú' },
-  { code: '+593', flag: '🇪🇨', label: 'Ecuador' },
-  { code: '+34', flag: '🇪🇸', label: 'España' },
-  { code: '+598', flag: '🇺🇾', label: 'Uruguay' },
-  { code: '+507', flag: '🇵🇦', label: 'Panamá' },
-  { code: '+506', flag: '🇨🇷', label: 'Costa Rica' },
-  { code: '+591', flag: '🇧🇴', label: 'Bolivia' },
-  { code: '+595', flag: '🇵🇾', label: 'Paraguay' },
-  { code: '+55', flag: '🇧🇷', label: 'Brasil' },
-  { code: '+44', flag: '🇬🇧', label: 'Reino Unido' },
-  { code: '+33', flag: '🇫🇷', label: 'Francia' },
+  { code: '+57', flag: '🇨🇴', abbr: 'CO', label: 'Colombia' },
+  { code: '+1', flag: '🇺🇸', abbr: 'US', label: 'EE.UU.' },
+  { code: '+52', flag: '🇲🇽', abbr: 'MX', label: 'México' },
+  { code: '+54', flag: '🇦🇷', abbr: 'AR', label: 'Argentina' },
+  { code: '+56', flag: '🇨🇱', abbr: 'CL', label: 'Chile' },
+  { code: '+51', flag: '🇵🇪', abbr: 'PE', label: 'Perú' },
+  { code: '+593', flag: '🇪🇨', abbr: 'EC', label: 'Ecuador' },
+  { code: '+34', flag: '🇪🇸', abbr: 'ES', label: 'España' },
+  { code: '+598', flag: '🇺🇾', abbr: 'UY', label: 'Uruguay' },
+  { code: '+507', flag: '🇵🇦', label: 'Panamá', abbr: 'PA' },
+  { code: '+506', flag: '🇨🇷', abbr: 'CR', label: 'Costa Rica' },
+  { code: '+591', flag: '🇧🇴', abbr: 'BO', label: 'Bolivia' },
+  { code: '+595', flag: '🇵🇾', abbr: 'PY', label: 'Paraguay' },
+  { code: '+55', flag: '🇧🇷', abbr: 'BR', label: 'Brasil' },
+  { code: '+44', flag: '🇬🇧', abbr: 'GB', label: 'Reino Unido' },
+  { code: '+33', flag: '🇫🇷', abbr: 'FR', label: 'Francia' },
 ];
 
 const TIME_SLOTS = [
@@ -710,7 +710,7 @@ export const BookingWizard = () => {
                   >
                     {COUNTRY_CODES.map((c) => (
                       <option key={c.code} value={c.code}>
-                        {c.flag} {c.code} ({c.label})
+                        {c.flag} {c.abbr} {c.code}
                       </option>
                     ))}
                   </select>
