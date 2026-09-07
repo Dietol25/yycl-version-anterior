@@ -705,12 +705,12 @@ export const BookingWizard = () => {
                       setFormData({ ...formData, phoneCode: newCode });
                       if (phoneError) setPhoneError(null);
                     }}
-                    className="w-32 sm:w-36 shrink-0 h-11 px-2.5 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-semibold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
+                    className="w-28 sm:w-32 shrink-0 h-11 px-2.5 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-semibold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
                     aria-label="Código de país"
                   >
                     {COUNTRY_CODES.map((c) => (
                       <option key={c.code} value={c.code}>
-                        {c.flag} {c.abbr} {c.code}
+                        {c.abbr} {c.code}
                       </option>
                     ))}
                   </select>
