@@ -61,22 +61,22 @@ const SERVICE_OPTIONS_EN = [
 ];
 
 const COUNTRY_CODES = [
-  { code: '+1', name: '+1 (USA / Canada)' },
-  { code: '+57', name: '+57 (Colombia)' },
-  { code: '+54', name: '+54 (Argentina)' },
-  { code: '+52', name: '+52 (México)' },
-  { code: '+56', name: '+56 (Chile)' },
-  { code: '+51', name: '+51 (Perú)' },
-  { code: '+34', name: '+34 (España)' },
-  { code: '+593', name: '+593 (Ecuador)' },
-  { code: '+598', name: '+598 (Uruguay)' },
-  { code: '+507', name: '+507 (Panamá)' },
-  { code: '+506', name: '+506 (Costa Rica)' },
-  { code: '+591', name: '+591 (Bolivia)' },
-  { code: '+595', name: '+595 (Paraguay)' },
-  { code: '+44', name: '+44 (UK)' },
-  { code: '+33', name: '+33 (France)' },
-  { code: '+55', name: '+55 (Brazil)' },
+  { code: '+57', flag: '🇨🇴', label: 'Colombia' },
+  { code: '+1', flag: '🇺🇸', label: 'EE.UU. / Canadá' },
+  { code: '+52', flag: '🇲🇽', label: 'México' },
+  { code: '+54', flag: '🇦🇷', label: 'Argentina' },
+  { code: '+56', flag: '🇨🇱', label: 'Chile' },
+  { code: '+51', flag: '🇵🇪', label: 'Perú' },
+  { code: '+593', flag: '🇪🇨', label: 'Ecuador' },
+  { code: '+34', flag: '🇪🇸', label: 'España' },
+  { code: '+598', flag: '🇺🇾', label: 'Uruguay' },
+  { code: '+507', flag: '🇵🇦', label: 'Panamá' },
+  { code: '+506', flag: '🇨🇷', label: 'Costa Rica' },
+  { code: '+591', flag: '🇧🇴', label: 'Bolivia' },
+  { code: '+595', flag: '🇵🇾', label: 'Paraguay' },
+  { code: '+55', flag: '🇧🇷', label: 'Brasil' },
+  { code: '+44', flag: '🇬🇧', label: 'Reino Unido' },
+  { code: '+33', flag: '🇫🇷', label: 'Francia' },
 ];
 
 const TIME_SLOTS = [
@@ -705,11 +705,12 @@ export const BookingWizard = () => {
                       setFormData({ ...formData, phoneCode: newCode });
                       if (phoneError) setPhoneError(null);
                     }}
-                    className="w-28 shrink-0 h-11 px-2 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-bold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
+                    className="w-32 sm:w-36 shrink-0 h-11 px-2.5 bg-slate-50 text-[#001837] rounded-xl border border-slate-300 text-xs sm:text-sm font-heading font-semibold focus:outline-none focus:ring-2 focus:ring-[#FFD203] focus:border-[#001837] cursor-pointer"
+                    aria-label="Código de país"
                   >
                     {COUNTRY_CODES.map((c) => (
                       <option key={c.code} value={c.code}>
-                        {c.code} {c.name.split(' ')[1]}
+                        {c.flag} {c.code} ({c.label})
                       </option>
                     ))}
                   </select>
