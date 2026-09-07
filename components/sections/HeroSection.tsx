@@ -35,18 +35,15 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            {/* 3. Subtitle & Insight Editorial */}
-            <div className="space-y-3 max-w-lg">
-              <p className="text-sm sm:text-lg text-slate-600 font-body-large leading-relaxed">
-                El problema nunca fue lo que sabes. Es soltarte a hablar. Eso se practica, no se memoriza, desde tu primera clase con un profesor real.
-              </p>
-              <p className="text-xs sm:text-base text-[#834296] font-heading font-bold leading-snug">
-                Lo que cambia primero no es el vocabulario — es el miedo.
+            {/* 3. Subtitle con insight editorial integrado y limpio */}
+            <div className="space-y-2 max-w-lg">
+              <p className="text-sm sm:text-base text-slate-600 font-body-large leading-relaxed">
+                El problema nunca fue lo que sabes, sino soltarte a hablar. Lo que cambia primero no es el vocabulario — es el miedo.
               </p>
             </div>
 
-            {/* 4. Dual Actions alineados a la izquierda con Microcopy reductor de fricción */}
-            <div className="pt-2 sm:pt-3 flex flex-col items-start gap-2.5">
+            {/* 4. Dual Actions: Botón primario limpio + Ghost con flecha */}
+            <div className="pt-2 flex flex-col items-start gap-2.5">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 w-full sm:w-auto text-left">
                 <Button
                   href="/agendar"
@@ -54,7 +51,7 @@ export const HeroSection = () => {
                   size="md"
                   className="w-full sm:w-auto font-heading font-bold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519] justify-center"
                 >
-                  Quiero hablar sin miedo →
+                  Quiero hablar sin miedo
                 </Button>
 
                 <Link
