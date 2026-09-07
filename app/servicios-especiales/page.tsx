@@ -77,18 +77,17 @@ export default function ServiciosEspecialesPage() {
                   Para lo que no entra en una clase estándar: preparación para certificaciones internacionales o el inglés puntual de tu profesión.
                 </p>
 
-                <div className="pt-2 space-y-2">
-                  <Link href="/agendar">
-                    <Button
-                      variant="primary"
-                      size="md"
-                      className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
-                    >
-                      Agendar entrevista gratis
-                    </Button>
-                  </Link>
+                <div className="pt-2 flex flex-col items-center lg:items-start gap-2.5">
+                  <Button
+                    href="/agendar"
+                    variant="primary"
+                    size="md"
+                    className="font-heading font-bold text-sm px-8 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+                  >
+                    Agendar entrevista
+                  </Button>
                   <p className="text-xs font-heading font-medium text-slate-500">
-                    20 min · Sin costo · Sin compromiso
+                    20 min · Sin costo
                   </p>
                 </div>
               </div>
@@ -221,18 +220,17 @@ export default function ServiciosEspecialesPage() {
             <p className="text-sm sm:text-base text-slate-600 font-medium">
               Evaluamos tu nivel y armamos tu plan de preparación.
             </p>
-            <div className="pt-2 space-y-2">
-              <Link href="/agendar">
-                <Button
-                  variant="primary"
-                  size="md"
-                  className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
-                >
-                  Agendar entrevista gratis
-                </Button>
-              </Link>
+            <div className="pt-2 flex flex-col items-center gap-2.5">
+              <Button
+                href="/agendar"
+                variant="primary"
+                size="md"
+                className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+              >
+                Agendar entrevista
+              </Button>
               <p className="text-xs font-heading font-medium text-slate-500">
-                20 min · Sin costo · Sin compromiso
+                20 min · Sin costo
               </p>
             </div>
           </div>
