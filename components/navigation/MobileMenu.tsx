@@ -133,7 +133,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 Resultados
               </Link>
 
-              {/* Acordeón: Nuestros programas */}
+              {/* Acordeón: Programas */}
               <div className="space-y-1">
                 <button
                   type="button"
@@ -141,7 +141,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                   onClick={() => setProgramasOpen(!programasOpen)}
                   className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-[15px] font-heading font-bold text-[#001837] hover:bg-slate-50 transition-colors cursor-pointer text-left"
                 >
-                  <span>Nuestros programas</span>
+                  <span>Programas</span>
                   <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${programasOpen ? 'rotate-180 text-[#834296]' : ''}`} />
                 </button>
 
@@ -155,7 +155,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                       <span className="w-6 h-6 rounded-full bg-[#834296] text-white flex items-center justify-center shrink-0">
                         <BookOpen className="w-3 h-3 stroke-[2.2]" />
                       </span>
-                      <span>Nuestros programas</span>
+                      <span>Planes de inglés (Adultos)</span>
                     </Link>
                     <Link
                       href="/idiomas"

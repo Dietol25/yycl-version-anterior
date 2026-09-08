@@ -116,10 +116,10 @@ export const Footer = () => {
             )}
           </div>
 
-          {/* Col 3: NUESTROS PROGRAMAS / PROGRAMS (Desktop: 3 cols) */}
+          {/* Col 3: PROGRAMAS / PROGRAMS (Desktop: 3 cols) */}
           <div className="space-y-3.5 lg:col-span-3">
             <h4 className="font-heading font-bold text-white uppercase tracking-wider text-[11px]">
-              {isEn ? "PROGRAMS" : "NUESTROS PROGRAMAS"}
+              {isEn ? "PROGRAMS" : "PROGRAMAS"}
             </h4>
             {isEn ? (
               <div className="flex flex-col space-y-2 text-xs sm:text-[13px] font-body-regular text-white/90">
@@ -130,7 +130,7 @@ export const Footer = () => {
               </div>
             ) : (
               <div className="flex flex-col space-y-2 text-xs sm:text-[13px] font-body-regular text-white/90">
-                <Link href="/planes" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Nuestros programas</Link>
+                <Link href="/planes" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Planes de inglés</Link>
                 <Link href="/idiomas" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Otros idiomas</Link>
                 <Link href="/kids" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Kids & Teens</Link>
                 <Link href="/empresas" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Capacitación corporativa en idiomas</Link>
@@ -169,13 +169,13 @@ export const Footer = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-fine-print text-white/90">
           <p>© 2026 Yes You Can Languages. {isEn ? "All rights reserved." : "Todos los derechos reservados."}</p>
           <div className="flex items-center gap-5 text-white/85">
-            <Link href={isEn ? "/en/about-us" : "/sobre-yycl"} className="hover:underline hover:text-white">
+            <Link href="/legales#privacidad" className="hover:underline hover:text-white">
               {isEn ? "Privacy Policy" : "Privacidad"}
             </Link>
-            <Link href={isEn ? "/en/about-us" : "/sobre-yycl"} className="hover:underline hover:text-white">
+            <Link href="/legales#terminos" className="hover:underline hover:text-white">
               {isEn ? "Terms of Service" : "Términos del servicio"}
             </Link>
-            <Link href={isEn ? "/en/about-us" : "/sobre-yycl"} className="hover:underline hover:text-white">
+            <Link href="/legales#cookies" className="hover:underline hover:text-white">
               Cookies
             </Link>
           </div>

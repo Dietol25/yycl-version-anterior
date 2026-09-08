@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import { Star, ArrowRight, ExternalLink } from 'lucide-react';
+import { Star, ArrowRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/data';
 import { CountryFlag } from '@/components/icons/FlagIcons';
 import { AvatarInitials } from '@/components/ui/AvatarInitials';
@@ -17,11 +17,16 @@ export const TestimonialsGrid = () => {
   const featuredTestimonials = TESTIMONIALS.slice(0, 3);
 
   const prevSlide = () => {
-    setActiveIndex((prev) => (prev === 0 ? featuredTestimonials.length - 1 : prev - 1));
+    setActiveIndex((prev) => Math.max(0, prev - 1));
   };
 
   const nextSlide = () => {
-    setActiveIndex((prev) => (prev === featuredTestimonials.length - 1 ? 0 : prev + 1));
+    setActiveIndex((prev) => Math.min(featuredTestimonials.length - 1, prev + 1));
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
   };
 
   // Touch handlers for fluid mobile swipe gesture
@@ -141,10 +146,14 @@ export const TestimonialsGrid = () => {
         {/* MOBILE VIEW (< lg): Swipe Carousel with Slim Dots Indicator (3 Featured)   */}
         {/* ========================================================================= */}
         <div
-          className="block lg:hidden max-w-sm mx-auto space-y-4 touch-manipulation select-none"
+          className="block lg:hidden max-w-sm mx-auto space-y-4 touch-manipulation select-none focus:outline-none"
+          tabIndex={0}
+          onKeyDown={handleKeyDown}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          aria-roledescription="carrusel"
+          aria-label="Testimonios destacados"
         >
           <div
             key={activeIndex}
@@ -194,28 +203,52 @@ export const TestimonialsGrid = () => {
             </div>
           </div>
 
-          {/* Slim Dots Indicator */}
-          <div className="flex items-center justify-center gap-2 py-1">
-            {featuredTestimonials.map((_, idx) => {
-              const isActive = activeIndex === idx;
-              return (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setActiveIndex(idx)}
-                  className="p-1.5 cursor-pointer touch-manipulation"
-                  aria-label={`Ver testimonio ${idx + 1}`}
-                >
-                  <div
-                    className={`rounded-full transition-all duration-200 ${
-                      isActive
-                        ? 'w-6 h-2 bg-[#834296] rounded-full'
-                        : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-                    }`}
-                  />
-                </button>
-              );
-            })}
+          {/* Controls: Prev button + Slim Dots + Next button (No infinite loop) */}
+          <div className="flex items-center justify-center gap-3 py-1">
+            <button
+              type="button"
+              onClick={prevSlide}
+              disabled={activeIndex === 0}
+              className="p-2 rounded-full text-slate-500 hover:text-[#001837] disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer touch-manipulation"
+              aria-label="Testimonio anterior"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-1" role="tablist" aria-label="Indicadores de testimonios">
+              {featuredTestimonials.map((_, idx) => {
+                const isActive = activeIndex === idx;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setActiveIndex(idx)}
+                    className="p-1.5 cursor-pointer touch-manipulation focus:outline-none"
+                    aria-label={`Testimonio ${idx + 1} de ${featuredTestimonials.length}`}
+                  >
+                    <div
+                      className={`transition-all duration-200 ${
+                        isActive
+                          ? 'w-6 h-2 bg-[#834296] rounded-full'
+                          : 'w-2 h-2 bg-slate-300 hover:bg-slate-400 rounded-full'
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              onClick={nextSlide}
+              disabled={activeIndex === featuredTestimonials.length - 1}
+              className="p-2 rounded-full text-slate-500 hover:text-[#001837] disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer touch-manipulation"
+              aria-label="Siguiente testimonio"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
 

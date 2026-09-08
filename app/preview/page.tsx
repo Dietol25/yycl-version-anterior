@@ -33,7 +33,7 @@ export default function AlternativePreviewPage() {
       {/* 4. RESULTADOS & AUTORIDAD: Color Blocking Oscuro #001837 + Google Reviews 5.0 (Sofi Health + Berlitz) */}
       <PreviewDarkResults />
 
-      {/* 5. CIERRE FINAL: Sí puedes. Yes you can. */}
+      {/* 5. CIERRE FINAL: Sí puedes. Yes You Can. */}
       <section className="py-24 lg:py-28 bg-[#FDF8F3] text-center border-t border-[#001837]/10">
         <div className="max-w-lg mx-auto px-5 space-y-5">
           <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">

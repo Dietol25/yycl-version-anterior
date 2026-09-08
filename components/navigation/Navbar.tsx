@@ -149,7 +149,7 @@ export const Navbar = () => {
                     isProgramasActive ? 'text-[#001837] font-bold' : 'text-slate-700'
                   }`}
                 >
-                  <span>Nuestros programas</span>
+                  <span>Programas</span>
                   <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform duration-200 ${programasDropdownOpen ? 'rotate-180' : ''}`} />
                   {isProgramasActive && (
                     <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#FFD203] rounded-t-full" />
@@ -326,7 +326,7 @@ export const Navbar = () => {
                 pathname === '/login' ? 'text-[#001837] font-bold underline' : 'text-[#3C4C92] hover:text-[#001837]'
               }`}
             >
-              {isEn ? 'Student Portal' : 'Plataforma'}
+              {isEn ? 'Student Portal ↗' : 'Plataforma ↗'}
             </Link>
 
             <Link href={isEn ? '/en/agendar' : '/agendar'}>
