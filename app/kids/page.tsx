@@ -64,10 +64,13 @@ export default function KidsPage() {
                     Kids & Teens
                     <BrushStroke color="#4DC2DA" variant="playful" className="absolute -bottom-2.5 left-0 w-full h-4 -z-10" />
                   </span>
-                  <span className="block text-xl sm:text-2xl lg:text-3xl text-slate-700 font-bold mt-2 font-heading">
-                    De 7 a 16 años · Modalidad Personalizada
-                  </span>
                 </h1>
+
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-sm sm:text-base font-heading font-bold">
+                  <span className="text-[#0284C7]">De 7 a 16 años</span>
+                  <span className="text-slate-300">•</span>
+                  <span className="text-slate-600">Modalidad Personalizada</span>
+                </div>
 
                 <p className="text-base sm:text-lg text-slate-600 font-body-large max-w-xl mx-auto lg:mx-0 leading-relaxed">
                   Que empiecen a jugar en inglés desde ya — con clases 100% personalizadas y pensadas para su edad, no una clase de adultos en miniatura.

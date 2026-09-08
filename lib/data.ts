@@ -15,15 +15,15 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: '2',
-    name: 'Nicolás Ibáñez',
-    role: 'Profesional en Tecnología',
+    name: 'Clara Reinoso',
+    role: 'Profesional en Finanzas',
     company: 'Google Reviews 5.0★',
-    avatar: '/assets/avatares/hombre.png',
-    country: 'Argentina',
-    countryFlag: '🇦🇷',
+    avatar: '/assets/avatares/mujer.png',
+    country: 'México',
+    countryFlag: '🇲🇽',
     rating: 5,
-    highlight: 'Jose is THE GOAT!',
-    quote: 'Lo puedo decir en inglés: "Jose is THE GOAT". He progresado mucho en poco tiempo con sus clases! Siempre muy paciente y pedagógico.'
+    highlight: 'Gané seguridad para expresarme con soltura.',
+    quote: 'Las clases son súper dinámicas y personalizadas. Pasé de tener temor a hablar en juntas de trabajo a expresarme con fluidez y confianza total.'
   },
   {
     id: '3',
@@ -39,15 +39,15 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: '4',
-    name: 'Clara Reinoso',
-    role: 'Profesional en Finanzas',
+    name: 'Nicolás Ibáñez',
+    role: 'Profesional en Tecnología',
     company: 'Google Reviews 5.0★',
-    avatar: '/assets/avatares/mujer.png',
-    country: 'México',
-    countryFlag: '🇲🇽',
+    avatar: '/assets/avatares/hombre.png',
+    country: 'Argentina',
+    countryFlag: '🇦🇷',
     rating: 5,
-    highlight: 'Gané seguridad para expresarme con soltura.',
-    quote: 'Las clases son súper dinámicas y personalizadas. Pasé de tener temor a hablar en juntas de trabajo a expresarme con fluidez y confianza total.'
+    highlight: 'Jose is THE GOAT!',
+    quote: 'Lo puedo decir en inglés: "Jose is THE GOAT". He progresado mucho en poco tiempo con sus clases! Siempre muy paciente y pedagógico.'
   },
   {
     id: '5',
