@@ -2,12 +2,10 @@
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import { Star, Play, X, ExternalLink, MessageCircle, Award, CheckCircle2 } from 'lucide-react';
+import { Star, Play, X, ExternalLink } from 'lucide-react';
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { Button } from '@/components/ui/Button';
-import { SliderControls } from '@/components/ui/SliderControls';
-import { TESTIMONIALS } from '@/lib/data';
 import { CountryFlag } from '@/components/icons/FlagIcons';
 import { AvatarInitials } from '@/components/ui/AvatarInitials';
 
@@ -18,14 +16,14 @@ const INSTAGRAM_HIGHLIGHTS_URL = 'https://www.instagram.com/stories/highlights/1
 const VERIFIED_TESTIMONIALS = [
   {
     id: '1',
-    name: 'Clara Reinoso',
-    role: 'Profesional en Finanzas',
-    quote: 'Las clases son súper dinámicas y personalizadas. Pasé de tener temor a hablar en juntas de trabajo a expresarme con fluidez y confianza total.',
+    name: 'Maria Badano',
+    role: 'Estudiante Modalidad Personalizada',
+    quote: 'En mi caso particular, que tengo de profe a Mica Sedan, estoy muy contenta. Es súper flexible a los pedidos, objetivos y adapta todo el material en función de lo que uno quiere desarrollar.',
     avatar: '/assets/avatares/mujer.png',
     source: 'Google Reviews 5.0★',
     sourceUrl: GOOGLE_MAPS_REVIEWS_URL,
-    country: 'México',
-    countryFlag: '🇲🇽',
+    country: 'Argentina',
+    countryFlag: '🇦🇷',
   },
   {
     id: '2',

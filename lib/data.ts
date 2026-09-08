@@ -3,18 +3,6 @@ import { Teacher, PricingPlan, Testimonial } from './types';
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
-    name: 'Yuliana Navarro',
-    role: 'Estudiante YYCL',
-    company: 'Google Reviews 5.0★',
-    avatar: '/assets/avatares/mujer.png',
-    country: 'Colombia',
-    countryFlag: '🇨🇴',
-    rating: 5,
-    highlight: 'Me he permitido preguntar, hablar y lanzarme sin juzgamientos.',
-    quote: 'Me han encantado... Me he permitido preguntar, hablar y lanzarme. Me gusta que no hay juzgamientos; por eso aprovecho todo.'
-  },
-  {
-    id: '2',
     name: 'Diana Proaño',
     role: 'Guía de Turismo',
     company: 'Google Reviews 5.0★',
@@ -24,6 +12,18 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     highlight: 'Pude mejorar la gramática, vocabulario y habla con total soltura.',
     quote: 'YYCL me ayudó a refrescar mis conocimientos y a practicar toda la teoría. Pude soltarme al hablar, perder la pena y mejorar mi vocabulario con un horario súper flexible.'
+  },
+  {
+    id: '2',
+    name: 'Nicolás Ibáñez',
+    role: 'Profesional en Tecnología',
+    company: 'Google Reviews 5.0★',
+    avatar: '/assets/avatares/hombre.png',
+    country: 'Argentina',
+    countryFlag: '🇦🇷',
+    rating: 5,
+    highlight: 'Jose is THE GOAT!',
+    quote: 'Lo puedo decir en inglés: "Jose is THE GOAT". He progresado mucho en poco tiempo con sus clases! Siempre muy paciente y pedagógico.'
   },
   {
     id: '3',
@@ -63,15 +63,15 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: '6',
-    name: 'Nicolás Ibáñez',
-    role: 'Profesional en Tecnología',
+    name: 'Yuliana Navarro',
+    role: 'Estudiante YYCL',
     company: 'Google Reviews 5.0★',
-    avatar: '/assets/avatares/hombre.png',
-    country: 'Argentina',
-    countryFlag: '🇦🇷',
+    avatar: '/assets/avatares/mujer.png',
+    country: 'Colombia',
+    countryFlag: '🇨🇴',
     rating: 5,
-    highlight: 'Jose is THE GOAT!',
-    quote: 'Lo puedo decir en inglés: "Jose is THE GOAT". He progresado mucho en poco tiempo con sus clases! Siempre muy paciente y pedagógico.'
+    highlight: 'Me he permitido preguntar, hablar y lanzarme sin juzgamientos.',
+    quote: 'Me han encantado... Me he permitido preguntar, hablar y lanzarme. Me gusta que no hay juzgamientos; por eso aprovecho todo.'
   }
 ];
 

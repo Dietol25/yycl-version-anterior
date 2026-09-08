@@ -14,12 +14,14 @@ export const TestimonialsGrid = () => {
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
+  const featuredTestimonials = TESTIMONIALS.slice(0, 3);
+
   const prevSlide = () => {
-    setActiveIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1));
+    setActiveIndex((prev) => (prev === 0 ? featuredTestimonials.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setActiveIndex((prev) => (prev === TESTIMONIALS.length - 1 ? 0 : prev + 1));
+    setActiveIndex((prev) => (prev === featuredTestimonials.length - 1 ? 0 : prev + 1));
   };
 
   // Touch handlers for fluid mobile swipe gesture
@@ -136,7 +138,7 @@ export const TestimonialsGrid = () => {
         </div>
 
         {/* ========================================================================= */}
-        {/* MOBILE VIEW (< lg): Swipe Carousel with Slim Dots Indicator               */}
+        {/* MOBILE VIEW (< lg): Swipe Carousel with Slim Dots Indicator (3 Featured)   */}
         {/* ========================================================================= */}
         <div
           className="block lg:hidden max-w-sm mx-auto space-y-4 touch-manipulation select-none"
@@ -158,19 +160,19 @@ export const TestimonialsGrid = () => {
 
               {/* Quote */}
               <blockquote className="text-xs sm:text-sm font-heading font-medium text-white/95 leading-relaxed">
-                "{TESTIMONIALS[activeIndex].quote}"
+                "{featuredTestimonials[activeIndex]?.quote}"
               </blockquote>
             </div>
 
             <div className="space-y-2.5 pt-3 border-t border-white/15">
               <div className="flex items-center gap-3">
-                <AvatarInitials name={TESTIMONIALS[activeIndex].name} size="md" />
+                <AvatarInitials name={featuredTestimonials[activeIndex]?.name || ''} size="md" />
                 <div>
                   <span className="block font-heading font-bold text-xs sm:text-sm text-white leading-tight">
-                    {TESTIMONIALS[activeIndex].name}
+                    {featuredTestimonials[activeIndex]?.name}
                   </span>
                   <span className="block text-[11px] font-medium text-white/80">
-                    {TESTIMONIALS[activeIndex].role}
+                    {featuredTestimonials[activeIndex]?.role}
                   </span>
                 </div>
               </div>
@@ -185,8 +187,8 @@ export const TestimonialsGrid = () => {
                   <span>Google Reviews 5.0★</span>
                   <ExternalLink className="w-3 h-3 text-[#FFD203]" />
                 </a>
-                <span title={TESTIMONIALS[activeIndex].country} className="flex items-center">
-                  <CountryFlag code={TESTIMONIALS[activeIndex].countryFlag || TESTIMONIALS[activeIndex].country || 'CO'} size={18} />
+                <span title={featuredTestimonials[activeIndex]?.country} className="flex items-center">
+                  <CountryFlag code={featuredTestimonials[activeIndex]?.countryFlag || featuredTestimonials[activeIndex]?.country || 'CO'} size={18} />
                 </span>
               </div>
             </div>
@@ -194,7 +196,7 @@ export const TestimonialsGrid = () => {
 
           {/* Slim Dots Indicator */}
           <div className="flex items-center justify-center gap-2 py-1">
-            {TESTIMONIALS.map((_, idx) => {
+            {featuredTestimonials.map((_, idx) => {
               const isActive = activeIndex === idx;
               return (
                 <button
