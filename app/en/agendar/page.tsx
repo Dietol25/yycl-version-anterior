@@ -7,7 +7,7 @@ import { EnglishCategoryTabs } from '@/components/navigation/EnglishCategoryTabs
 
 export const metadata: Metadata = {
   title: "Book your no-cost interview",
-  description: "15-minute 1-on-1 live session with a real teacher on Google Meet. Level assessment and personalized roadmap with zero obligation.",
+  description: "30-minute 1-on-1 live session with a real teacher on Google Meet. Level assessment and personalized roadmap with zero obligation.",
 };
 
 export default function EnAgendarPage() {
@@ -28,7 +28,7 @@ export default function EnAgendarPage() {
               Book your no-cost interview
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 font-body-regular max-w-md mx-auto leading-relaxed">
-              15-minute 1-on-1 live session with a real teacher on Google Meet. Level assessment and personalized roadmap with zero obligation.
+              30-minute 1-on-1 live session with a real teacher on Google Meet. Level assessment and personalized roadmap with zero obligation.
             </p>
           </div>
 

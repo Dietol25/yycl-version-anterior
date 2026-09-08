@@ -105,8 +105,8 @@ export default function EnglishHomePage() {
                       Looking for English courses instead? →
                     </Link>
                   </div>
-                  <p className="text-xs font-heading font-medium text-slate-500">
-                    20 min · No cost · No commitment
+                  <p className="text-xs font-heading font-medium text-slate-600">
+                    30 min · No cost · No commitment
                   </p>
                 </div>
               </div>

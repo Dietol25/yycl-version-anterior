@@ -177,7 +177,7 @@ export default function SobreYYCLPage() {
                   <Play className="w-8 h-8 fill-current translate-x-0.5" />
                 </div>
                 <h4 className="text-xl font-heading font-bold text-white">Nuestra filosofía — Sí puedes. Yes You Can.</h4>
-                <p className="text-sm text-slate-400 max-w-md mx-auto">Video institucional de presentación de método y fundadores de YYCL.</p>
+                <p className="text-sm text-slate-300 max-w-md mx-auto">Video institucional de presentación de método y fundadores de YYCL.</p>
               </div>
             </div>
           </div>

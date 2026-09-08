@@ -19,7 +19,7 @@ export const CtaBanner = () => {
         </h2>
 
         <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto">
-          Agenda hoy tu diagnóstico de nivel gratuito de 15 minutos. Sin tarjetas de crédito, sin compromisos. Solo tú y un profesor trazando tu camino al inglés fluido.
+          Agenda hoy tu diagnóstico de nivel gratuito de 30 minutos. Sin tarjetas de crédito, sin compromisos. Solo tú y un profesor trazando tu camino al inglés fluido.
         </p>
 
         <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-center">

@@ -121,7 +121,7 @@ export default function OtrosIdiomasPage() {
                         <div className="w-10 h-10 rounded-2xl bg-slate-50 border border-black/5 flex items-center justify-center text-[#001837]">
                           <IconComponent className="w-5 h-5 stroke-[2.2]" />
                         </div>
-                        <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-slate-400">
+                        <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-slate-500">
                           {card.tag}
                         </span>
                       </div>

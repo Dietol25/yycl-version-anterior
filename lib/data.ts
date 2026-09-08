@@ -193,11 +193,11 @@ export const TEACHERS: Teacher[] = [
 export const FAQS = [
   {
     q: '¿Por qué no publican los precios exactos en la web?',
-    a: 'Porque cada plan se ajusta a tu frecuencia semanal, tu nivel y si requieres preparación específica (ej. entrevistas o exámenes internacionales). En tu entrevista gratuita de 15 minutos te damos el valor exacto sin ningún compromiso.'
+    a: 'Porque cada plan se ajusta a tu frecuencia semanal, tu nivel y si requieres preparación específica (ej. entrevistas o exámenes internacionales). En tu entrevista gratuita de 30 minutos te damos el valor exacto sin ningún compromiso.'
   },
   {
     q: '¿Qué incluye la entrevista gratuita?',
-    a: 'Un diagnóstico oral de 15 minutos donde conversamos para conocer tu nivel real, tus bloqueos y trazamos tu plan personalizado.'
+    a: 'Un diagnóstico oral de 30 minutos donde conversamos para conocer tu nivel real, tus bloqueos y trazamos tu plan personalizado.'
   },
   {
     q: '¿El Club de Conversación tiene costo extra?',

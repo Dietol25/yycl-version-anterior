@@ -174,7 +174,7 @@ export default function LoginPage() {
       </div>
 
       {/* Subtle Bottom Copyright */}
-      <div className="text-center text-[11px] text-slate-400 font-fine-print z-10">
+      <div className="text-center text-[11px] text-slate-500 font-fine-print z-10">
         © 2026 Yes You Can Languages. Todos los derechos reservados.
       </div>
     </main>

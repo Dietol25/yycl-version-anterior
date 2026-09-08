@@ -244,6 +244,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               <div className="pt-2">
                 <Link
                   href="/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={onClose}
                   className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-[#3C4C92] hover:bg-slate-100 transition-colors shadow-2xs"
                 >
@@ -272,7 +274,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           </Link>
 
           {!isEn && (
-            <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 font-medium">
+            <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 font-medium">
               <Star className="w-3 h-3 fill-[#FFD203] text-[#FFD203]" />
               <span>5.0 en Google Reviews · @yesyoucanlanguages</span>
             </div>

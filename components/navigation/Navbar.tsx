@@ -322,6 +322,8 @@ export const Navbar = () => {
 
             <Link
               href="/login"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`text-[14px] font-heading font-semibold transition-colors whitespace-nowrap ${
                 pathname === '/login' ? 'text-[#001837] font-bold underline' : 'text-[#3C4C92] hover:text-[#001837]'
               }`}

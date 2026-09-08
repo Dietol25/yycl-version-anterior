@@ -73,7 +73,7 @@ export default function NotFound() {
       </main>
 
       {/* Footer Minimalista de 1 sola línea para 404 (sin forzar scroll de 600px) */}
-      <footer className="py-2.5 px-6 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 shrink-0 bg-white">
+      <footer className="py-2.5 px-6 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 shrink-0 bg-white">
         <span>© {new Date().getFullYear()} Yes You Can Languages</span>
         <Link href={isEn ? "/en" : "/"} className="text-[#834296] font-semibold hover:underline">
           {isEn ? "Go to Home →" : "Ir al Inicio →"}

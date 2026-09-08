@@ -205,7 +205,7 @@ export default function EmpresasPage() {
                       <span className={`text-sm font-heading font-black tracking-wider ${item.numberColor}`}>
                         {item.number}
                       </span>
-                      <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-slate-400">
+                      <span className="text-[11px] font-heading font-extrabold uppercase tracking-wider text-slate-500">
                         PASO
                       </span>
                     </div>

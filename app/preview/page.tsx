@@ -44,7 +44,7 @@ export default function AlternativePreviewPage() {
             <span className="text-[#834296]">Yes You Can.</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 font-body-regular">
-            15 minutos de conversación con nuestro equipo para definir tu punto de partida, totalmente gratis.
+            30 minutos de conversación con nuestro equipo para definir tu punto de partida, totalmente gratis.
           </p>
           <div className="pt-3">
             <Link href="/agendar">
