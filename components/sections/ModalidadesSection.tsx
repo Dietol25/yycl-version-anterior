@@ -156,20 +156,20 @@ export const ModalidadesSection = () => {
                     ))}
                   </ul>
                 </div>
-
-                {/* Action Ghost Link */}
-                <div className="pt-6 border-t border-white/20 mt-6">
-                  <Link
-                    href="/planes"
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-white hover:underline transition-colors"
-                  >
-                    <span>Ver qué opción me conviene</span>
-                    <span>→</span>
-                  </Link>
-                </div>
               </div>
             );
           })}
+        </div>
+
+        {/* CTA Unificado para la sección */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/planes"
+            className="inline-flex items-center gap-1.5 text-sm sm:text-base font-heading font-bold text-[#834296] hover:text-[#001837] hover:underline px-6 py-2.5 rounded-full transition-all group cursor-pointer"
+          >
+            <span>Comparar planes y modalidades</span>
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
         </div>
       </div>
     </section>
