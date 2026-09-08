@@ -51,15 +51,15 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: '5',
-    name: 'Yulian Sentani',
-    role: 'Especialista en Marketing Digital',
+    name: 'Lorena Morando',
+    role: 'Estudiante YYCL · Local Guide',
     company: 'Google Reviews 5.0★',
-    avatar: '/assets/avatares/hombre.png',
-    country: 'España',
-    countryFlag: '🇪🇸',
+    avatar: '/assets/avatares/mujer.png',
+    country: 'Argentina',
+    countryFlag: '🇦🇷',
     rating: 5,
-    highlight: 'Clases prácticas desde el primer minuto.',
-    quote: 'Me encanta que no hay juzgamientos ni teoría aburrida; te lanzas a hablar desde la primera clase. Es el empujón práctico que necesitaba para dar el salto profesional.'
+    highlight: 'Realmente muy didáctica la clase y súper recomendables.',
+    quote: 'Son excelentes profesionales. Realmente muy didáctica la clase. Puedo llevar las clases y las tareas al día ya que entiendo perfectamente y a mí antes me costaba mucho entender el idioma. Son súper recomendables!'
   },
   {
     id: '6',
