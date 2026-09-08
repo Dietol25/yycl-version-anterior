@@ -132,7 +132,7 @@ export const Footer = () => {
               <div className="flex flex-col space-y-2 text-xs sm:text-[13px] font-body-regular text-white/90">
                 <Link href="/planes" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Planes de inglés</Link>
                 <Link href="/idiomas" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Otros idiomas</Link>
-                <Link href="/kids" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Kids & Teens</Link>
+                <Link href="/kids" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Kids & Teens (Niños y adolescentes)</Link>
                 <Link href="/empresas" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Capacitación corporativa en idiomas</Link>
                 <Link href="/servicios-especiales" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Servicios Especiales</Link>
               </div>

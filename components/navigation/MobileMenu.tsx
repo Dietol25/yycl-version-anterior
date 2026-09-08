@@ -175,7 +175,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                       <span className="w-6 h-6 rounded-full bg-[#4DC2DA] text-[#001837] flex items-center justify-center shrink-0">
                         <Sparkles className="w-3 h-3 stroke-[2.2]" />
                       </span>
-                      <span>Kids & Teens</span>
+                      <span>Kids & Teens (Niños y adolescentes)</span>
                     </Link>
                     <Link
                       href="/empresas"
