@@ -82,9 +82,6 @@ export default function KidsPage() {
                   >
                     Agendar entrevista
                   </Button>
-                  <p className="text-xs font-heading font-medium text-slate-500">
-                    20 min · Sin costo
-                  </p>
                 </div>
               </div>
 

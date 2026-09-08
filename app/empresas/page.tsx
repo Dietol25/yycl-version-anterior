@@ -134,7 +134,7 @@ export default function EmpresasPage() {
                 </p>
 
                 {/* Botón Primario Amarillo (#FFD203) */}
-                <div className="pt-3 space-y-2">
+                <div className="pt-3">
                   <Link href="/agendar">
                     <Button
                       variant="primary"
@@ -144,9 +144,6 @@ export default function EmpresasPage() {
                       Agendar reunión
                     </Button>
                   </Link>
-                  <p className="text-xs font-heading font-medium text-slate-500">
-                    Reunión de 20 min · Sin costo · Sin compromiso
-                  </p>
                 </div>
               </div>
 

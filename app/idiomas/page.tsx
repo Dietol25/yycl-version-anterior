@@ -73,9 +73,6 @@ export default function OtrosIdiomasPage() {
                   >
                     Agendar entrevista
                   </Button>
-                  <p className="text-xs font-heading font-medium text-slate-500">
-                    20 min · Sin costo
-                  </p>
                 </div>
               </div>
 

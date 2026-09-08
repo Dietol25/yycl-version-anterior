@@ -159,9 +159,6 @@ export default function ResultadosPage() {
                   >
                     Agendar entrevista
                   </Button>
-                  <p className="text-xs font-heading font-medium text-slate-500 pl-1">
-                    20 min · Sin costo
-                  </p>
                 </div>
               </div>
 
