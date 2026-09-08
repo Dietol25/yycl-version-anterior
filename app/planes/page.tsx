@@ -282,7 +282,7 @@ export default function PlanesPage() {
                   ¿Cómo sé cuál es mi nivel de inglés?
                 </h3>
                 <p className="text-sm text-slate-600 font-body-regular leading-relaxed">
-                  Tu nivel exacto se define durante la entrevista gratuita de 30 minutos con un profesor de YYCL, evaluando tu fluidez y comprensión real al hablar.
+                  Tu nivel exacto se define durante la entrevista gratuita de 20 minutos con un profesor de YYCL, evaluando tu fluidez y comprensión real al hablar.
                 </p>
               </div>
 

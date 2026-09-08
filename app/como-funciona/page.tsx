@@ -204,7 +204,7 @@ export default function ComoFuncionaPage() {
                 Tu nivel, sin complicaciones.
               </h2>
               <p className="text-sm sm:text-base text-slate-600 font-medium max-w-xl mx-auto">
-                No necesitas saber tu nivel antes de empezar. Lo identificamos contigo durante la entrevista gratuita de 30 minutos.
+                No necesitas saber tu nivel antes de empezar. Lo identificamos contigo durante la entrevista gratuita de 20 minutos.
               </p>
             </div>
 

@@ -56,7 +56,7 @@ export default function KidsPage() {
               <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
                 <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#0284C7]">
                   <span className="w-2 h-2 rounded-full bg-[#4DC2DA]" />
-                  <span>Kids & Teens</span>
+                  <span>Programa Kids & Teens</span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#001837] tracking-tight leading-[1.15]">
@@ -64,13 +64,13 @@ export default function KidsPage() {
                     Kids & Teens
                     <BrushStroke color="#4DC2DA" variant="playful" className="absolute -bottom-2.5 left-0 w-full h-4 -z-10" />
                   </span>
-                  <span className="block text-2xl sm:text-3xl text-slate-700 font-bold mt-2 font-heading">
-                    (Niños y adolescentes)
+                  <span className="block text-xl sm:text-2xl lg:text-3xl text-slate-700 font-bold mt-2 font-heading">
+                    De 7 a 16 años · Modalidad Personalizada
                   </span>
                 </h1>
 
                 <p className="text-base sm:text-lg text-slate-600 font-body-large max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  Que empiecen a jugar en inglés desde ya — con clases pensadas para su edad, no una clase de adultos en miniatura.
+                  Que empiecen a jugar en inglés desde ya — con clases 100% personalizadas y pensadas para su edad, no una clase de adultos en miniatura.
                 </p>
 
                 <div className="pt-2 flex flex-col items-center lg:items-start gap-2.5">

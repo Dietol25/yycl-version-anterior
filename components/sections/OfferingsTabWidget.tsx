@@ -124,7 +124,7 @@ export const OfferingsTabWidget = () => {
             Nuestra Oferta
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
-            Inglés conversacional y programas a tu medida
+            Encuentra la opción que va contigo
           </h2>
           <p className="text-sm sm:text-base text-slate-600 font-medium pt-1">
             El corazón de YYCL es el inglés para adultos. También ofrecemos opciones especializadas para otras metas y formatos.

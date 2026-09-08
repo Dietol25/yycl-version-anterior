@@ -64,7 +64,7 @@ export const HeroSection = () => {
 
               {/* Microcopy de confianza */}
               <p className="text-[11px] sm:text-xs font-heading font-medium text-slate-600 pl-1">
-                30 min · Sin costo · Sin compromiso
+                20 min · Sin costo · Sin compromiso
               </p>
             </div>
           </div>

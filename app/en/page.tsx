@@ -106,7 +106,7 @@ export default function EnglishHomePage() {
                     </Link>
                   </div>
                   <p className="text-xs font-heading font-medium text-slate-600">
-                    30 min · No cost · No commitment
+                    20 min · No cost · No commitment
                   </p>
                 </div>
               </div>
