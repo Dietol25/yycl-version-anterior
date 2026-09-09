@@ -110,7 +110,7 @@ export default function ProfesoresPage() {
       id: 'katherin-patino',
       name: 'Katherin Patiño',
       role: 'Profesora de Portugués',
-      bio: 'Bom dia!!! En YYCL intento crear clases dinámicas y divertidas, que aproximen a los estudiantes de la lengua y la cultura brasileña, de forma simple y en confianza, logrando avances significativos en poco tiempo.',
+      bio: 'Bom dia!!! En YYCL creo clases dinámicas y divertidas, que aproximen a los estudiantes de la lengua y la cultura brasileña, de forma simple y en confianza, logrando avances significativos en poco tiempo.',
       image: '/assets/profesores/katherine-patino.png',
       avatarBg: 'bg-[#FFE2C0]',
     },
