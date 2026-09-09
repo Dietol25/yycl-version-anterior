@@ -129,13 +129,13 @@ export const ModalidadesSection = () => {
                     </div>
                   </div>
 
-                  {/* Titular & Subtítulo con altura mínima para alineación precisa */}
+                  {/* Titular & Subtítulo con jerarquía refinada */}
                   <div className="space-y-1.5 pt-1">
                     <div>
                       <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight leading-tight">
                         {mod.title}
                       </h3>
-                      <p className="text-xs sm:text-sm font-heading font-extrabold text-[#FFE500] uppercase tracking-wider mt-0.5">
+                      <p className="text-[11px] sm:text-xs font-heading font-bold text-[#FFE500]/90 uppercase tracking-widest mt-0.5">
                         {mod.commercialName}
                       </p>
                     </div>
@@ -143,7 +143,7 @@ export const ModalidadesSection = () => {
                       {mod.subtitle}
                     </p>
                     {mod.id === 'duo' && (
-                      <p className="text-[11px] sm:text-xs text-white/80 font-normal leading-snug pt-1 italic">
+                      <p className="text-[11px] text-white/70 font-normal leading-snug pt-1 italic">
                         ¿Tienes a alguien con quien quieras practicar? Empiecen juntos.
                       </p>
                     )}
