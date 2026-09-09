@@ -32,7 +32,7 @@ export const ModalidadesSection = () => {
     {
       id: 'personalizada',
       title: 'Personalizada',
-      badge: 'PERSONALIZADA',
+      badge: 'PERSONALIZADA · FLEX',
       badgeColor: 'bg-white/80 text-[#B26B06] border-[#EC9519]/40',
       iconBg: 'bg-[#FFD203] text-white',
       checkBg: 'bg-[#EC9519] text-white',
@@ -54,7 +54,7 @@ export const ModalidadesSection = () => {
     {
       id: 'duo',
       title: 'Dúo',
-      badge: 'DÚO',
+      badge: 'DÚO · FUSION',
       badgeColor: 'bg-white/80 text-[#001837] border-[#4DC2DA]/50',
       iconBg: 'bg-[#00B4D8] text-white',
       checkBg: 'bg-[#0284C7] text-white',
@@ -62,18 +62,17 @@ export const ModalidadesSection = () => {
       cardBgHover: 'hover:from-[#EBF9FD] hover:to-[#D5F2F8]',
       linkColor: 'text-[#001837]',
       icon: Users,
-      subtitle: 'Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas.',
+      subtitle: 'Dos personas, un mismo profesor y un plan compartido.',
       features: [
         'Clases para dos personas',
         'Mismo plan personalizado',
-        'Menor costo por persona que la individual',
-        'Clases enfocadas a su objetivo común'
+        'Menor costo por persona que la individual'
       ]
     },
     {
       id: 'grupal',
       title: 'Grupal',
-      badge: 'GRUPAL',
+      badge: 'GRUPAL · CONNECTION',
       badgeColor: 'bg-white/80 text-[#834296] border-[#834296]/40',
       iconBg: 'bg-[#834296] text-white',
       checkBg: 'bg-[#834296] text-white',
@@ -85,7 +84,7 @@ export const ModalidadesSection = () => {
       features: [
         'Máximo 8 alumnos',
         'Clases en vivo',
-        'Profesores con años de experiencia'
+        'Profesores con experiencia'
       ]
     }
   ];
@@ -137,7 +136,7 @@ export const ModalidadesSection = () => {
                     </p>
                     {mod.id === 'duo' && (
                       <p className="text-[11px] sm:text-xs text-white/80 font-normal leading-snug pt-1 italic">
-                        ¿Tienes una amiga o colega que también quiere perder el miedo al inglés? Empiecen juntas.
+                        ¿Tienes a alguien con quien quieras practicar? Empiecen juntos.
                       </p>
                     )}
                   </div>
