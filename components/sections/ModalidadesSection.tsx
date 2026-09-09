@@ -32,7 +32,8 @@ export const ModalidadesSection = () => {
     {
       id: 'personalizada',
       title: 'Personalizada',
-      badge: 'PERSONALIZADA · FLEX',
+      commercialName: 'FLEX',
+      badge: 'PERSONALIZADA',
       badgeColor: 'bg-white/80 text-[#B26B06] border-[#EC9519]/40',
       iconBg: 'bg-[#FFD203] text-white',
       checkBg: 'bg-[#EC9519] text-white',
@@ -54,7 +55,8 @@ export const ModalidadesSection = () => {
     {
       id: 'duo',
       title: 'Dúo',
-      badge: 'DÚO · FUSION',
+      commercialName: 'FUSION',
+      badge: 'DÚO',
       badgeColor: 'bg-white/80 text-[#001837] border-[#4DC2DA]/50',
       iconBg: 'bg-[#00B4D8] text-white',
       checkBg: 'bg-[#0284C7] text-white',
@@ -72,7 +74,8 @@ export const ModalidadesSection = () => {
     {
       id: 'grupal',
       title: 'Grupal',
-      badge: 'GRUPAL · CONNECTION',
+      commercialName: 'CONNECTION',
+      badge: 'GRUPAL',
       badgeColor: 'bg-white/80 text-[#834296] border-[#834296]/40',
       iconBg: 'bg-[#834296] text-white',
       checkBg: 'bg-[#834296] text-white',
@@ -128,10 +131,15 @@ export const ModalidadesSection = () => {
 
                   {/* Titular & Subtítulo con altura mínima para alineación precisa */}
                   <div className="space-y-1.5 pt-1">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
-                      {mod.title}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px]">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight leading-tight">
+                        {mod.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm font-heading font-extrabold text-[#FFE500] uppercase tracking-wider mt-0.5">
+                        {mod.commercialName}
+                      </p>
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px] pt-1">
                       {mod.subtitle}
                     </p>
                     {mod.id === 'duo' && (
