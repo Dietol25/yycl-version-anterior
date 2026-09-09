@@ -82,7 +82,7 @@ export const LanguageToggle = () => {
         onClick={handleToggleClick}
         title={titleText}
         aria-label={ariaText}
-        className="relative inline-flex items-center w-[88px] h-[44px] bg-slate-100/90 border-2 border-[#001837] rounded-full p-[2px] cursor-pointer select-none shadow-[2px_2px_0px_#001837] hover:shadow-[3px_3px_0px_#001837] active:shadow-[1px_1px_0px_#001837] active:translate-x-[1px] active:translate-y-[1px] shrink-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#834296]/50 transition-all duration-200"
+        className="relative inline-flex items-center w-[74px] sm:w-[88px] h-[36px] sm:h-[44px] bg-slate-100/90 border-2 border-[#001837] rounded-full p-[2px] cursor-pointer select-none shadow-[2px_2px_0px_#001837] hover:shadow-[3px_3px_0px_#001837] active:shadow-[1px_1px_0px_#001837] active:translate-x-[1px] active:translate-y-[1px] shrink-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#834296]/50 transition-all duration-200 touch-manipulation"
       >
         {/* Label ES (Visible en modo EN cuando el switch viaja a la derecha) */}
         <span
@@ -104,8 +104,8 @@ export const LanguageToggle = () => {
 
         {/* Sliding Tactile Knob con Smart Animate Glide */}
         <div
-          className={`absolute top-[2px] left-[2px] w-[36px] h-[36px] rounded-full border-2 border-[#001837] shadow-[1px_1px_0px_rgba(0,24,55,0.3)] overflow-hidden flex items-center justify-center bg-white transition-transform duration-280 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
-            optimisticEn ? 'translate-x-[44px]' : 'translate-x-0'
+          className={`absolute top-[2px] left-[2px] w-[28px] sm:w-[36px] h-[28px] sm:h-[36px] rounded-full border-2 border-[#001837] shadow-[1px_1px_0px_rgba(0,24,55,0.3)] overflow-hidden flex items-center justify-center bg-white transition-transform duration-280 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
+            optimisticEn ? 'translate-x-[38px] sm:translate-x-[44px]' : 'translate-x-0'
           }`}
         >
           <div className="relative w-full h-full flex items-center justify-center">

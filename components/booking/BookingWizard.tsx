@@ -245,14 +245,22 @@ export const BookingWizard = () => {
   };
 
   const scrollToWizardTop = () => {
-    const wizardEl = document.getElementById('wizard-container');
-    if (wizardEl) {
-      wizardEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try {
+      const wizardEl = document.getElementById('wizard-container');
+      if (wizardEl) {
+        wizardEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } catch {
+      // Fallback para versiones de WebKit antiguas
+      window.scrollTo({ top: 120, behavior: 'smooth' });
     }
   };
 
-  const handleNext = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
+  const handleNext = (e?: React.SyntheticEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
     if (step === 3) {
       const isNameValid = validateName(formData.firstName);
@@ -266,7 +274,9 @@ export const BookingWizard = () => {
     }
 
     setStep(prev => Math.min(prev + 1, 4));
-    scrollToWizardTop();
+    setTimeout(() => {
+      scrollToWizardTop();
+    }, 50);
   };
 
   const handleBack = () => {
