@@ -80,7 +80,7 @@ export default function OtrosIdiomasPage() {
               <div className="lg:col-span-6 flex justify-center">
                 <div className="relative w-full max-w-[520px]">
                   <img
-                    src="/assets/06_IDIOMAS/YYCL_13_IDIOMAS_FRANCES_PORTUGUES_IRREGULAR.png"
+                    src="/assets/06_IDIOMAS/YYCL_13_IDIOMAS_FRANCES_PORTUGUES_REVISION_BANDERA.png"
                     alt="Aprender Francés y Portugués en YYCL"
                     className="w-full h-auto object-contain select-none"
                   />
