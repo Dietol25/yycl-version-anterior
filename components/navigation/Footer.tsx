@@ -167,7 +167,7 @@ export const Footer = () => {
 
         {/* Bottom Bar: Single Copyright & Legal */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-fine-print text-white/90">
-          <p>© 2026 Yes You Can Languages. {isEn ? "All rights reserved." : "Todos los derechos reservados."}</p>
+          <p>© 2026 Yes You Can Languages (YYCL). {isEn ? "All rights reserved." : "Todos los derechos reservados."}</p>
           <div className="flex items-center gap-5 text-white/85">
             <Link href="/legales#privacidad" className="hover:underline hover:text-white">
               {isEn ? "Privacy Policy" : "Privacidad"}

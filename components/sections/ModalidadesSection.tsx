@@ -39,11 +39,6 @@ export const ModalidadesSection = () => {
           Un profesor, un plan.<br className="hidden sm:inline" /> Hecho para ti.
         </>
       ),
-      features: [
-        'Clases uno a uno',
-        'Clases enfocadas a tu objetivo',
-        'Horario a tu elección'
-      ],
       ctaText: 'Ver Personalizada'
     },
     {
@@ -52,11 +47,6 @@ export const ModalidadesSection = () => {
       commercialName: 'FUSION',
       icon: Users,
       description: 'Dos personas, un mismo profesor y un plan compartido.',
-      features: [
-        'Clases para dos personas',
-        'Mismo plan personalizado',
-        'Menor costo por persona que la individual'
-      ],
       microcopy: '¿Tienes a alguien con quien quieras practicar? Empiecen juntos.',
       ctaText: 'Ver Dúo'
     },
@@ -66,11 +56,6 @@ export const ModalidadesSection = () => {
       commercialName: 'CONNECTION',
       icon: Group3UsersIcon,
       description: 'Aprende junto a otros, con la energía de un grupo pequeño.',
-      features: [
-        'Máximo 8 alumnos',
-        'Clases en vivo',
-        'Profesores con experiencia'
-      ],
       ctaText: 'Ver Grupal'
     }
   ];
@@ -91,14 +76,14 @@ export const ModalidadesSection = () => {
           </p>
         </div>
 
-        {/* 3 Modality Cards con Sunset Gradient idéntico a Figma */}
+        {/* 3 Modality Cards Simplificadas (Home: Descubrir / Planes: Comparar) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
           {modalidades.map((mod) => {
             const IconComponent = mod.icon;
             return (
               <div
                 key={mod.id}
-                className="bg-gradient-to-b from-[#F58220] via-[#853D94] to-[#4A154B] rounded-3xl p-7 sm:p-8 border border-black/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-gradient-to-b from-[#F58220] via-[#853D94] to-[#4A154B] rounded-3xl p-7 sm:p-8 border border-black/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group shadow-md"
               >
                 <div className="space-y-4">
                   {/* Top Header Row: White Badge + White Circular Icon */}
@@ -112,40 +97,26 @@ export const ModalidadesSection = () => {
                     </div>
                   </div>
 
-                  {/* Titular (H2 con Nombre Comercial en Blanco de Alto Contraste) & Descripción */}
-                  <div className="space-y-1.5 pt-1">
+                  {/* Titular (H2 con Nombre Comercial en Blanco de Alto Contraste) & Descripción Breve */}
+                  <div className="space-y-2 pt-1">
                     <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight leading-tight">
                       {mod.commercialName}
                     </h2>
-                    <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px] pt-0.5">
+                    <p className="text-sm text-white/95 font-medium leading-relaxed pt-0.5">
                       {mod.description}
                     </p>
                   </div>
 
-                  {/* Lista de Features con Checkmarks Circulares Blancos */}
-                  <ul className="space-y-3 pt-4 border-t border-white/20">
-                    {mod.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-white text-[#834296] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-                          <Check className="w-3 h-3 stroke-[3]" />
-                        </div>
-                        <span className="text-xs sm:text-sm text-white font-medium leading-snug">
-                          {feat}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Microcopy específico solo en Dúo */}
+                  {/* Microcopy estratégico solo en Dúo */}
                   {mod.microcopy && (
-                    <p className="text-[11px] text-white/70 font-normal leading-snug pt-3 border-t border-white/10 italic">
+                    <p className="text-xs text-[#FFD203] font-heading font-bold leading-snug pt-3 border-t border-white/20">
                       {mod.microcopy}
                     </p>
                   )}
                 </div>
 
                 {/* In-Card Exploration Link */}
-                <div className="pt-6 border-t border-white/20 mt-6">
+                <div className="pt-6 border-t border-white/20 mt-8">
                   <Link
                     href={`/planes#${mod.id}`}
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-white hover:underline transition-colors"

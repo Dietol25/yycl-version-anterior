@@ -12,11 +12,11 @@ export const HeroSection = () => {
           {/* Left Column: Eyebrow + Responsive Display Headline + Body + Dual Actions */}
           <div className="lg:col-span-6 space-y-5 sm:space-y-6 text-left">
             
-            {/* 1. Eyebrow */}
+            {/* 1. Eyebrow: Arquitectura de Marca (Yes You Can Languages -> YYCL) */}
             <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-heading font-extrabold uppercase tracking-wider text-[#834296]">
               <span className="inline-flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#834296]" />
-                <span>Inglés conversacional</span>
+                <span>Yes You Can Languages (YYCL)</span>
               </span>
               <span className="text-slate-300 hidden sm:inline">·</span>
               <span className="text-slate-500 font-semibold lowercase tracking-normal text-[11px] sm:text-xs">el último curso que necesitarás</span>

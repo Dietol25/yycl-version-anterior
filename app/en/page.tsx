@@ -63,7 +63,7 @@ export default function EnglishHomePage() {
               <div className="lg:col-span-6 space-y-5 text-left">
                 <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296] bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-200">
                   <span className="w-2 h-2 rounded-full bg-[#834296]" />
-                  <span>Spanish Classes for Adults · Live Online</span>
+                  <span>Yes You Can Languages (YYCL) · Spanish Classes</span>
                 </div>
 
                 <div className="space-y-1 relative">
