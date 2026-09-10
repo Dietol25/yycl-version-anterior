@@ -148,43 +148,46 @@ export default function ComoFuncionaPage() {
               <PhotoCard
                 id="personalizada"
                 category="default"
-                title="Personalizada"
+                badgeText="PERSONALIZADA"
+                title="FLEX"
                 hasCheckmark={true}
                 subtitle="Un profesor, un plan"
                 description="Hecho para ti."
                 href="/planes#personalizada"
                 linkText="Ver Personalizada →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA_PROFE.jpg"
-                imageAlt="Modalidad Personalizada YYCL"
+                imageAlt="Modalidad Personalizada FLEX YYCL"
                 className="scroll-mt-28"
               />
 
               <PhotoCard
                 id="duo"
                 category="default"
-                title="Dúo"
+                badgeText="DÚO"
+                title="FUSION"
                 hasCheckmark={true}
-                subtitle="Personalizada, en pareja"
-                description="Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas. Menor costo por persona que la individual."
+                subtitle="Dos personas, un mismo profesor"
+                description="Un mismo profesor y un plan compartido. Menor costo por persona que la individual."
                 referralNote="¿Tienes a alguien con quien quieras practicar? Empiecen juntos."
                 href="/planes#duo"
                 linkText="Ver Dúo →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
-                imageAlt="Modalidad Dúo YYCL"
+                imageAlt="Modalidad Dúo FUSION YYCL"
                 className="scroll-mt-28"
               />
 
               <PhotoCard
                 id="grupal"
                 category="default"
-                title="Grupal"
+                badgeText="GRUPAL"
+                title="CONNECTION"
                 hasCheckmark={true}
                 subtitle="Aprende junto a otros"
-                description="La energía de un grupo pequeño."
+                description="Con la energía de un grupo pequeño."
                 href="/planes#grupal"
                 linkText="Ver Grupal →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL_VIDEOLLAMADA.jpg"
-                imageAlt="Modalidad Grupal YYCL"
+                imageAlt="Modalidad Grupal CONNECTION YYCL"
                 className="scroll-mt-28"
               />
             </div>

@@ -59,6 +59,14 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
   const renderBadge = () => {
     if (!badgeText) return null;
 
+    if (badgeText === 'PERSONALIZADA' || badgeText === 'DÚO' || badgeText === 'GRUPAL') {
+      return (
+        <span className="inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full bg-white text-[#834296] shadow-xs border border-black/5">
+          {badgeText}
+        </span>
+      );
+    }
+
     let badgeVariant: 'kids' | 'empresas' | 'conversacion' = 'conversacion';
     if (category === 'kids') badgeVariant = 'kids';
     else if (category === 'empresas') badgeVariant = 'empresas';

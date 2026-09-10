@@ -34,12 +34,10 @@ export default function PlanesPage() {
   const planes = [
     {
       id: 'personalizada',
-      title: 'Personalizada',
-      badge: 'Personalizada',
+      badge: 'PERSONALIZADA',
+      commercialName: 'FLEX',
       icon: User,
-      color: 'text-[#834296]',
-      borderTop: 'border-t-[#834296]',
-      subtitle: (
+      description: (
         <>
           Un profesor, un plan.<br className="hidden sm:inline" /> Hecho para ti.
         </>
@@ -48,36 +46,35 @@ export default function PlanesPage() {
         'Clases uno a uno',
         'Clases enfocadas a tu objetivo',
         'Horario a tu elección'
-      ]
+      ],
+      ctaText: 'Ver Personalizada'
     },
     {
       id: 'duo',
-      title: 'Dúo',
-      badge: 'Dúo',
+      badge: 'DÚO',
+      commercialName: 'FUSION',
       icon: Users,
-      color: 'text-[#4DC2DA]',
-      borderTop: 'border-t-[#4DC2DA]',
-      subtitle: 'Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas.',
+      description: 'Dos personas, un mismo profesor y un plan compartido.',
       features: [
         'Clases para dos personas',
-        'Mismo plan personalizado a tu medida',
-        'Menor costo por persona que la individual',
-        'Clases enfocadas a su objetivo común'
-      ]
+        'Mismo plan personalizado',
+        'Menor costo por persona que la individual'
+      ],
+      microcopy: '¿Tienes a alguien con quien quieras practicar? Empiecen juntos.',
+      ctaText: 'Ver Dúo'
     },
     {
       id: 'grupal',
-      title: 'Grupal',
-      badge: 'Grupal',
+      badge: 'GRUPAL',
+      commercialName: 'CONNECTION',
       icon: Group3UsersIcon,
-      color: 'text-[#4DC2DA]',
-      borderTop: 'border-t-[#4DC2DA]',
-      subtitle: 'Aprende junto a otros, con la energía de un grupo pequeño.',
+      description: 'Aprende junto a otros, con la energía de un grupo pequeño.',
       features: [
         'Máximo 8 alumnos',
         'Clases en vivo',
-        'Profesores con años de experiencia'
-      ]
+        'Profesores con experiencia'
+      ],
+      ctaText: 'Ver Grupal'
     }
   ];
 
@@ -165,7 +162,7 @@ export default function PlanesPage() {
                   <div
                     key={plan.id}
                     id={plan.id}
-                    className="scroll-mt-28 bg-gradient-to-b from-[#F58220] via-[#853D94] to-[#4A154B] rounded-3xl p-7 sm:p-8 border border-black/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6"
+                    className="scroll-mt-28 bg-gradient-to-b from-[#F58220] via-[#853D94] to-[#4A154B] rounded-3xl p-7 sm:p-8 border border-black/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
                   >
                     <div className="space-y-4">
                       {/* Top Header Row: White Badge + White Circular Icon */}
@@ -173,28 +170,26 @@ export default function PlanesPage() {
                         <span className="inline-block text-[11px] font-heading font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full bg-white text-[#834296] shadow-xs">
                           {plan.badge}
                         </span>
-                        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#834296] shadow-xs">
+
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-[#834296] shadow-xs group-hover:scale-105 transition-transform duration-300">
                           <IconComponent className="w-5 h-5 stroke-[2.2]" />
                         </div>
                       </div>
 
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight">
-                          {plan.title}
-                        </h3>
-                        <p className="text-xs sm:text-[13px] text-white/95 font-medium mt-1 leading-relaxed sm:min-h-[40px]">
-                          {plan.subtitle}
+                      {/* Titular (H2 con Nombre Comercial) & Descripción */}
+                      <div className="space-y-1.5 pt-1">
+                        <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight leading-tight">
+                          {plan.commercialName}
+                        </h2>
+                        <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px] pt-0.5">
+                          {plan.description}
                         </p>
-                        {plan.id === 'duo' && (
-                          <p className="text-[11px] sm:text-xs text-white/80 font-normal leading-snug pt-1 italic">
-                            ¿Tienes una amiga o colega que también quiere perder el miedo al inglés? Empiecen juntas.
-                          </p>
-                        )}
                       </div>
 
-                      <ul className="space-y-3 pt-3 border-t border-white/20">
-                        {plan.features.map((feat, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5">
+                      {/* Lista de Features con Checkmarks Circulares Blancos */}
+                      <ul className="space-y-3 pt-4 border-t border-white/20">
+                        {plan.features.map((feat, fIdx) => (
+                          <li key={fIdx} className="flex items-start gap-3">
                             <div className="w-5 h-5 rounded-full bg-white text-[#834296] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                               <Check className="w-3 h-3 stroke-[3]" />
                             </div>
@@ -204,18 +199,23 @@ export default function PlanesPage() {
                           </li>
                         ))}
                       </ul>
+
+                      {/* Microcopy específico solo en Dúo */}
+                      {plan.microcopy && (
+                        <p className="text-[11px] text-white/70 font-normal leading-snug pt-3 border-t border-white/10 italic">
+                          {plan.microcopy}
+                        </p>
+                      )}
                     </div>
 
-                    <div className="pt-4 border-t border-white/20">
-                      <Link href="/agendar" className="block">
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          fullWidth
-                          className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
-                        >
-                          Elegir mi modalidad
-                        </Button>
+                    {/* In-Card Exploration Link hacia /agendar */}
+                    <div className="pt-6 border-t border-white/20 mt-6">
+                      <Link
+                        href="/agendar"
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-white hover:underline transition-colors"
+                      >
+                        <span>{plan.ctaText}</span>
+                        <span>→</span>
                       </Link>
                     </div>
                   </div>
