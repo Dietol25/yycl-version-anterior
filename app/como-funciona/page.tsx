@@ -143,55 +143,130 @@ export default function ComoFuncionaPage() {
               </p>
             </div>
 
-            {/* 3 Modality Cards con IDs de anclaje nativos y 100% Responsive */}
+            {/* 3 Modality Cards Proporción Áurea (Opción C Oficial) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
-              <PhotoCard
+              {/* FLEX */}
+              <div
                 id="personalizada"
-                category="default"
-                badgeText="PERSONALIZADA"
-                title="FLEX"
-                hasCheckmark={true}
-                description="Clases uno a uno, adaptadas a tu objetivo."
-                href="/planes#personalizada"
-                linkText="Ver Personalizada →"
-                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png"
-                imageAlt="Modalidad Personalizada FLEX YYCL"
-                imageContainerClassName="h-44 sm:h-48"
-                contentClassName="p-5 sm:p-6"
-                className="scroll-mt-28"
-              />
+                className="scroll-mt-28 bg-white rounded-3xl overflow-hidden border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1 transition-all flex flex-col justify-between"
+              >
+                <div className="h-40 bg-slate-50 relative overflow-hidden flex items-center justify-center p-3 border-b-2 border-[#001837]">
+                  <span className="absolute top-3 left-3 text-[10px] font-heading font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-white text-[#834296] shadow-xs border border-black/10">
+                    PERSONALIZADA
+                  </span>
+                  <img
+                    src="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png"
+                    alt="Modalidad Personalizada FLEX YYCL"
+                    className="w-full h-full object-contain select-none"
+                  />
+                </div>
 
-              <PhotoCard
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-1.5">
+                      <h3 className="text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
+                        FLEX
+                      </h3>
+                      <Check className="w-5 h-5 text-[#16A34A] stroke-[2.5]" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-600 font-medium leading-relaxed">
+                      Clases uno a uno, enfocadas directamente en tu objetivo personal o profesional.
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <Link
+                      href="/planes#personalizada"
+                      className="inline-flex items-center gap-1 text-xs sm:text-sm font-heading font-bold text-[#834296] hover:underline"
+                    >
+                      <span>Ver personalizada</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* FUSION */}
+              <div
                 id="duo"
-                category="default"
-                badgeText="DÚO"
-                title="FUSION"
-                hasCheckmark={true}
-                description="Clases para dos personas con un mismo profesor y plan."
-                href="/planes#duo"
-                linkText="Ver Dúo →"
-                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
-                imageAlt="Modalidad Dúo FUSION YYCL"
-                imageContainerClassName="h-44 sm:h-48"
-                contentClassName="p-5 sm:p-6"
-                className="scroll-mt-28"
-              />
+                className="scroll-mt-28 bg-white rounded-3xl overflow-hidden border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1 transition-all flex flex-col justify-between"
+              >
+                <div className="h-40 bg-slate-50 relative overflow-hidden flex items-center justify-center p-3 border-b-2 border-[#001837]">
+                  <span className="absolute top-3 left-3 text-[10px] font-heading font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-white text-[#834296] shadow-xs border border-black/10">
+                    DÚO
+                  </span>
+                  <img
+                    src="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
+                    alt="Modalidad Dúo FUSION YYCL"
+                    className="w-full h-full object-contain select-none"
+                  />
+                </div>
 
-              <PhotoCard
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-1.5">
+                      <h3 className="text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
+                        FUSION
+                      </h3>
+                      <Check className="w-5 h-5 text-[#16A34A] stroke-[2.5]" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-600 font-medium leading-relaxed">
+                      Mismo plan a tu medida compartido con quien tú elijas, a menor costo por persona.
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <Link
+                      href="/planes#duo"
+                      className="inline-flex items-center gap-1 text-xs sm:text-sm font-heading font-bold text-[#834296] hover:underline"
+                    >
+                      <span>Ver dúo</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* CONNECTION */}
+              <div
                 id="grupal"
-                category="default"
-                badgeText="GRUPAL"
-                title="CONNECTION"
-                hasCheckmark={true}
-                description="Grupos reducidos para aprender conversando."
-                href="/planes#grupal"
-                linkText="Ver Grupal →"
-                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png"
-                imageAlt="Modalidad Grupal CONNECTION YYCL"
-                imageContainerClassName="h-44 sm:h-48"
-                contentClassName="p-5 sm:p-6"
-                className="scroll-mt-28"
-              />
+                className="scroll-mt-28 bg-white rounded-3xl overflow-hidden border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1 transition-all flex flex-col justify-between"
+              >
+                <div className="h-40 bg-slate-50 relative overflow-hidden flex items-center justify-center p-3 border-b-2 border-[#001837]">
+                  <span className="absolute top-3 left-3 text-[10px] font-heading font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-white text-[#834296] shadow-xs border border-black/10">
+                    GRUPAL
+                  </span>
+                  <img
+                    src="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png"
+                    alt="Modalidad Grupal CONNECTION YYCL"
+                    className="w-full h-full object-contain select-none"
+                  />
+                </div>
+
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-1.5">
+                      <h3 className="text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
+                        CONNECTION
+                      </h3>
+                      <Check className="w-5 h-5 text-[#16A34A] stroke-[2.5]" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-600 font-medium leading-relaxed">
+                      Con la energía de un grupo de máximo 8 personas para ganar fluidez conversacional.
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <Link
+                      href="/planes#grupal"
+                      className="inline-flex items-center gap-1 text-xs sm:text-sm font-heading font-bold text-[#834296] hover:underline"
+                    >
+                      <span>Ver grupal</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
