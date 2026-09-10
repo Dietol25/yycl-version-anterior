@@ -61,7 +61,7 @@ export default function OtrosIdiomasPage() {
                 </h1>
 
                 <p className="text-base sm:text-lg text-slate-600 font-body-large max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  Clases personalizadas para quienes quieren un nuevo idioma (y español para extranjeros), sin vueltas.
+                  Clases personalizadas para quienes quieren un nuevo idioma, sin vueltas.
                 </p>
 
                 <div className="pt-2 flex flex-col items-center lg:items-start gap-2.5">
@@ -80,7 +80,7 @@ export default function OtrosIdiomasPage() {
               <div className="lg:col-span-6 flex justify-center">
                 <div className="relative w-full max-w-[520px]">
                   <img
-                    src="/assets/06_IDIOMAS/YYCL_13_IDIOMAS_FRANCES_PORTUGUES_REVISION_BANDERA.png"
+                    src="/assets/06_IDIOMAS/YYCL_13_IDIOMAS_FRANCES_PORTUGUES_IRREGULAR.png"
                     alt="Aprender Francés y Portugués en YYCL"
                     className="w-full h-auto object-contain select-none"
                   />
