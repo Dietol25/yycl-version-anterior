@@ -154,7 +154,7 @@ export default function ComoFuncionaPage() {
                 description="Hecho para ti."
                 href="/planes#personalizada"
                 linkText="Ver Personalizada →"
-                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png"
+                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA_PROFE.jpg"
                 imageAlt="Modalidad Personalizada YYCL"
                 className="scroll-mt-28"
               />
@@ -166,7 +166,7 @@ export default function ComoFuncionaPage() {
                 hasCheckmark={true}
                 subtitle="Personalizada, en pareja"
                 description="Personalizada. Compartida. Mismo profesor. Mismo plan. Dos personas. Menor costo por persona que la individual."
-                referralNote="¿Tienes una amiga o colega que también quiere perder el miedo al inglés? Empiecen juntas."
+                referralNote="¿Tienes a alguien con quien quieras practicar? Empiecen juntos."
                 href="/planes#duo"
                 linkText="Ver Dúo →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
@@ -183,7 +183,7 @@ export default function ComoFuncionaPage() {
                 description="La energía de un grupo pequeño."
                 href="/planes#grupal"
                 linkText="Ver Grupal →"
-                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png"
+                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL_VIDEOLLAMADA.jpg"
                 imageAlt="Modalidad Grupal YYCL"
                 className="scroll-mt-28"
               />
@@ -345,7 +345,7 @@ export default function ComoFuncionaPage() {
               <div className="order-2 lg:order-1 lg:col-span-6 flex justify-center">
                 <div className="relative w-full max-w-[500px] group">
                   <img
-                    src="/assets/02_COMO_FUNCIONA/YYCL_08_PLATAFORMA_VIDEO_THUMB.png"
+                    src="/assets/02_COMO_FUNCIONA/YYCL_08_PLATAFORMA_IRREGULAR.png"
                     alt="Plataforma de práctica conversacional en YYCL"
                     className="w-full h-auto object-contain select-none"
                   />

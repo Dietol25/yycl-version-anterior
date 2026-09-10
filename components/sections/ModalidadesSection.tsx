@@ -31,17 +31,10 @@ export const ModalidadesSection = () => {
   const modalidades = [
     {
       id: 'personalizada',
-      title: 'Personalizada',
-      commercialName: 'FLEX',
       badge: 'PERSONALIZADA',
-      badgeColor: 'bg-white/80 text-[#B26B06] border-[#EC9519]/40',
-      iconBg: 'bg-[#FFD203] text-white',
-      checkBg: 'bg-[#EC9519] text-white',
-      cardBg: 'bg-gradient-to-b from-[#FFFBF2] to-[#FFF4DC]',
-      cardBgHover: 'hover:from-[#FFF8E8] hover:to-[#FFEDCC]',
-      linkColor: 'text-[#001837]',
+      commercialName: 'FLEX',
       icon: User,
-      subtitle: (
+      description: (
         <>
           Un profesor, un plan.<br className="hidden sm:inline" /> Hecho para ti.
         </>
@@ -50,45 +43,35 @@ export const ModalidadesSection = () => {
         'Clases uno a uno',
         'Clases enfocadas a tu objetivo',
         'Horario a tu elección'
-      ]
+      ],
+      ctaText: 'Ver Personalizada'
     },
     {
       id: 'duo',
-      title: 'Dúo',
-      commercialName: 'FUSION',
       badge: 'DÚO',
-      badgeColor: 'bg-white/80 text-[#001837] border-[#4DC2DA]/50',
-      iconBg: 'bg-[#00B4D8] text-white',
-      checkBg: 'bg-[#0284C7] text-white',
-      cardBg: 'bg-gradient-to-b from-[#F2FCFE] to-[#E2F7FB]',
-      cardBgHover: 'hover:from-[#EBF9FD] hover:to-[#D5F2F8]',
-      linkColor: 'text-[#001837]',
+      commercialName: 'FUSION',
       icon: Users,
-      subtitle: 'Dos personas, un mismo profesor y un plan compartido.',
+      description: 'Dos personas, un mismo profesor y un plan compartido.',
       features: [
         'Clases para dos personas',
         'Mismo plan personalizado',
         'Menor costo por persona que la individual'
-      ]
+      ],
+      microcopy: '¿Tienes a alguien con quien quieras practicar? Empiecen juntos.',
+      ctaText: 'Ver Dúo'
     },
     {
       id: 'grupal',
-      title: 'Grupal',
-      commercialName: 'CONNECTION',
       badge: 'GRUPAL',
-      badgeColor: 'bg-white/80 text-[#834296] border-[#834296]/40',
-      iconBg: 'bg-[#834296] text-white',
-      checkBg: 'bg-[#834296] text-white',
-      cardBg: 'bg-gradient-to-b from-[#FAF5FC] to-[#F3E8FA]',
-      cardBgHover: 'hover:from-[#F7EDFC] hover:to-[#EEDCF6]',
-      linkColor: 'text-[#834296]',
+      commercialName: 'CONNECTION',
       icon: Group3UsersIcon,
-      subtitle: 'Aprende junto a otros, con la energía de un grupo pequeño.',
+      description: 'Aprende junto a otros, con la energía de un grupo pequeño.',
       features: [
         'Máximo 8 alumnos',
         'Clases en vivo',
         'Profesores con experiencia'
-      ]
+      ],
+      ctaText: 'Ver Grupal'
     }
   ];
 
@@ -129,24 +112,14 @@ export const ModalidadesSection = () => {
                     </div>
                   </div>
 
-                  {/* Titular & Subtítulo con jerarquía refinada */}
+                  {/* Titular (H2 con Nombre Comercial) & Descripción */}
                   <div className="space-y-1.5 pt-1">
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#001837] tracking-tight leading-tight">
-                        {mod.title}
-                      </h3>
-                      <p className="text-[11px] sm:text-xs font-heading font-bold text-[#FFE500]/90 uppercase tracking-widest mt-0.5">
-                        {mod.commercialName}
-                      </p>
-                    </div>
-                    <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px] pt-1">
-                      {mod.subtitle}
+                    <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight leading-tight">
+                      {mod.commercialName}
+                    </h2>
+                    <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px] pt-0.5">
+                      {mod.description}
                     </p>
-                    {mod.id === 'duo' && (
-                      <p className="text-[11px] text-white/70 font-normal leading-snug pt-1 italic">
-                        ¿Tienes a alguien con quien quieras practicar? Empiecen juntos.
-                      </p>
-                    )}
                   </div>
 
                   {/* Lista de Features con Checkmarks Circulares Blancos */}
@@ -162,6 +135,13 @@ export const ModalidadesSection = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Microcopy específico solo en Dúo */}
+                  {mod.microcopy && (
+                    <p className="text-[11px] text-white/70 font-normal leading-snug pt-3 border-t border-white/10 italic">
+                      {mod.microcopy}
+                    </p>
+                  )}
                 </div>
 
                 {/* In-Card Exploration Link */}
@@ -170,7 +150,7 @@ export const ModalidadesSection = () => {
                     href={`/planes#${mod.id}`}
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-white hover:underline transition-colors"
                   >
-                    <span>Ver {mod.title}</span>
+                    <span>{mod.ctaText}</span>
                     <span>→</span>
                   </Link>
                 </div>
