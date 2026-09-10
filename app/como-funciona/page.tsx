@@ -68,45 +68,54 @@ export default function ComoFuncionaPage() {
               </p>
             </div>
 
-            {/* 3 Step Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-              {/* Step 1 */}
-              <div className="bg-white rounded-3xl p-7 sm:p-8 border border-black/10 border-t-4 border-t-[#FFD203] shadow-[3px_3px_0px_#001837] space-y-4 hover:-translate-y-1 transition-transform">
-                <div className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center text-[#EC9519]">
-                  <MessageSquare className="w-5 h-5" />
+            {/* Línea de tiempo fluida conectada (Sin cajas de cartón repetitivas) */}
+            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-10 max-w-5xl mx-auto">
+              {/* Línea conectora visual en Desktop */}
+              <div className="hidden md:block absolute top-7 left-[16%] right-[16%] h-0.5 border-t-2 border-dashed border-[#834296]/30 z-0" />
+
+              {/* Paso 01 */}
+              <div className="relative z-10 flex flex-col items-center text-center space-y-3 group">
+                <div className="w-14 h-14 rounded-2xl bg-[#FFF8E6] border-2 border-[#EC9519] flex items-center justify-center text-[#B26B06] font-heading font-extrabold text-xl shadow-[3px_3px_0px_#001837] group-hover:-translate-y-1 transition-transform">
+                  01
                 </div>
-                <h3 className="text-xl font-heading font-extrabold text-[#001837] leading-snug">
-                  1. Agenda tu entrevista gratuita
-                </h3>
-                <p className="text-sm font-body-regular text-slate-600 leading-relaxed">
-                  Sin costo y sin compromiso.
-                </p>
+                <div className="space-y-1.5 max-w-xs">
+                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-[#001837]">
+                    1. Agenda tu entrevista
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    20 minutos con un profesor de nuestro equipo, 100% gratuita y sin compromiso comercial.
+                  </p>
+                </div>
               </div>
 
-              {/* Step 2 */}
-              <div className="bg-white rounded-3xl p-7 sm:p-8 border border-black/10 border-t-4 border-t-[#4DC2DA] shadow-[3px_3px_0px_#001837] space-y-4 hover:-translate-y-1 transition-transform">
-                <div className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center text-[#0284C7]">
-                  <Sliders className="w-5 h-5" />
+              {/* Paso 02 */}
+              <div className="relative z-10 flex flex-col items-center text-center space-y-3 group">
+                <div className="w-14 h-14 rounded-2xl bg-[#F0F9FF] border-2 border-[#0284C7] flex items-center justify-center text-[#0284C7] font-heading font-extrabold text-xl shadow-[3px_3px_0px_#001837] group-hover:-translate-y-1 transition-transform">
+                  02
                 </div>
-                <h3 className="text-xl font-heading font-extrabold text-[#001837] leading-snug">
-                  2. Te asignamos tu nivel y grupo ideal
-                </h3>
-                <p className="text-sm font-body-regular text-slate-600 leading-relaxed">
-                  Tu nivel exacto se define en la entrevista, no antes.
-                </p>
+                <div className="space-y-1.5 max-w-xs">
+                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-[#001837]">
+                    2. Asignamos nivel y grupo
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    Evaluamos tu nivel real conversando en la videollamada. Sin tests automáticos impersonales.
+                  </p>
+                </div>
               </div>
 
-              {/* Step 3 */}
-              <div className="bg-white rounded-3xl p-7 sm:p-8 border border-black/10 border-t-4 border-t-[#834296] shadow-[3px_3px_0px_#001837] space-y-4 hover:-translate-y-1 transition-transform">
-                <div className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center text-[#834296]">
-                  <Users className="w-5 h-5" />
+              {/* Paso 03 */}
+              <div className="relative z-10 flex flex-col items-center text-center space-y-3 group">
+                <div className="w-14 h-14 rounded-2xl bg-[#FAF5FC] border-2 border-[#834296] flex items-center justify-center text-[#834296] font-heading font-extrabold text-xl shadow-[3px_3px_0px_#001837] group-hover:-translate-y-1 transition-transform">
+                  03
                 </div>
-                <h3 className="text-xl font-heading font-extrabold text-[#001837] leading-snug">
-                  3. Empiezas a hablar desde el primer día
-                </h3>
-                <p className="text-sm font-body-regular text-slate-600 leading-relaxed">
-                  Conversación real desde la primera clase.
-                </p>
+                <div className="space-y-1.5 max-w-xs">
+                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-[#001837]">
+                    3. Hablas desde el primer día
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    Entras directamente a conversar. Corrección guiada en tiempo real que desbloquea tu fluidez.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -303,117 +312,96 @@ export default function ComoFuncionaPage() {
               </p>
             </div>
 
-            {/* 3 Level Comparison Cards: Principiante, Intermedio, Avanzado */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+            {/* Formato Abierto & Aireado con Separador Sutil (Sin cajas pesadas repetitivas) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-slate-50/70 rounded-3xl p-6 sm:p-8 border border-black/10 max-w-5xl mx-auto">
               {/* Principiante (A1 · A2) */}
-              <div className="bg-white rounded-3xl p-7 border border-black/10 border-t-4 border-t-[#001837] shadow-[3px_3px_0px_#001837] flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <div className="text-left pb-3 border-b border-black/10">
-                    <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-[#001837] font-heading font-bold text-xs uppercase tracking-wider mb-2">
-                      A1 · A2
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
-                      Principiante
-                    </h3>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Desde cero o bases olvidadas. Empiezas a hablar en situaciones cotidianas desde la primera sesión.
+              <div className="py-6 md:py-2 md:px-6 space-y-4">
+                <div className="space-y-1">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-white text-[#001837] border border-black/10 font-heading font-bold text-[11px] uppercase tracking-wider">
+                    A1 · A2
+                  </span>
+                  <h3 className="text-2xl font-extrabold font-heading text-[#001837]">
+                    Principiante
+                  </h3>
+                  <p className="text-xs text-[#834296] font-heading font-bold uppercase tracking-wider">
+                    Objetivo: Soltar la lengua
                   </p>
-
-                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-2">
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Pierdes el miedo al error desde el inicio</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Vocabulario cotidiano y frases útiles</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Profesor en vivo y corrección guiada</span>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 text-xs font-heading font-bold text-slate-500 uppercase tracking-wider">
-                  Objetivo: Soltar la lengua
-                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Desde cero o bases olvidadas. Empiezas a hablar en situaciones cotidianas desde la primera sesión sin miedo al error.
+                </p>
+
+                <ul className="space-y-2 text-xs sm:text-sm text-slate-700 pt-1">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#16A34A] shrink-0" />
+                    <span>Vocabulario cotidiano y frases útiles</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#16A34A] shrink-0" />
+                    <span>Profesor en vivo y corrección guiada</span>
+                  </li>
+                </ul>
               </div>
 
               {/* Intermedio (B1 · B2) */}
-              <div className="bg-white rounded-3xl p-7 border border-black/10 border-t-4 border-t-[#834296] shadow-[3px_3px_0px_#834296] flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <div className="text-left pb-3 border-b border-black/10">
-                    <span className="inline-block px-3 py-1 rounded-full bg-[#F5E6F8] text-[#834296] font-heading font-bold text-xs uppercase tracking-wider mb-2">
-                      B1 · B2
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
-                      Intermedio
-                    </h3>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Entiendes mucho pero te trabas al hablar. Desarrollas fluidez para reuniones de trabajo, viajes y opiniones espontáneas.
+              <div className="py-6 md:py-2 md:px-6 space-y-4">
+                <div className="space-y-1">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#F5E6F8] text-[#834296] border border-[#834296]/20 font-heading font-bold text-[11px] uppercase tracking-wider">
+                    B1 · B2
+                  </span>
+                  <h3 className="text-2xl font-extrabold font-heading text-[#001837]">
+                    Intermedio
+                  </h3>
+                  <p className="text-xs text-[#834296] font-heading font-bold uppercase tracking-wider">
+                    Objetivo: Pensar en inglés
                   </p>
-
-                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-2">
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Fluidez sin traducir mentalmente</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Debates, reuniones y situaciones de trabajo</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Espacios de inmersión rotativos incluidos</span>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 text-xs font-heading font-bold text-[#834296] uppercase tracking-wider">
-                  Objetivo: Pensar en inglés
-                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Entiendes mucho pero te trabas al hablar. Desarrollas fluidez para reuniones de trabajo, viajes y opiniones espontáneas.
+                </p>
+
+                <ul className="space-y-2 text-xs sm:text-sm text-slate-700 pt-1">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#16A34A] shrink-0" />
+                    <span>Fluidez sin traducir mentalmente</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#16A34A] shrink-0" />
+                    <span>Reuniones y situaciones de trabajo</span>
+                  </li>
+                </ul>
               </div>
 
               {/* Avanzado (C1) */}
-              <div className="bg-white rounded-3xl p-7 border border-black/10 border-t-4 border-t-[#EC9519] shadow-[3px_3px_0px_#EC9519] flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <div className="text-left pb-3 border-b border-black/10">
-                    <span className="inline-block px-3 py-1 rounded-full bg-[#FFF5E6] text-[#EC9519] font-heading font-bold text-xs uppercase tracking-wider mb-2">
-                      C1
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-[#001837]">
-                      Avanzado
-                    </h3>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Ya te comunicas con naturalidad y buscas pulir matices, precisión léxica y desenvolver profesionalmente al más alto nivel.
+              <div className="py-6 md:py-2 md:px-6 space-y-4">
+                <div className="space-y-1">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#FFF5E6] text-[#EC9519] border border-[#EC9519]/30 font-heading font-bold text-[11px] uppercase tracking-wider">
+                    C1
+                  </span>
+                  <h3 className="text-2xl font-extrabold font-heading text-[#001837]">
+                    Avanzado
+                  </h3>
+                  <p className="text-xs text-[#EC9519] font-heading font-bold uppercase tracking-wider">
+                    Objetivo: Precisión y liderazgo
                   </p>
-
-                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-2">
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Matices y naturalidad ejecutiva</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Presentaciones complejas y entrevistas de liderazgo</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                      <span>Corrección quirúrgica de estilo</span>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 text-xs font-heading font-bold text-[#EC9519] uppercase tracking-wider">
-                  Objetivo: Precisión y liderazgo
-                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Ya te comunicas con naturalidad y buscas pulir matices, precisión léxica y desenvolverte al más alto nivel profesional.
+                </p>
+
+                <ul className="space-y-2 text-xs sm:text-sm text-slate-700 pt-1">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#16A34A] shrink-0" />
+                    <span>Matices y naturalidad ejecutiva</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#16A34A] shrink-0" />
+                    <span>Presentaciones de alto impacto</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
