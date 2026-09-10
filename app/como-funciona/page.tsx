@@ -148,7 +148,7 @@ export default function ComoFuncionaPage() {
                 Elige cómo quieres aprender
               </h2>
               <p className="text-sm sm:text-base text-slate-600 font-medium max-w-xl mx-auto">
-                Profesores reales, con años de experiencia, no grabaciones. Corrección que te hace avanzar.
+                Profesores profesionales con experiencia pedagógica, no grabaciones. Corrección que te hace avanzar.
               </p>
             </div>
 

@@ -293,7 +293,7 @@ export default function PlanesPage() {
                   ¿Las clases son en vivo o grabadas?
                 </h3>
                 <p className="text-sm text-slate-600 font-body-regular leading-relaxed">
-                  100% en vivo con profesores reales con años de experiencia pedagógica. La conversación es el centro de cada sesión; no usamos videos grabados ni ejercicios mudos.
+                  100% en vivo con profesionales de la enseñanza con años de experiencia pedagógica. La conversación es el centro de cada sesión; no usamos videos grabados ni ejercicios mudos.
                 </p>
               </div>
 

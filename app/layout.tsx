@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Yes You Can Languages (YYCL) | Clases de Inglés e Idiomas Online",
-    description: "Pierde el miedo a hablar inglés. Clases 100% conversacionales en vivo con profesores reales.",
+    description: "Pierde el miedo a hablar inglés. Clases 100% conversacionales en vivo con profesores profesionales.",
     images: ["/assets/logo.png"],
   },
 };

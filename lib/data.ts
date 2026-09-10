@@ -85,7 +85,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: 'El precio lo conversamos con calma en tu entrevista gratuita según tu frecuencia y objetivos.',
     features: [
       'Grupos reducidos de máximo 8 alumnos',
-      'Clases 100% en vivo con profesores reales',
+      'Clases 100% en vivo con profesores profesionales',
       'Club de Conversación semanal incluido',
       'Acceso a plataforma de práctica 24/7',
       'Llamadas simuladas e invitados internacionales',
