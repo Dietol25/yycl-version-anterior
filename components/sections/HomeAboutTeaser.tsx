@@ -15,7 +15,7 @@ export const HomeAboutTeaser = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 font-body leading-relaxed max-w-xl mx-auto">
-            Somos profesores reales, con experiencia y criterio, que creemos que hablar un idioma se aprende hablándolo.
+            Somos profesionales de la enseñanza, con criterio pedagógico y experiencia, que creemos que hablar un idioma se aprende hablándolo.
           </p>
 
           <div className="pt-2">

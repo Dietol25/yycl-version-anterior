@@ -100,7 +100,7 @@ export default function PlanesPage() {
               <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
                 <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
                   <span className="w-2 h-2 rounded-full bg-[#EC9519]" />
-                  <span>Programas</span>
+                  <span>Inglés conversacional</span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#001837] tracking-tight leading-[1.15]">

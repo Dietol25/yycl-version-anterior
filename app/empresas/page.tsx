@@ -31,8 +31,8 @@ export default function EmpresasPage() {
       id: 'paso3',
       number: '03',
       numberColor: 'text-[#834296]',
-      title: 'Implementación con seguimiento',
-      desc: 'Reportes de progreso cada 2 meses, para que veas resultados concretos en tu equipo.',
+      title: 'Seguimiento y métricas de avance',
+      desc: 'Informes bimensuales de evolución y desempeño para que Recursos Humanos mida el impacto real en el equipo.',
       image: '/assets/08_EMPRESAS/YYCL_22_EMPRESAS_SEGUIMIENTO_REPORTES.png'
     }
   ];
