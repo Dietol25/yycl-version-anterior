@@ -150,10 +150,8 @@ export default function ComoFuncionaPage() {
                 id="personalizada"
                 className="scroll-mt-28 bg-white rounded-3xl overflow-hidden border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1 transition-all flex flex-col justify-between"
               >
+                {/* Contenedor de Imagen 100% Despejado */}
                 <div className="h-40 bg-slate-50 relative overflow-hidden flex items-center justify-center p-3 border-b-2 border-[#001837]">
-                  <span className="absolute top-3 left-3 text-[10px] font-heading font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-white text-[#834296] shadow-xs border border-black/10">
-                    PERSONALIZADA
-                  </span>
                   <img
                     src="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png"
                     alt="Modalidad Personalizada FLEX YYCL"
@@ -163,6 +161,13 @@ export default function ComoFuncionaPage() {
 
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
+                    {/* Píldora de Modalidad encima del título */}
+                    <div>
+                      <span className="inline-block text-[10px] font-heading font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#834296]/10 text-[#834296] border border-[#834296]/20">
+                        PERSONALIZADA
+                      </span>
+                    </div>
+
                     <div className="flex items-center gap-1.5">
                       <h3 className="text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
                         FLEX
@@ -191,10 +196,8 @@ export default function ComoFuncionaPage() {
                 id="duo"
                 className="scroll-mt-28 bg-white rounded-3xl overflow-hidden border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1 transition-all flex flex-col justify-between"
               >
+                {/* Contenedor de Imagen 100% Despejado */}
                 <div className="h-40 bg-slate-50 relative overflow-hidden flex items-center justify-center p-3 border-b-2 border-[#001837]">
-                  <span className="absolute top-3 left-3 text-[10px] font-heading font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-white text-[#834296] shadow-xs border border-black/10">
-                    DÚO
-                  </span>
                   <img
                     src="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
                     alt="Modalidad Dúo FUSION YYCL"
@@ -204,6 +207,13 @@ export default function ComoFuncionaPage() {
 
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
+                    {/* Píldora de Modalidad encima del título */}
+                    <div>
+                      <span className="inline-block text-[10px] font-heading font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#834296]/10 text-[#834296] border border-[#834296]/20">
+                        DÚO
+                      </span>
+                    </div>
+
                     <div className="flex items-center gap-1.5">
                       <h3 className="text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
                         FUSION
@@ -232,10 +242,8 @@ export default function ComoFuncionaPage() {
                 id="grupal"
                 className="scroll-mt-28 bg-white rounded-3xl overflow-hidden border-2 border-[#001837] shadow-[4px_4px_0px_#001837] hover:-translate-y-1 transition-all flex flex-col justify-between"
               >
+                {/* Contenedor de Imagen 100% Despejado */}
                 <div className="h-40 bg-slate-50 relative overflow-hidden flex items-center justify-center p-3 border-b-2 border-[#001837]">
-                  <span className="absolute top-3 left-3 text-[10px] font-heading font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-white text-[#834296] shadow-xs border border-black/10">
-                    GRUPAL
-                  </span>
                   <img
                     src="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png"
                     alt="Modalidad Grupal CONNECTION YYCL"
@@ -245,6 +253,13 @@ export default function ComoFuncionaPage() {
 
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
+                    {/* Píldora de Modalidad encima del título */}
+                    <div>
+                      <span className="inline-block text-[10px] font-heading font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#834296]/10 text-[#834296] border border-[#834296]/20">
+                        GRUPAL
+                      </span>
+                    </div>
+
                     <div className="flex items-center gap-1.5">
                       <h3 className="text-2xl font-extrabold font-heading text-[#001837] tracking-tight">
                         CONNECTION

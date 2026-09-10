@@ -176,9 +176,9 @@ export default function PlanesPage() {
                         </div>
                       </div>
 
-                      {/* Titular (H2 con Nombre Comercial con Amarillo YYCL) & Descripción */}
+                      {/* Titular (H2 con Nombre Comercial en Blanco de Alto Contraste) & Descripción */}
                       <div className="space-y-1.5 pt-1">
-                        <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#FFD203] tracking-tight leading-tight">
+                        <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight leading-tight">
                           {plan.commercialName}
                         </h2>
                         <p className="text-xs sm:text-[13px] text-white/95 font-medium leading-relaxed sm:min-h-[40px] pt-0.5">
