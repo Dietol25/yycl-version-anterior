@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, ChevronLeft, GraduationCap, Star, ArrowUpRight, BookOpen, Globe2, Sparkles, Building2, Award } from 'lucide-react';
+import { ChevronDown, X, GraduationCap, Star, ArrowUpRight, BookOpen, Globe2, Sparkles, Building2, Award } from 'lucide-react';
 import { Logo } from '@/components/icons/Logo';
 import { Button } from '@/components/ui/Button';
 import { LanguageToggle } from '@/components/navigation/LanguageToggle';
@@ -17,15 +18,43 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const pathname = usePathname();
   const [programasOpen, setProgramasOpen] = useState(false);
   const [sobreOpen, setSobreOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock body scroll when open
+  useEffect(() => {
+    if (!mounted) return;
+    if (isOpen) {
+      const originalStyle = window.getComputedStyle(document.body).overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalStyle;
+      };
+    }
+  }, [isOpen, mounted]);
 
   const isEn = pathname?.startsWith('/en');
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
-    <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex justify-end animate-in fade-in duration-200">
+  const content = (
+    <div
+      className="fixed inset-0 z-[9999] bg-black/60 flex justify-end transition-opacity duration-200"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      onTouchEnd={(e) => {
+        if (e.target === e.currentTarget) {
+          e.preventDefault();
+          onClose();
+        }
+      }}
+    >
       {/* Slide-in White Mobile Menu Drawer */}
-      <div className="w-full max-w-[320px] sm:max-w-[360px] h-full bg-white flex flex-col justify-between p-5 sm:p-6 shadow-2xl animate-in slide-in-from-right duration-200 overflow-y-auto">
+      <div className="w-full max-w-[320px] sm:max-w-[360px] h-full bg-white flex flex-col justify-between p-5 sm:p-6 shadow-2xl overflow-y-auto transform transition-transform duration-200">
         <div className="space-y-5">
           
           {/* 1. Header con Logo + Language Toggle + Botón Cerrar */}
@@ -39,10 +68,14 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               <button
                 type="button"
                 onClick={onClose}
-                className="p-1.5 text-slate-500 hover:text-[#001837] transition-colors rounded-full hover:bg-slate-100 cursor-pointer"
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  onClose();
+                }}
+                className="w-10 h-10 flex items-center justify-center text-slate-500 hover:text-[#001837] active:bg-slate-100 rounded-full cursor-pointer touch-manipulation"
                 aria-label={isEn ? "Close menu" : "Cerrar menú"}
               >
-                <ChevronLeft className="w-6 h-6 text-slate-400" />
+                <X className="w-6 h-6 text-slate-600 pointer-events-none stroke-[2.2]" />
               </button>
             </div>
           </div>
@@ -283,4 +316,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
+
+  return createPortal(content, document.body);
 };

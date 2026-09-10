@@ -245,21 +245,22 @@ export const BookingWizard = () => {
   };
 
   const scrollToWizardTop = () => {
+    if (typeof window === 'undefined') return;
     try {
       const wizardEl = document.getElementById('wizard-container');
       if (wizardEl) {
-        wizardEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const yOffset = -70;
+        const y = wizardEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
       }
     } catch {
-      // Fallback para versiones de WebKit antiguas
-      window.scrollTo({ top: 120, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const handleNext = (e?: React.SyntheticEvent) => {
     if (e) {
       e.preventDefault();
-      e.stopPropagation();
     }
 
     if (step === 3) {
@@ -281,7 +282,9 @@ export const BookingWizard = () => {
 
   const handleBack = () => {
     setStep(prev => Math.max(prev - 1, 1));
-    scrollToWizardTop();
+    setTimeout(() => {
+      scrollToWizardTop();
+    }, 50);
   };
 
   const generateGoogleCalendarUrl = () => {
@@ -453,10 +456,14 @@ export const BookingWizard = () => {
               <button
                 type="button"
                 onClick={() => handleNext()}
-                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center gap-2"
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  handleNext();
+                }}
+                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:bg-[#EC9519] active:opacity-90 font-heading font-bold text-xs sm:text-sm transition-colors cursor-pointer inline-flex items-center gap-2 touch-manipulation"
               >
-                <span>{isEn ? 'Continue' : 'Continuar'}</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="pointer-events-none">{isEn ? 'Continue' : 'Continuar'}</span>
+                <ArrowRight className="w-4 h-4 pointer-events-none" />
               </button>
             </div>
           </div>
@@ -570,23 +577,31 @@ export const BookingWizard = () => {
             </div>
 
             {/* Navigation Actions */}
-            <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+            <div className="flex items-center justify-between pt-6 border-t border-slate-100">
               <button
                 type="button"
                 onClick={handleBack}
-                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl hover:bg-slate-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  handleBack();
+                }}
+                className="h-11 px-5 rounded-2xl border-2 border-slate-200 text-slate-700 hover:border-[#001837] hover:text-[#001837] font-heading font-bold text-xs sm:text-sm transition-colors cursor-pointer inline-flex items-center gap-2 touch-manipulation"
               >
-                <ArrowLeft className="w-4 h-4" />
-                <span>{isEn ? 'Back' : 'Atrás'}</span>
+                <ArrowLeft className="w-4 h-4 pointer-events-none" />
+                <span className="pointer-events-none">{isEn ? 'Back' : 'Atrás'}</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNext()}
-                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center gap-2"
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  handleNext();
+                }}
+                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:bg-[#EC9519] active:opacity-90 font-heading font-bold text-xs sm:text-sm transition-colors cursor-pointer inline-flex items-center gap-2 touch-manipulation"
               >
-                <span>{isEn ? 'Continue' : 'Continuar'}</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="pointer-events-none">{isEn ? 'Continue' : 'Continuar'}</span>
+                <ArrowRight className="w-4 h-4 pointer-events-none" />
               </button>
             </div>
 
@@ -900,15 +915,19 @@ export const BookingWizard = () => {
               <button
                 type="button"
                 onClick={handleBack}
-                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl hover:bg-slate-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  handleBack();
+                }}
+                className="text-slate-500 hover:text-[#001837] font-heading font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl hover:bg-slate-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer touch-manipulation"
               >
-                <ArrowLeft className="w-4 h-4" />
-                <span>{isEn ? 'Back' : 'Atrás'}</span>
+                <ArrowLeft className="w-4 h-4 pointer-events-none" />
+                <span className="pointer-events-none">{isEn ? 'Back' : 'Atrás'}</span>
               </button>
 
               <button
                 type="submit"
-                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:translate-x-[1px] active:translate-y-[1px] font-heading font-bold text-xs sm:text-sm transition-all cursor-pointer"
+                className="h-11 px-6 rounded-2xl bg-[#FFD203] text-[#001837] shadow-[3px_3px_0px_#EC9519] hover:bg-[#EC9519] hover:shadow-[3px_3px_0px_#C7760A] active:bg-[#EC9519] active:opacity-90 font-heading font-bold text-xs sm:text-sm transition-colors cursor-pointer touch-manipulation"
               >
                 {isEn ? 'Confirm Booking' : 'Confirmar cita'}
               </button>

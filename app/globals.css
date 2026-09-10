@@ -90,6 +90,7 @@ body {
   line-height: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: pointer; /* Garantiza que iOS Safari propague clicks y toques a React root */
 }
 
 /* Títulos con Montserrat del Design System Figma */
@@ -97,9 +98,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-montserrat), sans-serif;
 }
 
-/* Microinteracción de toque y click táctil optimizada */
-button, a {
+/* Microinteracción de toque y click táctil optimizada en iOS y Android */
+button, a, [role="button"] {
+  cursor: pointer;
   touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Animaciones de bucle infinito (Estilo Squarespace) */

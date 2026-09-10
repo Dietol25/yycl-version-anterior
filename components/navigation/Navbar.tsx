@@ -358,15 +358,16 @@ export const Navbar = () => {
 
             <button
               type="button"
-              onClick={(e) => {
+              onClick={() => setMobileMenuOpen(true)}
+              onTouchEnd={(e) => {
                 e.preventDefault();
-                e.stopPropagation();
                 setMobileMenuOpen(true);
               }}
-              className="relative z-50 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 text-[#001837] active:bg-slate-100 hover:bg-slate-50 rounded-xl focus:outline-none cursor-pointer shrink-0 touch-manipulation select-none"
+              className="relative z-50 flex items-center justify-center w-11 h-11 text-[#001837] active:bg-slate-100 hover:bg-slate-50 rounded-xl focus:outline-none cursor-pointer shrink-0 touch-manipulation"
               aria-label={isEn ? 'Open Menu' : 'Abrir Menú'}
+              aria-expanded={mobileMenuOpen}
             >
-              <Menu className="w-6 h-6 stroke-[2.3]" />
+              <Menu className="w-6 h-6 stroke-[2.3] pointer-events-none" />
             </button>
           </div>
         </div>
