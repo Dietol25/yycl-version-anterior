@@ -451,42 +451,42 @@ export default function ComoFuncionaPage() {
               <div className="order-1 lg:order-2 lg:col-span-6 space-y-6">
                 <div className="space-y-2">
                   <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
-                    Más allá de la clase
+                    Más allá de la clase · Plataforma incluida
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight leading-tight">
-                    Sigue practicando cuando termina la clase.
+                    Plataforma de práctica y actividades para cuando termina la clase.
                   </h2>
                   <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-body-regular pt-1">
-                    Todos los planes incluyen espacios y recursos para seguir practicando fuera de clase. La programación va cambiando durante el año.
+                    Todos los planes incluyen acceso a nuestra plataforma de práctica interactiva y espacios en vivo para seguir usando el idioma fuera de clase.
                   </p>
                 </div>
 
                 <div className="space-y-3.5 pt-1">
-                  {/* Card 1 */}
+                  {/* Card 1: Plataforma interactiva */}
                   <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
-                    <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
-                      Espacios de conversación
+                    <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight flex items-center gap-2">
+                      <span>Plataforma interactiva de práctica</span>
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
-                      Clubes de conversación y llamadas guiadas para usar el idioma en situaciones reales.
+                      Ejercicios guiados, recursos multimedia y herramientas para practicar a tu ritmo desde cualquier dispositivo.
                     </p>
                   </div>
 
-                  {/* Card 2 */}
+                  {/* Card 2: Espacios de conversación y actividades */}
                   <div className="space-y-1.5 p-5 rounded-2xl border border-[#001837]/10 bg-slate-50/70 hover:border-[#834296]/40 transition-colors">
                     <h3 className="text-base sm:text-lg font-heading font-extrabold text-[#001837] tracking-tight">
-                      Actividades especiales
+                      Clubes de conversación y actividades especiales
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body-regular">
-                      Talleres temáticos, encuentros e invitados según la programación.
+                      Llamadas guiadas, talleres temáticos, debates en grupo e invitados según la programación del año.
                     </p>
                   </div>
                 </div>
 
-                {/* Subtitle / Microcopy (Replaces previous bulky 3rd card) */}
+                {/* Subtitle / Microcopy */}
                 <div className="pt-2 flex items-center gap-2 text-xs sm:text-sm font-heading font-bold text-slate-500">
                   <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                  <span>Incluido en todos los planes · Sin costo adicional</span>
+                  <span>Plataforma y clubes incluidos en todos los planes · Sin costo adicional</span>
                 </div>
               </div>
             </div>
