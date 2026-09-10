@@ -136,7 +136,7 @@ export default function ProfesoresPage() {
           <div className="max-w-[1280px] mx-auto px-5 lg:px-12 text-center space-y-4">
             <div className="inline-flex items-center gap-2 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
               <span className="w-2 h-2 rounded-full bg-[#834296]" />
-              <span>Nuestro equipo</span>
+              <span>Equipo Yes You Can Languages (YYCL)</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#001837] tracking-tight leading-[1.15]">
@@ -144,7 +144,7 @@ export default function ProfesoresPage() {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 font-body-large max-w-2xl mx-auto leading-relaxed">
-              Profesores reales, con años de experiencia, apasionados por ayudarte a hablar con confianza.
+              Profesionales apasionados, con años de experiencia pedagógica, enfocados en ayudarte a hablar con confianza.
             </p>
           </div>
         </section>
