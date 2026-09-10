@@ -451,13 +451,13 @@ export default function ComoFuncionaPage() {
               <div className="order-1 lg:order-2 lg:col-span-6 space-y-6">
                 <div className="space-y-2">
                   <span className="text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
-                    Más allá de la clase · Plataforma incluida
+                    Más allá de la clase
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#001837] tracking-tight leading-tight">
-                    Plataforma de práctica y actividades para cuando termina la clase.
+                    Sigue practicando cuando termina la clase.
                   </h2>
                   <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-body-regular pt-1">
-                    Todos los planes incluyen acceso a nuestra plataforma de práctica interactiva y espacios en vivo para seguir usando el idioma fuera de clase.
+                    Todos los planes incluyen acceso a nuestra plataforma de práctica y espacios en vivo para seguir usando el idioma fuera de clase.
                   </p>
                 </div>
 
