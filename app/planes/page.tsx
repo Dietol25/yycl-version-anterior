@@ -208,15 +208,17 @@ export default function PlanesPage() {
                       )}
                     </div>
 
-                    {/* In-Card Exploration Link hacia /agendar */}
+                    {/* CTA Button hacia /agendar */}
                     <div className="pt-6 border-t border-white/20 mt-6">
-                      <Link
+                      <Button
                         href="/agendar"
-                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-bold text-white hover:underline transition-colors"
+                        variant="primary"
+                        size="sm"
+                        fullWidth
+                        className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
                       >
-                        <span>{plan.ctaText}</span>
-                        <span>→</span>
-                      </Link>
+                        Elegir mi modalidad
+                      </Button>
                     </div>
                   </div>
                 );

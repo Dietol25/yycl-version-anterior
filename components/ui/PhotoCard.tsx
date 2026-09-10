@@ -22,6 +22,8 @@ export interface PhotoCardProps {
   hasButton?: boolean;
   buttonText?: string;
   className?: string;
+  imageContainerClassName?: string;
+  contentClassName?: string;
 }
 
 export const PhotoCard: React.FC<PhotoCardProps> = ({
@@ -40,6 +42,8 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
   hasButton = false,
   buttonText = 'Ver curso',
   className = '',
+  imageContainerClassName = 'h-56 sm:h-64',
+  contentClassName = 'p-6 sm:p-7',
 }) => {
   // Top accent stripe per category
   const getTopStripeColor = () => {
@@ -84,7 +88,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
       className={`bg-white rounded-3xl overflow-hidden border border-[#001837] border-t-4 ${getTopStripeColor()} shadow-[3px_3px_0px_#001837] flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 ${className}`}
     >
       {/* 1. Photo Container */}
-      <div className="h-56 sm:h-64 bg-slate-50 relative overflow-hidden flex items-center justify-center p-4 border-b border-[#001837]/15">
+      <div className={`${imageContainerClassName} bg-slate-50 relative overflow-hidden flex items-center justify-center p-4 border-b border-[#001837]/15`}>
         {renderBadge() && (
           <div className="absolute top-4 left-4 z-10">
             {renderBadge()}
@@ -105,7 +109,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
       </div>
 
       {/* 2. Body Content */}
-      <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+      <div className={`${contentClassName} flex-1 flex flex-col justify-between space-y-4`}>
         <div className="space-y-1.5">
           {/* Title with Checkmark */}
           <div className="flex items-center gap-1.5">

@@ -151,12 +151,13 @@ export default function ComoFuncionaPage() {
                 badgeText="PERSONALIZADA"
                 title="FLEX"
                 hasCheckmark={true}
-                subtitle="Un profesor, un plan"
-                description="Hecho para ti."
+                description="Clases uno a uno, adaptadas a tu objetivo."
                 href="/planes#personalizada"
                 linkText="Ver Personalizada →"
-                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA_PROFE.jpg"
+                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png"
                 imageAlt="Modalidad Personalizada FLEX YYCL"
+                imageContainerClassName="h-44 sm:h-48"
+                contentClassName="p-5 sm:p-6"
                 className="scroll-mt-28"
               />
 
@@ -166,13 +167,13 @@ export default function ComoFuncionaPage() {
                 badgeText="DÚO"
                 title="FUSION"
                 hasCheckmark={true}
-                subtitle="Dos personas, un mismo profesor"
-                description="Un mismo profesor y un plan compartido. Menor costo por persona que la individual."
-                referralNote="¿Tienes a alguien con quien quieras practicar? Empiecen juntos."
+                description="Clases para dos personas con un mismo profesor y plan."
                 href="/planes#duo"
                 linkText="Ver Dúo →"
                 imageSrc="/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png"
                 imageAlt="Modalidad Dúo FUSION YYCL"
+                imageContainerClassName="h-44 sm:h-48"
+                contentClassName="p-5 sm:p-6"
                 className="scroll-mt-28"
               />
 
@@ -182,12 +183,13 @@ export default function ComoFuncionaPage() {
                 badgeText="GRUPAL"
                 title="CONNECTION"
                 hasCheckmark={true}
-                subtitle="Aprende junto a otros"
-                description="Con la energía de un grupo pequeño."
+                description="Grupos reducidos para aprender conversando."
                 href="/planes#grupal"
                 linkText="Ver Grupal →"
-                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL_VIDEOLLAMADA.jpg"
+                imageSrc="/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png"
                 imageAlt="Modalidad Grupal CONNECTION YYCL"
+                imageContainerClassName="h-44 sm:h-48"
+                contentClassName="p-5 sm:p-6"
                 className="scroll-mt-28"
               />
             </div>
