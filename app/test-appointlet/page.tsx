@@ -22,13 +22,13 @@ export default function TestAppointletPage() {
   const [showTips, setShowTips] = useState(false);
 
   // La nueva página de equipo aislada que creaste:
-  const teamPageUrl = "https://appt.link/prueba-de-diagnostico-gratis-copy";
+  const teamPageUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web";
   
   // Enlace directo a Nathi dentro de esa página:
-  const nathiUrl = "https://appt.link/prueba-de-diagnostico-gratis-copy/test-diagnostico";
+  const nathiUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web/test-web";
   
   // Enlace directo a Néstor (B2B):
-  const nestorUrl = "https://appt.link/prueba-de-diagnostico-gratis-copy/prueba2-nes";
+  const nestorUrl = "https://appt.link/prueba-de-diagnostico/business";
 
   const openAppointletModal = (url: string) => {
     setModalUrl(url);
