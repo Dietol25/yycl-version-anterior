@@ -20,7 +20,7 @@ export default function AgendarPage() {
               Agenda tu entrevista gratuita
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 font-body-regular max-w-md mx-auto leading-relaxed">
-              30 minutos online 1 a 1 con un profesor real por Google Meet. Diagnóstico y mapa de ruta sin compromiso.
+              30 minutos online 1 a 1 con un profesor de nuestro equipo por Google Meet. Diagnóstico y mapa de ruta sin compromiso.
             </p>
           </div>
 

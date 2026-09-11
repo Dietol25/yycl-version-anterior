@@ -502,7 +502,7 @@ export default function ComoFuncionaPage() {
               Agenda tu entrevista gratuita y descubre tu punto de partida
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Conversa con un profesor real y define tu camino sin ningún compromiso.
+              Conversa con un profesor de nuestro equipo y define tu camino sin ningún compromiso.
             </p>
             <div className="pt-2 flex flex-col items-center">
               <Button

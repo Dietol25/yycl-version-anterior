@@ -25,7 +25,7 @@ const TABS: TabItem[] = [
     tagColor: 'text-[#834296]',
     dotColor: 'bg-[#834296]',
     title: 'Aprende a hablar, no solo a estudiar',
-    description: 'Clases 100% conversacionales desde tu primera clase con un profesor real. Diseñado específicamente para adultos que ya saben teoría pero se traban o sienten inseguridad al momento de hablar.',
+    description: 'Clases 100% conversacionales desde tu primera clase con un profesor. Diseñado específicamente para adultos que ya saben teoría pero se traban o sienten inseguridad al momento de hablar.',
     link: '/planes',
     image: '/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png',
     imageAlt: 'Clases conversacionales de inglés en YYCL',
@@ -86,7 +86,7 @@ const PILLARS = [
     number: '01',
     title: 'Hablas desde el minuto uno',
     desc: 'Nada de ejercicios mudos ni gramática aislada. La conversación real con un profesor es el centro de cada clase.',
-    image: '/assets/02_COMO_FUNCIONA/YYCL_03_MODALIDAD_GRUPAL.png',
+    image: '/assets/01_INICIO/YYCL_PILLAR_01_HABLAS_MINUTO_UNO.jpg',
     alt: 'Estudiantes hablando inglés desde el primer minuto'
   },
   {
@@ -94,7 +94,7 @@ const PILLARS = [
     number: '02',
     title: 'Corrección en el momento justo',
     desc: 'Corrección pedagógica que te hace avanzar y ganar seguridad sin interrumpir tu flujo natural al hablar.',
-    image: '/assets/02_COMO_FUNCIONA/YYCL_04_MODALIDAD_PERSONALIZADA.png',
+    image: '/assets/01_INICIO/YYCL_PILLAR_02_CORRECCION_JUSTA.jpg',
     alt: 'Profesor corrigiendo con pedagogía y empatía'
   },
   {
@@ -102,7 +102,7 @@ const PILLARS = [
     number: '03',
     title: 'Practicas hasta que sale solo',
     desc: 'Con espacios de práctica rotativos incluidos, refuerzas lo aprendido en situaciones reales y sin la presión de un examen.',
-    image: '/assets/02_COMO_FUNCIONA/YYCL_05_MODALIDAD_DUO.png',
+    image: '/assets/01_INICIO/YYCL_PILLAR_03_PRACTICAS_HASTA_QUE_SALE.jpg',
     alt: 'Práctica constante y natural'
   }
 ];
