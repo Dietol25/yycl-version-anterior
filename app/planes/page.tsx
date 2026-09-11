@@ -47,6 +47,7 @@ export default function PlanesPage() {
         'Clases enfocadas a tu objetivo',
         'Horario a tu elección'
       ],
+      ctaPlan: 'Elegir Personalizada',
       ctaText: 'Ver Personalizada'
     },
     {
@@ -61,6 +62,7 @@ export default function PlanesPage() {
         'Menor costo por persona que la individual'
       ],
       microcopy: '¿Tienes a alguien con quien quieras practicar? Empiecen juntos.',
+      ctaPlan: 'Elegir Dúo',
       ctaText: 'Ver Dúo'
     },
     {
@@ -74,6 +76,7 @@ export default function PlanesPage() {
         'Clases en vivo',
         'Profesores con experiencia'
       ],
+      ctaPlan: 'Elegir Grupal',
       ctaText: 'Ver Grupal'
     }
   ];
@@ -211,13 +214,13 @@ export default function PlanesPage() {
                     {/* CTA Button hacia /agendar */}
                     <div className="pt-6 border-t border-white/20 mt-6">
                       <Button
-                        href="/agendar"
+                        href={`/agendar?plan=${plan.id}`}
                         variant="primary"
                         size="sm"
                         fullWidth
                         className="font-heading font-bold text-xs sm:text-sm h-11 shadow-[3px_3px_0px_#EC9519]"
                       >
-                        Elegir mi modalidad
+                        {plan.ctaPlan}
                       </Button>
                     </div>
                   </div>
