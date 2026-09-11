@@ -13,6 +13,7 @@ import {
   ShieldCheck, 
   ChevronLeft, 
   ChevronRight,
+  ChevronDown,
   Sparkles,
   Award
 } from "lucide-react";
