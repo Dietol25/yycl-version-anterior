@@ -7,7 +7,7 @@ import { ExternalLink, CheckCircle2, ShieldCheck, Clock } from "lucide-react";
 
 export default function TestAppointletPage() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
-  const appointletUrl = "https://appt.link/prueba-de-diagnostico/prueba2-AMvh1YA9";
+  const appointletUrl = "https://appt.link/prueba-de-diagnostico/test-diagnostico";
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FDF8F3] text-[#001837]">
