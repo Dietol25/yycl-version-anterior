@@ -16,7 +16,7 @@ export default function KidsPage() {
       tag: 'Confianza',
       title: 'Sin miedo a equivocarse, desde chicos',
       desc: 'Un espacio donde participar importa más que acertar — así se construye la confianza para hablar.',
-      image: '/assets/07_KIDS/YYCL_16_KIDS_CONFIANZA.png',
+      image: '/assets/07_KIDS/YYCL_16_KIDS_CONFIANZA_VIOLET.png',
       alt: 'Niños ganando confianza hablando inglés'
     },
     {
@@ -24,7 +24,7 @@ export default function KidsPage() {
       tag: 'Contenido',
       title: 'Método adaptado a cada edad',
       desc: 'Empezamos con una evaluación que es puro juego; seguimos con clases 100% en inglés, y te mantenemos al tanto del progreso en todo momento.',
-      image: '/assets/07_KIDS/YYCL_17_KIDS_CONTENIDO.png',
+      image: '/assets/07_KIDS/YYCL_17_KIDS_METODO_IRREGULAR.png',
       alt: 'Método de inglés lúdico para niños'
     },
     {
@@ -32,7 +32,7 @@ export default function KidsPage() {
       tag: 'Seguimiento',
       title: 'Profesores con experiencia real',
       desc: 'Especializados en enseñar a niños, con seguimiento constante.',
-      image: '/assets/07_KIDS/YYCL_18_KIDS_SEGUIMIENTO_FAMILIAR.png',
+      image: '/assets/07_KIDS/YYCL_18_KIDS_PROFES_IRREGULAR.png',
       alt: 'Profesores especializados en Kids and Teens'
     }
   ];
@@ -92,7 +92,7 @@ export default function KidsPage() {
               <div className="lg:col-span-6 flex justify-center">
                 <div className="relative w-full max-w-[500px]">
                   <img
-                    src="/assets/07_KIDS/YYCL_15_KIDS_JUEGO.png"
+                    src="/assets/07_KIDS/YYCL_15_KIDS_HERO_IRREGULAR.png"
                     alt="Niños y jóvenes aprendiendo inglés en YYCL"
                     className="w-full h-auto object-contain select-none"
                   />
