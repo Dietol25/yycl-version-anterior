@@ -57,6 +57,7 @@ export default function PreviewAgendarPage() {
   const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState('2026-09-14');
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
+  const [showMobileTips, setShowMobileTips] = useState(false);
   const daysSliderRef = useRef<HTMLDivElement>(null);
 
   // Form states matching Appointlet exactly
@@ -184,41 +185,51 @@ export default function PreviewAgendarPage() {
               </div>
             </div>
 
-            {/* Recomendaciones Formato Editorial YYCL (Sin cajas amarillas toscas) */}
-            <div className="bg-[#FFF8E6] rounded-3xl border-2 border-[#EC9519]/40 p-6 space-y-3.5">
-              <div className="flex items-center gap-2 text-[#001837]">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#EC9519]" />
-                <h4 className="font-heading font-extrabold text-sm text-[#001837] tracking-tight">
-                  Ten en cuenta para tu entrevista:
-                </h4>
-              </div>
+            {/* Recomendaciones Formato Editorial YYCL (Colapsables en Mobile para que no ocupe espacio vertical) */}
+            <div className="bg-[#FFF8E6] rounded-2xl sm:rounded-3xl border-2 border-[#EC9519]/40 overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setShowMobileTips(!showMobileTips)}
+                className="w-full p-4 sm:p-5 flex items-center justify-between text-left font-heading font-extrabold text-xs sm:text-sm text-[#001837] cursor-pointer lg:cursor-default"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#EC9519]" />
+                  <span>Ten en cuenta para tu entrevista</span>
+                </div>
+                <span className="lg:hidden flex items-center gap-1 text-[11px] text-[#EC9519] font-bold">
+                  {showMobileTips ? 'Ocultar' : 'Ver tips'}
+                  <ChevronDown className={`w-4 h-4 transition-transform ${showMobileTips ? 'rotate-180' : ''}`} />
+                </span>
+              </button>
 
-              <ul className="space-y-2.5 text-xs text-slate-700 font-body-regular">
-                <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-xs shrink-0 font-bold mt-0.5 shadow-2xs">✓</span>
-                  <div>
-                    <strong className="font-heading text-[#001837]">Agrégalo a tu calendario:</strong> Te llegará la invitación por email para que no lo olvides.
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-xs shrink-0 font-bold mt-0.5 shadow-2xs">✓</span>
-                  <div>
-                    <strong className="font-heading text-[#001837]">Puntualidad:</strong> Te pedimos estar 2 min antes en Google Meet.
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-xs shrink-0 font-bold mt-0.5 shadow-2xs">✓</span>
-                  <div>
-                    <strong className="font-heading text-[#001837]">Lugar tranquilo:</strong> Con buena conexión y auriculares si es posible.
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-xs shrink-0 font-bold mt-0.5 shadow-2xs">✓</span>
-                  <div>
-                    <strong className="font-heading text-[#001837]">Relájate y diviértete:</strong> Es una conversación relajada para conocerte, cero exámenes ni presiones.
-                  </div>
-                </li>
-              </ul>
+              <div className={`p-4 pt-0 sm:p-6 sm:pt-0 ${showMobileTips ? 'block' : 'hidden lg:block'}`}>
+                <ul className="space-y-2 text-xs text-slate-700 font-body-regular border-t lg:border-t-0 border-[#EC9519]/20 pt-3 lg:pt-0">
+                  <li className="flex items-start gap-2">
+                    <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold mt-0.5">✓</span>
+                    <div>
+                      <strong className="font-heading text-[#001837]">Agrégalo a tu calendario:</strong> Te llegará por email.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold mt-0.5">✓</span>
+                    <div>
+                      <strong className="font-heading text-[#001837]">Puntualidad:</strong> 2 min antes en Google Meet.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold mt-0.5">✓</span>
+                    <div>
+                      <strong className="font-heading text-[#001837]">Lugar tranquilo:</strong> Con buena conexión.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] shrink-0 font-bold mt-0.5">✓</span>
+                    <div>
+                      <strong className="font-heading text-[#001837]">Relájate y diviértete:</strong> Conversación guiada sin presiones.
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
 
           </div>
