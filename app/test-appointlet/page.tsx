@@ -34,7 +34,7 @@ export default function AppointletEmbedDirectPage() {
             Agenda tu entrevista diagnóstica
           </h1>
           <p className="text-xs sm:text-sm text-slate-600 font-body-regular">
-            30 min online por Google Meet · Diagnóstico de nivel y mapa de ruta sin compromiso.
+            30 min online por Google Meet con nuestro equipo pedagógico · Evaluación de nivel y plan a tu medida.
           </p>
         </div>
 
