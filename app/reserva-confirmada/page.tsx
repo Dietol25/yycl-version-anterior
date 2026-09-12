@@ -85,23 +85,38 @@ function ReservaConfirmadaContent() {
             </p>
           </div>
 
-          {/* Tarjeta de Resumen Compacta */}
-          <div className="bg-[#FDF8F3] border border-[#001837]/10 rounded-xl p-3 sm:p-4 text-left grid grid-cols-3 gap-2 divide-x divide-[#001837]/10 text-center sm:text-left">
-            <div className="px-1 sm:px-2">
-              <p className="text-[10px] sm:text-xs text-[#001837]/60 font-semibold uppercase">Duración</p>
-              <p className="text-xs sm:text-sm font-bold text-[#001837] mt-0.5">30 min</p>
+          {/* Tarjeta de Resumen Adaptable (1 col en móvil con iconos, 3 cols en desktop) */}
+          <div className="bg-[#FDF8F3] border border-[#001837]/10 rounded-2xl p-4 sm:p-5 text-left grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="flex items-center sm:items-start gap-3 bg-white/70 sm:bg-transparent p-2.5 sm:p-0 rounded-xl sm:rounded-none border border-[#001837]/5 sm:border-0">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
+                <Clock className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-[10px] sm:text-xs text-[#001837]/60 font-semibold uppercase">Duración</p>
+                <p className="text-xs sm:text-sm font-bold text-[#001837]">30 minutos</p>
+              </div>
             </div>
 
-            <div className="px-1 sm:px-2">
-              <p className="text-[10px] sm:text-xs text-[#001837]/60 font-semibold uppercase">Modalidad</p>
-              <p className="text-xs sm:text-sm font-bold text-[#001837] mt-0.5 truncate">Google Meet</p>
+            <div className="flex items-center sm:items-start gap-3 bg-white/70 sm:bg-transparent p-2.5 sm:p-0 rounded-xl sm:rounded-none border border-[#001837]/5 sm:border-0">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
+                <Video className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-[10px] sm:text-xs text-[#001837]/60 font-semibold uppercase">Modalidad</p>
+                <p className="text-xs sm:text-sm font-bold text-[#001837]">Google Meet (Online)</p>
+              </div>
             </div>
 
-            <div className="px-1 sm:px-2">
-              <p className="text-[10px] sm:text-xs text-[#001837]/60 font-semibold uppercase">Fecha / Hora</p>
-              <p className="text-xs sm:text-sm font-bold text-[#001837] mt-0.5 truncate">
-                {formattedDate ? `${formattedDate}, ${formattedTime}` : "En tu correo"}
-              </p>
+            <div className="flex items-center sm:items-start gap-3 bg-white/70 sm:bg-transparent p-2.5 sm:p-0 rounded-xl sm:rounded-none border border-[#001837]/5 sm:border-0">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
+                <Calendar className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-[10px] sm:text-xs text-[#001837]/60 font-semibold uppercase">Fecha y Hora</p>
+                <p className="text-xs sm:text-sm font-bold text-[#001837]">
+                  {formattedDate ? `${formattedDate}, ${formattedTime}` : "Revisa tu correo"}
+                </p>
+              </div>
             </div>
           </div>
 
