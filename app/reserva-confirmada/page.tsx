@@ -85,10 +85,10 @@ function ReservaConfirmadaContent() {
             </p>
           </div>
 
-          {/* Tarjeta de Resumen Adaptable (1 col en móvil con iconos, 3 cols en desktop) */}
-          <div className="bg-[#FDF8F3] border border-[#001837]/10 rounded-2xl p-4 sm:p-5 text-left grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="flex items-center sm:items-start gap-3 bg-white/70 sm:bg-transparent p-2.5 sm:p-0 rounded-xl sm:rounded-none border border-[#001837]/5 sm:border-0">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
+          {/* Tarjeta de Resumen Limpia (directa sobre el fondo, sin cajas anidadas) */}
+          <div className="bg-[#FDF8F3] border border-[#001837]/10 rounded-2xl p-4 sm:p-5 text-left grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
                 <Clock className="w-4 h-4" />
               </div>
               <div>
@@ -97,8 +97,8 @@ function ReservaConfirmadaContent() {
               </div>
             </div>
 
-            <div className="flex items-center sm:items-start gap-3 bg-white/70 sm:bg-transparent p-2.5 sm:p-0 rounded-xl sm:rounded-none border border-[#001837]/5 sm:border-0">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
+            <div className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
                 <Video className="w-4 h-4" />
               </div>
               <div>
@@ -107,8 +107,8 @@ function ReservaConfirmadaContent() {
               </div>
             </div>
 
-            <div className="flex items-center sm:items-start gap-3 bg-white/70 sm:bg-transparent p-2.5 sm:p-0 rounded-xl sm:rounded-none border border-[#001837]/5 sm:border-0">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
+            <div className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-[#834296] border border-[#001837]/10 shrink-0 shadow-sm">
                 <Calendar className="w-4 h-4" />
               </div>
               <div>
