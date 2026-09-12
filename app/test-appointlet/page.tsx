@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/navigation/Footer";
 import { 
@@ -14,9 +14,38 @@ import {
 export default function AppointletEmbedDirectPage() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [showTips, setShowTips] = useState(false);
+  const [appointletFinalUrl, setAppointletFinalUrl] = useState(
+    "https://appt.link/entrevista-diagnostica-yycl-test-web"
+  );
 
-  // La URL oficial de la página de equipo con todas las reuniones de prueba:
-  const teamPageUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web";
+  // Inyección inteligente del indicativo de WhatsApp según zona horaria / país
+  useEffect(() => {
+    try {
+      const baseUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web";
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      
+      let defaultPrefix = "+57"; // Colombia por defecto
+      if (timeZone.includes("Argentina") || timeZone.includes("Buenos_Aires")) {
+        defaultPrefix = "+54";
+      } else if (timeZone.includes("Mexico") || timeZone.includes("Monterrey") || timeZone.includes("Cancun")) {
+        defaultPrefix = "+52";
+      } else if (timeZone.includes("Santiago") || timeZone.includes("Chile")) {
+        defaultPrefix = "+56";
+      } else if (timeZone.includes("Lima") || timeZone.includes("Peru")) {
+        defaultPrefix = "+51";
+      } else if (timeZone.includes("Madrid") || timeZone.includes("Europe")) {
+        defaultPrefix = "+34";
+      } else if (timeZone.includes("New_York") || timeZone.includes("Chicago") || timeZone.includes("Los_Angeles") || timeZone.includes("America/")) {
+        defaultPrefix = "+1";
+      }
+
+      // Pre-llenado del campo WhatsApp (Identificador de API: qbz16QsC2o)
+      const encodedPrefix = encodeURIComponent(defaultPrefix + " ");
+      setAppointletFinalUrl(`${baseUrl}?field__qbz16QsC2o=${encodedPrefix}`);
+    } catch {
+      // Fallback seguro a la URL estándar
+    }
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FDF8F3] text-[#001837]">
@@ -24,7 +53,7 @@ export default function AppointletEmbedDirectPage() {
 
       <main className="flex-1 py-6 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full space-y-5">
         
-        {/* Header Ultra Limpio & Directo (Sin textos redundantes ni repetición) */}
+        {/* Header Ultra Limpio & Directo */}
         <div className="text-center space-y-1.5 max-w-xl mx-auto">
           <div className="inline-flex items-center gap-1.5 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
             <span className="w-2 h-2 rounded-full bg-[#834296]" />
@@ -88,7 +117,7 @@ export default function AppointletEmbedDirectPage() {
         </div>
 
         {/* ========================================================================= */}
-        {/* CONTENEDOR DEL CALENDARIO (Prioridad visual inmediata)                    */}
+        {/* CONTENEDOR DEL CALENDARIO (Con indicativo de WhatsApp inyectado por API)   */}
         {/* ========================================================================= */}
         <div className="bg-white rounded-3xl border-2 border-[#001837] shadow-[5px_5px_0px_#001837] overflow-hidden p-2 sm:p-4 min-h-[640px] sm:min-h-[720px] flex flex-col relative">
           
@@ -102,7 +131,8 @@ export default function AppointletEmbedDirectPage() {
           )}
 
           <iframe
-            src={teamPageUrl}
+            key={appointletFinalUrl}
+            src={appointletFinalUrl}
             title="Agendamiento Oficial Appointlet YYCL"
             width="100%"
             height="720px"
@@ -116,7 +146,7 @@ export default function AppointletEmbedDirectPage() {
             <p className="text-[11px] text-slate-500">
               ¿Inconvenientes visualizando el calendario?{" "}
               <a
-                href={teamPageUrl}
+                href={appointletFinalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-[#0284C7] font-semibold hover:underline"
