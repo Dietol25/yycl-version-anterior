@@ -25,7 +25,7 @@ export default function TestAppointletPage() {
   const teamPageUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web";
   
   // Enlace directo a Nathi dentro de esa página:
-  const nathiUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web/test-web";
+  const nathiUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web/prueba2";
   
   // Enlace directo a Néstor (B2B):
   const nestorUrl = "https://appt.link/prueba-de-diagnostico/business";
