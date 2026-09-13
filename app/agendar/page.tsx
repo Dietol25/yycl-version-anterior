@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/navigation/Footer";
 import { 
@@ -8,16 +9,24 @@ import {
   ExternalLink,
   ShieldCheck,
   Clock,
-  Video
+  Video,
+  Building2
 } from "lucide-react";
 
-export default function AgendarPage() {
+function AgendarContent() {
+  const searchParams = useSearchParams();
+  const isEmpresas = searchParams.get("tipo") === "empresas";
+
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [showTips, setShowTips] = useState(false);
   
   // Función pura para calcular la URL final con prefill instantáneo sin doble render
   const getInitialUrl = () => {
-    const baseUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web";
+    // Si viene de Empresas, apuntamos directo a la reunión de Néstor
+    const baseUrl = isEmpresas
+      ? "https://appt.link/entrevista-diagnostica-yycl-test-web/reunion-con-nestor-empresas"
+      : "https://appt.link/entrevista-diagnostica-yycl-test-web";
+
     if (typeof window === "undefined") return baseUrl;
     try {
       const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
@@ -61,7 +70,7 @@ export default function AgendarPage() {
   useEffect(() => {
     // Si en el primer render en SSR no tenía window, lo sincronizamos de inmediato en cliente
     setAppointletFinalUrl(getInitialUrl());
-  }, []);
+  }, [isEmpresas]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FDF8F3] text-[#001837]">
@@ -69,18 +78,35 @@ export default function AgendarPage() {
 
       <main className="flex-1 py-6 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full space-y-5">
         
-        {/* Header Ultra Limpio & Directo */}
+        {/* Header Ultra Limpio & Adaptativo (Alumnos vs Empresas) */}
         <div className="text-center space-y-1.5 max-w-xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
-            <span className="w-2 h-2 rounded-full bg-[#834296]" />
-            <span>Entrevista 1 a 1 sin costo</span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
-            Agenda tu entrevista diagnóstica
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-600 font-body-regular">
-            30 min online por Google Meet con nuestro equipo pedagógico · Evaluación de nivel y plan a tu medida.
-          </p>
+          {isEmpresas ? (
+            <>
+              <div className="inline-flex items-center gap-1.5 text-xs font-heading font-extrabold uppercase tracking-widest text-[#001837] bg-[#FFD203] px-3 py-1 rounded-full shadow-xs">
+                <Building2 className="w-3.5 h-3.5" />
+                <span>Capacitación Corporativa B2B</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
+                Agenda tu sesión estratégica con Nestor
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-600 font-body-regular">
+                30 min online por Google Meet · Diagnóstico de necesidades de tu equipo y propuesta corporativa a medida.
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="inline-flex items-center gap-1.5 text-xs font-heading font-extrabold uppercase tracking-widest text-[#834296]">
+                <span className="w-2 h-2 rounded-full bg-[#834296]" />
+                <span>Entrevista 1 a 1 sin costo</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-[#001837] tracking-tight">
+                Agenda tu entrevista diagnóstica
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-600 font-body-regular">
+                30 min online por Google Meet con nuestro equipo pedagógico · Evaluación de nivel y plan a tu medida.
+              </p>
+            </>
+          )}
         </div>
 
         {/* Acordeón Sutil de Recomendaciones (Cerrado por defecto para dar prioridad absoluta al calendario) */}
@@ -178,5 +204,17 @@ export default function AgendarPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function AgendarPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-[#FDF8F3]">
+        <div className="w-8 h-8 border-3 border-[#834296] border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <AgendarContent />
+    </Suspense>
   );
 }

@@ -135,13 +135,14 @@ export default function EmpresasPage() {
 
                 {/* Botón Primario Amarillo (#FFD203) */}
                 <div className="pt-3">
-                  <Link href="/agendar">
+                  <Link href="/agendar?tipo=empresas">
                     <Button
                       variant="primary"
-                      size="md"
-                      className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
+                      size="lg"
+                      className="font-heading font-extrabold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[4px_4px_0px_#EC9519] cursor-pointer"
                     >
-                      Agendar reunión
+                      <span>Agendar reunión corporativa</span>
+                      <ArrowRight className="w-4 h-4" />
                     </Button>
                   </Link>
                 </div>
@@ -348,13 +349,13 @@ export default function EmpresasPage() {
               Conversamos el alcance y armamos el plan para tu equipo.
             </p>
             <div className="pt-2">
-              <Link href="/agendar">
+              <Link href="/agendar?tipo=empresas">
                 <Button
                   variant="primary"
                   size="md"
                   className="font-heading font-bold text-sm sm:text-base px-9 py-3.5 h-12 shadow-[3px_3px_0px_#EC9519]"
                 >
-                  Agendar reunión
+                  Agendar reunión corporativa
                 </Button>
               </Link>
             </div>
