@@ -155,7 +155,7 @@ function ReservaConfirmadaContent() {
             </Link>
 
             <a
-              href="https://wa.me/573105799650?text=Hola%20YYCL,%20acabo%20de%20agendar%20mi%20entrevista%20diagn%C3%B3stica"
+              href="https://wa.me/5491165784177?text=Hola%20YYCL,%20acabo%20de%20agendar%20mi%20entrevista%20diagn%C3%B3stica"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white border border-[#001837]/15 text-[#001837] font-semibold text-xs sm:text-sm hover:bg-[#FDF8F3] transition-all"

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -71,12 +71,15 @@ export default function ContactoPage() {
                 </h2>
               </div>
               <p className="text-xs sm:text-sm text-[#001837]/70 leading-relaxed">
-                Escríbenos directamente a nuestro canal oficial para resolver cualquier duda en minutos.
+                Escríbenos directamente a nuestro canal oficial para resolver cualquier duda en minutos:
               </p>
+              <div className="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200 font-mono text-xs text-emerald-900 font-bold">
+                +54 11 6578-4177
+              </div>
             </div>
 
             <a
-              href="https://wa.me/573105799650?text=Hola%20YYCL,%20tengo%20una%20consulta%20sobre%20sus%20cursos"
+              href="https://wa.me/5491165784177?text=Hola%20YYCL,%20tengo%20una%20consulta%20sobre%20sus%20cursos"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs sm:text-sm hover:bg-emerald-700 transition-all shadow-sm active:scale-95"
