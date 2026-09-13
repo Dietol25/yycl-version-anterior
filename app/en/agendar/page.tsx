@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { Navbar } from "@/components/navigation/Navbar";
@@ -54,7 +54,7 @@ export default function EnAgendarPage() {
 
       const encodedPrefix = encodeURIComponent(defaultPrefix + " ");
       const encodedCountry = encodeURIComponent(defaultCountry);
-      return ${baseUrl}?field__whats_app=&field__qbz16QsC2o=&field__en_que_pais_vives=;
+      return `${baseUrl}?field__whats_app=${encodedPrefix}&field__qbz16QsC2o=${encodedPrefix}&field__en_que_pais_vives=${encodedCountry}`;
     } catch {
       return baseUrl;
     }
@@ -100,7 +100,7 @@ export default function EnAgendarPage() {
             </div>
             <span className="flex items-center gap-1 text-[11px] text-[#834296] font-bold">
               {showTips ? "Hide" : "View tips"}
-              <ChevronDown className={w-3.5 h-3.5 transition-transform } />
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showTips ? "rotate-180" : ""}`} />
             </span>
           </button>
 
