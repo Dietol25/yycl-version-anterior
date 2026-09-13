@@ -67,6 +67,11 @@ export default function RootLayout({
       lang="es"
       className={`${montserrat.variable} ${nunito.variable} ${caveat.variable} scroll-smooth antialiased`}
     >
+      <head>
+        {/* Preconectar a Appointlet para acelerar carga del calendario */}
+        <link rel="preconnect" href="https://appt.link" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://appt.link" />
+      </head>
       <body className="min-h-screen flex flex-col bg-white text-yycl-navy selection:bg-yycl-yellow selection:text-yycl-navy">
         {children}
       </body>

@@ -14,17 +14,14 @@ import {
 export default function AgendarPage() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [showTips, setShowTips] = useState(false);
-  const [appointletFinalUrl, setAppointletFinalUrl] = useState(
-    "https://appt.link/entrevista-diagnostica-yycl-test-web"
-  );
-
-  // Inyección inteligente del indicativo de WhatsApp según zona horaria / país
-  useEffect(() => {
+  
+  // Función pura para calcular la URL final con prefill instantáneo sin doble render
+  const getInitialUrl = () => {
+    const baseUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web";
+    if (typeof window === "undefined") return baseUrl;
     try {
-      const baseUrl = "https://appt.link/entrevista-diagnostica-yycl-test-web";
       const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-      
-      let defaultPrefix = "+57"; // Colombia por defecto
+      let defaultPrefix = "+57";
       let defaultCountry = "Colombia";
 
       if (timeZone.includes("Argentina") || timeZone.includes("Buenos_Aires")) {
@@ -50,15 +47,20 @@ export default function AgendarPage() {
         defaultCountry = "Estados Unidos";
       }
 
-      // Pre-llenado del campo WhatsApp (API: qbz16QsC2o) y País (API: en_que_pais_vives)
       const encodedPrefix = encodeURIComponent(defaultPrefix + " ");
       const encodedCountry = encodeURIComponent(defaultCountry);
-      setAppointletFinalUrl(
-        `${baseUrl}?field__qbz16QsC2o=${encodedPrefix}&field__en_que_pais_vives=${encodedCountry}`
-      );
+      // Inyectamos tanto qbz16QsC2o como whatsapp para cubrir cualquier campo de Appointlet
+      return `${baseUrl}?field__qbz16QsC2o=${encodedPrefix}&field__whatsapp=${encodedPrefix}&field__en_que_pais_vives=${encodedCountry}`;
     } catch {
-      // Fallback seguro a la URL estándar
+      return baseUrl;
     }
+  };
+
+  const [appointletFinalUrl, setAppointletFinalUrl] = useState(getInitialUrl);
+
+  useEffect(() => {
+    // Si en el primer render en SSR no tenía window, lo sincronizamos de inmediato en cliente
+    setAppointletFinalUrl(getInitialUrl());
   }, []);
 
   return (
