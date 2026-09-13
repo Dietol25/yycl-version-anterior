@@ -263,6 +263,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                       Nuestro equipo
                     </Link>
                     <Link
+                      href="/contacto"
+                      onClick={onClose}
+                      className="block px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"
+                    >
+                      Contacto
+                    </Link>
+                    <Link
                       href="/trabaja-con-nosotros"
                       onClick={onClose}
                       className="block px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-semibold text-slate-700 hover:text-[#834296] hover:bg-purple-50/40"

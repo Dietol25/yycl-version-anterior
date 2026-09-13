@@ -110,6 +110,7 @@ export const Footer = () => {
                 <Link href="/resultados" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Resultados</Link>
                 <Link href="/profesores" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Nuestro equipo</Link>
                 <Link href="/sobre-yycl" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Sobre YYCL</Link>
+                <Link href="/contacto" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5 font-bold text-yycl-yellow">Contacto</Link>
                 <Link href="/login" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Plataforma</Link>
                 <Link href="/trabaja-con-nosotros" className="hover:text-yycl-yellow transition-colors whitespace-nowrap py-0.5">Trabaja con nosotros</Link>
               </div>

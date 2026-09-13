@@ -299,6 +299,17 @@ export const Navbar = () => {
                         Nuestro equipo
                       </Link>
                       <Link
+                        href="/contacto"
+                        role="menuitem"
+                        className={`block px-3.5 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
+                          pathname === '/contacto'
+                            ? 'bg-purple-100/80 text-[#834296] font-bold shadow-xs'
+                            : 'text-slate-800 hover:bg-purple-50 hover:text-[#834296]'
+                        }`}
+                      >
+                        Contacto
+                      </Link>
+                      <Link
                         href="/trabaja-con-nosotros"
                         role="menuitem"
                         className={`block px-3.5 py-2.5 rounded-xl text-xs sm:text-[13px] font-heading font-semibold transition-all ${
