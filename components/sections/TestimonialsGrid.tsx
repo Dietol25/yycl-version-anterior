@@ -7,7 +7,7 @@ import { TESTIMONIALS } from '@/lib/data';
 import { CountryFlag } from '@/components/icons/FlagIcons';
 import { AvatarInitials } from '@/components/ui/AvatarInitials';
 
-const GOOGLE_REVIEWS_URL = 'https://www.google.com/maps/place//@-12.060543,-70.6361328,3z/data=!3m1!4b1!4m3!3m2!1s0x95bccb681a6ea077:0xd57ae9c7c1891e35!12e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D';
+const GOOGLE_REVIEWS_URL = 'https://www.google.com/maps/place/Yes+You+Can+Languages/@-8.0080775,-119.4545907,3z/data=!4m18!1m9!3m8!1s0x95bccb681a6ea077:0xd57ae9c7c1891e35!2sYes+You+Can+Languages!8m2!3d-12.060543!4d-70.6361328!9m1!1b1!16s%2Fg%2F11fklj_dww!3m7!1s0x95bccb681a6ea077:0xd57ae9c7c1891e35!8m2!3d-12.060543!4d-70.6361328!9m1!1b1!16s%2Fg%2F11fklj_dww';
 
 export const TestimonialsGrid = () => {
   const [activeIndex, setActiveIndex] = useState(0);
