@@ -152,7 +152,7 @@ export const Footer = () => {
               <a href="https://www.tiktok.com/@yesyoucan_languages" target="_blank" rel="noreferrer" className="text-white hover:text-yycl-yellow transition-colors flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20" aria-label="TikTok">
                 <TikTokIcon size={17} />
               </a>
-              <a href="https://www.facebook.com/yesyoucan.languages.7" target="_blank" rel="noreferrer" className="text-white hover:text-yycl-yellow transition-colors flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20" aria-label="Facebook">
+              <a href="https://www.facebook.com/yesyoucanlanguages" target="_blank" rel="noreferrer" className="text-white hover:text-yycl-yellow transition-colors flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20" aria-label="Facebook">
                 <FacebookIcon size={17} />
               </a>
               <a href="https://www.linkedin.com/company/yes-you-can-languages/" target="_blank" rel="noreferrer" className="text-white hover:text-yycl-yellow transition-colors flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20" aria-label="LinkedIn">
