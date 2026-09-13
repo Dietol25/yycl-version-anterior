@@ -20,6 +20,18 @@ import {
 function ReservaConfirmadaContent() {
   const searchParams = useSearchParams();
 
+  // Frame Busting: Si la página carga dentro de un iframe (Appointlet),
+  // forzamos al navegador principal a cargar la URL completa
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && window.self !== window.top) {
+      try {
+        window.top!.location.href = window.location.href;
+      } catch {
+        // En caso de restricciones cross-origin estrictas del navegador
+      }
+    }
+  }, []);
+
   // Appointlet pasa parámetros como: first_name, last_name, email, start_time, end_time, etc.
   const firstName = searchParams.get("first_name") || searchParams.get("name") || "";
   const email = searchParams.get("email") || "";
