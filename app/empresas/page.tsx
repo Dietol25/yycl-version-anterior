@@ -139,10 +139,10 @@ export default function EmpresasPage() {
                     <Button
                       variant="primary"
                       size="lg"
-                      className="font-heading font-extrabold text-sm sm:text-base px-8 py-3.5 h-12 shadow-[4px_4px_0px_#EC9519] cursor-pointer"
+                      rightIcon={<ArrowRight className="w-4 h-4" />}
+                      className="font-heading font-extrabold text-sm sm:text-base px-7 py-3.5 h-auto min-h-[48px] shadow-[4px_4px_0px_#EC9519] cursor-pointer whitespace-nowrap"
                     >
-                      <span>Agendar reunión corporativa</span>
-                      <ArrowRight className="w-4 h-4" />
+                      Agendar reunión corporativa
                     </Button>
                   </Link>
                 </div>
