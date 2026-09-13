@@ -49,8 +49,8 @@ export default function AgendarPage() {
 
       const encodedPrefix = encodeURIComponent(defaultPrefix + " ");
       const encodedCountry = encodeURIComponent(defaultCountry);
-      // Inyectamos tanto qbz16QsC2o como whatsapp para cubrir cualquier campo de Appointlet
-      return `${baseUrl}?field__qbz16QsC2o=${encodedPrefix}&field__whatsapp=${encodedPrefix}&field__en_que_pais_vives=${encodedCountry}`;
+      // Inyectamos whats_app (identificador oficial), qbz16QsC2o y en_que_pais_vives
+      return `${baseUrl}?field__whats_app=${encodedPrefix}&field__qbz16QsC2o=${encodedPrefix}&field__en_que_pais_vives=${encodedCountry}`;
     } catch {
       return baseUrl;
     }
