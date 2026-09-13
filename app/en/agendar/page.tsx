@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import { Navbar } from "@/components/navigation/Navbar";
@@ -17,7 +17,7 @@ export default function EnAgendarPage() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [showTips, setShowTips] = useState(false);
   
-  // Pure function to calculate query parameters synchronously without double iframe reload
+  // Calculate prefill parameters synchronously for instant load
   const getInitialUrl = () => {
     const baseUrl = "https://appt.link/1-on-1-language-assessment-call/1-on-1-language-assessment-call";
     if (typeof window === "undefined") return baseUrl;
@@ -54,7 +54,7 @@ export default function EnAgendarPage() {
 
       const encodedPrefix = encodeURIComponent(defaultPrefix + " ");
       const encodedCountry = encodeURIComponent(defaultCountry);
-      return `${baseUrl}?field__whats_app=${encodedPrefix}&field__qbz16QsC2o=${encodedPrefix}&field__en_que_pais_vives=${encodedCountry}`;
+      return ${baseUrl}?field__whats_app=&field__qbz16QsC2o=&field__en_que_pais_vives=;
     } catch {
       return baseUrl;
     }
@@ -130,7 +130,7 @@ export default function EnAgendarPage() {
           )}
         </div>
 
-        {/* Calendar Container */}
+        {/* Calendar Container Embedding Appointlet directly */}
         <div className="bg-white rounded-3xl border-2 border-[#001837] shadow-[5px_5px_0px_#001837] overflow-hidden p-2 sm:p-4 min-h-[640px] sm:min-h-[720px] flex flex-col relative">
           
           {!iframeLoaded && (
